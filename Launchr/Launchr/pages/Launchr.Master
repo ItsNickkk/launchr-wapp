@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Launchr.Master.cs" Inherits="Launchr.pages.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../Content/main.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.4.1.js"></script>
+    <script src="../Scripts/bootstrap.bundle.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container-fluid" id="navbar">
+        <div class="row">
+            <div class="col-lg-2 border"><a href="#" id="main-logo"><img src="../Content/Logo/main-logo.svg"/></a></div>
+            <div class="col border">a</div>
+            <div class="col border">a</div>
+            <div class="col border">a</div>
+            <div class="col border">a</div>
+        </div>
+    </div>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
