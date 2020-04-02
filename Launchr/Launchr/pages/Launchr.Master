@@ -19,13 +19,12 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
         </button>
-
 		<div class="collapse navbar-collapse" id="navbarColor03">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Explore</a>
 					<div class="dropdown-menu" aria-labelledby="Explore" style="">
-						<div class="dropdown-divider"><</div>
+						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Arts</a>
 						<a class="dropdown-item" href="#">Design</a>
 						<a class="dropdown-item" href="#">Technology</a>
@@ -35,7 +34,6 @@
 						<a class="dropdown-item" href="#">Music</a>
 						<a class="dropdown-item" href="#">Publishing</a>
 					</div>
-
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Start a project</a>
@@ -54,5 +52,37 @@
 			</asp:ContentPlaceHolder>
 		</div>
 	</form>
+	<footer id="footer">
+		<div class="container-fluid border">
+			<div class="row">
+				<div class="col-sm-1">&nbsp;</div>
+				<div class="col"><h3>Launch:r | Launch your project</h3></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">&nbsp;</div>
+				<div class="col">
+					<h3>About</h3>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h3>About</h3>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h3>About</h3>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
