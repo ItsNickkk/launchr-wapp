@@ -1,6 +1,20 @@
-﻿body{
-    margin: 0px;
+﻿body {
+	margin: 0px;
+	background-color: #f5f5f5 !important;
 }
+
+footer {
+	background-color: #ffffff;
+	box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+	padding-top: 50px;
+}
+
+#footer-design {
+	background: rgb(38,24,76);
+	background: linear-gradient(0deg, rgba(38,24,76,1) 0%, rgba(238,58,133,1) 40%, rgba(255,255,255,1) 82%);
+	padding-bottom: 10vh;
+}
+
 
 #login-btn{
 	border: 1px solid black !important;
@@ -10,5 +24,26 @@
 
 #login-btn:hover {
 	background-color: #ececec;
+	color: black;
+}
+
+#hero-container {
+	background: url('../Content/images/cover1.jpg')no-repeat center;
+	background-size: cover;
+	position: relative;
+	box-shadow: 12px 12px 24px #a4a4a4;
+	margin-bottom: 30px;
+}
+
+#hero-container__search{
+	background-color: white;
+
+}
+
+#hero-container__search--div{
+	margin: 30px;
+}
+
+#homepage__content1 {
 
 }

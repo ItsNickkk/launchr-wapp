@@ -2887,11 +2887,11 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #fff
 }
 
-    .btn-secondary:hover {
-        color: #1a1a1a;
-        background-color: #ececec;
-        border-color: #e6e5e5
-    }
+	.btn-secondary:hover {
+		color: #FFF;
+		background-color: #db3381;
+		border-color: #e6e5e5
+	}
 
     .btn-secondary:focus, .btn-secondary.focus {
         color: #1a1a1a;

@@ -48,13 +48,13 @@
 	</nav>
 	<form id="form1" runat="server">
 		<div>
-			<asp:ContentPlaceHolder ID="content1" runat="server">
+			<asp:ContentPlaceHolder ID="content" runat="server">
 				<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 			</asp:ContentPlaceHolder>
 		</div>
 	</form>
 	<footer id="footer">
-		<div class="container-fluid border">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-1">&nbsp;</div>
 				<div class="col"><h3>Launch:r | Launch your project</h3></div>
@@ -83,6 +83,9 @@
 					</ul>
 				</div>
 			</div>
+		</div>
+		<div id="footer-design">
+			<br /><br /><br /><br />
 		</div>
 	</footer>
 </body>
