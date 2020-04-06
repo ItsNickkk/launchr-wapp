@@ -20,10 +20,10 @@
 			</div>	
 		</div>
 	</div>
-	<div class="container" id="homepage__content1">
+	<div class="container-fluid" id="homepage__content1">
 		<div class="row">
-			<div class="col-lg-12">
-				<h3>Trending projects</h3>
+			<div class="col-lg-10 offset-md-1 p-1">
+			<h3>Trending projects</h3>
 				<div class="row">
 					<a href="#" class="col-lg-6 p-2">
 						<div class="trending-projects-card">
