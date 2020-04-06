@@ -23,7 +23,35 @@
 	<div class="container" id="homepage__content1">
 		<div class="row">
 			<div class="col-lg-12">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae nisl luctus, vestibulum ipsum sed, egestas dolor. Donec quis pulvinar felis, et vestibulum ex. Phasellus vehicula eros ut tortor maximus, non faucibus tortor blandit. Fusce fringilla ex sit amet augue pharetra, ac pharetra justo volutpat. Vivamus a massa fringilla, mattis diam id, sollicitudin dolor. Morbi at pretium nisi. Sed leo est, rhoncus at molestie ut, accumsan ac velit. <br />
+				<h3>Trending projects</h3>
+				<div class="row">
+					<a href="#" class="col-lg-6 p-2">
+						<div class="trending-projects-card">
+							<div class="row">
+								<div class="col-lg-6">
+									<img src="../Content/images/content1.jpg" />
+								</div>								
+								<div class="col-lg-6 p-4">
+									<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+									<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+								</div>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="col-lg-6 p-2">
+						<div class="trending-projects-card">
+							<div class="row">
+								<div class="col-lg-6">
+									<img src="../Content/images/content2.jpg" />
+								</div>								
+								<div class="col-lg-6 p-4">
+									<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+									<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
