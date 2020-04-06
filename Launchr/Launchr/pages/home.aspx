@@ -23,34 +23,110 @@
 	<div class="container-fluid" id="homepage__content1">
 		<div class="row">
 			<div class="col-lg-10 offset-md-1 p-1">
-			<h3>Trending projects</h3>
+			<div id="project-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
-					<a href="#" class="col-lg-6 p-2">
-						<div class="trending-projects-card">
+					<div class="col-lg-10">
+						<h2 class="pt-1">Trending projects</h2>
+					</div>
+					<div class="col-lg">
+						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="0">1</button>
+						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="1">2</button>
+						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="2">3</button>
+					</div>
+				</div>
+				
+					<div class="carousel-inner">
+						<div class="carousel-item active">
 							<div class="row">
-								<div class="col-lg-6">
-									<img src="../Content/images/content1.jpg" />
-								</div>								
-								<div class="col-lg-6 p-4">
-									<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-									<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-								</div>
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content1.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content2.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
-					</a>
-					<a href="#" class="col-lg-6 p-2">
-						<div class="trending-projects-card">
+						<div class="carousel-item">
 							<div class="row">
-								<div class="col-lg-6">
-									<img src="../Content/images/content2.jpg" />
-								</div>								
-								<div class="col-lg-6 p-4">
-									<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-									<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-								</div>
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content1.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lodsadaadsdasolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content2.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
-					</a>
+						<div class="carousel-item">
+							<div class="row">
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content1.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-lg-6 p-3">
+									<div class="trending-projects-card">
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="../Content/images/content2.jpg" />
+											</div>								
+											<div class="col-lg-6 p-4">
+												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
