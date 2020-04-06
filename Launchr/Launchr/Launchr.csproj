@@ -115,6 +115,11 @@
     <Content Include="Content\Logo\LOGO.svg" />
     <Content Include="Content\Logo\LOGO2.svg" />
     <Content Include="Content\Logo\main-logo.svg" />
+    <Content Include="Content\Logo\topic\art.svg" />
+    <Content Include="Content\Logo\topic\film.svg" />
+    <Content Include="Content\Logo\topic\foodcraft.svg" />
+    <Content Include="Content\Logo\topic\game.svg" />
+    <Content Include="Content\Logo\topic\tech.svg" />
     <Content Include="Content\main.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

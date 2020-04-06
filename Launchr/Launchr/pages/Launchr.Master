@@ -14,7 +14,7 @@
 	</asp:ContentPlaceHolder>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-xl navbar-light bg-light">
 		<a class="navbar-brand" href="#"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
 				</li>
 			</ul>
 			<a class="btn btn-secondary my-2 my-sm-0" id="login-btn" href="#">Log In</a>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-xl-0">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search Project">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
@@ -56,26 +56,24 @@
 	<footer id="footer">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-1">&nbsp;</div>
-				<div class="col"><h3>Launch:r | Launch your project</h3></div>
+				<div class="col offset-md-1"><h3>Launch:r | Launch your project</h3></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-1">&nbsp;</div>
-				<div class="col">
+				<div class="col-xl offset-md-1">
 					<h4>About</h4>
 					<ul>
 						<li><a href="#">About us</a></li>
 						<li><a href="#">Contact us</a></li>
 					</ul>
 				</div>
-				<div class="col">
+				<div class="col-xl offset-md-1">
 					<h4>About</h4>
 					<ul>
 						<li><a href="#">About us</a></li>
 						<li><a href="#">Contact us</a></li>
 					</ul>
 				</div>
-				<div class="col">
+				<div class="col-xl offset-md-1">
 					<h4>About</h4>
 					<ul>
 						<li><a href="#">About us</a></li>
