@@ -23,10 +23,11 @@
 	<div class="container-fluid" id="homepage__content1">
 		<div class="row">
 			<div class="col-xl-10 offset-md-1 p-1">
+			<!--Content 1 Carousel Start-->
 			<div id="project-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
 					<div class="col-xl-10">
-						<h2 class="pt-1">Trending projects</h2>
+						<h2>Trending projects</h2><p>Discover projects that are loved by backers</p>
 					</div>
 					<div class="col-xl">
 						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="0">1</button>
@@ -38,7 +39,7 @@
 						<div class="carousel-item active">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -51,7 +52,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -68,7 +69,7 @@
 						<div class="carousel-item">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -81,7 +82,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -98,7 +99,7 @@
 						<div class="carousel-item">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -111,7 +112,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -127,17 +128,20 @@
 						</div>
 					</div>
 				</div>
+				<!--Content 2 Carousel End-->
 			</div>
 		</div>
 	</div>
 	<!--Content 1 End-->
+	<!--Content 2 Start-->
 	<div class="container-fluid pt-2 border">
 		<div class="row">
 			<div class="col-xl-10 offset-md-1 p-1">
+			<!--Content 2 Carousel Start-->
 			<div id="new-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
 					<div class="col-xl-10">
-						<h2 class="pt-1">Just in</h2>
+						<h2>Just in</h2><p>Discover projects that are just created</p>
 					</div>
 					<div class="col-xl">
 						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="0">1</button>
@@ -149,7 +153,7 @@
 						<div class="carousel-item active">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -162,7 +166,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -179,7 +183,7 @@
 						<div class="carousel-item">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -192,7 +196,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -209,7 +213,7 @@
 						<div class="carousel-item">
 							<div class="row">
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content1.jpg" />
@@ -222,7 +226,7 @@
 									</div>
 								</a>
 								<a href="#" class="col-xl-6 p-3">
-									<div class="trending-projects-card">
+									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
 												<img src="../Content/images/content2.jpg" />
@@ -238,20 +242,19 @@
 						</div>
 					</div>
 				</div>
+				<!--Content 2 Carousel End-->
 			</div>
 		</div>
 	</div>
 	<!--Content 2 end-->
+	<!--Browse Topic Start-->
 	<div class="container-fluid border">
 		<div class="row">
 			<div class="col-10 offset-md-1">
-				<h2 class="pt-1">Browse by topic</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-10 offset-md-1">
-				<p>Discover project that you love</p>
+				<h2 class="pt-1">Browse by topic</h2><p>Refine your browse experience</p>
 			</div>
 		</div>
 	</div>
+
+	<!--Browse Topic End-->
 </asp:Content>
