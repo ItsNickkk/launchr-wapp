@@ -105,6 +105,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\launchr.mdf" />
+    <Content Include="App_Data\launchr_log.ldf">
+      <DependentUpon>launchr.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\content1.jpg" />
@@ -116,9 +120,12 @@
     <Content Include="Content\Logo\LOGO2.svg" />
     <Content Include="Content\Logo\main-logo.svg" />
     <Content Include="Content\Logo\topic\art.svg" />
+    <Content Include="Content\Logo\topic\design.svg" />
     <Content Include="Content\Logo\topic\film.svg" />
     <Content Include="Content\Logo\topic\foodcraft.svg" />
     <Content Include="Content\Logo\topic\game.svg" />
+    <Content Include="Content\Logo\topic\music.svg" />
+    <Content Include="Content\Logo\topic\publishing.svg" />
     <Content Include="Content\Logo\topic\tech.svg" />
     <Content Include="Content\main.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -195,9 +202,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

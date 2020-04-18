@@ -248,13 +248,40 @@
 	</div>
 	<!--Content 2 end-->
 	<!--Browse Topic Start-->
-	<div class="container-fluid border">
+	<div class="container-fluid border pb-5">
 		<div class="row">
 			<div class="col-10 offset-md-1">
-				<h2 class="pt-1">Browse by topic</h2><p>Refine your browse experience</p>
+				<h2 class="pt-1">Browse by topic</h2><p>Refine your browsing experience</p>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-2 offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/tech.svg"/><h5>Technology</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
+		</div>
+		<div class="row collapse" id="more-topic">
+			<div class="col-2 offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
+			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
+		</div>
+		<div class="row">
+			<div class="text-center col m-3"><button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#more-topic">More Topics</button></div>
+		</div>
 	</div>
-
 	<!--Browse Topic End-->
+	<!--Join Us Start-->
+		<div class="container-fluid border pt-5 pb-5">
+			<div class="row">
+				<div class="text-center col-10 offset-md-1"><h1>Like what you see?</h1></div> 
+			</div>
+			<div class="row">
+				<div class="text-center col-10 offset-md-1 pt-3">Join us in the adventure to bring ideas that solves real life problem - big or small from drawing board into real life!</div> 
+			</div>
+			<div class="row">
+				<div class="text-center col-2 offset-md-5 mt-4"><button class="btn btn-secondary join-sign-up-btn">Sign Up</button></div>
+			</div>
+		</div>
+	<!--Join Us End-->
 </asp:Content>

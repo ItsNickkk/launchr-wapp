@@ -60,3 +60,21 @@ footer {
 .projects-card h4 {
 	word-break: break-all;
 }
+.topic-icon > img {
+	height: 80px;
+	margin-bottom: 30px;
+	transition: transform .2s;
+}
+
+.topic-icon > img:hover {
+	transform: scale(1.1);
+}
+
+.join-sign-up-btn {
+	background-color: #db3381 !important;
+	color: white !important;
+}
+
+.join-sign-up-btn:hover{
+	background-color: #b02868 !important;
+}
