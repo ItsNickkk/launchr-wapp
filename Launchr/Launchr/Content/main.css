@@ -78,3 +78,20 @@ footer {
 .join-sign-up-btn:hover{
 	background-color: #b02868 !important;
 }
+
+.login-box {
+	background-color: white;
+	/*box-shadow: 5px 5px 10px #ebebeb, -5px -5px 10px #ffffff;*/
+
+}
+
+.login-box > p{
+	margin-bottom: 0px !important;
+	margin-top: 1em !important;
+}
+
+.login-bg {
+	background: url('images/loginbg.gif');
+	padding-bottom:200px;
+	filter: blur(30%);
+}

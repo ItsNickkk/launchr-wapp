@@ -114,6 +114,7 @@
     <Content Include="Content\images\content1.jpg" />
     <Content Include="Content\images\content2.jpg" />
     <Content Include="Content\images\cover1.jpg" />
+    <Content Include="Content\images\loginbg.gif" />
     <Content Include="Content\Logo\Artboard 1%403x.png" />
     <Content Include="Content\Logo\logo.png" />
     <Content Include="Content\Logo\LOGO.svg" />
@@ -138,6 +139,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
+    <Content Include="pages\login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -192,6 +194,13 @@
     </Compile>
     <Compile Include="pages\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
