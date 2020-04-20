@@ -15,6 +15,33 @@ namespace Launchr.pages
 	{
 
 		/// <summary>
+		/// memberLoginUsername control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox memberLoginUsername;
+
+		/// <summary>
+		/// memberLoginPassMinLength control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberLoginPassMinLength;
+
+		/// <summary>
+		/// memberLoginPasssword control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox memberLoginPasssword;
+
+		/// <summary>
 		/// memberNameReqValidator control.
 		/// </summary>
 		/// <remarks>
@@ -60,6 +87,24 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox memberUsername;
 
 		/// <summary>
+		/// memberEmailReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberEmailReqValidator;
+
+		/// <summary>
+		/// RegularExpressionValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+		/// <summary>
 		/// memberEmail control.
 		/// </summary>
 		/// <remarks>
@@ -69,13 +114,31 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox memberEmail;
 
 		/// <summary>
-		/// TextBox1 control.
+		/// memberReqPhoneValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberReqPhoneValidator;
+
+		/// <summary>
+		/// memberPhone control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox memberPhone;
+
+		/// <summary>
+		/// memberReqAddValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberReqAddValidator;
 
 		/// <summary>
 		/// memberAddress control.
@@ -87,6 +150,24 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox memberAddress;
 
 		/// <summary>
+		/// memberPassAddValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberPassAddValidator;
+
+		/// <summary>
+		/// memberPassMinLengthValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberPassMinLengthValidator;
+
+		/// <summary>
 		/// memberPassword control.
 		/// </summary>
 		/// <remarks>
@@ -96,15 +177,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox memberPassword;
 
 		/// <summary>
-		/// memberConfirmPassword control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox memberConfirmPassword;
-
-		/// <summary>
 		/// comparePasswords control.
 		/// </summary>
 		/// <remarks>
@@ -112,6 +184,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.CompareValidator comparePasswords;
+
+		/// <summary>
+		/// memberConfirmPassword control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox memberConfirmPassword;
 
 		/// <summary>
 		/// memberCountry control.

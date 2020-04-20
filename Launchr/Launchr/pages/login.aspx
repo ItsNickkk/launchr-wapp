@@ -6,10 +6,11 @@
 		<div class="row">
 			<div class="col-md-3 offset-md-1 mt-5 p-5 login-box">
 				<h3>LOGIN</h3>
-				<label for="email-username-login">Username or Email</label>
-				<input type="text" id="email-username-login" class="form-control mb-3" placeholder="Username"/>
-				<label for="password-login">Password</label>
-				<input type="text" id="password-login" class="form-control" placeholder="Password"/>
+				<label for="memberLoginUsername">Username</label>
+				<asp:TextBox runat="server" id="memberLoginUsername" class="form-control mb-3" placeholder="Username"></asp:TextBox>
+				<label for="memberLoginPasssword">Password</label>
+				<asp:RegularExpressionValidator ID="memberLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="memberLoginPasssword" Display="Dynamic"></asp:RegularExpressionValidator><br />
+				<asp:TextBox id="memberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26"></asp:TextBox>
 				<button class="btn btn-secondary join-sign-up-btn mt-3">Log In</button>
 			</div>
 
@@ -27,7 +28,8 @@
 								</button>
 							</div>
 							<div class="modal-body pl-5 pr-5">
-								<p>Let us know more about you.</p>
+								<p class="mb-0">Let us know more about you.</p>
+								<span class="text-warning">All the fields are mandatory.</span><br />
 
 								<label for="memberName" class="mt-2">Full Name</label>
 								<asp:RequiredFieldValidator ID="memberNameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberName" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -41,30 +43,38 @@
 								
 
 								<label for="memberEmail" class="mt-2">Email</label>
-								<asp:TextBox TextMode="Email" ID="memberEmail" runat="server" Cssclass="form-control"></asp:TextBox>
+								<asp:RequiredFieldValidator ID="memberEmailReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberEmail" Display="Dynamic"></asp:RequiredFieldValidator>
+								<asp:RegularExpressionValidator ID="RegularExpressionValidator1" CssClass="text-danger" ValidationExpression="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" runat="server" ErrorMessage="<br/><i>Error:</i> Email format is wrong!" ControlToValidate="memberEmail" Display="Dynamic"></asp:RegularExpressionValidator><br />
+								<asp:TextBox ID="memberEmail" runat="server" Cssclass="form-control"></asp:TextBox>
+
 
 								<label for="memberPhone" class="mt-2">Phone Number</label>
-								<asp:TextBox ID="TextBox1" runat="server" Cssclass="form-control"></asp:TextBox>
+								<asp:RequiredFieldValidator ID="memberReqPhoneValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberPhone" Display="Dynamic"></asp:RequiredFieldValidator>
+								<asp:TextBox ID="memberPhone" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15"></asp:TextBox>
 
 								<label for="memberAddress" class="mt-2">Address</label>
+								<asp:RequiredFieldValidator ID="memberReqAddValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberAddress" Display="Dynamic"></asp:RequiredFieldValidator>
 								<asp:TextBox TextMode="MultiLine" ID="memberAddress" runat="server" Cssclass="form-control"></asp:TextBox>
 								<label for="memberAddress" class="text-muted">We will never share your personal details.</label><br/>
 
 								<label for="memberPassword" class="mt-2">Password</label>
+								<asp:RequiredFieldValidator ID="memberPassAddValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberPassword" Display="Dynamic"></asp:RequiredFieldValidator>
+								<asp:RegularExpressionValidator ID="memberPassMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password must between 8 to 26 characters." ControlToValidate="memberPassword" Display="Dynamic"></asp:RegularExpressionValidator><br />
 								<asp:TextBox ID="memberPassword" TextMode="Password" runat="server" Cssclass="form-control"></asp:TextBox>
 								<label for="memberPassword" class="text-muted">Your password must contain at least 8 characters.</label>
 
 
 								<label for="memberConfirmPassword" class="mt-2">Confirm Password</label>
-								<asp:TextBox ID="memberConfirmPassword" TextMode="Password" runat="server" Cssclass="form-control"></asp:TextBox>
 								<asp:CompareValidator id="comparePasswords" 
 									  runat="server"
 									  ControlToCompare="memberPassword"
 									  ControlToValidate="memberConfirmPassword"
-									  ErrorMessage="Your passwords do not match up!"
+									  ErrorMessage="<br/><i>Error:</i> Your passwords do not match up!"
 									  Display="Dynamic"
 									  CssClass="text-danger"
 								/><br />
+								<asp:TextBox ID="memberConfirmPassword" TextMode="Password" runat="server" Cssclass="form-control"></asp:TextBox>
+								
 								<label for="memberCountry" class="mt-2">Country</label>
 								<asp:DropDownList ID="memberCountry" DataSourceID="countryXMLDS" runat="server" DataValueField="handle" DataTextField="handle" AutoPostBack="False" CssClass="form-control"></asp:DropDownList>
 								<asp:XmlDataSource ID="countryXMLDS" runat="server" DataFile="../Content/countries.xml" XPath="countries/country"></asp:XmlDataSource>
@@ -79,4 +89,13 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function allowOnlyNumber(evt)
+		{
+			var charCode = (evt.which) ? evt.which : event.keyCode
+			if (charCode > 31 && (charCode < 48 || charCode > 57))
+				return false;
+			return true;
+		}
+	</script>
 </asp:Content>
