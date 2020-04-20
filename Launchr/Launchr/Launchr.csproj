@@ -129,6 +129,7 @@
     <Content Include="Content\Logo\topic\publishing.svg" />
     <Content Include="Content\Logo\topic\tech.svg" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\countries.xml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

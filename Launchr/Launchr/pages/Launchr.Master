@@ -46,13 +46,13 @@
 			</form>
 		</div>
 	</nav>
-	<form id="form1" runat="server">
-		<div>
+	<div>
+		<form id="form1" runat="server">
 			<asp:ContentPlaceHolder ID="content" runat="server">
 				<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 			</asp:ContentPlaceHolder>
-		</div>
-	</form>
+		</form>
+	</div>
 	<footer id="footer">
 		<div class="container-fluid">
 			<div class="row">
