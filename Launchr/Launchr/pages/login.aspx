@@ -37,7 +37,7 @@
 
 								<label for="memberUsername" class="mt-2">Username</label>
 								<asp:RequiredFieldValidator ID="memberUsernameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberUsername" Display="Dynamic"></asp:RequiredFieldValidator>
-								<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> Username must between 6 to 20 characters." ControlToValidate="memberUsername" Display="Dynamic"></asp:RegularExpressionValidator><br />
+								<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> Username must be between 6 to 20 characters." ControlToValidate="memberUsername" Display="Dynamic"></asp:RegularExpressionValidator><br />
 								<asp:TextBox ID="memberUsername" runat="server" Cssclass="form-control" MaxLength="20"></asp:TextBox>
 								<label for="memberUsername" class="text-muted">You'll need this to login later.</label><br/>
 								
@@ -59,7 +59,7 @@
 
 								<label for="memberPassword" class="mt-2">Password</label>
 								<asp:RequiredFieldValidator ID="memberPassAddValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="memberPassword" Display="Dynamic"></asp:RequiredFieldValidator>
-								<asp:RegularExpressionValidator ID="memberPassMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password must between 8 to 26 characters." ControlToValidate="memberPassword" Display="Dynamic"></asp:RegularExpressionValidator><br />
+								<asp:RegularExpressionValidator ID="memberPassMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password must be between 8 to 26 characters." ControlToValidate="memberPassword" Display="Dynamic"></asp:RegularExpressionValidator><br />
 								<asp:TextBox ID="memberPassword" TextMode="Password" runat="server" Cssclass="form-control"></asp:TextBox>
 								<label for="memberPassword" class="text-muted">Your password must contain at least 8 characters.</label>
 
