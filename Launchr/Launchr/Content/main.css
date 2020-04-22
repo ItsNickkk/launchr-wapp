@@ -126,6 +126,11 @@ footer {
 	width:80% !important;
 }
 
-.tier-btn{
-	
+.project-photo-div{
+	height:400px;
+}
+
+.project-photo-carousel {
+	max-height: 100%;
+	max-width: 100%;
 }

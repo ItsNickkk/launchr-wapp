@@ -45,8 +45,28 @@
 												<img src="../Content/images/content1.jpg" />
 											</div>								
 											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+												<div class="row">
+													<div class="col">
+														<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<div class="progress mb-3">
+															<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -55,7 +75,7 @@
 									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
-												<img src="../Content/images/content2.jpg" />
+												<img class="align-middle" src="../Content/images/content4.jpg" />
 											</div>								
 											<div class="col-xl-6 p-4">
 												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>

@@ -10,7 +10,33 @@
 		<div class="row">
 			<div class="col-xl-6 text-center">
 				<div>
-					<img class="project-photo" src="../Content/images/content1.jpg" />
+					<div id="project-photo-carousel" class="carousel slide" data-ride="carousel">
+
+						<ul class="carousel-indicators">
+							<li data-target="#project-photo-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#project-photo-carousel" data-slide-to="1"></li>
+							<li data-target="#project-photo-carousel" data-slide-to="2"></li>
+						</ul>
+  
+						<div class="carousel-inner">
+							<div class="carousel-item active project-photo-div ">
+								<img class="project-photo-carousel" src="../Content/images/content1.jpg" />
+							</div>
+							<div class="carousel-item project-photo-div">
+								<img class="project-photo-carousel" src="../Content/images/content2.jpg" />
+							</div>
+							<div class="carousel-item project-photo-div">
+								<img class="project-photo-carousel" src="../Content/images/content4.jpg" />
+							</div>
+						</div>
+  
+						<a class="carousel-control-prev" href="#project-photo-carousel" data-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a>
+						<a class="carousel-control-next" href="#project-photo-carousel" data-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="col-xl-6">

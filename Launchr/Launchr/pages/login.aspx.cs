@@ -14,15 +14,5 @@ namespace Launchr.pages
 		{
 		
 		}
-		protected void memberUsernameCustValidator_ServerValidate(object source, ServerValidateEventArgs args)
-		{
-			if (!string.IsNullOrEmpty(memberUsername.Text)){
-				if (args.Value.Length < 9)
-					args.IsValid = false;
-				else
-					args.IsValid = true;
-			}
-		}
-		
 	}
 }
