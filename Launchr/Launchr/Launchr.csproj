@@ -141,6 +141,7 @@
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
     <Content Include="pages\login.aspx" />
+    <Content Include="pages\project.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\project.aspx.cs">
+      <DependentUpon>project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\project.aspx.designer.cs">
+      <DependentUpon>project.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
