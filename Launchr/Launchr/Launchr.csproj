@@ -194,12 +194,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="launchr_DataSet.cs">
+      <DependentUpon>launchr_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="launchr_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>launchr_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="models\SiteDB.cs" />
+    <Compile Include="models\User.cs" />
     <Compile Include="pages\Launchr.Master.cs">
       <DependentUpon>Launchr.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
