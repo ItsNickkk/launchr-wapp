@@ -282,7 +282,7 @@
 				<div class="text-center col-10 offset-md-1 pt-3">Join us in the adventure to bring ideas that solves real life problem - big or small from drawing board into real life!</div> 
 			</div>
 			<div class="row">
-				<div class="text-center col-2 offset-md-5 mt-4"><button class="btn btn-secondary join-sign-up-btn">Sign Up</button></div>
+				<div class="text-center col-2 offset-md-5 mt-4"><button class="btn btn-secondary launchr-btn">Sign Up</button></div>
 			</div>
 		</div>
 	<!--Join Us End-->

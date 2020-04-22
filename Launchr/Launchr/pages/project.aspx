@@ -37,7 +37,53 @@
 					</div>
 				</div>
 				<div class="row mt-3">
-					<asp:Button ID="btnBackProj" runat="server" Text="Back this Project" CssClass="btn join-sign-up-btn ml-3"/>
+					<button type="button" class="btn btn-secondary launchr-btn mt-3 ml-3" data-toggle="modal" data-target="#pledge-modal">Back this Project</button>
+					<div id="pledge-modal" class="modal fade" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Back this project</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body pl-5 pr-5">
+									<div class="row pt-3">
+										<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
+											<asp:TextBox ID="TextBox1" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
+											<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+										</div>	
+									</div>
+
+									<div class="row pt-3">
+										<div class="p-4 tier-card">
+											<h4>Potato x1</h4><h4>30$</h4>
+											<p class="text-muted">By pledging amount above you get:</p>
+											<span>
+												<zero-md>
+													<template>
+														<xmp>
+- potato signed by designer
+- idk anymore
+														</xmp>
+													</template>
+												</zero-md>
+											</span>
+											<div class="progress mt-4">
+												<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+											</div>
+											<p>75 out of 100 slots left</p>
+											<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+										</div>	
+									</div>
+								</div>
+								<div class="modal-footer">
+									<asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn launchr-btn"/>
+									<button type="button" class="btn" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,19 +119,36 @@ Sed commodo felis tincidunt, convallis ipsum at, fringilla est. Proin convallis 
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-4">
+			<div class="col-xl-4 d-none d-xl-block">
 				<div class="row">
 					<h3 class="pb-1">Tier Rewards</h3>
 				</div>
 				<div class="row pt-3">
 					<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
 						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-						<asp:Button ID="btnTierNoReward" runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3"/>
-					</div>
-					
+						<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+					</div>	
 				</div>
 				<div class="row pt-3">
-					<div class="p-4 tier-card">dnsadnmkas</div>
+					<div class="p-4 tier-card">
+						<h4>Potato x1</h4><h4>30$</h4>
+						<p class="text-muted">By pledging amount above you get:</p>
+						<span>
+							<zero-md>
+							<template>
+								<xmp>
+- potato signed by designer
+- idk anymore
+								</xmp>
+							</template>
+						</zero-md>
+						</span>
+						<div class="progress mt-4">
+							<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+						</div>
+						<p>75 out of 100 slots left</p>
+						<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+					</div>	
 				</div>	
 			</div>
 		</div>

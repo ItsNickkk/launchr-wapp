@@ -67,12 +67,12 @@ footer {
 	transform: scale(1.1);
 }
 
-.join-sign-up-btn {
+.launchr-btn {
 	background-color: #db3381 !important;
 	color: white !important;
 }
 
-.join-sign-up-btn:hover{
+.launchr-btn:hover{
 	background-color: #b02868 !important;
 }
 
@@ -124,4 +124,8 @@ footer {
 
 .tier-no-reward{
 	width:80% !important;
+}
+
+.tier-btn{
+	
 }
