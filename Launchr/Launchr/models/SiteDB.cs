@@ -20,5 +20,10 @@ namespace Launchr.models
             launchr_DataSet.userDataTable users_table = userAdapter.GetAllUsers();
             return users_table;
         }
+
+        public int addNewUser(User user)
+        {
+            return 1;
+        }
     }
 }
