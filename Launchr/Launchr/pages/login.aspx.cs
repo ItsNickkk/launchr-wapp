@@ -22,11 +22,11 @@ namespace Launchr.pages
 			List<User> user_list = siteDB.getUserByUsernameAndPassword(this.txtMemberLoginUsername.Text, this.txtMemberLoginPasssword.Text);
 			if(user_list.Count() == 0)
 			{
-				Console.WriteLine("No User Found.");
+				this.txtMemberLoginUsername.Text = "Incorrect Credentials!";
 			} else if (user_list.Count() == 1)
 			{
 				this.txtMemberLoginUsername.Text = "Success!";
-				Console.WriteLine(user_list[0].ToString());
+
 			}
 
 		}
