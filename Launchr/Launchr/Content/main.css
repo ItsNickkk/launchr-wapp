@@ -44,9 +44,6 @@ footer {
 	margin: 30px;
 }
 
-#homepage__content1 {
-
-}
 
 .projects-card{
 	border: 1px solid black;
@@ -102,4 +99,29 @@ footer {
 
 .project-info {
 	text-transform: capitalize;
+}
+
+.project-tab {
+	transition: .2s;
+}
+
+.project-tab:hover {
+	background-color: #f0b4cf;
+}
+
+.tier-card {
+	border-radius: 3px;
+	background: #ffffff;
+	box-shadow: 5px 5px 19px #ebebeb, -5px -5px 19px #ffffff;
+	width:100%;
+}
+
+.project-details {
+	background: #ffffff;
+	box-shadow: 5px 5px 19px #ebebeb, -5px -5px 19px #ffffff;
+	padding: 1rem
+}
+
+.tier-no-reward{
+	width:80% !important;
 }

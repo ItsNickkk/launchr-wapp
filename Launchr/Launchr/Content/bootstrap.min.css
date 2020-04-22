@@ -4454,11 +4454,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             border-color: transparent
         }
 
-        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-            color: #55595c;
-            background-color: #fff;
-            border-color: #eceeef #eceeef #fff
-        }
+		.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+			color: white;
+			background-color: #db3381;
+			border-color: #eceeef #eceeef #fff;
+		}
 
     .nav-tabs .dropdown-menu {
         margin-top: -1px
@@ -6871,7 +6871,8 @@ a.bg-success:hover, a.bg-success:focus, button.bg-success:hover, button.bg-succe
 }
 
 .bg-launchr {
-	background-color: #db3381 !important
+	background: linear-gradient(100deg, rgba(38,24,76,1) 0%, rgba(238,58,133,1) 100%) !important;
+	/*background-color: #db3381 !important */
 }
 
 a.bg-launchr:hover, a.bg-launchr:focus, button.bg-launchr:hover, button.bg-launchr:focus {
