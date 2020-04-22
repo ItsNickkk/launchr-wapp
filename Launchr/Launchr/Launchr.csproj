@@ -145,6 +145,17 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
+    <Content Include="launchr_DataSet.xsc">
+      <DependentUpon>launchr_DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="launchr_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>launchr_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="launchr_DataSet.xss">
+      <DependentUpon>launchr_DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -183,6 +194,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="launchr_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>launchr_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="models\SiteDB.cs" />
     <Compile Include="pages\Launchr.Master.cs">
       <DependentUpon>Launchr.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
