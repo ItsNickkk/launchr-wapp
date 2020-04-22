@@ -21,7 +21,8 @@
 	</div>
 	<div class="container-fluid" id="homepage__content1">
 		<div class="row">
-			<div class="col-xl-10 offset-md-1 p-1">
+			<div class="col-xl-1 hidden-xs">&nbsp;</div>
+			<div class="col-xl-10 p-1">
 			<!--Content 1 Carousel Start-->
 			<div id="project-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
@@ -135,7 +136,8 @@
 	<!--Content 2 Start-->
 	<div class="container-fluid pt-2 border">
 		<div class="row">
-			<div class="col-xl-10 offset-md-1 p-1">
+			<div class="col-xl-1 hidden-xs">&nbsp;</div>
+			<div class="col-xl-10 p-1">
 			<!--Content 2 Carousel Start-->
 			<div id="new-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
@@ -254,11 +256,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-2 offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/tech.svg"/><h5>Technology</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
+			<div class="col-md-1 hidden-xs">&nbsp;</div>
+			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/tech.svg"/><h5>Technology</h5></a></div>
+			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
+			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
+			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
+			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
 		</div>
 		<div class="row collapse" id="more-topic">
 			<div class="col-2 offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>

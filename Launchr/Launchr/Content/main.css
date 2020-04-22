@@ -95,3 +95,11 @@ footer {
 	padding-bottom:200px;
 	filter: blur(30%);
 }
+
+.project-photo{
+	height: 400px;
+}
+
+.project-info {
+	text-transform: capitalize;
+}

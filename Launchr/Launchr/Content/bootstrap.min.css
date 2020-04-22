@@ -5571,13 +5571,13 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .progress {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 1rem;
-    overflow: hidden;
-    font-size: 0.65625rem;
-    background-color: #f7f7f9
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 1rem;
+	overflow: hidden;
+	font-size: 0.65625rem;
+	background-color: #cfcfcf;
 }
 
 .progress-bar {
@@ -5592,7 +5592,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     -ms-flex-pack: center;
     justify-content: center;
     overflow: hidden;
-    color: #fff;
+    color: #000;
     text-align: center;
     white-space: nowrap;
     background-color: #1a1a1a;
@@ -6868,6 +6868,14 @@ a.bg-secondary:hover, a.bg-secondary:focus, button.bg-secondary:hover, button.bg
 
 a.bg-success:hover, a.bg-success:focus, button.bg-success:hover, button.bg-success:focus {
     background-color: #389f5c !important
+}
+
+.bg-launchr {
+	background-color: #db3381 !important
+}
+
+a.bg-launchr:hover, a.bg-launchr:focus, button.bg-launchr:hover, button.bg-launchr:focus {
+	background-color: #b02868 !important
 }
 
 .bg-info {
