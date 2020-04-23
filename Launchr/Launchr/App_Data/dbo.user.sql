@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[user] (
-    [id]           VARCHAR (6)  NOT NULL,
+    [id]           INT  NOT NULL IDENTITY(100001, 1) ,
     [name]         VARCHAR (50) NOT NULL,
     [address]      VARCHAR (75) NOT NULL,
     [phone_number] VARCHAR (15) NOT NULL,

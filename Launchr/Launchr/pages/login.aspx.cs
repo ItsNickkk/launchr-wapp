@@ -22,13 +22,20 @@ namespace Launchr.pages
 			List<User> user_list = siteDB.getUserByUsernameAndPassword(this.txtMemberLoginUsername.Text, this.txtMemberLoginPasssword.Text);
 			if(user_list.Count() == 0)
 			{
-				this.txtMemberLoginUsername.Text = "Incorrect Credentials!";
-			} else if (user_list.Count() == 1)
+				alertbox.Style["display"] = "block";
+			}
+			else if (user_list.Count() == 1)
 			{
-				this.txtMemberLoginUsername.Text = "Success!";
+				Response.Redirect("home");
 
 			}
 
+		}
+
+		protected void btnSignUp_Click(object sender, EventArgs e)
+		{
+			
+			
 		}
 	}
 }

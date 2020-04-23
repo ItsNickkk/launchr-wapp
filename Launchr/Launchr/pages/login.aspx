@@ -12,6 +12,11 @@
 				<asp:RegularExpressionValidator ID="memberLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtMemberLoginPasssword" Display="Dynamic"></asp:RegularExpressionValidator><br />
 				<asp:TextBox id="txtMemberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26"></asp:TextBox>
 				<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="False"/>
+				<div id="alertbox" class="mt-3" runat="server" style="display: none">
+					<div class="alert alert-danger">
+						<strong>Wrong credentials!</strong> Incorrect username and password.
+					</div>
+				</div>
 			</div>
 
 			<div class="col-md-3 mt-5 p-5 ml-3 login-box">
@@ -80,7 +85,7 @@
 								<asp:XmlDataSource ID="countryXMLDS" runat="server" DataFile="../Content/countries.xml" XPath="countries/country"></asp:XmlDataSource>
 							</div>
 							<div class="modal-footer">
-								<asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn launchr-btn"/>
+								<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" OnClick="btnSignUp_Click" CausesValidation="False"/>
 								<button type="button" class="btn" data-dismiss="modal">Close</button>
 							</div>
 						</div>
@@ -89,6 +94,9 @@
 			</div>
 		</div>
 	</div>
+	
+	
+
 	<script type="text/javascript">
 		function allowOnlyNumber(evt)
 		{
