@@ -38,7 +38,7 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="row project-card-tray">
-								<a href="#" class="col-xl-6 p-3 text-decoration-none">
+								<a href="#" class="col-xl-6 text-decoration-none card">
 									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
@@ -84,15 +84,48 @@
 										</div>
 									</div>
 								</a>
-								<a href="#" class="col-xl-6 p-3">
+								<a href="#" class="col-xl-6  text-decoration-none card">
 									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img class="align-middle" src="../Content/images/content4.jpg" />
+										<div class="row h-100">
+											<div class="col-xl-6 p-0">
+												<img src="../Content/images/content4.jpg" />
 											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+											<div class="col-xl-6 p-4 h-100">
+											<div class="row">
+													<div class="col">
+														<h6>Food & Craft</h6>
+													</div>
+												</div>
+												<div class="row h-30">
+													<div class="col">
+														<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+													</div>
+												</div>
+												<div class="row h-30">
+													<div class="col">
+														<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<div class="progress mr-2">
+															<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xl">
+														<span class="project-card-details">$75</span> raised of $100
+													</div>	
+													<div class="text-right col-xl mr-2">
+														<span class="project-card-details">75%</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<p class="mb-2">30 backers</p>
+													</div>		
+												</div>
 											</div>
 										</div>
 									</div>
@@ -315,7 +348,7 @@
 				<div class="text-center col-10 offset-md-1 pt-3">Join us in the adventure to bring ideas that solves real life problem - big or small from drawing board into real life!</div> 
 			</div>
 			<div class="row">
-				<div class="text-center col-2 offset-md-5 mt-4"><button class="btn btn-secondary launchr-btn">Sign Up</button></div>
+				<div class="text-center col-2 offset-md-5 mt-4"><asp:Button ID="btnSignUpPage" runat="server" Text="Sign Up" CssClass="btn btn-secondary launchr-btn" OnClick="btnSignUpPage_Click"/>
 			</div>
 		</div>
 	<!--Join Us End-->

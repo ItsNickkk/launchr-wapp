@@ -14,5 +14,10 @@ namespace Launchr.pages
 		{
 			
 		}
+
+		protected void btnSignUpPage_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("login");
+		}
 	}
 }

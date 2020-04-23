@@ -104,7 +104,6 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn launchr-btn"/>
 									<button type="button" class="btn" data-dismiss="modal">Close</button>
 								</div>
 							</div>

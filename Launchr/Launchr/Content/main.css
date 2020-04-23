@@ -46,8 +46,8 @@ footer {
 
 
 .projects-card {
-	border: 1px solid black;
 	transition: opacity .3s;
+	height: 100%;
 }
 
 .projects-card:hover {

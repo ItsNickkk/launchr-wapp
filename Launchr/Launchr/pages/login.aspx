@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 	<div class="container-fluid login-bg pt-5">
 		<div class="row">
+			<!--Login card-->
 			<div class="col-md-3 offset-md-1 mt-5 p-5 login-box">
 				<h3>LOGIN</h3>
 				<label for="txtMemberLoginUsername">Username</label>
@@ -18,7 +19,8 @@
 					</div>
 				</div>
 			</div>
-
+			<!--Login card end-->
+			<!--Signup card -->
 			<div class="col-md-3 mt-5 p-5 ml-3 login-box">
 				<h3>Sign Up</h3>
 				<label for="email-register">New to Launch:r? Click the button below to continue</label>
@@ -93,11 +95,9 @@
 					</div>
 				</div>
 			</div>
+			<!--Signup card end-->
 		</div>
 	</div>
-	
-	
-
 	<script type="text/javascript">
 		function allowOnlyNumber(evt)
 		{
