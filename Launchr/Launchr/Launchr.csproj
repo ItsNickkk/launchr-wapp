@@ -204,6 +204,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>launchr_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="models\Creator.cs" />
     <Compile Include="models\SiteDB.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="pages\Launchr.Master.cs">
