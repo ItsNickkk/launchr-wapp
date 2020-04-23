@@ -17,7 +17,7 @@ namespace Launchr.models
 
         private User translate_row_to_user(launchr_DataSet.userRow user_row)
         {
-            User user = new User(user_row.id, user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password);
+            User user = new User(int.Parse(user_row.id), user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password);
             return user;
         }
 

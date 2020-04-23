@@ -7,7 +7,7 @@ namespace Launchr.models
 {
     public class User
     {
-        private string id { get; }
+        public int id { get; }
         public string name { get; set; }
         public string address { get; set; }
         public string phone_number { get; set; }
@@ -17,7 +17,7 @@ namespace Launchr.models
         public bool is_admin { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public User(string id, string name, string address, string phone_number, string email, string country, int status, bool is_admin, string username, string password)
+        public User(int id, string name, string address, string phone_number, string email, string country, int status, bool is_admin, string username, string password)
         {
             this.id = id;
             this.name = name;
@@ -30,7 +30,7 @@ namespace Launchr.models
             this.username = username;
             this.password = password;
         }
-        public User(string id, string name, string address, string phone_number, string email, string country, int status, int is_admin, string username, string password)
+        public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin, string username, string password)
         {
             this.id = id;
             this.name = name;
