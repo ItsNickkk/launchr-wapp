@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[project] (
-    [id]           VARCHAR (6)   NOT NULL,
-    [creator_id]   VARCHAR (6)   NOT NULL,
+    [id]           INT           NOT NULL IDENTITY(300001, 1),
+    [creator_id]   INT           NOT NULL,
     [title]        VARCHAR (50)  NOT NULL,
     [time_created] DATETIME      NOT NULL,
     [time_end]     DATETIME      NOT NULL,
