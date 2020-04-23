@@ -149,3 +149,10 @@ footer {
 	font-size:1.2em;
 }
 
+.project-card-tray{
+	display: table;
+}
+
+.project-card-tray > .col-xl-6 {
+	display: table-cell;
+}

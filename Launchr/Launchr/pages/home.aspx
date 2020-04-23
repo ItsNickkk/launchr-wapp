@@ -37,7 +37,7 @@
 				</div>
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<div class="row">
+							<div class="row project-card-tray">
 								<a href="#" class="col-xl-6 p-3 text-decoration-none">
 									<div class="projects-card">
 										<div class="row">
@@ -45,6 +45,11 @@
 												<img src="../Content/images/content2.jpg" />
 											</div>								
 											<div class="col-xl-6 p-4">
+											<div class="row">
+													<div class="col">
+														<h6>Food & Craft</h6>
+													</div>
+												</div>
 												<div class="row h-30">
 													<div class="col">
 														<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
@@ -74,11 +79,6 @@
 													<div class="col">
 														<p class="mb-2">30 backers</p>
 													</div>		
-												</div>
-												<div class="row">
-													<div class="col">
-														<h4>Food & Craft</h4>
-													</div>
 												</div>
 											</div>
 										</div>
