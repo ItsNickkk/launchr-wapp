@@ -91,7 +91,9 @@ namespace Launchr.models
                         userAdapter.UpdateUser(user.name, user.address, user.phone_number, user.email, user.country, user.status, user.is_admin_int(), user.username, user.password, user.id);
                         return 1; // 1 is returned if no errors, no same email, or same username
                     }
-                } catch (Exception e)
+                }
+            }
+            catch (Exception e)
             {
                 return 0;
             }
