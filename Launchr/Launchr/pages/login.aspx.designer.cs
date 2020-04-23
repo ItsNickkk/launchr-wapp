@@ -51,6 +51,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.Button btnLogin;
 
 		/// <summary>
+		/// alertbox control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbox;
+
+		/// <summary>
 		/// memberNameReqValidator control.
 		/// </summary>
 		/// <remarks>

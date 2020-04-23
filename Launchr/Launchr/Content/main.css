@@ -134,3 +134,8 @@ footer {
 	max-height: 100%;
 	max-width: 100%;
 }
+
+#alertbox{
+	width: 100%;
+	z-index:999;
+}
