@@ -46,9 +46,54 @@ namespace Launchr.models
         {
             try
             {
-                userAdapter.AddUser(name, address, phone_number, email, country, 1, 0, username, password);
-                return 1;
+                List<User> user_list_same_email = this.translate_user_table_to_list(userAdapter.GetUserByEmail(email));
+                if (user_list_same_email.Count() > 0)
+                {
+                    return 2; // 2 is returned if same email
+                } else
+                {
+                    List<User> user_list_same_username = this.translate_user_table_to_list(userAdapter.GetUserByUsername(username));
+                    if (user_list_same_username.Count() > 0)
+                    {
+                        return 3; // 3 is returned if same username
+                    }
+                    else
+                    {
+                        userAdapter.AddUser(name, address, phone_number, email, country, 1, 0, username, password);
+                        return 1; // 1 is returned if no errors, no same email, or same username
+                    }
+                }
             } catch (Exception e)
+            {
+                return 0; // 0 is returned if sql error
+            }
+        }
+
+        public int updateUser(User user)
+        {
+            try
+            {
+
+                List<User> user_list_same_email = this.translate_user_table_to_list(userAdapter.GetUserByEmail(user.email));
+                if (user_list_same_email.Count() > 0)
+                {
+                    return 2; // 2 is returned if same email
+                }
+                else
+                {
+                    List<User> user_list_same_username = this.translate_user_table_to_list(userAdapter.GetUserByUsername(user.username));
+                    if (user_list_same_username.Count() > 0)
+                    {
+                        return 3; // 3 is returned if same username
+                    }
+                    else
+                    {
+                        userAdapter.UpdateUser(user.name, user.address, user.phone_number, user.email, user.country, user.status, user.is_admin_int(), user.username, user.password, user.id);
+                        return 1; // 1 is returned if no errors, no same email, or same username
+                    }
+                }
+            }
+            catch (Exception e)
             {
                 return 0;
             }

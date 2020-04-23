@@ -46,9 +46,18 @@ namespace Launchr.pages
 			if (add_user_status == 1)
 			{
 				// signup successful; do something here
-			} else
-			{
-				// signup failed, do something here
+			} else 
+			{	// everything in this else block should be error code
+				if (add_user_status == 0)
+				{
+					// sql execution error
+				} else if (add_user_status == 2)
+				{
+					// user with same email found
+				} else if (add_user_status == 3)
+				{
+					// user with same username found
+				}
 			}
 		}
 	}
