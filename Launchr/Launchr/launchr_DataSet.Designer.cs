@@ -1023,11 +1023,10 @@ namespace Launchr.launchr_DataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [user] ([id], [name], [address], [phone_number], [email], [country], " +
-                "[status], [is_admin], [username], [password]) VALUES (@id, @name, @address, @pho" +
-                "ne_number, @email, @country, @status, @is_admin, @username, @password)";
+            this._commandCollection[1].CommandText = "INSERT INTO [user]\r\n                  (name, address, phone_number, email, countr" +
+                "y, status, is_admin, username, password)\r\nVALUES (@name,@address,@phone_number,@" +
+                "email,@country,@status,@is_admin,@username,@password)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 75, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone_number", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "phone_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1310,57 +1309,51 @@ namespace Launchr.launchr_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int AddUser(string id, string name, string address, string phone_number, string email, string country, int status, int is_admin, string username, string password) {
+        public virtual int AddUser(string name, string address, string phone_number, string email, string country, int status, int is_admin, string username, string password) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((id == null)) {
-                throw new global::System.ArgumentNullException("id");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(id));
-            }
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
             else {
-                command.Parameters[1].Value = ((string)(name));
+                command.Parameters[0].Value = ((string)(name));
             }
             if ((address == null)) {
                 throw new global::System.ArgumentNullException("address");
             }
             else {
-                command.Parameters[2].Value = ((string)(address));
+                command.Parameters[1].Value = ((string)(address));
             }
             if ((phone_number == null)) {
                 throw new global::System.ArgumentNullException("phone_number");
             }
             else {
-                command.Parameters[3].Value = ((string)(phone_number));
+                command.Parameters[2].Value = ((string)(phone_number));
             }
             if ((email == null)) {
                 throw new global::System.ArgumentNullException("email");
             }
             else {
-                command.Parameters[4].Value = ((string)(email));
+                command.Parameters[3].Value = ((string)(email));
             }
             if ((country == null)) {
                 throw new global::System.ArgumentNullException("country");
             }
             else {
-                command.Parameters[5].Value = ((string)(country));
+                command.Parameters[4].Value = ((string)(country));
             }
-            command.Parameters[6].Value = ((int)(status));
-            command.Parameters[7].Value = ((int)(is_admin));
+            command.Parameters[5].Value = ((int)(status));
+            command.Parameters[6].Value = ((int)(is_admin));
             if ((username == null)) {
                 throw new global::System.ArgumentNullException("username");
             }
             else {
-                command.Parameters[8].Value = ((string)(username));
+                command.Parameters[7].Value = ((string)(username));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
             }
             else {
-                command.Parameters[9].Value = ((string)(password));
+                command.Parameters[8].Value = ((string)(password));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
