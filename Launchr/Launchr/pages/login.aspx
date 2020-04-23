@@ -85,7 +85,7 @@
 								<asp:XmlDataSource ID="countryXMLDS" runat="server" DataFile="../Content/countries.xml" XPath="countries/country"></asp:XmlDataSource>
 							</div>
 							<div class="modal-footer">
-								<asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn launchr-btn"/>
+								<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" OnClick="btnSignUp_Click" CausesValidation="False"/>
 								<button type="button" class="btn" data-dismiss="modal">Close</button>
 							</div>
 						</div>

@@ -31,5 +31,11 @@ namespace Launchr.pages
 			}
 
 		}
+
+		protected void btnSignUp_Click(object sender, EventArgs e)
+		{
+			
+			
+		}
 	}
 }
