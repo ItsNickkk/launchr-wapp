@@ -8487,6 +8487,14 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
     height: 25% !important
 }
 
+.h-30 {
+	height: 30% !important
+}
+
+.h-40 {
+	height: 40% !important
+}
+
 .h-50 {
     height: 50% !important
 }

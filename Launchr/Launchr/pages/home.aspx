@@ -26,10 +26,10 @@
 			<!--Content 1 Carousel Start-->
 			<div id="project-carousel" class="carousel slide" data-ride="carousel">
 				<div class="row">
-					<div class="col-xl-10">
+					<div class="col-lg">
 						<h2>Trending projects</h2><p>Discover projects that are loved by backers</p>
 					</div>
-					<div class="col-xl">
+					<div class="col-lg text-right">
 						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="0">1</button>
 						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="1">2</button>
 						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="2">3</button>
@@ -38,33 +38,46 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="row">
-								<a href="#" class="col-xl-6 p-3">
+								<a href="#" class="col-xl-6 p-3 text-decoration-none">
 									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
-												<img src="../Content/images/content1.jpg" />
+												<img src="../Content/images/content2.jpg" />
 											</div>								
 											<div class="col-xl-6 p-4">
-												<div class="row">
+												<div class="row h-30">
 													<div class="col">
 														<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
 													</div>
 												</div>
-												<div class="row">
+												<div class="row h-30">
 													<div class="col">
 														<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col">
-														<div class="progress mb-3">
+														<div class="progress mr-2">
 															<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 														</div>
 													</div>
 												</div>
 												<div class="row">
+													<div class="col-xl">
+														<span class="project-card-details">$75</span> raised of $100
+													</div>	
+													<div class="text-right col-xl mr-2">
+														<span class="project-card-details">75%</span>
+													</div>
+												</div>
+												<div class="row">
 													<div class="col">
-														
+														<p class="mb-2">30 backers</p>
+													</div>		
+												</div>
+												<div class="row">
+													<div class="col">
+														<h4>Food & Craft</h4>
 													</div>
 												</div>
 											</div>
@@ -92,7 +105,7 @@
 									<div class="projects-card">
 										<div class="row">
 											<div class="col-xl-6">
-												<img src="../Content/images/content1.jpg" />
+												<img src="../Content/images/content2.jpg" />
 											</div>								
 											<div class="col-xl-6 p-4">
 												<h4>Lodsadaadssddsdsadsaddasolor sit amet, consectetur adipiscing </h4>

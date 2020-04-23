@@ -45,8 +45,13 @@ footer {
 }
 
 
-.projects-card{
+.projects-card {
 	border: 1px solid black;
+	transition: opacity .3s;
+}
+
+.projects-card:hover {
+	opacity: 0.8;
 }
 
 .projects-card img{
@@ -139,3 +144,8 @@ footer {
 	width: 100%;
 	z-index:999;
 }
+
+.project-card-details{
+	font-size:1.2em;
+}
+
