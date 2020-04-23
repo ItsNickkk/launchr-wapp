@@ -42,6 +42,18 @@ namespace Launchr.models
             return 1;
         }
 
+        public int addNewUser(string name, string address, string phone_number, string email, string country, string username, string password)
+        {
+            try
+            {
+                userAdapter.AddUser(name, address, phone_number, email, country, 1, 0, username, password);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         public List<User> getUserByUsernameAndPassword(string username, string password)
         {
             List<User> user_list = translate_user_table_to_list(userAdapter.GetUserByUsernamePassword(username, password));
