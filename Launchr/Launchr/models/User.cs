@@ -50,5 +50,16 @@ namespace Launchr.models
             this.username = username;
             this.password = password;
         }
+
+        public int is_admin_int()
+        {
+            if (is_admin == true)
+            {
+                return 1;
+            } else
+            {
+                return 0;
+            }
+        }
     }
 }
