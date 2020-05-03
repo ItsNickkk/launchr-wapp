@@ -15,7 +15,7 @@
 		<asp:RegularExpressionValidator ID="creatorLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtCreatorLoginPasssword" Display="Dynamic" ValidationGroup="creatorLogin"></asp:RegularExpressionValidator><br />
 		<asp:TextBox id="txtCreatorLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="creatorLogin"></asp:TextBox>
 
-		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="False" ValidationGroup="creatorLogin"/>
+		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="False" ValidationGroup="creatorLogin" OnClick="btnCreatorLogin_Click"/>
 
 		<div id="alertbox" class="mt-3" runat="server" style="display: none">
 			<div class="alert alert-danger">
@@ -112,7 +112,7 @@
 						<small>Please do note that a creator account requires administrator's approval and verification. It might take up to 3-5 working days after submission.</small>
 					</div>
 					<div class="modal-footer">
-						<asp:Button ID="btnCreatorSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" ValidationGroup="creatorSignup"/>
+						<asp:Button ID="btnCreatorSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" ValidationGroup="creatorSignup" OnClick="btnCreatorSignUp_Click"/>
 						<button type="button" class="btn" data-dismiss="modal">Close</button>
 					</div>
 				</div>
