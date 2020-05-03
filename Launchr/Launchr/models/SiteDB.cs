@@ -37,10 +37,6 @@ namespace Launchr.models
             return translate_user_table_to_list(users_table);
         }
 
-        public int addNewUser(User user)
-        {
-            return 1;
-        }
 
         public int addNewUser(string name, string address, string phone_number, string email, string country, string username, string password)
         {
