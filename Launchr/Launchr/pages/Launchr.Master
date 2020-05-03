@@ -4,7 +4,6 @@
 
 <html>
 <head runat="server">
-
 	<!--jQuery, Bootstrap and stuffs-->
 	<link href="../Content/main.css" rel="stylesheet" />
 	<link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -44,7 +43,15 @@
 					<a class="nav-link" href="#">Start a project</a>
 				</li>
 			</ul>
-			<a class="btn btn-secondary my-2 my-sm-0" id="login-btn" href="login">Log In</a>
+			<%
+				User user = (User) this.Session["user"];
+				if (this.Session["user"] == null){
+					Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">Log In</a>");
+				}
+				else{
+					Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">"+ user.name +"</a>");
+				}
+			%>
 			<form class="form-inline my-2 my-xl-0">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search Project">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
