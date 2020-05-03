@@ -7,10 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Launchr.pages
 {
-    public partial class Site1 : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class WebForm4 : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+
 		}
-    }
+	}
 }
