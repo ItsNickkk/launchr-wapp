@@ -7,7 +7,7 @@ namespace Launchr.models
 {
     public class Project
     {
-        public string id;
+        public int id;
         public Creator creator;
         public string title;
         public DateTime time_created;
@@ -17,7 +17,7 @@ namespace Launchr.models
         public string topic;
         public string content;
         public List<string> image_path;
-        public Project(string id, Creator creator, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, List<string> image_path)
+        public Project(int id, Creator creator, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, List<string> image_path)
         {
             this.id = id;
             this.creator = creator;
