@@ -7,7 +7,7 @@ namespace Launchr.models
 {
     public class Creator
     {
-        public int id {get;}
+        public string id {get;}
         public string name {get;set;}
         public string address {get;set;}
         public string phone_number {get;set;}
@@ -18,7 +18,7 @@ namespace Launchr.models
         public string type {get;set;}
         public string username { get; set; }
         public string password { get; set; }
-        public Creator(int id, string name, string address, string phone_number, string email, string country, int status, string document, string type, string username, string password)
+        public Creator(string id, string name, string address, string phone_number, string email, string country, int status, string document, string type, string username, string password)
         {
             this.id = id;
             this.name = name;
