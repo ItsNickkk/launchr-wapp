@@ -149,6 +149,7 @@
     <Content Include="pages\project.aspx" />
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
+    <Content Include="pages\createProject.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -260,6 +261,13 @@
     </Compile>
     <Compile Include="pages\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\createProject.aspx.cs">
+      <DependentUpon>createProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\createProject.aspx.designer.cs">
+      <DependentUpon>createProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
