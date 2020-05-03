@@ -30,35 +30,32 @@ namespace Launchr.models
             this.username = username;
             this.password = password;
         }
-        public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin, string username, string password)
+        public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin_int, string username, string password):
+            this(id, name, address, phone_number, email, country, status, User.is_admin_bool(is_admin_int), username, password)
         {
-            this.id = id;
-            this.name = name;
-            this.address = address;
-            this.phone_number = phone_number;
-            this.email = email;
-            this.country = country;
-            this.status = status;
-            if (is_admin == 0)
-            {
-                this.is_admin = false;
-            }
-            else
-            {
-                this.is_admin = true;
-            }
-            this.username = username;
-            this.password = password;
+            
         }
 
         public int is_admin_int()
         {
-            if (is_admin == true)
+            if (this.is_admin == true)
             {
                 return 1;
-            } else
+            } 
+            else
             {
                 return 0;
+            }
+        }
+        private static bool is_admin_bool(int is_admin_int)
+        {
+            if (is_admin_int == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }
