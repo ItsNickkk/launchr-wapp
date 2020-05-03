@@ -22,6 +22,12 @@ footer {
 	border-radius: 5px;
 }
 
+#logout-btn {
+	border: 1px solid black !important;
+	margin: 5px;
+	border-radius: 5px;
+}
+
 #login-btn:hover {
 	background-color: #ececec;
 	color: black;

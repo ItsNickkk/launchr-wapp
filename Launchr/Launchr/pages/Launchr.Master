@@ -26,9 +26,8 @@
 		<div class="collapse navbar-collapse" id="navbarColor03">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Explore</a>
-					<div class="dropdown-menu" aria-labelledby="Explore" style="">
-						<div class="dropdown-divider"></div>
+					<a id="explore" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Explore</a>
+					<div class="dropdown-menu" aria-labelledby="explore">
 						<a class="dropdown-item" href="#">Arts</a>
 						<a class="dropdown-item" href="#">Design</a>
 						<a class="dropdown-item" href="#">Technology</a>
@@ -43,13 +42,19 @@
 					<a class="nav-link" href="#">Start a project</a>
 				</li>
 			</ul>
+
 			<%
 				User user = (User) this.Session["user"];
 				if (this.Session["user"] == null){
 					Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">Log In</a>");
 				}
 				else{
-					Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">"+ user.name +"</a>");
+					Response.Write("<div class=\"dropdown mr-3\">");
+					Response.Write("<a id=\"profile\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">"+user.name+"</a>");
+					Response.Write("<div class=\"dropdown-menu\" aria-labelledby=\"profile\">");
+					Response.Write("<a class=\"dropdown-item\" href=\"profile?id="+user.id+"\">Profile</a>");
+					Response.Write("<a id=\"logoutbtn\" onserverclick=\"logoutBtn_Click\" class=\"dropdown-item\" runat=\"server\" href=\"#\">Logout</a>");
+					Response.Write("</div></div>");
 				}
 			%>
 			<form class="form-inline my-2 my-xl-0">

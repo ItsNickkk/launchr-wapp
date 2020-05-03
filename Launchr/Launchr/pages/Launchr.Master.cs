@@ -12,5 +12,10 @@ namespace Launchr.pages
         protected void Page_Load(object sender, EventArgs e)
         {
 		}
-    }
+
+		protected void logoutBtn_Click(object sender, EventArgs e)
+		{
+			/*put yer logout code here*/
+		}
+	}
 }
