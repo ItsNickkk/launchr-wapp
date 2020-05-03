@@ -20,11 +20,7 @@ namespace Launchr.pages
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
 			List<User> user_list = siteDB.getUserByUsernameAndPassword(this.txtMemberLoginUsername.Text, this.txtMemberLoginPasssword.Text);
-			if(user_list.Count() == 0)
-			{
-				alertbox.Style["display"] = "block";
-			}
-			else if (user_list.Count() == 1) 
+			if (user_list.Count() == 1) 
 			{
 				// exactly one user exists with the same username and password
 				// store current login user as User object in session
@@ -32,7 +28,9 @@ namespace Launchr.pages
 				this.Session["user"] = user_list[0];
 				Response.Redirect("home");
 
-
+			} else
+			{
+				alertbox.Style["display"] = "block";
 			}
 
 		}
