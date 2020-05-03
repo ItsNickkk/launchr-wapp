@@ -126,5 +126,44 @@ namespace Launchr.models
                 return null;
             }
         }
+
+        public int addNewCreator(string name, string address, string phone_number, string email, string country, string document, string type, string username, string password)
+        {
+            try
+            {
+                List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(email));
+                List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(email));
+                if (creator_list_same_email.Count() > 0 || user_list_same_email.Count() > 0)
+                {
+                    return 2; // 2 is returned if same email
+                }
+                else
+                {
+                    List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(username));
+                    List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(username));
+                    if (creator_list_same_username.Count() > 0 || user_list_same_username.Count() > 0)
+                    {
+                        return 3; // 3 is returned if same username
+                    }
+                    else
+                    {
+                        
+                        creatorAdapter.AddCreator(name, address, phone_number, email, country, 1, document, type, username, password);
+                        return 1; // 1 is returned if no errors, no same email, or same username
+                            
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return 0; // 0 is returned if sql error
+            }
+        }
+
+        public List<Creator> getCreatorByUsernameAndPassword(string username, string password)
+        {
+            List<Creator> creator_list = translateCreatorTableToList(creatorAdapter.GetCreatorByUsernamePassword(username, password));
+            return creator_list;
+        }
     }
 }
