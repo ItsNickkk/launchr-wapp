@@ -24,6 +24,60 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
 		/// <summary>
+		/// content control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder content;
+
+		/// <summary>
+		/// comments control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder comments;
+
+		/// <summary>
+		/// txtCommentReplyPointer control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCommentReplyPointer;
+
+		/// <summary>
+		/// txtProjectComment control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtProjectComment;
+
+		/// <summary>
+		/// memberUsernameMinLengthValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberUsernameMinLengthValidator;
+
+		/// <summary>
+		/// btnComment control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnComment;
+
+		/// <summary>
 		/// txtTierNoReward control.
 		/// </summary>
 		/// <remarks>

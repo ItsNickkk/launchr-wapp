@@ -122,14 +122,10 @@ footer {
 
 .tier-card {
 	border-radius: 3px;
-	background: #ffffff;
-	box-shadow: 5px 5px 19px #ebebeb, -5px -5px 19px #ffffff;
 	width:100%;
 }
 
 .project-details {
-	background: #ffffff;
-	box-shadow: 5px 5px 19px #ebebeb, -5px -5px 19px #ffffff;
 	padding: 1rem
 }
 
@@ -161,4 +157,36 @@ footer {
 
 .project-card-tray > .col-xl-6 {
 	display: table-cell;
+}
+
+.neumorph {
+	background: #ffffff;
+	box-shadow: 5px 5px 19px #ebebeb, -5px -5px 19px #ffffff;
+}
+
+.backer-status{
+	padding: 5px;
+	border-radius: 5px;
+	color: blaCK;
+	border: 1px solid black;
+}
+
+.profile-details-icon{
+	height:1rem;
+}
+
+.comment-reply-pointer{
+	border:none;
+}
+
+.comment-input-btn {
+	background-color: white;
+	border: none;
+	color: black;
+	transition: .2s;
+	padding: 0px;
+}
+
+.comment-input-btn:hover {
+	color: #db3381;
 }

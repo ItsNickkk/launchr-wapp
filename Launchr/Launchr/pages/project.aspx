@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="project.aspx.cs" Inherits="Launchr.pages.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<title></title>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".reply-btn").click(function () {
+				id = $(this).parent().parent().parent().parent().attr('id');
+				$('#content_txtCommentReplyPointer').val(id);
+			});
+			$(".clear-comment-pointer-btn").click(function () {
+				$('#content_txtCommentReplyPointer').val("this project");
+			});
+		});
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="row">
@@ -122,24 +133,69 @@
 					</li>
 				</ul>
 				<div class="tab-content border">
-					<div class="tab-pane fade active show project-details" id="project-background">
+					<div class="tab-pane fade active show project-details neumorph" id="project-background">
 						<zero-md>
 							<template>
 								<xmp>
-# lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam
-## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis egestas laoreet. Praesent vel commodo quam. Pellentesque ut ante sollicitudin, posuere quam in, dapibus leo. In eget laoreet massa, non facilisis sapien. Cras auctor ipsum ante, vitae congue tortor lobortis sit amet. Vivamus sed congue massa. Etiam dictum vel sem sed posuere.
-
-Etiam viverra ullamcorper ipsum. Duis consequat felis lectus, vitae consectetur ipsum interdum eu. Aenean in malesuada odio. Mauris commodo non mauris id eleifend. Nulla nec nisl euismod, accumsan purus a, iaculis neque. Aenean hendrerit egestas elit nec gravida. Duis ut hendrerit felis. Ut et sapien convallis, tempus felis sit amet, fermentum odio. Donec tristique mauris eros, ac convallis justo posuere quis. Sed sed ligula vel sapien lobortis tincidunt id sed quam. Integer quis nisi aliquet, dictum magna in, iaculis neque. Donec lobortis quam sit amet tellus fringilla condimentum. Curabitur et urna velit. Cras dictum, leo et auctor mollis, ipsum sapien porta odio, vel fringilla dolor dui a ex. Nam erat ipsum, malesuada quis finibus in, facilisis ut est. Maecenas non venenatis turpis.
-
-Nulla luctus eget leo sit amet consectetur. Nullam nisi massa, auctor aliquet magna sit amet, commodo gravida lorem. In a elementum arcu. Cras feugiat diam id blandit feugiat. Cras ut suscipit lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed malesuada, eros vel elementum laoreet, leo elit commodo nibh, tempus lobortis erat enim in ipsum. Duis finibus congue sapien, eu sollicitudin quam aliquet nec. Nunc in pretium ipsum. Nullam metus sapien, pulvinar sed gravida sed, tempus id urna. Sed ac iaculis lorem, eget tincidunt augue.
-
-Sed commodo felis tincidunt, convallis ipsum at, fringilla est. Proin convallis blandit congue. Nullam sollicitudin orci in sem aliquet, et eleifend mi auctor. Sed nec lorem massa. Curabitur condimentum ex sed nunc molestie elementum. Vestibulum gravida ornare arcu sed molestie. Aliquam fermentum ac ipsum ut gravida. Nulla et pretium ipsum. Pellentesque euismod tincidunt ex non pulvinar. Curabitur pretium lorem sed volutpat auctor. Aenean feugiat venenatis dui. 
+<asp:PlaceHolder ID="content" runat="server"></asp:PlaceHolder> 
+<!--place markdown code here-->
 								</xmp>
 							</template>
 						</zero-md>
 					</div>
-					<div class="tab-pane fade project-details" id="project-comment">
-						<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+					<div class="tab-pane fade project-details neumorph" id="project-comment">
+						<asp:PlaceHolder ID="comments" runat="server"></asp:PlaceHolder>
+						<!--Commnet content
+						<div id="100001" class="row p-2">
+							<div class="col-xl-12 border pt-3">
+								<div class="row pl-3">
+									<div class="col-xl-10">
+										<a href="profile"><h4>John Doe</h4></a>
+										<p>Hi</p>
+									</div>
+									<div class="col-xl-2">
+										<h5 class="text-muted">#100001</h5>
+									</div>
+								</div>
+								<div class="row pl-3">
+									<div class="col pb-3">
+										<input type="button" class="reply-btn comment-input-btn" value="Reply"/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="100002" class="row p-2">
+							<div class="col-xl-12 border pt-3">
+								<div class="row pl-3">
+									<div class="col-xl-10">
+										<a href="profile"><h4>John Doe</h4></a> <a href="#100001"><h5>reply to #100001</h5></a>
+										<p>Hi</p>
+									</div>
+									<div class="col-xl-2">
+										<h5 class="text-muted">#100002</h5>
+									</div>
+								</div>
+								<div class="row pl-3">
+									<div class="col pb-3">
+										<input type="button" class="reply-btn comment-input-btn" value="Reply"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						-->
+						<h4>Leave a comment</h4>
+						<div>
+							<span class="text-muted">
+								Replying to <asp:TextBox id="txtCommentReplyPointer" runat="server" CssClass="comment-reply-pointer" Text="this project" ReadOnly="true"></asp:TextBox>
+							</span>
+							<input type="button" class="clear-comment-pointer-btn comment-input-btn text-muted" value="Clear"/>
+						</div>
+						
+						<asp:TextBox TextMode="MultiLine" ID="txtProjectComment" runat="server" Cssclass="form-control mt-3" ValidationGroup="projcomment"></asp:TextBox>
+						<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> A comment must be at least 10 characters." ControlToValidate="txtProjectComment" Display="Dynamic" ValidationGroup="projcomment"></asp:RegularExpressionValidator><br />
+						<asp:Button ID="btnComment" runat="server" Text="Leave comment" CssClass="btn launchr-btn" ValidationGroup="projcomment"/>
+
 					</div>
 				</div>
 			</div>
@@ -148,13 +204,13 @@ Sed commodo felis tincidunt, convallis ipsum at, fringilla est. Proin convallis 
 					<h3 class="pb-1">Tier Rewards</h3>
 				</div>
 				<div class="row pt-3">
-					<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
+					<div class="p-4 tier-card neumorph"><h4>Pledge without a tier reward</h4>
 						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
 						<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
 					</div>	
 				</div>
 				<div class="row pt-3">
-					<div class="p-4 tier-card">
+					<div class="p-4 tier-card neumorph">
 						<h4>Potato x1</h4><h4>30$</h4>
 						<p class="text-muted">By pledging amount above you get:</p>
 						<span>
