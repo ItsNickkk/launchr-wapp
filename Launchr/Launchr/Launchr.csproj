@@ -144,6 +144,7 @@
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
     <Content Include="pages\login.aspx" />
+    <Content Include="pages\logout.aspx" />
     <Content Include="pages\project.aspx" />
     <Content Include="pages\WebForm4.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\project.aspx.cs">
       <DependentUpon>project.aspx</DependentUpon>
