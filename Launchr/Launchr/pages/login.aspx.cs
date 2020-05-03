@@ -24,9 +24,14 @@ namespace Launchr.pages
 			{
 				alertbox.Style["display"] = "block";
 			}
-			else if (user_list.Count() == 1)
+			else if (user_list.Count() == 1) 
 			{
+				// exactly one user exists with the same username and password
+				// store current login user as User object in session
+				// (remember to explicitly declare the user object before use in later pages like so: User user = (User) this.Session["user"];)
+				this.Session["user"] = user_list[0];
 				Response.Redirect("home");
+
 
 			}
 
@@ -34,6 +39,8 @@ namespace Launchr.pages
 
 		protected void btnSignUp_Click(object sender, EventArgs e)
 		{
+			// validators exist, so no more validation here
+
 			string member_name = this.txtMemberName.Text;
 			string member_username = this.txtMemberUsername.Text;
 			string member_email = this.txtMemberEmail.Text;
@@ -41,6 +48,8 @@ namespace Launchr.pages
 			string member_address = this.txtMemberAddress.Text;
 			string member_password = this.txtMemberPassword.Text;
 			string member_country = this.txtMemberCountry.SelectedValue;
+
+			// can directly use siteDB function here, because error checking is available in SiteDB class/object
 
 			int add_user_status = siteDB.addNewUser(member_name, member_address, member_phone_number, member_email, member_country, member_username, member_password);
 			if (add_user_status == 1)
@@ -53,10 +62,10 @@ namespace Launchr.pages
 					// sql execution error
 				} else if (add_user_status == 2)
 				{
-					// user with same email found
+					// user with same email found, show error message here...
 				} else if (add_user_status == 3)
 				{
-					// user with same username found
+					// user with same username found, show error message here...
 				}
 			}
 		}
