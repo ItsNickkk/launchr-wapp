@@ -9,32 +9,28 @@ namespace Launchr.models
     public class SiteDB
     {
         private userTableAdapter userAdapter;
+        private creatorTableAdapter creatorAdapter;
 
         public SiteDB()
         {
             userAdapter = new userTableAdapter();
+            creatorAdapter = new creatorTableAdapter();
         }
-
-        private User translate_row_to_user(launchr_DataSet.userRow user_row)
+        // <------------------ User functions ------------------>
+        private User translateRowToUser(launchr_DataSet.userRow user_row)
         {
-            User user = new User(int.Parse(user_row.id), user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password);
+            User user = new User(int.Parse(user_row.id), user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password, 1);
             return user;
         }
 
-        private List<User> translate_user_table_to_list(launchr_DataSet.userDataTable userDataTable)
+        private List<User> translateUserTableToList(launchr_DataSet.userDataTable user_data_table)
         {
             List<User> user_list = new List<User>();
-            foreach(launchr_DataSet.userRow user_row in userDataTable)
+            foreach(launchr_DataSet.userRow user_row in user_data_table)
             {
-                user_list.Add(translate_row_to_user(user_row));
+                user_list.Add(this.translateRowToUser(user_row));
             }
             return user_list;
-        }
-
-        public List<User> getAllUsers()
-        {
-            launchr_DataSet.userDataTable users_table = userAdapter.GetAllUsers();
-            return translate_user_table_to_list(users_table);
         }
 
 
@@ -42,13 +38,13 @@ namespace Launchr.models
         {
             try
             {
-                List<User> user_list_same_email = this.translate_user_table_to_list(userAdapter.GetUserByEmail(email));
+                List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(email));
                 if (user_list_same_email.Count() > 0)
                 {
                     return 2; // 2 is returned if same email
                 } else
                 {
-                    List<User> user_list_same_username = this.translate_user_table_to_list(userAdapter.GetUserByUsername(username));
+                    List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(username));
                     if (user_list_same_username.Count() > 0)
                     {
                         return 3; // 3 is returned if same username
@@ -70,14 +66,14 @@ namespace Launchr.models
             try
             {
 
-                List<User> user_list_same_email = this.translate_user_table_to_list(userAdapter.GetUserByEmail(user.email));
+                List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(user.email));
                 if (user_list_same_email.Count() > 0)
                 {
                     return 2; // 2 is returned if same email
                 }
                 else
                 {
-                    List<User> user_list_same_username = this.translate_user_table_to_list(userAdapter.GetUserByUsername(user.username));
+                    List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(user.username));
                     if (user_list_same_username.Count() > 0)
                     {
                         return 3; // 3 is returned if same username
@@ -97,8 +93,38 @@ namespace Launchr.models
 
         public List<User> getUserByUsernameAndPassword(string username, string password)
         {
-            List<User> user_list = translate_user_table_to_list(userAdapter.GetUserByUsernamePassword(username, password));
+            List<User> user_list = translateUserTableToList(userAdapter.GetUserByUsernamePassword(username, password));
             return user_list;
+        }
+
+        // <------------------ creator functions ------------------>
+
+        private Creator translateRowToCreator(launchr_DataSet.creatorRow creator_row)
+        {
+            Creator creator = new Creator(creator_row.id, creator_row.name, creator_row.address, creator_row.phone_number, creator_row.email, creator_row.country, creator_row.status, creator_row.document, creator_row.type, creator_row.username, creator_row.password);
+            return creator;
+        }
+
+        private List<Creator> translateCreatorTableToList(launchr_DataSet.creatorDataTable creator_data_table)
+        {
+            List<Creator> creator_list = new List<Creator>();
+            foreach(launchr_DataSet.creatorRow creator_row in creator_data_table)
+            {
+                creator_list.Add(this.translateRowToCreator(creator_row));
+            }
+            return creator_list;
+        }
+
+        public Creator getCreatorById(int creator_id)
+        {
+            List<Creator> creator_list = translateCreatorTableToList(creatorAdapter.GetCreatorById(creator_id));
+            if (creator_list.Count() == 1)
+            {
+                return creator_list[0];
+            } else
+            {
+                return null;
+            }
         }
     }
 }
