@@ -53,7 +53,7 @@
 					Response.Write("<a id=\"profile\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">"+user.name+"</a>");
 					Response.Write("<div class=\"dropdown-menu\" aria-labelledby=\"profile\">");
 					Response.Write("<a class=\"dropdown-item\" href=\"profile?id="+user.id+"\">Profile</a>");
-					Response.Write("<a id=\"logoutbtn\" onserverclick=\"logoutBtn_Click\" class=\"dropdown-item\" runat=\"server\" href=\"#\">Logout</a>");
+					Response.Write("<a id=\"logoutbtn\" onserverclick=\"logoutBtn_Click\" class=\"dropdown-item\" runat=\"server\" href=\"logout\">Logout</a>");
 					Response.Write("</div></div>");
 				}
 			%>
