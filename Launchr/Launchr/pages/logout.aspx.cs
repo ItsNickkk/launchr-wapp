@@ -7,15 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace Launchr.pages
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-		}
-
-		protected void logoutBtn_Click(object sender, EventArgs e)
-		{
-			// logout code here...?
-		}
-	}
+            this.Session.Abandon();
+            Response.Redirect("home");
+        }
+    }
 }

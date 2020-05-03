@@ -11,44 +11,44 @@ namespace Launchr.pages
 {
 
 
-	public partial class WebForm2
+	public partial class WebForm5
 	{
 
 		/// <summary>
-		/// txtMemberLoginUsername control.
+		/// txtCreatorLoginUsername control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberLoginUsername;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorLoginUsername;
 
 		/// <summary>
-		/// memberLoginPassMinLength control.
+		/// creatorLoginPassMinLength control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberLoginPassMinLength;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorLoginPassMinLength;
 
 		/// <summary>
-		/// txtMemberLoginPasssword control.
+		/// txtCreatorLoginPasssword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberLoginPasssword;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorLoginPasssword;
 
 		/// <summary>
-		/// btnLogin control.
+		/// btnCreatorLogin control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnLogin;
+		protected global::System.Web.UI.WebControls.Button btnCreatorLogin;
 
 		/// <summary>
 		/// alertbox control.
@@ -60,183 +60,219 @@ namespace Launchr.pages
 		protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbox;
 
 		/// <summary>
-		/// memberNameReqValidator control.
+		/// creatorNameReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberNameReqValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorNameReqValidator;
 
 		/// <summary>
-		/// txtMemberName control.
+		/// txtCreatorName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberName;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorName;
 
 		/// <summary>
-		/// memberUsernameReqValidator control.
+		/// creatorUsernameReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberUsernameReqValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorUsernameReqValidator;
 
 		/// <summary>
-		/// memberUsernameMinLengthValidator control.
+		/// creatorUsernameMinLengthValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberUsernameMinLengthValidator;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorUsernameMinLengthValidator;
 
 		/// <summary>
-		/// txtMemberUsername control.
+		/// txtCreatorUsername control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberUsername;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorUsername;
 
 		/// <summary>
-		/// memberEmailReqValidator control.
+		/// creatorEmailReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberEmailReqValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorEmailReqValidator;
 
 		/// <summary>
-		/// RegularExpressionValidator1 control.
+		/// creatorEmailFormatValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorEmailFormatValidator;
 
 		/// <summary>
-		/// txtMemberEmail control.
+		/// txtCreatorEmail control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberEmail;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorEmail;
 
 		/// <summary>
-		/// memberReqPhoneValidator control.
+		/// creatorReqPhoneValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberReqPhoneValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorReqPhoneValidator;
 
 		/// <summary>
-		/// txtMemberPhone control.
+		/// txtCreatorPhone control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberPhone;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorPhone;
 
 		/// <summary>
-		/// memberReqAddValidator control.
+		/// creatorReqAddValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberReqAddValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorReqAddValidator;
 
 		/// <summary>
-		/// txtMemberAddress control.
+		/// txtCreatorAddress control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberAddress;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorAddress;
 
 		/// <summary>
-		/// memberPassAddValidator control.
+		/// creatorPassReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator memberPassAddValidator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorPassReqValidator;
 
 		/// <summary>
-		/// memberPassMinLengthValidator control.
+		/// creatorPassMinLengthValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberPassMinLengthValidator;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorPassMinLengthValidator;
 
 		/// <summary>
-		/// txtMemberPassword control.
+		/// txtCreatorPassword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberPassword;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorPassword;
 
 		/// <summary>
-		/// comparePasswords control.
+		/// creatorComparePasswords control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.CompareValidator comparePasswords;
+		protected global::System.Web.UI.WebControls.CompareValidator creatorComparePasswords;
 
 		/// <summary>
-		/// txtMemberConfirmPassword control.
+		/// txtCreatorConfirmPassword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtMemberConfirmPassword;
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorConfirmPassword;
 
 		/// <summary>
-		/// txtMemberCountry control.
+		/// txtCreatorCountry control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList txtMemberCountry;
+		protected global::System.Web.UI.WebControls.DropDownList txtCreatorCountry;
 
 		/// <summary>
-		/// countryXMLDS control.
+		/// countryCreatorXMLDS control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.XmlDataSource countryXMLDS;
+		protected global::System.Web.UI.WebControls.XmlDataSource countryCreatorXMLDS;
 
 		/// <summary>
-		/// btnSignUp control.
+		/// txtBusinessType control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnSignUp;
+		protected global::System.Web.UI.WebControls.DropDownList txtBusinessType;
+
+		/// <summary>
+		/// creatorFileReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorFileReqValidator;
+
+		/// <summary>
+		/// creatorFileDocumentPDFVal control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorFileDocumentPDFVal;
+
+		/// <summary>
+		/// filDocument control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.FileUpload filDocument;
+
+		/// <summary>
+		/// btnCreatorSignUp control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnCreatorSignUp;
 	}
 }
