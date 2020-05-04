@@ -23,7 +23,7 @@ function allowOnlyNumber(evt) {
 	<label for="txtContent">Project Content</label>
 	<asp:TextBox TextMode="MultiLine" ID="txtContent" runat="server" Cssclass="form-control"></asp:TextBox>
 
-	<label for="cobTopic">Project Description</label>
+	<label for="cobTopic">Project Topic</label>
 	<asp:DropDownList ID="cobTopic" runat="server" AutoPostBack="False" CssClass="form-control">
 		<asp:ListItem Text="Art" Value="art"></asp:ListItem>
 		<asp:ListItem Text="Design" Value="design"></asp:ListItem>
@@ -39,6 +39,6 @@ function allowOnlyNumber(evt) {
 	<label for="txtTarget">Project Target</label>
 	<asp:TextBox ID="txtTarget" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);"></asp:TextBox>
 
-	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn"/>
+	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn" OnClick="btnCreateProject_Click"/>
 </div>
 </asp:Content>
