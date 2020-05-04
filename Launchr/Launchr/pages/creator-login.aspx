@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="creator-login.aspx.cs" Inherits="Launchr.pages.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<title>Creator Log In & Sign Up | Launch:r</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="container-fluid login-bg pt-5">
@@ -17,11 +18,10 @@
 
 		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="False" ValidationGroup="creatorLogin" OnClick="btnCreatorLogin_Click"/>
 
-		<div id="alertbox" class="mt-3" runat="server" style="display: none">
-			<div class="alert alert-danger">
-				<strong>Wrong credentials!</strong> Incorrect username and password.
-			</div>
-		</div>
+		<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
+
+		<a class="to-creator launchr-btn text-decoration-none" href="login.aspx">Switch to Member Login</a>
+
 	</div>
 	<!--Login card end-->
 	<!--Signup card -->
@@ -29,6 +29,9 @@
 		<h3>CREATOR SIGN UP</h3>
 		<label for="email-register">Want to launch your project in Launch:r? Click the button below to continue</label>
 		<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
+
+		<asp:PlaceHolder ID="registerAlert" runat="server"></asp:PlaceHolder>
+
 		<div id="sign-up-modal" class="modal fade" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -42,6 +45,8 @@
 						<p class="mb-0">Let us know more about you.</p>
 						<span class="text-warning">All the fields are mandatory.</span><br />
 
+						<asp:PlaceHolder ID="registerAlertModal" runat="server"></asp:PlaceHolder>
+
 						<label for="txtCreatorName" class="mt-2">Name</label>
 						<asp:RequiredFieldValidator ID="creatorNameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtCreatorName" Display="Dynamic" ValidationGroup="creatorSignup"></asp:RequiredFieldValidator>
 						<asp:TextBox ID="txtCreatorName" runat="server" Cssclass="form-control" ValidationGroup="creatorSignup"></asp:TextBox>
@@ -50,6 +55,7 @@
 						<label for="txtCreatorUsername" class="mt-2">Username</label>
 						<asp:RequiredFieldValidator ID="creatorUsernameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtCreatorUsername" Display="Dynamic" ValidationGroup="creatorSignup"></asp:RequiredFieldValidator>
 						<asp:RegularExpressionValidator ID="creatorUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> Username must be between 6 to 20 characters." ControlToValidate="txtCreatorUsername" Display="Dynamic" ValidationGroup="creatorSignup"></asp:RegularExpressionValidator><br />
+						<asp:RegularExpressionValidator ID="creatorUsernameAlphanumericValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9_.]*$" runat="server" ErrorMessage="<br/><i>Error:</i> Username should contains alphanumerical and underscore (_) only." ControlToValidate="txtCreatorUsername" Display="Dynamic" ValidationGroup="creatorSignup"></asp:RegularExpressionValidator>						
 						<asp:TextBox ID="txtCreatorUsername" runat="server" Cssclass="form-control" MaxLength="20" ValidationGroup="creatorSignup"></asp:TextBox>
 						<label for="txtCreatorUsername" class="text-muted">You'll need this to login later.</label><br/>
 								

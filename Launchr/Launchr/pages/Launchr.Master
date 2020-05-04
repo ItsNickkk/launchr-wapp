@@ -13,6 +13,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
 	<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+
 	<asp:ContentPlaceHolder ID="head" runat="server">
 	</asp:ContentPlaceHolder>
 </head>
@@ -39,15 +45,25 @@
 						<a class="dropdown-item" href="#">Publishing</a>
 					</div>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Start a project</a>
-				</li>
+				<%
+					User user = (User)this.Session["user"];
+					Creator creator = (Creator)this.Session["creator"];
+
+					if (this.Session["creator"] != null)
+					{
+						Response.Write("<li class=\"nav-item\"><a class=\"nav-link\" href=\"create-project.aspx?creatorID=" + creator.id + "\">Start a project</a></li>");
+					}
+					else if (this.Session["user"] == null && this.Session["creator"] == null)
+					{
+						Response.Write("<li class=\"nav-item\"><a class=\"nav-link\" href=\"creator-login\">Start a project</a></li>");
+					}
+					else if(this.Session["user"] != null){
+						Response.Write("<li class=\"nav-item\"><label class=\"nav-link\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"You can only start a project as a creator.\">Start a project</label></li>");
+					}
+				%>
 			</ul>
 
 			<%
-				User user = (User)this.Session["user"];
-				Creator creator = (Creator)this.Session["creator"];
-
 				if (this.Session["user"] == null){
 					if(this.Session["creator"]==null){
 						Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">Log In</a>");

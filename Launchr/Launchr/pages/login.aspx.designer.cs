@@ -51,40 +51,31 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.Button btnLogin;
 
 		/// <summary>
-		/// loginError control.
+		/// loginAlert control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder loginError;
+		protected global::System.Web.UI.WebControls.PlaceHolder loginAlert;
 
 		/// <summary>
-		/// alertbox control.
+		/// registerAlert control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbox;
+		protected global::System.Web.UI.WebControls.PlaceHolder registerAlert;
 
 		/// <summary>
-		/// registerError control.
+		/// registerAlertModal control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder registerError;
-
-		/// <summary>
-		/// registerErrorModal control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder registerErrorModal;
+		protected global::System.Web.UI.WebControls.PlaceHolder registerAlertModal;
 
 		/// <summary>
 		/// memberNameReqValidator control.

@@ -31,7 +31,6 @@ namespace Launchr.pages
 
 			} else
 			{
-				//alertbox.Style["display"] = "block";
 				displayErrorMessage("Username or password is incorrect.", 1);
 			}
 
@@ -55,37 +54,46 @@ namespace Launchr.pages
 			if (add_user_status == 1)
 			{
 				// signup successful; do something here
+				displayErrorMessage("<i>Success!</i> Registration successful! You may log in now.", 5);
 			} else 
 			{	// everything in this else block should be error code
 				if (add_user_status == 0)
 				{
 					// sql execution error
-					displayErrorMessage("SQL Execution Error.", add_user_status);
+					displayErrorMessage("<i>Error!</i> SQL Execution Error.", 4);
 				} else if (add_user_status == 2)
 				{
 					// user with same email found, show error message here...
-					displayErrorMessage("Someone already has this email address. Try another email.", add_user_status);
+					displayErrorMessage("<i>Error!</i> Someone already has this email address. Try another email.", 2);
 				} else if (add_user_status == 3)
 				{
 					// user with same username found, show error message here...
-					displayErrorMessage("Someone already has this username. Try another username.", add_user_status);
+					displayErrorMessage("<i>Error!</i> Someone already has this username. Try another username.", 3);
 				}
 			}
 		}
 
-		protected void displayErrorMessage(String errormsg, int type){
+		protected void displayErrorMessage(String alertmsg, int type){
 			StringBuilder html = new StringBuilder();
 			html.Append("<div class=\"mt-3\" runat=\"server\">");
-			html.Append("<div class=\"alert alert-danger\">");
-			html.Append("<i>Error!</i> " + errormsg);
+			if (type==5){
+				html.Append("<div class=\"alert alert-success\">");
+			}
+			else{
+				html.Append("<div class=\"alert alert-danger\">");
+			}
+			html.Append(alertmsg);
 			html.Append("</div></div>");
 
 			if(type==1){
-				loginError.Controls.Add(new Literal { Text = html.ToString() });
+				loginAlert.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else if(type==5){
+				registerAlert.Controls.Add(new Literal { Text = html.ToString() });
 			}
 			else{
-				registerError.Controls.Add(new Literal { Text = html.ToString() });
-				registerErrorModal.Controls.Add(new Literal { Text = html.ToString() });
+				registerAlert.Controls.Add(new Literal { Text = html.ToString() });
+				registerAlertModal.Controls.Add(new Literal { Text = html.ToString() });
 			}
 			
 		}

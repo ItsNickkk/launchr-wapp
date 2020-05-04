@@ -51,13 +51,31 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.Button btnCreatorLogin;
 
 		/// <summary>
-		/// alertbox control.
+		/// loginAlert control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbox;
+		protected global::System.Web.UI.WebControls.PlaceHolder loginAlert;
+
+		/// <summary>
+		/// registerAlert control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder registerAlert;
+
+		/// <summary>
+		/// registerAlertModal control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder registerAlertModal;
 
 		/// <summary>
 		/// creatorNameReqValidator control.
@@ -94,6 +112,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorUsernameMinLengthValidator;
+
+		/// <summary>
+		/// creatorUsernameAlphanumericValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator creatorUsernameAlphanumericValidator;
 
 		/// <summary>
 		/// txtCreatorUsername control.

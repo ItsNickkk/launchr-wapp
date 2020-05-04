@@ -5,8 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 	<div id="hero-container" class="container-fluid">
 		<div class="row">
-			<div class="col-xl-9">&nbsp;</div>
-			<div class="col-xl-3 p-5">
+			<div class="col-xl-4 offset-xl-8 p-5">
 				<div id="hero-container__search" class="p-3" >
 					<div id="hero-container__search--div">
 							<h2>Be a part of what you love</h2>

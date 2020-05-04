@@ -90,7 +90,7 @@ footer {
 .login-box {
 	background-color: white;
 	/*box-shadow: 5px 5px 10px #ebebeb, -5px -5px 10px #ffffff;*/
-
+	transition: .2s;
 }
 
 .login-box > p{
@@ -189,4 +189,11 @@ footer {
 
 .comment-input-btn:hover {
 	color: #db3381;
+}
+
+.to-creator{
+	bottom:10px;
+	right:10px;
+	position: absolute;
+	padding: 8px 10px 8px 10px;
 }

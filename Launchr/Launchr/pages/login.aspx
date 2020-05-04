@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Launchr.pages.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-	<title>Launch:r | Log In & Sign Up</title>
+	<title>Log In & Sign Up | Launch:r</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="container-fluid login-bg pt-5">
@@ -14,14 +14,8 @@
 	<asp:RegularExpressionValidator ID="memberLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtMemberLoginPasssword" Display="Dynamic" ValidationGroup="login"></asp:RegularExpressionValidator><br />
 	<asp:TextBox id="txtMemberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="login"></asp:TextBox>
 	<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="False" ValidationGroup="login"/>
-	<asp:PlaceHolder ID="loginError" runat="server"></asp:PlaceHolder>
-
-	<!--<div id="alertbox" class="mt-3" runat="server" style="display: none">
-		<div class="alert alert-danger">
-			<strong>Wrong credentials!</strong> Incorrect username and password.
-		</div>
-	</div>-->
-
+	<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
+	<a class="to-creator launchr-btn text-decoration-none" href="creator-login.aspx">Switch to Creator Login</a>
 </div>
 <!--Login card end-->
 <!--Signup card -->
@@ -30,7 +24,7 @@
 	<label for="email-register">New to Launch:r? Click the button below to continue</label>
 	<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
 
-	<asp:PlaceHolder ID="registerError" runat="server"></asp:PlaceHolder>
+	<asp:PlaceHolder ID="registerAlert" runat="server"></asp:PlaceHolder>
 
 	<div id="sign-up-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog" role="document">
@@ -45,7 +39,7 @@
 					<p class="mb-0">Let us know more about you.</p>
 					<span class="text-warning">All the fields are mandatory.</span><br />
 					
-					<asp:PlaceHolder ID="registerErrorModal" runat="server"></asp:PlaceHolder>
+					<asp:PlaceHolder ID="registerAlertModal" runat="server"></asp:PlaceHolder>
 
 					<label for="txtMemberName" class="mt-2">Full Name</label>
 					<asp:RequiredFieldValidator ID="memberNameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberName" Display="Dynamic" ValidationGroup="signup"></asp:RequiredFieldValidator>
@@ -105,7 +99,7 @@
 			</div>
 		</div>
 	</div>
-	<a href="creator-login.aspx">creator</a>
+	
 </div>
 <!--Signup card end-->
 </div>

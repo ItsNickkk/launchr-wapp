@@ -10,7 +10,10 @@
 			$(".clear-comment-pointer-btn").click(function () {
 				$('#content_txtCommentReplyPointer').val("this project");
 			});
+			$('[data-toggle="tooltip"]').tooltip();
 		});
+
+
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -73,13 +76,13 @@
 					</div>
 				</div>
 				<div class="row mt-3">
-					<button type="button" class="btn btn-secondary launchr-btn mt-3 ml-3" data-toggle="modal" data-target="#pledge-modal">Back this Project</button>
+					<asp:Button type="button" cssclass="btn btn-secondary launchr-btn mt-3 ml-3" data-toggle="modal" data-target="#pledge-modal" ID="backProject" runat="server" Text="Back this Project" OnClientClick="return false;"></asp:Button>
 					<div id="pledge-modal" class="modal fade" role="dialog">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<h5 class="modal-title">Back this project</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
@@ -206,7 +209,7 @@
 				<div class="row pt-3">
 					<div class="p-4 tier-card neumorph"><h4>Pledge without a tier reward</h4>
 						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-						<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
 					</div>	
 				</div>
 				<div class="row pt-3">
@@ -227,7 +230,7 @@
 							<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 						</div>
 						<p>75 out of 100 slots left</p>
-						<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
 					</div>	
 				</div>	
 			</div>

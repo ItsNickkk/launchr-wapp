@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,7 +26,7 @@ namespace Launchr.pages
 				Response.Redirect("home");
 			} else
 			{
-				alertbox.Style["display"] = "block";
+				displayErrorMessage("Username or password is incorrect.", 1);
 			}
 		}
 		protected void btnCreatorSignUp_Click(object sender, EventArgs e)
@@ -47,25 +48,56 @@ namespace Launchr.pages
 			{
 				// signup successful, save document and redirect
 				document.SaveAs(document_path);
-				Response.Redirect("home");
+				displayErrorMessage("Your information had been submitted. You may log in to your account after 3-5 working days upon Launch:r administrator's approval.", 5);
 			} else
 			{
 				if (add_creator_status == 0)
 				{
 					// sql execution error
-					this.txtCreatorName.Text = "0";
+					displayErrorMessage("<i>Error!</i> SQL Execution Error.", 4);
 				}
 				else if (add_creator_status == 2)
 				{
 					// creator with same email found, show error message here...
-					this.txtCreatorName.Text = "2";
+					displayErrorMessage("<i>Error!</i> Someone already has this email address. Try another email.", 2);
 				}
 				else if (add_creator_status == 3)
 				{
 					// creator with same username found, show error message here...
-					this.txtCreatorName.Text = "3";
+					displayErrorMessage("<i>Error!</i> Someone already has this username. Try another username.", 3);
 				}
 			}
+		}
+
+		protected void displayErrorMessage(String alertmsg, int type)
+		{
+			StringBuilder html = new StringBuilder();
+			html.Append("<div class=\"mt-3\" runat=\"server\">");
+			if (type == 5)
+			{
+				html.Append("<div class=\"alert alert-info\">");
+			}
+			else
+			{
+				html.Append("<div class=\"alert alert-danger\">");
+			}
+			html.Append(alertmsg);
+			html.Append("</div></div>");
+
+			if (type == 1)
+			{
+				loginAlert.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else if (type == 5)
+			{
+				registerAlert.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else
+			{
+				registerAlert.Controls.Add(new Literal { Text = html.ToString() });
+				registerAlertModal.Controls.Add(new Literal { Text = html.ToString() });
+			}
+
 		}
 	}
 }
