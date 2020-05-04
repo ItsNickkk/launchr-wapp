@@ -18,6 +18,7 @@ namespace Launchr.pages
 				backProject.Attributes["data-toggle"] = "tooltip";
 				backProject.Attributes["data-placement"] = "right";
 				backProject.Attributes["title"] = "You can only pledge a tier as a normal member.";
+				backProject.Attributes.Remove("data-target");
 			}
 		}
 	}

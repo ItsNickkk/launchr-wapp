@@ -1,20 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="project.aspx.cs" Inherits="Launchr.pages.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-	<title></title>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".reply-btn").click(function () {
-				id = $(this).parent().parent().parent().parent().attr('id');
-				$('#content_txtCommentReplyPointer').val(id);
-			});
-			$(".clear-comment-pointer-btn").click(function () {
-				$('#content_txtCommentReplyPointer').val("this project");
-			});
-			$('[data-toggle="tooltip"]').tooltip();
-		});
-
-
-	</script>
+	<title>| Launch:r</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="row">
@@ -237,15 +223,26 @@
 		</div>
 	</div>
 </div>
+
+<script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
-		function allowOnlyNumber(evt)
-		{
-			var charCode = (evt.which) ? evt.which : event.keyCode
-			if (charCode > 31 && (charCode < 48 || charCode > 57))
-				return false;
-			return true;
-		}
-	</script>
+	$(document).ready(function () {
+		$(".reply-btn").click(function () {
+			id = $(this).parent().parent().parent().parent().attr('id');
+			$('#content_txtCommentReplyPointer').val(id);
+		});
+		$(".clear-comment-pointer-btn").click(function () {
+			$('#content_txtCommentReplyPointer').val("this project");
+		});
+	});
+
+	function allowOnlyNumber(evt) {
+		var charCode = (evt.which) ? evt.which : event.keyCode
+		if (charCode > 31 && (charCode < 48 || charCode > 57))
+			return false;
+		return true;
+	}
+</script>
 
 
 </asp:Content>
