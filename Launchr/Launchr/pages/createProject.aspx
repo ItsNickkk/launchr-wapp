@@ -10,11 +10,12 @@ function allowOnlyNumber(evt) {
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+<div class="container">
 	<label for="txtTitle">Title</label>
 	<asp:TextBox ID="txtTitle" runat="server" Cssclass="form-control"></asp:TextBox>
 
 	<label for="txtDate">Time End</label>
-	<asp:TextBox ID="txtDate" runat="server" TextMode="DateTime" Cssclass="form-control"></asp:TextBox>
+	<asp:TextBox ID="txtDate" runat="server" TextMode="date" Cssclass="form-control"></asp:TextBox>
 
 	<label for="txtDescription">Project Description</label>
 	<asp:TextBox TextMode="MultiLine" ID="txtDescription" runat="server" Cssclass="form-control" MaxLength="140"></asp:TextBox>
@@ -38,6 +39,6 @@ function allowOnlyNumber(evt) {
 	<label for="txtTarget">Project Target</label>
 	<asp:TextBox ID="txtTarget" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);"></asp:TextBox>
 
-	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn" OnClick="btnCreateProject_Click"/>
-
+	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn"/>
+</div>
 </asp:Content>
