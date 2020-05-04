@@ -10,11 +10,13 @@ namespace Launchr.models
     {
         private userTableAdapter userAdapter;
         private creatorTableAdapter creatorAdapter;
+        private projectTableAdapter projectAdapter;
 
         public SiteDB()
         {
             userAdapter = new userTableAdapter();
             creatorAdapter = new creatorTableAdapter();
+            projectAdapter = new projectTableAdapter();
         }
         // <------------------ User functions ------------------>
         private User translateRowToUser(launchr_DataSet.userRow user_row)
@@ -172,6 +174,20 @@ namespace Launchr.models
         {
             List<Creator> creator_list = translateCreatorTableToList(creatorAdapter.GetCreatorByUsernamePassword(username, password));
             return creator_list;
+        }
+
+        // <--------------------------- Project functions --------------------------->
+
+        public int AddNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string imagePath)
+        {
+            try
+            {
+                projectAdapter.AddNewProject(creator_id, title, time_created, time_end, description, target, topic, content, imagePath);
+                return 1; // INSERT successful
+            } catch (Exception e)
+            {
+                return 0; // INSERT failed
+            }
         }
     }
 }
