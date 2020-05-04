@@ -30,7 +30,7 @@ namespace Launchr.models
             this.username = username;
             this.password = password;
         }
-        public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin_int, string username, string password):
+        public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin_int, string username, string password, int mode):
             this(id, name, address, phone_number, email, country, status, User.is_admin_bool(is_admin_int), username, password)
         {
             
