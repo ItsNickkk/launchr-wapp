@@ -38,31 +38,39 @@ namespace Launchr.models
         {
             try
             {
+                List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(email));
-                if (user_list_same_email.Count() > 0)
+                if (creator_list_same_email.Count() > 0 | user_list_same_email.Count() > 0)
                 {
                     return 2; // 2 is returned if same email
-                } else
+                }
+                else
                 {
+                    List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(username));
-                    if (user_list_same_username.Count() > 0)
+                    if (creator_list_same_username.Count() > 0 | user_list_same_username.Count() > 0)
                     {
                         return 3; // 3 is returned if same username
                     }
                     else
                     {
+
                         userAdapter.AddNewUser(name, address, phone_number, email, country, 1, 0, username, password);
                         return 1; // 1 is returned if no errors, no same email, or same username
+
                     }
                 }
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return 0; // 0 is returned if sql error
             }
+            
         }
 
         public int updateUser(User user)
         {
+
             try
             {
 
@@ -133,7 +141,7 @@ namespace Launchr.models
             {
                 List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(email));
-                if (creator_list_same_email.Count() > 0 || user_list_same_email.Count() > 0)
+                if (creator_list_same_email.Count() > 0 | user_list_same_email.Count() > 0)
                 {
                     return 2; // 2 is returned if same email
                 }
@@ -141,7 +149,7 @@ namespace Launchr.models
                 {
                     List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(username));
-                    if (creator_list_same_username.Count() > 0 || user_list_same_username.Count() > 0)
+                    if (creator_list_same_username.Count() > 0 | user_list_same_username.Count() > 0)
                     {
                         return 3; // 3 is returned if same username
                     }
