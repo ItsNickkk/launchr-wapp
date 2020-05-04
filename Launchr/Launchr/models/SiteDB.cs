@@ -19,7 +19,7 @@ namespace Launchr.models
         // <------------------ User functions ------------------>
         private User translateRowToUser(launchr_DataSet.userRow user_row)
         {
-            User user = new User(int.Parse(user_row.id), user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password, 1);
+            User user = new User(user_row.id, user_row.name, user_row.address, user_row.phone_number, user_row.email, user_row.country, user_row.status, user_row.is_admin, user_row.username, user_row.password, 1);
             return user;
         }
 
@@ -51,7 +51,7 @@ namespace Launchr.models
                     }
                     else
                     {
-                        userAdapter.AddUser(name, address, phone_number, email, country, 1, 0, username, password);
+                        userAdapter.AddNewUser(name, address, phone_number, email, country, 1, 0, username, password);
                         return 1; // 1 is returned if no errors, no same email, or same username
                     }
                 }
@@ -93,7 +93,7 @@ namespace Launchr.models
 
         public List<User> getUserByUsernameAndPassword(string username, string password)
         {
-            List<User> user_list = translateUserTableToList(userAdapter.GetUserByUsernamePassword(username, password));
+            List<User> user_list = this.translateUserTableToList(this.userAdapter.GetUserByUsernamePassword(username, password));
             return user_list;
         }
 
