@@ -13,5 +13,11 @@ namespace Launchr.pages
 		{
 
 		}
+
+		protected void btnCreateProject_Click(object sender, EventArgs e)
+		{
+			string title = this.txtTitle.Text;
+			string date = this.txtDate.Text;
+		}
 	}
 }

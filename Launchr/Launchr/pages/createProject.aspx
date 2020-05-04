@@ -38,6 +38,6 @@ function allowOnlyNumber(evt) {
 	<label for="txtTarget">Project Target</label>
 	<asp:TextBox ID="txtTarget" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);"></asp:TextBox>
 
-	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn"/>
+	<asp:Button ID="btnCreateProject" runat="server" Text="Add Project" CssClass="btn launchr-btn" OnClick="btnCreateProject_Click"/>
 
 </asp:Content>
