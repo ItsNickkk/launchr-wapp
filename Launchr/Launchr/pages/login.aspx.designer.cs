@@ -51,6 +51,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.Button btnLogin;
 
 		/// <summary>
+		/// loginError control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder loginError;
+
+		/// <summary>
 		/// alertbox control.
 		/// </summary>
 		/// <remarks>
@@ -58,6 +67,24 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbox;
+
+		/// <summary>
+		/// registerError control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder registerError;
+
+		/// <summary>
+		/// registerErrorModal control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder registerErrorModal;
 
 		/// <summary>
 		/// memberNameReqValidator control.
@@ -94,6 +121,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberUsernameMinLengthValidator;
+
+		/// <summary>
+		/// memberUsernameAlphanumericValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberUsernameAlphanumericValidator;
 
 		/// <summary>
 		/// txtMemberUsername control.

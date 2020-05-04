@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using Launchr.models;
+using System.Text;
 
 namespace Launchr.pages
 {
@@ -30,7 +31,8 @@ namespace Launchr.pages
 
 			} else
 			{
-				alertbox.Style["display"] = "block";
+				//alertbox.Style["display"] = "block";
+				displayErrorMessage("Username or password is incorrect.", 1);
 			}
 
 		}
@@ -58,14 +60,34 @@ namespace Launchr.pages
 				if (add_user_status == 0)
 				{
 					// sql execution error
+					displayErrorMessage("SQL Execution Error.", add_user_status);
 				} else if (add_user_status == 2)
 				{
 					// user with same email found, show error message here...
+					displayErrorMessage("Someone already has this email address. Try another email.", add_user_status);
 				} else if (add_user_status == 3)
 				{
 					// user with same username found, show error message here...
+					displayErrorMessage("Someone already has this username. Try another username.", add_user_status);
 				}
 			}
+		}
+
+		protected void displayErrorMessage(String errormsg, int type){
+			StringBuilder html = new StringBuilder();
+			html.Append("<div class=\"mt-3\" runat=\"server\">");
+			html.Append("<div class=\"alert alert-danger\">");
+			html.Append("<i>Error!</i> " + errormsg);
+			html.Append("</div></div>");
+
+			if(type==1){
+				loginError.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else{
+				registerError.Controls.Add(new Literal { Text = html.ToString() });
+				registerErrorModal.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			
 		}
 	}
 }

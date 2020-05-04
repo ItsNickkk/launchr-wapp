@@ -14,11 +14,14 @@
 	<asp:RegularExpressionValidator ID="memberLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtMemberLoginPasssword" Display="Dynamic" ValidationGroup="login"></asp:RegularExpressionValidator><br />
 	<asp:TextBox id="txtMemberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="login"></asp:TextBox>
 	<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="False" ValidationGroup="login"/>
-	<div id="alertbox" class="mt-3" runat="server" style="display: none">
+	<asp:PlaceHolder ID="loginError" runat="server"></asp:PlaceHolder>
+
+	<!--<div id="alertbox" class="mt-3" runat="server" style="display: none">
 		<div class="alert alert-danger">
 			<strong>Wrong credentials!</strong> Incorrect username and password.
 		</div>
-	</div>
+	</div>-->
+
 </div>
 <!--Login card end-->
 <!--Signup card -->
@@ -26,6 +29,9 @@
 	<h3>MEMBER SIGN UP</h3>
 	<label for="email-register">New to Launch:r? Click the button below to continue</label>
 	<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
+
+	<asp:PlaceHolder ID="registerError" runat="server"></asp:PlaceHolder>
+
 	<div id="sign-up-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -38,6 +44,8 @@
 				<div class="modal-body pl-5 pr-5">
 					<p class="mb-0">Let us know more about you.</p>
 					<span class="text-warning">All the fields are mandatory.</span><br />
+					
+					<asp:PlaceHolder ID="registerErrorModal" runat="server"></asp:PlaceHolder>
 
 					<label for="txtMemberName" class="mt-2">Full Name</label>
 					<asp:RequiredFieldValidator ID="memberNameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberName" Display="Dynamic" ValidationGroup="signup"></asp:RequiredFieldValidator>
@@ -46,7 +54,7 @@
 					<label for="txtMemberUsername" class="mt-2">Username</label>
 					<asp:RequiredFieldValidator ID="memberUsernameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> Username must be between 6 to 20 characters." ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RegularExpressionValidator><br />
-					<asp:RegularExpressionValidator ID="memberUsernameAlphanumericValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9_]*$" runat="server" ErrorMessage="<br/><i>Error:</i> Username should contains alphanumerical and underscore (_) only." ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RegularExpressionValidator>
+					<asp:RegularExpressionValidator ID="memberUsernameAlphanumericValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9_.]*$" runat="server" ErrorMessage="<br/><i>Error:</i> Username should contains alphanumerical and underscore (_) only." ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RegularExpressionValidator>
 					<asp:TextBox ID="txtMemberUsername" runat="server" Cssclass="form-control" MaxLength="20" ValidationGroup="signup"></asp:TextBox>
 					<label for="txtMemberUsername" class="text-muted">You'll need this to login later.</label><br/>
 								
