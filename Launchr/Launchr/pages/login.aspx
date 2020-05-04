@@ -46,6 +46,7 @@
 					<label for="txtMemberUsername" class="mt-2">Username</label>
 					<asp:RequiredFieldValidator ID="memberUsernameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> Username must be between 6 to 20 characters." ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RegularExpressionValidator><br />
+					<asp:RegularExpressionValidator ID="memberUsernameAlphanumericValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9_]*$" runat="server" ErrorMessage="<br/><i>Error:</i> Username should contains alphanumerical and underscore (_) only." ControlToValidate="txtMemberUsername" Display="Dynamic" ValidationGroup="signup"></asp:RegularExpressionValidator>
 					<asp:TextBox ID="txtMemberUsername" runat="server" Cssclass="form-control" MaxLength="20" ValidationGroup="signup"></asp:TextBox>
 					<label for="txtMemberUsername" class="text-muted">You'll need this to login later.</label><br/>
 								
@@ -87,6 +88,7 @@
 					<label for="txtMemberCountry" class="mt-2">Country</label>
 					<asp:DropDownList ID="txtMemberCountry" DataSourceID="countryXMLDS" runat="server" DataValueField="handle" DataTextField="handle" AutoPostBack="False" CssClass="form-control" ValidationGroup="signup"></asp:DropDownList>
 					<asp:XmlDataSource ID="countryXMLDS" runat="server" DataFile="../Content/countries.xml" XPath="countries/country"></asp:XmlDataSource>
+					
 				</div>
 				<div class="modal-footer">
 					<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" OnClick="btnSignUp_Click" ValidationGroup="signup"/>
