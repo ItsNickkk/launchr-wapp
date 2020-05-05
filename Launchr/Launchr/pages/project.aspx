@@ -12,21 +12,11 @@
 					<div id="project-photo-carousel" class="carousel slide" data-ride="carousel">
 
 						<ul class="carousel-indicators">
-							<li data-target="#project-photo-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#project-photo-carousel" data-slide-to="1"></li>
-							<li data-target="#project-photo-carousel" data-slide-to="2"></li>
+                            <asp:PlaceHolder ID="plcAlbumIndicator" runat="server"></asp:PlaceHolder>
 						</ul>
   
 						<div class="carousel-inner">
-							<div class="carousel-item active project-photo-div ">
-								<img class="project-photo-carousel" src="../Content/images/content1.jpg" />
-							</div>
-							<div class="carousel-item project-photo-div">
-								<img class="project-photo-carousel" src="../Content/images/content2.jpg" />
-							</div>
-							<div class="carousel-item project-photo-div">
-								<img class="project-photo-carousel" src="../Content/images/content4.jpg" />
-							</div>
+                            <asp:PlaceHolder ID="plcImageAlbum" runat="server"></asp:PlaceHolder>
 						</div>
   
 						<a class="carousel-control-prev" href="#project-photo-carousel" data-slide="prev">
@@ -41,24 +31,40 @@
 			<div class="col-xl-6">
 				<div class="row">
 					<div class="col">
-						<h2 class="project-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut nibh dui.</h2>
+						<h2 class="project-info">
+							<asp:PlaceHolder ID="plcTitle" runat="server">
+
+							</asp:PlaceHolder>
+
+						</h2>
 					</div>				
 				</div>
 				<div class="row">
 					<div class="col">
-						<p class="project-info">lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,</p>
+						<p class="project-info">
+							<asp:PlaceHolder ID="plcDescription" runat="server">
+
+							</asp:PlaceHolder>
+
+						</p>
 					</div>
 				</div>
 				<div class="progress mb-3">
-					<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="200" style="width: 75%"></div>
+                    <asp:PlaceHolder ID="plcProgressBar" runat="server"></asp:PlaceHolder>
 				</div>
 				<div class="row">
 					<div class="col-xl-6">
-						<h3>$0 plegded of $100000</h3>
+						<h3>
+                            <asp:PlaceHolder ID="plcTarget" runat="server"></asp:PlaceHolder>
+						</h3>
 					</div>
 					<div class="col-xl-6 text-right">
-						<h3>110 backers</h3>
-						<h4>3 days left</h4>
+						<h3>
+                            <asp:PlaceHolder ID="plcBackers" runat="server"></asp:PlaceHolder>
+                        </h3>
+						<h4>
+                            <asp:PlaceHolder ID="plcRemaining" runat="server"></asp:PlaceHolder>
+						</h4>
 					</div>
 				</div>
 				<div class="row mt-3">
