@@ -199,3 +199,7 @@ footer {
 	position: absolute;
 	padding: 8px 10px 8px 10px;
 }
+
+.pleg {
+	filter: blur(3px);
+}
