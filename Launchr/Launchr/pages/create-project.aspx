@@ -10,6 +10,7 @@
 			<div class="row">
 				<div class="col neumorph p-3">
 					<h1>Create new project</h1>
+					<h3>Step 1: Insert project details</h3>
 				</div>
 			</div>
 			<div class="row mt-3">
@@ -57,7 +58,7 @@
 							</asp:DropDownList>
 						</div>
 						<div class="col">
-							<label for="txtTarget" class="mt-2" data-toggle="tooltip" title="How much do you need to launch your project" data-placement="right">Project Target</label>
+							<label for="content_txtTarget" class="mt-2" data-toggle="tooltip" title="How much do you need to launch your project" data-placement="right">Project Target</label>
 							<asp:RequiredFieldValidator ID="createProjMoneyReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtTarget" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
@@ -76,19 +77,22 @@
 		</div>
 	</div>
 </div>
-<script src="../Scripts/bootstrap.bundle.js"></script>
 
 <script type="text/javascript">
+	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtContentFaux') });
+
 	function allowOnlyNumber(evt) {
 		var charCode = (evt.which) ? evt.which : event.keyCode
 		if (charCode > 31 && (charCode < 48 || charCode > 57))
 			return false;
 		return true;
 	}
-	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtContentFaux') });
-	$(document).ready(function () {
-		$('[data-toggle="tooltip"]').tooltip();
-		
+
+	function updatetxtContent() {
+		document.getElementById('content_txtContent').value = easyMDE.value();
+	}
+	
+	$(document).ready(function () {	
 		$('#content_filPhoto').change(function () {
 			var files = $(this)[0].files;
 			if (files.length > 6) {
@@ -97,12 +101,7 @@
 				return false;
 			}
 		});
-		setInterval(test, 1000);
-		
-	});
-	function test() {
-		document.getElementById('content_txtContent').value = easyMDE.value();
-	}
-	
+		setInterval(updatetxtContent, 1000);	
+	});	
 </script>
 </asp:Content>
