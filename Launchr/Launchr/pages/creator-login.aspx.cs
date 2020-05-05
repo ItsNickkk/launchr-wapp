@@ -14,6 +14,10 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (this.Session["user"] != null || this.Session["creator"] != null)
+			{
+				Response.Redirect("home");
+			}
 			siteDB = new SiteDB();
 		}
 
@@ -32,12 +36,15 @@ namespace Launchr.pages
 					if (creator.status == 0)
 					{
 						// creator is banned, do something here...
+						displayErrorMessage("This account had been banned for violating our rules", 1);
 					} else if (creator.status == 2)
 					{
 						// creator is waiting for approval, do something here...
+						displayErrorMessage("This account is still under verification. Please try again after 3-5 working days", 1);
 					} else
 					{
 						// account status error, do something here...
+						displayErrorMessage("Unexpected Error. Please contact administrator at <a href=\"mailto:support@launchr.com\">support@launchr.com</a>", 1);
 					}
 				}
 				

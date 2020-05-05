@@ -20,8 +20,6 @@
 
 		<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
 
-		<a class="to-creator launchr-btn text-decoration-none" href="login.aspx">Switch to Member Login</a>
-
 	</div>
 	<!--Login card end-->
 	<!--Signup card -->
@@ -29,9 +27,8 @@
 		<h3>CREATOR SIGN UP</h3>
 		<label for="email-register">Want to launch your project in Launch:r? Click the button below to continue</label>
 		<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
-
 		<asp:PlaceHolder ID="registerAlert" runat="server"></asp:PlaceHolder>
-
+		<a class="to-creator launchr-btn text-decoration-none" href="login.aspx">Switch to Member Login</a>
 		<div id="sign-up-modal" class="modal fade" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
