@@ -213,7 +213,28 @@ namespace Launchr.models
 
         // <--------------------------- Project functions --------------------------->
 
-        public int AddNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string imagePath)
+
+        private Project translateRowToProject(launchr_DataSet.projectRow project_row) {
+            Project project = new Project(project_row.id, project_row.creator_id, project_row.title, project_row.time_created, project_row.time_end, project_row.description, project_row.target, project_row.topic, project_row.content, project_row.imagePath);
+            return project;
+        }
+
+        private List<Project> translateProjectTableToList(launchr_DataSet.projectDataTable project_data_table)
+        {
+            List<Project> project_list = new List<Project>(); 
+            foreach (launchr_DataSet.projectRow project_row in project_data_table)
+            {
+                project_list.Add(this.translateRowToProject(project_row));
+            }
+            return project_list;
+        }
+
+        public List<Project> getAllProjects()
+        {
+            return this.translateProjectTableToList(projectAdapter.GetAllProjects());
+        }
+
+        public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string imagePath)
         {
             try
             {
@@ -222,6 +243,18 @@ namespace Launchr.models
             } catch (Exception e)
             {
                 return 0; // INSERT failed
+            }
+        }
+
+        public int updateProject(Project project)
+        {
+            try
+            {
+                projectAdapter.UpdateProject(project.creator.id, project.title, project.time_created, project.time_end, project.description, project.target, project.topic, project.content, project.parseStringFromImagePath(), project.id);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
             }
         }
     }
