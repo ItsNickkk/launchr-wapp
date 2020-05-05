@@ -64,7 +64,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">$</span>
 								</div>
-								<asp:TextBox ID="txtTarget" runat="server" Cssclass="form-control text-right" onkeypress="return allowOnlyNumber(event);"></asp:TextBox>
+								<asp:TextBox ID="txtTarget" runat="server" Cssclass="form-control text-right" onkeypress="return allowOnlyNumber(event);" MaxLength="9"></asp:TextBox>
 								<div class="input-group-append">
 									<span class="input-group-text">.00</span>
 								</div>

@@ -18,12 +18,13 @@
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-
+	<title></title>
 	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
 	<a href="project.aspx?id=300001">Go to Project</a><br />
-	<a href="create-project.aspx?projectID=300005">Go to Project Create</a>
+	<a href="create-project.aspx">Go to Project Create</a><br />
+	<a href="tier-rewards.aspx?projID=300001">Go to Tier Reward</a>
 	<nav class="navbar navbar-expand-xl navbar-light bg-light">
 		<a class="navbar-brand" href="home"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">

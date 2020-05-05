@@ -203,3 +203,9 @@ footer {
 .pleg {
 	filter: blur(3px);
 }
+
+#tier-list{
+	height: 80vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
