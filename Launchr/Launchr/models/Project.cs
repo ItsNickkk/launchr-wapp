@@ -40,12 +40,12 @@ namespace Launchr.models
 
         private static List<string> parseImagePathFromString(string connected_image_path)
         {
-            return new List<string>(connected_image_path.Split(','));
+            return new List<string>(connected_image_path.Split(';'));
         }
 
         public string parseStringFromImagePath()
         {
-            return string.Join(",", this.image_path_list.ToArray());
+            return string.Join(";", this.image_path_list.ToArray());
         }
 
         private static Creator parseCreatorId(int creator_id)

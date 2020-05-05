@@ -107,9 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\launcher_db.mdf" />
-    <Content Include="App_Data\launcher_db_log.ldf">
-      <DependentUpon>launcher_db.mdf</DependentUpon>
+    <Content Include="App_Data\launchr_db.mdf" />
+    <Content Include="App_Data\launchr_db_log.ldf">
+      <DependentUpon>launchr_db.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
