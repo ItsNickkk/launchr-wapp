@@ -14,9 +14,6 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col neumorph p-3">
-
-					<asp:TextBox ID="txtCreatorID" runat="server" Cssclass="form-control d-none" readonly="true"></asp:TextBox>
-
 					<span class="text-warning">All the fields are mandatory.</span><br />
 					<label for="content_filPhoto" class="mt-2" data-toggle="tooltip" title="Choose some attractive photo for your project!" data-placement="right">Upload Cover Images</label>
 					<asp:RequiredFieldValidator ID="createProjFileReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="filPhoto" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
