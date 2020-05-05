@@ -22,7 +22,7 @@
 	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-	<a href="project.aspx">Go to Project</a><br />
+	<a href="project.aspx?id=300005">Go to Project</a><br />
 	<a href="create-project.aspx?projectID=300005">Go to Project Create</a>
 	<nav class="navbar navbar-expand-xl navbar-light bg-light">
 		<a class="navbar-brand" href="home"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>

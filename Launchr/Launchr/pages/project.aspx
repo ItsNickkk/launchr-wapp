@@ -126,7 +126,7 @@
 						<zero-md>
 							<template>
 								<xmp>
-<asp:PlaceHolder ID="content" runat="server"></asp:PlaceHolder> 
+<asp:PlaceHolder ID="plcContent" runat="server"></asp:PlaceHolder> 
 <!--place markdown code here-->
 								</xmp>
 							</template>
