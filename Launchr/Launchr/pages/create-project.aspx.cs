@@ -85,6 +85,9 @@ namespace Launchr.pages
 					}
 				}
 				
+			} else
+			{
+				// creator not logged in, do something here...
 			}
 		}
 
