@@ -56,7 +56,10 @@ namespace Launchr.pages
 		{
 			StringBuilder html = new StringBuilder();
 			html.Append(content);
-			this.plcContent.
+			this.plcContent.Controls.Add(new Literal
+			{
+				Text = html.ToString()
+			});
 		}
 	}
 }
