@@ -69,6 +69,9 @@
 </div>
 <script>
 	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtTierContentFaux') });
+	var combinedTier = new Object();
+	var tierNumber = 0;
+	
 
 	function allowOnlyNumber(evt) {
 		var charCode = (evt.which) ? evt.which : event.keyCode
@@ -78,11 +81,11 @@
 	}
 
 	function addTier() {
+		var newTier = [];
 		var title = $("#content_txtTierTitle").val();
 		var price = $("#content_txtTierValue").val();
 		var quantity = $("#content_txtTierMaxNumber").val();
 		var content = easyMDE.value();
-		var newTier = [];
 		newTier.push(
 			"<div class=\"row pt-3\">",
 				"<div class=\"col-xl-4 offset-xl-4\">",
@@ -95,14 +98,39 @@
 						"<div class=\"progress mt-4\">",
 							"<div class=\"progress-bar bg-launchr delete-tier-btn\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"" + quantity + "\" style=\"width: 75 %\"></div></div>",
 			"<p>0 out of " + quantity + " slots left</p>",
-			"<button onclick=\"deleteTier();\" type=\"button\" class=\"btn mt-3 launchr-btn pledge-btn delete-tier-btn\">Remove this Tier</button></div></div></div>"
+			"<input type=\"text\" readonly class=\"tempID d-none\" value=\"" + tierNumber + "\"/>",
+			"<button onclick=\"deleteTier(this);\" type=\"button\" class=\"btn mt-3 launchr-btn pledge-btn delete-tier-btn\">Remove this Tier</button></div></div></div>"
 		);
 		$('#tier-list').append(newTier.join(""));
+		buildTierDict(title, price, quantity, content);
 	}
 
-	function deleteTier() {
-		$('.delete-tier-btn').parent().remove();
+	function deleteTier(elem) {
+		var tierNumber = $(elem).siblings("input").val();
+		$(elem).parent().remove();
+		delete combinedTier[tierNumber];
 	}
+
+	function buildTierDict(tierTitle, tierPrice, tierQuantity, tierContent){
+		var tempTier = {
+			"title": tierTitle,
+			"price": tierPrice,
+			"quantity": tierQuantity,
+			"content": tierContent,
+		};
+		combinedTier[tierNumber] = tempTier;
+		tierNumber = tierNumber + 1;
+	}
+
+	function saveTier() {
+		/*
+		$.ajax({
+			type: "POST",
+			url: "tier-rewards.aspx/addTier";
+
+		});*/
+	}
+
 
 </script>
 </asp:Content>
