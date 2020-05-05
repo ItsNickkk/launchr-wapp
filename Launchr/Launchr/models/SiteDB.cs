@@ -176,6 +176,41 @@ namespace Launchr.models
             return creator_list;
         }
 
+        public int updateCreator(Creator creator)
+        {
+            try
+            {
+                List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(creator.email));
+                List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(creator.email));
+                if (creator_list_same_email.Count() > 1 | user_list_same_email.Count() > 0)
+                {
+                    return 2; // 2 is returned if same email
+                }
+                else
+                {
+                    List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(creator.username));
+                    List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(creator.username));
+                    if (creator_list_same_username.Count() > 1 | user_list_same_username.Count() > 0)
+                    {
+                        return 3; // 3 is returned if same username
+                    }
+                    else
+                    {
+
+                        this.creatorAdapter.UpdateCreator(creator.name, creator.address, creator.phone_number, creator.email, creator.country, creator.status, creator.document, creator.type, creator.username, creator.password, creator.id);
+                        return 1; // 1 is returned if no errors, no same email, or same username
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return 0; // 0 is returned if sql error
+            }
+            
+            
+        }
+
         // <--------------------------- Project functions --------------------------->
 
         public int AddNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string imagePath)
