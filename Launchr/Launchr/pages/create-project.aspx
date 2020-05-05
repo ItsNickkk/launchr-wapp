@@ -11,6 +11,10 @@ function allowOnlyNumber(evt) {
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="container">
+
+	<label for="filPhoto">Upload Cover Images</label>
+	<asp:FileUpload ID="filPhoto" runat="server" cssclass="form-control" AllowMultiple="true"/>
+
 	<label for="txtTitle">Title</label>
 	<asp:TextBox ID="txtTitle" runat="server" Cssclass="form-control"></asp:TextBox>
 
