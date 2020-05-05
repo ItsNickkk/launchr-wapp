@@ -80,40 +80,29 @@
 	function addTier() {
 		var title = $("#content_txtTierTitle").val();
 		var price = $("#content_txtTierValue").val();
-		var quantity = $("content_txtTierMaxNumber").val();
+		var quantity = $("#content_txtTierMaxNumber").val();
 		var content = easyMDE.value();
-		$('#tier-list').append("<div class=\"row pt-3\">");
-		$('#tier-list').append("<div class=\"col-xl-4 offset-xl-4\">");
-		$('#tier-list').append("<h4>" + title + "</h4><h4>" + price + "</h4>");
-		$('#tier-list').append("<p class=\"text-muted\">By pledging amount above you get:</p>");
-		$('#tier-list').append("<span>");
-		$('#tier-list').append("<zero-md>");
-		$('#tier-list').append("<template>");
-		$('#tier-list').append("<xmp>");
-		$('#tier-list').append(content);
-		$('#tier-list').append("</xmp>");
-		$('#tier-list').append("</template>");
-		$('#tier-list').append("</zero-md>");
-		$('#tier-list').append("</span>");
-		$('#tier-list').append("<div class=\"progress mt-4\">");
-		$('#tier-list').append("<div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"" + quantity + "\" style=\"width: 75 %\"></div></div>");
-		$('#tier-list').append("<p>0 out of "+quantity+" slots left</p>");
-		$('#tier-list').append("<button type=\"button\" class=\"btn mt-3 launchr-btn pledge-btn\">Pledge</button></div></div>");
+		var newTier = [];
+		newTier.push(
+			"<div class=\"row pt-3\">",
+				"<div class=\"col-xl-4 offset-xl-4\">",
+					"<div class=\"p-4 tier-card neumorph\">",
+						"<h4>" + title + "</h4><h4>" + price + "$</h4>",
+						"<p class=\"text-muted\">By pledging amount above you get:</p>",
+						"<span><zero-md><template><xmp>",
+						content,
+						"</xmp></template></span>",
+						"<div class=\"progress mt-4\">",
+							"<div class=\"progress-bar bg-launchr delete-tier-btn\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"" + quantity + "\" style=\"width: 75 %\"></div></div>",
+			"<p>0 out of " + quantity + " slots left</p>",
+			"<button onclick=\"deleteTier();\" type=\"button\" class=\"btn mt-3 launchr-btn pledge-btn delete-tier-btn\">Remove this Tier</button></div></div></div>"
+		);
+		$('#tier-list').append(newTier.join(""));
 	}
 
-	
-		
+	function deleteTier() {
+		$('.delete-tier-btn').parent().remove();
+	}
 
-	$(document).ready(function () {
-		$('#content_filPhoto').change(function () {
-			var files = $(this)[0].files;
-			if (files.length > 6) {
-				alert("Only maximum of 6 photos are allowed.");
-				document.getElementById("content_filPhoto").value = '';
-				return false;
-			}
-		});
-		
-	});	
 </script>
 </asp:Content>

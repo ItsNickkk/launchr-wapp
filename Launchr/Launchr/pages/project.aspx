@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<div class="progress mb-3">
-					<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+					<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="200" style="width: 75%"></div>
 				</div>
 				<div class="row">
 					<div class="col-xl-6">
