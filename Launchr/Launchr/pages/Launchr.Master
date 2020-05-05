@@ -23,7 +23,7 @@
 </head>
 <body>
 	<a href="project.aspx">Go to Project</a><br />
-	<a href="create-project.aspx">Go to Project Create</a>
+	<a href="create-project.aspx?projectID=300005">Go to Project Create</a>
 	<nav class="navbar navbar-expand-xl navbar-light bg-light">
 		<a class="navbar-brand" href="home"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">

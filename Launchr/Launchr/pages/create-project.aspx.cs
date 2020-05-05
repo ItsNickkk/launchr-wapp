@@ -16,6 +16,10 @@ namespace Launchr.pages
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			siteDB = new SiteDB();
+			if (this.Session["user"] != null && this.Session["creator"] == null)
+			{
+				Response.Redirect("home");
+			}
 		}
 
 		protected void btnCreateProject_Click(object sender, EventArgs e)
