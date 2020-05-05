@@ -15,10 +15,11 @@
 			<div class="row mt-3">
 				<div class="col neumorph p-3">
 					<span class="text-warning">All the fields are mandatory.</span><br />
+
 					<label for="content_filPhoto" class="mt-2" data-toggle="tooltip" title="Choose some attractive photo for your project!" data-placement="right">Upload Cover Images</label>
 					<asp:RequiredFieldValidator ID="createProjFileReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="filPhoto" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:RegularExpressionValidator id="createProjFileDocumentPDFVal" CssClass="text-danger" errormessage="<br/><i>Invalid file format.</i>" ControlToValidate="filPhoto" ValidationExpression="^.*\.(bmp|BMP|gif|GIF|JPG|jpg|jpeg|JPEG|PNG|png)$" runat="server" Display="Dynamic" ValidationGroup="createProj"/>
-					<asp:FileUpload ID="filPhoto" runat="server" cssclass="form-control" AllowMultiple="true"/>
+					<asp:FileUpload ID="filPhoto" runat="server" cssclass="form-control-file" AllowMultiple="true"/>
 					<label for="content_filPhoto" class="text-muted">Maximum number of photos allowed: 6, Supported format: .bmp, .gif, .jpg, .jpeg, .png</label><br/>
 
 					<label for="txtTitle" class="mt-2" data-toggle="tooltip" title="Make an attractive title" data-placement="right">Title</label>
@@ -39,7 +40,7 @@
 					<asp:RequiredFieldValidator ID="createProjContentReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtContent" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox TextMode="MultiLine" ID="txtContentFaux" runat="server" Cssclass="form-control"></asp:TextBox>
 					<asp:TextBox ID="txtContent" runat="server" TextMode="multiline" Cssclass="form-control d-none" ReadOnly="true"></asp:TextBox>
-					<!--https://github.com/Ionaru/easy-markdown-editor#how-to-use-->
+
 					<div class="row">
 						<div class="col">
 							<label for="cobTopic" class="mt-2" data-toggle="tooltip" title="Choose where your project belongs to" data-placement="right">Project Topic</label>
