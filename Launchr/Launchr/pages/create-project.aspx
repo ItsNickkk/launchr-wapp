@@ -2,19 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
-<script type="text/javascript">
-function allowOnlyNumber(evt) {
-	var charCode = (evt.which) ? evt.which : event.keyCode
-	if (charCode > 31 && (charCode < 48 || charCode > 57))
-		return false;
-	return true;
-	}
-
-	$(document).ready(function () {
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-	
-</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="container-fluid">
@@ -27,24 +14,38 @@ function allowOnlyNumber(evt) {
 			</div>
 			<div class="row mt-3">
 				<div class="col neumorph p-3">
-					<label for="filPhoto" class="mt-2">Upload Cover Images</label>
+
+					<asp:TextBox ID="txtCreatorID" runat="server" Cssclass="form-control d-none" readonly="true"></asp:TextBox>
+
+					<span class="text-warning">All the fields are mandatory.</span><br />
+					<label for="content_filPhoto" class="mt-2" data-toggle="tooltip" title="Choose some attractive photo for your project!" data-placement="right">Upload Cover Images</label>
+					<asp:RequiredFieldValidator ID="createProjFileReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="filPhoto" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
+					<asp:RegularExpressionValidator id="createProjFileDocumentPDFVal" CssClass="text-danger" errormessage="<br/><i>Invalid file format.</i>" ControlToValidate="filPhoto" ValidationExpression="^.*\.(bmp|BMP|gif|GIF|JPG|jpg|jpeg|JPEG|PNG|png)$" runat="server" Display="Dynamic" ValidationGroup="createProj"/>
 					<asp:FileUpload ID="filPhoto" runat="server" cssclass="form-control" AllowMultiple="true"/>
+					<label for="content_filPhoto" class="text-muted">Maximum number of photos allowed: 6, Supported format: .bmp, .gif, .jpg, .jpeg, .png</label><br/>
 
 					<label for="txtTitle" class="mt-2" data-toggle="tooltip" title="Make an attractive title" data-placement="right">Title</label>
+					<asp:RequiredFieldValidator ID="createProjTitleReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox ID="txtTitle" runat="server" Cssclass="form-control" MaxLength="55"></asp:TextBox>
+					<label for="content_txtTitle" class="text-muted">Maximum length: 55</label><br/>
 
 					<label for="txtDate" class="mt-2" data-toggle="tooltip" title="End date of your project" data-placement="right">Time End</label>
+					<asp:RequiredFieldValidator ID="createProjDateReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDate" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox ID="txtDate" runat="server" TextMode="date" Cssclass="form-control"></asp:TextBox>
 
-					<label for="txtDescription" class="mt-2" data-toggle="tooltip" title="Make a short and concise description to attract people" data-placement="right">Project Description</label>
+					<label for="content_txtDescription" class="mt-2" data-toggle="tooltip" title="Make a short and concise description to attract people" data-placement="right">Project Description</label>
+					<asp:RequiredFieldValidator ID="createProjDescReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDescription" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox ID="txtDescription" runat="server" Cssclass="form-control" MaxLength="140"></asp:TextBox>
+					<label for="content_txtDescription" class="text-muted">Maximum length: 140</label><br/>
 
-					<label for="txtContent" class="mt-2" data-toggle="tooltip" title="Describe your project, with passion!" data-placement="right">Project Content</label>
-					<asp:TextBox TextMode="MultiLine" ID="txtContent" runat="server" Cssclass="form-control"></asp:TextBox>
+					<label for="txtContentFaux" class="mt-2" data-toggle="tooltip" title="Describe your project, with passion!" data-placement="right">Project Content</label>
+					<asp:RequiredFieldValidator ID="createProjContentReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtContent" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
+					<asp:TextBox TextMode="MultiLine" ID="txtContentFaux" runat="server" Cssclass="form-control"></asp:TextBox>
+					<asp:TextBox ID="txtContent" runat="server" TextMode="multiline" Cssclass="form-control d-none" ReadOnly="true"></asp:TextBox>
 					<!--https://github.com/Ionaru/easy-markdown-editor#how-to-use-->
 					<div class="row">
 						<div class="col">
-							<label for="cobTopic" class="mt-2">Project Topic</label>
+							<label for="cobTopic" class="mt-2" data-toggle="tooltip" title="Choose where your project belongs to" data-placement="right">Project Topic</label>
 							<asp:DropDownList ID="cobTopic" runat="server" AutoPostBack="False" CssClass="form-control">
 								<asp:ListItem Text="Art" Value="art"></asp:ListItem>
 								<asp:ListItem Text="Design" Value="design"></asp:ListItem>
@@ -58,7 +59,8 @@ function allowOnlyNumber(evt) {
 							</asp:DropDownList>
 						</div>
 						<div class="col">
-							<label for="txtTarget" class="mt-2">Project Target</label>
+							<label for="txtTarget" class="mt-2" data-toggle="tooltip" title="How much do you need to launch your project" data-placement="right">Project Target</label>
+							<asp:RequiredFieldValidator ID="createProjMoneyReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtTarget" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text">$</span>
@@ -70,20 +72,39 @@ function allowOnlyNumber(evt) {
 							</div>
 						</div>
 					</div>
-					
-					
-
-
-					
-
-					<asp:Button ID="btnCreateProject" runat="server" Text="Next" CssClass="btn launchr-btn mt-3" OnClick="btnCreateProject_Click"/>
+					<asp:Button ID="btnCreateProject" runat="server" Text="Next" CssClass="btn launchr-btn mt-3" OnClick="btnCreateProject_Click" ValidationGroup="createProj"/>
 				</div>
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtContent') });
-</script>
-	
 </div>
+<script src="../Scripts/bootstrap.bundle.js"></script>
+
+<script type="text/javascript">
+	function allowOnlyNumber(evt) {
+		var charCode = (evt.which) ? evt.which : event.keyCode
+		if (charCode > 31 && (charCode < 48 || charCode > 57))
+			return false;
+		return true;
+	}
+	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtContentFaux') });
+	$(document).ready(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+		
+		$('#content_filPhoto').change(function () {
+			var files = $(this)[0].files;
+			if (files.length > 6) {
+				alert("Only maximum of 6 photos are allowed.");
+				document.getElementById("content_filPhoto").value = '';
+				return false;
+			}
+		});
+		setInterval(test, 1000);
+		
+	});
+	function test() {
+		document.getElementById('content_txtContent').value = easyMDE.value();
+	}
+	
+</script>
 </asp:Content>

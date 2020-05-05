@@ -15,6 +15,33 @@ namespace Launchr.pages
 	{
 
 		/// <summary>
+		/// txtCreatorID control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCreatorID;
+
+		/// <summary>
+		/// createProjFileReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjFileReqValidator;
+
+		/// <summary>
+		/// createProjFileDocumentPDFVal control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator createProjFileDocumentPDFVal;
+
+		/// <summary>
 		/// filPhoto control.
 		/// </summary>
 		/// <remarks>
@@ -22,6 +49,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.FileUpload filPhoto;
+
+		/// <summary>
+		/// createProjTitleReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjTitleReqValidator;
 
 		/// <summary>
 		/// txtTitle control.
@@ -33,6 +69,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtTitle;
 
 		/// <summary>
+		/// createProjDateReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjDateReqValidator;
+
+		/// <summary>
 		/// txtDate control.
 		/// </summary>
 		/// <remarks>
@@ -42,6 +87,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtDate;
 
 		/// <summary>
+		/// createProjDescReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjDescReqValidator;
+
+		/// <summary>
 		/// txtDescription control.
 		/// </summary>
 		/// <remarks>
@@ -49,6 +103,24 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtDescription;
+
+		/// <summary>
+		/// createProjContentReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjContentReqValidator;
+
+		/// <summary>
+		/// txtContentFaux control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtContentFaux;
 
 		/// <summary>
 		/// txtContent control.
@@ -67,6 +139,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList cobTopic;
+
+		/// <summary>
+		/// createProjMoneyReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjMoneyReqValidator;
 
 		/// <summary>
 		/// txtTarget control.
