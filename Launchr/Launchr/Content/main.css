@@ -100,8 +100,10 @@ footer {
 
 .login-bg {
 	background: url('images/loginbg.gif');
+	background-size: cover;
 	padding-bottom:200px;
 	filter: blur(30%);
+	background-position: 30% 30%;
 }
 
 .project-photo{
