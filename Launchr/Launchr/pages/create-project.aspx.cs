@@ -25,7 +25,7 @@ namespace Launchr.pages
 			string date = this.txtDate.Text;
 			DateTime date_end = DateTime.ParseExact(date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
 			string topic = this.cobTopic.SelectedValue;
-			string content = this.txtContent.Text;
+			string content = this.txtContentFaux.Text;
 			string description = this.txtDescription.Text;
 			int target = int.Parse(this.txtTarget.Text);
 			string image_path_temp = "";
