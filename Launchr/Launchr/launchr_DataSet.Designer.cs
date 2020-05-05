@@ -30,6 +30,8 @@ namespace Launchr {
         
         private projectDataTable tableproject;
         
+        private global::System.Data.DataRelation relationFK_creator_id_project;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +244,7 @@ namespace Launchr {
                     this.tableproject.InitVars();
                 }
             }
+            this.relationFK_creator_id_project = this.Relations["FK_creator_id_project"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +261,10 @@ namespace Launchr {
             base.Tables.Add(this.tableuser);
             this.tableproject = new projectDataTable();
             base.Tables.Add(this.tableproject);
+            this.relationFK_creator_id_project = new global::System.Data.DataRelation("FK_creator_id_project", new global::System.Data.DataColumn[] {
+                        this.tablecreator.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableproject.creator_idColumn}, false);
+            this.Relations.Add(this.relationFK_creator_id_project);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1344,11 +1351,11 @@ namespace Launchr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public projectRow AddprojectRow(int creator_id, string title, System.DateTime time_created, System.DateTime time_end, string description, int target, string topic, string content, string imagePath) {
+            public projectRow AddprojectRow(creatorRow parentcreatorRowByFK_creator_id_project, string title, System.DateTime time_created, System.DateTime time_end, string description, int target, string topic, string content, string imagePath) {
                 projectRow rowprojectRow = ((projectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        creator_id,
+                        null,
                         title,
                         time_created,
                         time_end,
@@ -1357,6 +1364,9 @@ namespace Launchr {
                         topic,
                         content,
                         imagePath};
+                if ((parentcreatorRowByFK_creator_id_project != null)) {
+                    columnValuesArray[1] = parentcreatorRowByFK_creator_id_project[0];
+                }
                 rowprojectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowprojectRow);
                 return rowprojectRow;
@@ -1703,6 +1713,17 @@ namespace Launchr {
                     this[this.tablecreator.passwordColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public projectRow[] GetprojectRows() {
+                if ((this.Table.ChildRelations["FK_creator_id_project"] == null)) {
+                    return new projectRow[0];
+                }
+                else {
+                    return ((projectRow[])(base.GetChildRows(this.Table.ChildRelations["FK_creator_id_project"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1951,6 +1972,17 @@ namespace Launchr {
                 }
                 set {
                     this[this.tableproject.imagePathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public creatorRow creatorRow {
+                get {
+                    return ((creatorRow)(this.GetParentRow(this.Table.ParentRelations["FK_creator_id_project"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_creator_id_project"]);
                 }
             }
         }
@@ -3122,11 +3154,25 @@ namespace Launchr.launchr_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [project].*\r\nFROM [project]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO [project] ([creator_id], [title], [time_created], [time_end], [description], [target], [topic], [content], [imagePath]) VALUES (@creator_id, @title, @time_created, @time_end, @description, @target, @topic, @content, @imagePath);
+SELECT id, creator_id, title, time_created, time_end, description, target, topic, [content], imagePath FROM project WHERE (id = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@creator_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "creator_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@title", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_created", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "time_created", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_end", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "time_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@target", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "target", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@topic", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "topic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@content", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagePath", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "imagePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3167,6 +3213,63 @@ namespace Launchr.launchr_DataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddNewProject(int creator_id, string title, System.DateTime time_created, System.DateTime time_end, string description, int target, string topic, string content, string imagePath) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(creator_id));
+            if ((title == null)) {
+                throw new global::System.ArgumentNullException("title");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(title));
+            }
+            command.Parameters[2].Value = ((System.DateTime)(time_created));
+            command.Parameters[3].Value = ((System.DateTime)(time_end));
+            if ((description == null)) {
+                throw new global::System.ArgumentNullException("description");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(description));
+            }
+            command.Parameters[5].Value = ((int)(target));
+            if ((topic == null)) {
+                throw new global::System.ArgumentNullException("topic");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(topic));
+            }
+            if ((content == null)) {
+                throw new global::System.ArgumentNullException("content");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(content));
+            }
+            if ((imagePath == null)) {
+                throw new global::System.ArgumentNullException("imagePath");
+            }
+            else {
+                command.Parameters[8].Value = ((string)(imagePath));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
