@@ -15,7 +15,7 @@
 	<asp:TextBox id="txtMemberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="login"></asp:TextBox>
 	<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="False" ValidationGroup="login"/>
 	<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
-	<a class="to-creator launchr-btn text-decoration-none" href="creator-login.aspx">Switch to Creator Login</a>
+	
 </div>
 <!--Login card end-->
 <!--Signup card -->
@@ -23,9 +23,8 @@
 	<h3>MEMBER SIGN UP</h3>
 	<label for="email-register">New to Launch:r? Click the button below to continue</label>
 	<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
-
 	<asp:PlaceHolder ID="registerAlert" runat="server"></asp:PlaceHolder>
-
+	<a class="to-creator launchr-btn text-decoration-none" href="creator-login.aspx">Switch to Creator Login</a>
 	<div id="sign-up-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

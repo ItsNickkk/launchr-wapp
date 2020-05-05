@@ -15,6 +15,9 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if(this.Session["user"] != null || this.Session["creator"] != null){
+				Response.Redirect("home");
+			}
 			siteDB = new SiteDB();
 		}
 
@@ -36,9 +39,11 @@ namespace Launchr.pages
 					if (user.status == 0)
 					{
 						// user is banned, do something here...
+						displayErrorMessage("This account had been banned for violating our rules", 1);
 					} else
 					{
 						// user account error, contact admin...
+						displayErrorMessage("Unexpected Error. Please contact administrator at <a href=\"mailto:support@launchr.com\">support@launchr.com</a>", 1);
 					}
 				}
 
