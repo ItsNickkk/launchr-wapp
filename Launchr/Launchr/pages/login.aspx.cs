@@ -26,8 +26,21 @@ namespace Launchr.pages
 				// exactly one user exists with the same username and password
 				// store current login user as User object in session
 				// (remember to explicitly declare the user object before use in later pages like so: User user = (User) this.Session["user"];)
-				this.Session["user"] = user_list[0];
-				Response.Redirect("home");
+				User user = (User)user_list[0];
+				if (user.status == 1)
+				{
+					this.Session["user"] = user;
+					Response.Redirect("home");
+				} else // if user.status is other than 1 
+				{
+					if (user.status == 0)
+					{
+						// user is banned, do something here...
+					} else
+					{
+						// user account error, contact admin...
+					}
+				}
 
 			} else
 			{

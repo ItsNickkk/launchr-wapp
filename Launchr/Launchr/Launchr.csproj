@@ -282,6 +282,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\documents\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
