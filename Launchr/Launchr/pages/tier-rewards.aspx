@@ -193,12 +193,14 @@
 		$.ajax({
 			type: "POST",
 			url: "tier-rewards.aspx/saveTiers",
-			data: combinedTier,
-			success: function () {
-				alert("Tiers saved successfully.");
+			data: JSON.stringify(combinedTier),
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			success: function (resp) {
+				alert(resp);
 			},
-			error: function () {
-				alert("An error occured.");
+			error: function (resp) {
+				alert(resp);
 			}
 		});
 	}
