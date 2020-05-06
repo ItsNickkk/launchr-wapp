@@ -190,21 +190,17 @@
 	}
 
 	function saveTier() {
-		for (const [key, value] of Object.entries(combinedTier)) {
-			$.ajax({
-				type: "POST",
-				url: "tier-rewards.aspx/saveTiers",
-				data: value,
-				success: function () {
-					alert("Tiers saved successfully.");
-				},
-				error: function () {
-					alert("An error occured.");
-				}
-			});
-			console.log(key, value);
-			console.log("Data POSTed");
-		}
+		$.ajax({
+			type: "POST",
+			url: "tier-rewards.aspx/saveTiers",
+			data: combinedTier,
+			success: function () {
+				alert("Tiers saved successfully.");
+			},
+			error: function () {
+				alert("An error occured.");
+			}
+		});
 	}
 
 	function GetURLParameter(sParam) {
