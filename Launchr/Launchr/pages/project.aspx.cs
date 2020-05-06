@@ -31,8 +31,14 @@ namespace Launchr.pages
 					if (project_list.Count() != 0)
 					{
 						Project project = (Project)project_list[0];
-						this.makePage(project);
-
+						if(project.creator == this.Session["creator"])
+						{
+							this.makePage(project);
+						} else
+						{
+							// project not owned by creator, do something here...
+						}
+						
 					} else
 					{
 						// project does not exist, do something here!
