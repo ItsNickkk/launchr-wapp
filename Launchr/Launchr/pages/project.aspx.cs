@@ -62,8 +62,8 @@ namespace Launchr.pages
 			this.makeTarget(project.getTransactionTotal(), project.target);
 			this.makeBackers(project.countBackers());
 			this.makeRemaining(project.time_end);
-			this.makeComments(project.getComments());
 			this.makeTiers(project, project.getTiers());
+			this.makeComments(project.getComments());
 		}
 
 		private void makeAlbum(List<String> image_path_list)
@@ -177,9 +177,10 @@ namespace Launchr.pages
 			foreach(Tier tier in tier_list)
 			{
 				int num = project.getTierNumber(tier);
-				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card\"><h4>" + tier.title + "</h4><h4>$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%\"></div></div><p>75 out of " + tier.max_amount + " slots left</p><asp:Button runat=\"server\" Text=\"Pledge\" CssClass=\"btn join-sign-up-btn mt-3 launchr-btn\" /></div></div>");
+				int percentage = (int)Math.Ceiling((double)num / tier.max_amount * 100);
+				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card\"><h4>" + tier.title + "</h4><h4>$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage + "%\"></div></div><p>" + num + " out of " + tier.max_amount + " slots left</p><asp:Button runat=\"server\" Text=\"Pledge\" CssClass=\"btn join-sign-up-btn mt-3 launchr-btn\" /></div></div>");
 			}
-			this.plcTiers.Controls.Add(new Literal
+			this.plcTier.Controls.Add(new Literal
 			{
 				Text = html.ToString()
 			});

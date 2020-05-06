@@ -204,7 +204,7 @@
 						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
 					</div>	
 				</div>
-                <asp:PlaceHolder ID="plcTiers" runat="server"></asp:PlaceHolder>
+                <asp:PlaceHolder ID="plcTier" runat="server"></asp:PlaceHolder>
 			</div>
 		</div>
 	</div>
