@@ -76,7 +76,7 @@ namespace Launchr.pages
 					if (update_project_status == 1)
 					{
 						// add project successful, do something...
-						Response.Redirect("tier-rewards.aspx?projID=" + project.id);
+						Response.Redirect("tier-rewards.aspx?id=" + project.id);
 					}
 					else
 					{
