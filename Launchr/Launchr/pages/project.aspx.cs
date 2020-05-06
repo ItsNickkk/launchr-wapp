@@ -36,10 +36,12 @@ namespace Launchr.pages
 					} else
 					{
 						// project does not exist, do something here!
+						Response.Redirect("404.aspx");
 					}
 				} catch (Exception ex)
 				{
 					// id invalid (not convertible to int), do something here!
+					Response.Redirect("404.aspx");
 				}
 			}
 

@@ -153,6 +153,7 @@
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
     <Content Include="pages\tier-rewards.aspx" />
+    <Content Include="pages\404.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -279,6 +280,13 @@
     </Compile>
     <Compile Include="pages\tier-rewards.aspx.designer.cs">
       <DependentUpon>tier-rewards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
