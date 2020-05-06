@@ -162,7 +162,7 @@
 
 						<div id="100002" class="row p-2">
 							<div class="col-xl-12 border pt-3">
-								<div class="row pl-3">
+								<div class="txtrow pl-3">
 									<div class="col-xl-10">
 										<a href="profile"><h4>John Doe</h4></a> <a href="#100001"><h5>reply to #100001</h5></a>
 										<p>Hi</p>
@@ -204,27 +204,7 @@
 						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
 					</div>	
 				</div>
-				<div class="row pt-3">
-					<div class="p-4 tier-card neumorph">
-						<h4>Potato x1</h4><h4>30$</h4>
-						<p class="text-muted">By pledging amount above you get:</p>
-						<span>
-							<zero-md>
-							<template>
-								<xmp>
-- potato signed by designer
-- idk anymore
-								</xmp>
-							</template>
-						</zero-md>
-						</span>
-						<div class="progress mt-4">
-							<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-						</div>
-						<p>75 out of 100 slots left</p>
-						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
-					</div>	
-				</div>	
+                <asp:PlaceHolder ID="plcTiers" runat="server"></asp:PlaceHolder>
 			</div>
 		</div>
 	</div>

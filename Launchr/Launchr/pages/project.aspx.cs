@@ -22,7 +22,7 @@ namespace Launchr.pages
 				backProject.Attributes.Remove("data-target");
 			}
 
-			if (!IsPostBack)
+			if (Request.QueryString["id"] != null)
 			{
 				try
 				{
@@ -41,7 +41,13 @@ namespace Launchr.pages
 				{
 					// id invalid (not convertible to int), do something here!
 				}
+
 			}
+			else
+			{
+				Response.Redirect("project.aspx?id=300003");
+			}
+			
 
 			
 
@@ -53,9 +59,11 @@ namespace Launchr.pages
 			this.makeTitle(project.title);
 			this.makeDesc(project.description);
 			this.makeAlbum(project.image_path_list);
-			this.makeTarget(20, project.target);
-			this.makeBackers(20);
+			this.makeTarget(project.getTransactionTotal(), project.target);
+			this.makeBackers(project.countBackers());
 			this.makeRemaining(project.time_end);
+			this.makeComments(project.getComments());
+			this.makeTiers(project, project.getTiers());
 		}
 
 		private void makeAlbum(List<String> image_path_list)
@@ -119,6 +127,7 @@ namespace Launchr.pages
 
 		private void makeTarget(int current, int target)
 		{
+			
 			StringBuilder html = new StringBuilder();
 			html.Append("$" + current.ToString() + " plegded of $" + target.ToString());
 			this.plcTarget.Controls.Add(new Literal
@@ -152,6 +161,25 @@ namespace Launchr.pages
 			StringBuilder html = new StringBuilder();
 			html.Append(in_between.ToString() + " days left");
 			this.plcRemaining.Controls.Add(new Literal
+			{
+				Text = html.ToString()
+			});
+		}
+
+		private void makeComments(List<Comment> comment_list)
+		{
+
+		}
+
+		private void makeTiers(Project project, List<Tier> tier_list)
+		{
+			StringBuilder html = new StringBuilder();
+			foreach(Tier tier in tier_list)
+			{
+				int num = project.getTierNumber(tier);
+				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card\"><h4>" + tier.title + "</h4><h4>$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%\"></div></div><p>75 out of " + tier.max_amount + " slots left</p><asp:Button runat=\"server\" Text=\"Pledge\" CssClass=\"btn join-sign-up-btn mt-3 launchr-btn\" /></div></div>");
+			}
+			this.plcTiers.Controls.Add(new Literal
 			{
 				Text = html.ToString()
 			});

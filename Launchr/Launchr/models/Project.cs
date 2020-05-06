@@ -54,5 +54,36 @@ namespace Launchr.models
             Creator creator = new SiteDB().getCreatorById(creator_id);
             return creator;
         }
+
+        public int getTransactionTotal()
+        {
+            return new SiteDB().getTransactionTotalAmountByProjectId(this.id);
+        }
+
+        public int countBackers()
+        {
+            return new SiteDB().countUniqueBackersByProjectId(this.id);
+        }
+
+        public List<Comment> getComments()
+        {
+            return new SiteDB().getCommentByProjectId(this.id);
+        }
+
+        public int getTierNumber(Tier tier)
+        {
+            if (tier.project.id == this.id)
+            {
+                return new SiteDB().countTierNumber(tier.id);
+            } else
+            {
+                return 0;
+            }
+        }
+
+        public List<Tier> getTiers()
+        {
+            return new SiteDB().getTierByProjectId(this.id);
+        }
     }
 }

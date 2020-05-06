@@ -17,28 +17,22 @@ namespace Launchr.pages
 		{
 			if (!IsPostBack)
 			{
-				if (Request.QueryString["id"] != null)
+				try
 				{
-					try
+					int project_id = int.Parse(Request.QueryString["id"]);
+					List<Project> project_list = new SiteDB().getProjectById(project_id);
+					if (project_list.Count() != 0)
 					{
-						int project_id = int.Parse(Request.QueryString["id"]);
-						List<Project> project_list = new SiteDB().getProjectById(project_id);
-						if (project_list.Count() != 0)
-						{
-							Project project = (Project)project_list[0];
-						}
-						else
-						{
-							// project does not exist, do something here!
-						}
+						Project project = (Project)project_list[0];
 					}
-					catch (Exception ex)
+					else
 					{
-						// id invalid (not convertible to int), do something here!
+						// project does not exist, do something here!
 					}
-				} else
+				}
+				catch (Exception ex)
 				{
-					Response.Redirect("tier-rewards.aspx?id=300001");
+					// id invalid (not convertible to int), do something here!
 				}
 
 
