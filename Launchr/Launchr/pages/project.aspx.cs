@@ -184,6 +184,10 @@ namespace Launchr.pages
 			{
 				Text = html.ToString()
 			});
+			this.plcTierSide.Controls.Add(new Literal
+			{
+				Text = html.ToString()
+			});
 		}
 	}
 }

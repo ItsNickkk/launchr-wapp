@@ -86,27 +86,7 @@
 										</div>	
 									</div>
 
-									<div class="row pt-3">
-										<div class="p-4 tier-card">
-											<h4>Potato x1</h4><h4>30$</h4>
-											<p class="text-muted">By pledging amount above you get:</p>
-											<span>
-												<zero-md>
-													<template>
-														<xmp>
-- potato signed by designer
-- idk anymore
-														</xmp>
-													</template>
-												</zero-md>
-											</span>
-											<div class="progress mt-4">
-												<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-											</div>
-											<p>75 out of 100 slots left</p>
-											<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
-										</div>	
-									</div>
+                                    <asp:PlaceHolder ID="plcTierSide" runat="server"></asp:PlaceHolder>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn" data-dismiss="modal">Close</button>
