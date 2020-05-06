@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\launchr_db.mdf" />
+    <Content Include="App_Data\launchr_db.mdf" />
     <Content Include="App_Data\launchr_db_log.ldf">
       <DependentUpon>launchr_db.mdf</DependentUpon>
     </Content>

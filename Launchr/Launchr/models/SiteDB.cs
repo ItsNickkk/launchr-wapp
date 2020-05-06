@@ -215,7 +215,7 @@ namespace Launchr.models
 
 
         private Project translateRowToProject(launchr_DataSet.projectRow project_row) {
-            Project project = new Project(project_row.id, project_row.creator_id, project_row.title, project_row.time_created, project_row.time_end, project_row.description, project_row.target, project_row.topic, project_row.content, project_row.imagePath);
+            Project project = new Project(project_row.id, project_row.creator_id, project_row.title, project_row.time_created, project_row.time_end, project_row.description, project_row.status, project_row.target, project_row.topic, project_row.content, project_row.imagePath);
             return project;
         }
 
@@ -240,11 +240,11 @@ namespace Launchr.models
             return project_list;
         }
 
-        public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string imagePath)
+        public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string imagePath)
         {
             try
             {
-                projectAdapter.AddNewProject(creator_id, title, time_created, time_end, description, target, topic, content, imagePath);
+                projectAdapter.AddNewProject(creator_id, title, time_created, time_end, description, status, target, topic, content, imagePath);
                 return 1; // INSERT successful
             } catch (Exception e)
             {
@@ -256,7 +256,7 @@ namespace Launchr.models
         {
             try
             {
-                projectAdapter.UpdateProject(project.creator.id, project.title, project.time_created, project.time_end, project.description, project.target, project.topic, project.content, project.parseStringFromImagePath(), project.id);
+                projectAdapter.UpdateProject(project.creator.id, project.title, project.time_created, project.time_end, project.description, project.status, project.target, project.topic, project.content, project.parseStringFromImagePath(), project.id);
                 return 1;
             } catch (Exception e)
             {

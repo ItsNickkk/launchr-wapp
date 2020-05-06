@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[transaction] (
-    [id]         INT      NOT NULL IDENTITY(500001, 1),
-    [tier_id]    INT      NOT NULL,
+    [id]         INT      IDENTITY (500001, 1) NOT NULL,
+    [tier_id]    INT      NULL,
+    [amount]     INT      NULL,
     [user_id]    INT      NOT NULL,
     [project_id] INT      NOT NULL,
     [datetime]   DATETIME NOT NULL,

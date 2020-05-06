@@ -13,11 +13,12 @@ namespace Launchr.models
         public DateTime time_created;
         public DateTime time_end;
         public string description;
+        public int status;
         public int target;
         public string topic;
         public string content;
         public List<string> image_path_list;
-        public Project(int id, Creator creator, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, List<string> image_path)
+        public Project(int id, Creator creator, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, List<string> image_path)
         {
             this.id = id;
             this.creator = creator;
@@ -32,7 +33,7 @@ namespace Launchr.models
 
         }
 
-        public Project(int id, int creator_id, string title, DateTime time_created, DateTime time_end, string description, int target, string topic, string content, string image_path_str):this(id, parseCreatorId(creator_id), title, time_created, time_end, description, target, topic, content, parseImagePathFromString(image_path_str))
+        public Project(int id, int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string image_path_str):this(id, parseCreatorId(creator_id), title, time_created, time_end, description, status, target, topic, content, parseImagePathFromString(image_path_str))
         {
 
         }

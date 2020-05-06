@@ -32,7 +32,7 @@ namespace Launchr.pages
 					{
 						Project project = (Project)project_list[0];
 						this.makePage(project);
-
+						
 					} else
 					{
 						// project does not exist, do something here!

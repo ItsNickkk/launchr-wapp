@@ -34,6 +34,7 @@ CREATE TABLE [dbo].[project] (
     [time_created] DATETIME      NOT NULL,
     [time_end]     DATETIME      NOT NULL,
     [description]  VARCHAR (250) NOT NULL,
+	[status]       INT           NOT NULL,
     [target]       INT           NOT NULL,
     [topic]        VARCHAR (20)  NOT NULL,
     [content]      TEXT          NOT NULL,
@@ -41,6 +42,7 @@ CREATE TABLE [dbo].[project] (
     PRIMARY KEY CLUSTERED ([id] ASC),
     CONSTRAINT [FK_creator_id_project] FOREIGN KEY ([creator_id]) REFERENCES [dbo].[creator] ([id])
 );
+
 
 CREATE TABLE [dbo].[tier] (
     [id]          INT          IDENTITY (400001, 1) NOT NULL,
@@ -55,7 +57,8 @@ CREATE TABLE [dbo].[tier] (
 
 CREATE TABLE [dbo].[transaction] (
     [id]         INT      IDENTITY (500001, 1) NOT NULL,
-    [tier_id]    INT      NOT NULL,
+    [tier_id]    INT      NULL,
+    [amount]     INT      NULL,
     [user_id]    INT      NOT NULL,
     [project_id] INT      NOT NULL,
     [datetime]   DATETIME NOT NULL,
@@ -64,6 +67,8 @@ CREATE TABLE [dbo].[transaction] (
     CONSTRAINT [FK_tier_id_transaction] FOREIGN KEY ([tier_id]) REFERENCES [dbo].[tier] ([id]),
     CONSTRAINT [FK_user_id_transaction] FOREIGN KEY ([user_id]) REFERENCES [dbo].[user] ([id])
 );
+
+
 
 CREATE TABLE [dbo].[comment] (
     [id]         INT      IDENTITY (600001, 1) NOT NULL,
