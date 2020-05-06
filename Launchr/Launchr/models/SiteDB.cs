@@ -393,6 +393,18 @@ namespace Launchr.models
             return comment_list;
         }
 
+        public int addNewComment(int user_id, int project_id, int parent_id, string content, DateTime datetime, int status)
+        {
+            try
+            {
+                commentAdapter.AddNewComment(user_id, project_id, parent_id, content, datetime, status);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
 
 
     }

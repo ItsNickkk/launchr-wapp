@@ -11,6 +11,7 @@ namespace Launchr.pages
 {
 	public partial class WebForm3 : System.Web.UI.Page
 	{
+		Project project;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Creator creator = (Creator)this.Session["creator"];
@@ -30,7 +31,7 @@ namespace Launchr.pages
 					List<Project> project_list = new SiteDB().getProjectById(project_id);
 					if (project_list.Count() != 0)
 					{
-						Project project = (Project)project_list[0];
+						project = (Project)project_list[0];
 						this.makePage(project);
 						
 					} else
@@ -61,9 +62,9 @@ namespace Launchr.pages
 			this.makeAlbum(project.image_path_list);
 			this.makeTarget(project.getTransactionTotal(), project.target);
 			this.makeBackers(project.countBackers());
+			this.makeComments(project.getComments());
 			this.makeRemaining(project.time_end);
 			this.makeTiers(project, project.getTiers());
-			this.makeComments(project.getComments());
 		}
 
 		private void makeAlbum(List<String> image_path_list)
@@ -168,6 +169,16 @@ namespace Launchr.pages
 
 		private void makeComments(List<Comment> comment_list)
 		{
+			StringBuilder html = new StringBuilder();
+			foreach(Comment comment in comment_list)
+			{
+				html.Append("<div id=\"" + comment.id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + comment.user.id + "\"><h4>" + comment.user.name + "</h4></a><p>" + comment.content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment.id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
+			}
+
+			this.plcComments.Controls.Add(new Literal
+			{
+				Text = html.ToString()
+			});
 
 		}
 
@@ -191,6 +202,23 @@ namespace Launchr.pages
 		}
 		protected void btnComment_Click(object sender, EventArgs e)
 		{
+			string content = txtProjectComment.Text;
+			if(this.Session["user"] != null && content.TrimStart(' ') != "")
+			{
+				if (txtCommentReplyPointer.Text == "")
+				{
+					int add_comment_status = project.addComment((User)this.Session["user"], content);
+					if (add_comment_status == 1)
+					{
+						// add comment successful
+					} else
+					{
+						// add comment failed
+					}
+				}
+				
+			}
+			
 		}
 	}
 }
