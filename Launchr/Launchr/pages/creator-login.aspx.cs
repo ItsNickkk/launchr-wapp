@@ -16,7 +16,7 @@ namespace Launchr.pages
 		{
 			if (this.Session["user"] != null || this.Session["creator"] != null)
 			{
-				Response.Redirect("home");
+				Response.Redirect("404.aspx");
 			}
 			siteDB = new SiteDB();
 		}
