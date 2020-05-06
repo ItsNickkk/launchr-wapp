@@ -170,7 +170,7 @@
 						<asp:TextBox TextMode="MultiLine" ID="txtProjectComment" runat="server" Cssclass="form-control mt-3" ValidationGroup="projcomment"></asp:TextBox>
 						<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> A comment must be at least 10 characters." ControlToValidate="txtProjectComment" Display="Dynamic" ValidationGroup="projcomment"></asp:RegularExpressionValidator><br />
 						<asp:Button ID="btnComment" runat="server" Text="Leave comment" CssClass="btn launchr-btn" ValidationGroup="projcomment" OnClick="btnComment_Click"/>
-
+						<asp:PlaceHolder ID="plcCommentAlert" runat="server"></asp:PlaceHolder>
 					</div>
 				</div>
 			</div>

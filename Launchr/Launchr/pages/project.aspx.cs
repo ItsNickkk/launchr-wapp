@@ -175,7 +175,7 @@ namespace Launchr.pages
 				html.Append("<div id=\"" + comment.id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + comment.user.id + "\"><h4>" + comment.user.name + "</h4></a><p>" + comment.content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment.id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
 			}
 
-			this.plcComments.Controls.Add(new Literal
+			this.plcComment.Controls.Add(new Literal
 			{
 				Text = html.ToString()
 			});
@@ -189,7 +189,7 @@ namespace Launchr.pages
 			{
 				int num = project.getTierNumber(tier);
 				int percentage = (int)Math.Ceiling((double)num / tier.max_amount * 100);
-				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card\"><h4>" + tier.title + "</h4><h4>$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage + "%\"></div></div><p>" + num + " out of " + tier.max_amount + " slots left</p><asp:Button runat=\"server\" Text=\"Pledge\" CssClass=\"btn join-sign-up-btn mt-3 launchr-btn\" /></div></div>");
+				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card neumorph\"><h4>" + tier.title + "</h4><h4>$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage + "%\"></div></div><p>" + num + " out of " + tier.max_amount + " slots left</p><button type=\"button\" runat=\"server\" Class=\"btn join-sign-up-btn mt-3 launchr-btn\" >Pledge</button></div></div>");
 			}
 			this.plcTier.Controls.Add(new Literal
 			{
@@ -205,20 +205,53 @@ namespace Launchr.pages
 			string content = txtProjectComment.Text;
 			if(this.Session["user"] != null && content.TrimStart(' ') != "")
 			{
-				if (txtCommentReplyPointer.Text == "")
+				if (txtCommentReplyPointer.Text == "this project")
 				{
 					int add_comment_status = project.addComment((User)this.Session["user"], content);
 					if (add_comment_status == 1)
 					{
 						// add comment successful
+						displayErrorMessage("Comment successfully added", 1, 1);
 					} else
 					{
 						// add comment failed
+						displayErrorMessage("Error occured, please try again", 1, 2);
 					}
 				}
 				
 			}
 			
+		}
+
+		protected void displayErrorMessage(String alertmsg, int type, int status)
+		{
+			StringBuilder html = new StringBuilder();
+			html.Append("<div class=\"mt-3\" runat=\"server\">");
+			if (status == 1)
+			{
+				html.Append("<div class=\"alert alert-success\">");
+			}
+			else
+			{
+				html.Append("<div class=\"alert alert-danger\">");
+			}
+			html.Append(alertmsg);
+			html.Append("</div></div>");
+
+			if (type == 1)
+			{
+				plcCommentAlert.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else if (type == 5)
+			{
+				//registerAlert.Controls.Add(new Literal { Text = html.ToString() });
+			}
+			else
+			{
+				//registerAlert.Controls.Add(new Literal { Text = html.ToString() });
+				//registerAlertModal.Controls.Add(new Literal { Text = html.ToString() });
+			}
+
 		}
 	}
 }
