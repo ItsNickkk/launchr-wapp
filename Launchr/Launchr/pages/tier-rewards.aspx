@@ -82,7 +82,7 @@
 							</div>
 						</div>
 					</div>
-					<asp:TextBox TextMode="MultiLine" ID="TextBox1" runat="server" Cssclass="form-control"></asp:TextBox>
+					<asp:TextBox TextMode="MultiLine" ID="TextBox1" runat="server" Cssclass="form-control d-none"></asp:TextBox>
 					<div id="errorMsgBox" class="d-none" role="dialog">
 						<div class="mt-3" runat="server">
 							<div class="alert alert-danger" id="errorMsgBoxInner">
@@ -99,7 +99,7 @@
 	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtTierContentFaux') });
 	var combinedTier = new Object();
 	var tierNumber = 0;
-	var projID = GetURLParameter('projID');
+	var projID = GetURLParameter('id');
 
 	$(document).ready(function () {
 		$('#txtProjID').attr("value", projID);
@@ -191,6 +191,7 @@
 	}
 
 	function saveTier() {
+		console.log(combinedTier);
 		$.ajax({
 			type: 'POST',
 			url: 'tier-rewards.aspx/saveTiers',
