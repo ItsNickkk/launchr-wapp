@@ -112,6 +112,7 @@
 	}
 
 	function addTier() {
+		easyMDE.value();
 		if (Page_ClientValidate()) {
 			if (Object.keys(combinedTier).length < 10) {
 				var newTier = [];
@@ -129,7 +130,7 @@
 					content,
 					"</xmp></template></span>",
 					"<div class=\"progress mt-4\">",
-					"<div class=\"progress-bar bg-launchr delete-tier-btn\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"" + quantity + "\" style=\"width: 75 %\"></div></div>",
+					"<div class=\"progress-bar bg-launchr delete-tier-btn\" role=\"progressbar\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"" + quantity + "\" style=\"width: 0%\"></div></div>",
 					"<p>0 out of " + quantity + " slots left</p>",
 					"<input type=\"text\" readonly class=\"tempID d-none\" value=\"" + tierNumber + "\"/>",
 					"<button onclick=\"deleteTier(this);\" type=\"button\" class=\"btn mt-3 launchr-btn pledge-btn delete-tier-btn\">Remove this Tier</button></div></div></div>"
@@ -190,7 +191,19 @@
 
 	function saveTier() {
 		for (const [key, value] of Object.entries(combinedTier)) {
+			$.ajax({
+				type: "POST",
+				url: "tier-rewards.aspx/saveTiers",
+				data: value,
+				success: function () {
+					alert("Tiers saved successfully.");
+				},
+				error: function () {
+					alert("An error occured.");
+				}
+			});
 			console.log(key, value);
+			console.log("Data POSTed");
 		}
 	}
 
