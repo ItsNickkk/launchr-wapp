@@ -26,7 +26,6 @@ namespace Launchr.pages
 						if (project_list.Count() != 0)
 						{
 							Project project = (Project)project_list[0];
-
 						}
 						else
 						{
@@ -41,16 +40,36 @@ namespace Launchr.pages
 				{
 					Response.Redirect("tier-rewards.aspx?id=300001");
 				}
+
+
 				
 			}
 		}
 
 		[WebMethod]
-		public static string saveTiers(object test)
+		public static int saveTiers(object tiers)
 		{
-			List<object> tier_list = new JavaScriptSerializer().ConvertToType<List<object>>(test);
-			System.Diagnostics.Debug.WriteLine("touch");
-			return "touch";		
+			int return_id = 1;
+			Dictionary<string, object> tier_dict = (Dictionary<string, object>)tiers;
+			foreach (KeyValuePair<string, object> kvp in tier_dict)
+			{
+				// what does every tier have?
+				// cast value of kvp
+				Dictionary<string, object> subValues = (Dictionary<string, object>)kvp.Value;
+				string title = (string)subValues["title"];
+				int value = int.Parse((string)subValues["value"]);
+				string description = (string)subValues["description"];
+				int max_amount = int.Parse((string)subValues["max_amount"]);
+				int project_id = int.Parse((string)subValues["project_id"]);
+				int add_tier_status = new SiteDB().addNewTier(value, description, project_id, max_amount, title);
+				if (add_tier_status != 1)
+				{
+					return_id = 0;
+				}
+			}
+			return return_id;
 		}
 	}
+
+	
 }

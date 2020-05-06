@@ -11,12 +11,14 @@ namespace Launchr.models
         private userTableAdapter userAdapter;
         private creatorTableAdapter creatorAdapter;
         private projectTableAdapter projectAdapter;
+        private tierTableAdapter tierAdapter;
 
         public SiteDB()
         {
             userAdapter = new userTableAdapter();
             creatorAdapter = new creatorTableAdapter();
             projectAdapter = new projectTableAdapter();
+            tierAdapter = new tierTableAdapter();
         }
         // <------------------ User functions ------------------>
         private User translateRowToUser(launchr_DataSet.userRow user_row)
@@ -257,6 +259,20 @@ namespace Launchr.models
             try
             {
                 projectAdapter.UpdateProject(project.creator.id, project.title, project.time_created, project.time_end, project.description, project.status, project.target, project.topic, project.content, project.parseStringFromImagePath(), project.id);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        // <--------------------------- Tier functions --------------------------->
+
+        public int addNewTier(int value, string description, int project_id, int max_amount,string title)
+        {
+            try
+            {
+                tierAdapter.AddNewTier(value, description, project_id, max_amount, title);
                 return 1;
             } catch (Exception e)
             {

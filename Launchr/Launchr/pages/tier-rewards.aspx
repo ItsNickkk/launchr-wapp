@@ -181,12 +181,12 @@
 		var projNumber = $("#txtProjID").val();
 		var tempTier = {
 			"title": tierTitle,
-			"price": tierPrice,
-			"quantity": tierQuantity,
-			"content": tierContent,
-			"projID": projNumber,
+			"value": tierPrice,
+			"max_amount": tierQuantity,
+			"description": tierContent,
+			"project_id": projNumber,
 		};
-		combinedTier["test"] = tempTier;
+		combinedTier[tierNumber.toString()] = tempTier;
 		tierNumber = tierNumber + 1;
 	}
 
@@ -194,14 +194,14 @@
 		$.ajax({
 			type: 'POST',
 			url: 'tier-rewards.aspx/saveTiers',
-			data: JSON.stringify(combinedTier),
+			data: JSON.stringify({"tiers": combinedTier}),
 			dataType: 'json',
 			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
-				alert(resp);
+				alert("Success: " + resp);
 			},
 			error: function (resp) {
-				alert(JSON.stringify(combinedTier));
+				alert("Failure: " + resp);
 			}
 		});
 	}
