@@ -14,7 +14,8 @@ namespace Launchr.pages
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Creator creator = (Creator)this.Session["creator"];
-			if (Session["creator"] != null){
+			if (Session["creator"] != null)
+			{
 				backProject.Enabled = false;
 				backProject.Attributes["data-toggle"] = "tooltip";
 				backProject.Attributes["data-placement"] = "right";
@@ -32,20 +33,22 @@ namespace Launchr.pages
 					{
 						Project project = (Project)project_list[0];
 						this.makePage(project);
-						
-					} else
+
+					}
+					else
 					{
 						// project does not exist, do something here!
 						Response.Redirect("404.aspx");
 					}
-				} catch (Exception ex)
+				}
+				catch (Exception ex)
 				{
 					// id invalid (not convertible to int), do something here!
 					Response.Redirect("404.aspx");
 				}
 			}
 
-			
+
 
 		}
 
@@ -64,18 +67,19 @@ namespace Launchr.pages
 		{
 			StringBuilder html_indicator = new StringBuilder();
 			StringBuilder html_images = new StringBuilder();
-			foreach(string image_path in image_path_list)
+			foreach (string image_path in image_path_list)
 			{
 				if (image_path_list.IndexOf(image_path) != 0)
 				{
 					html_indicator.Append("<li data-target=\"#project-photo-carousel\" data-slide-to=\"" + image_path_list.IndexOf(image_path) + "\"></li>");
 					html_images.Append("<div class=\"carousel-item project-photo-div\"><img class=\"project-photo-carousel\" src=\"" + image_path + "\" /></div>");
-				} else
+				}
+				else
 				{
 					html_indicator.Append("<li data-target=\"#project-photo-carousel\" data-slide-to=\"" + image_path_list.IndexOf(image_path) + "\" class=\"active\"></li>");
 					html_images.Append("<div class=\"carousel-item active project-photo-div\"><img class=\"project-photo-carousel\" src=\"" + image_path + "\" /></div>");
 				}
-				
+
 			}
 			this.plcAlbumIndicator.Controls.Add(new Literal
 			{
@@ -150,13 +154,18 @@ namespace Launchr.pages
 		private void makeRemaining(DateTime time_end)
 		{
 			DateTime time_now = DateTime.Now;
-			int in_between = (int) (time_end - time_now).TotalDays;
+			int in_between = (int)(time_end - time_now).TotalDays;
 			StringBuilder html = new StringBuilder();
 			html.Append(in_between.ToString() + " days left");
 			this.plcRemaining.Controls.Add(new Literal
 			{
 				Text = html.ToString()
 			});
+		}
+
+		protected void btnComment_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

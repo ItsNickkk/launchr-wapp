@@ -229,7 +229,6 @@
 		</div>
 	</div>
 </div>
-
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {

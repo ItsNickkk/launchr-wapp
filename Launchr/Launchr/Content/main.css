@@ -209,3 +209,7 @@ footer {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+
+.assign-admin-btn{
+	font-size: 0.9em !important;
+}

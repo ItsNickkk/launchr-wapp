@@ -1,9 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Launchr.Master.cs" Inherits="Launchr.pages.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="Launchr.pages.Site2" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
+    <title></title>
 	<!--jQuery, Bootstrap and stuffs-->
 	<link href="../Content/main.css" rel="stylesheet" />
 	<link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -19,14 +20,10 @@
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-	<title></title>
-	<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-	<a href="project.aspx?id=300001">Go to Project</a><br />
-	<a href="create-project.aspx">Go to Project Create</a>
-	<a href="admin-home.aspx">Go to Admin Home</a><br />
-	<a href="tier-rewards.aspx?ID=300001">Go to Tier Reward</a>
 	<nav class="navbar navbar-expand-xl navbar-light bg-light">
 		<a class="navbar-brand" href="home"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,41 +44,20 @@
 						<a class="dropdown-item" href="#">Publishing</a>
 					</div>
 				</li>
-				<%
-					User user = (User)this.Session["user"];
-					Creator creator = (Creator)this.Session["creator"];
-
-					if (this.Session["creator"] != null)
-					{
-						Response.Write("<li class=\"nav-item\"><a class=\"nav-link\" href=\"create-project.aspx\">Start a project</a></li>");
-					}
-					else if (this.Session["user"] == null && this.Session["creator"] == null)
-					{
-						Response.Write("<li class=\"nav-item\"><a class=\"nav-link\" href=\"creator-login\">Start a project</a></li>");
-					}
-					else if(this.Session["user"] != null){
-						Response.Write("<li class=\"nav-item\"><label class=\"nav-link\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"You can only start a project as a creator.\">Start a project</label></li>");
-					}
-				%>
 			</ul>
 
 			<%
-				if (this.Session["user"] == null){
-					if(this.Session["creator"]==null){
-						Response.Write("<a class=\"btn btn-secondary my-2 my-sm-0\" id=\"login-btn\" href=\"login\">Log In</a>");
-					}
-					else{
-						generateProfileDropdown(creator.name, creator.id, 0);
-					}
-				}
-				else{
+				User user = (User)this.Session["user"];
+				if (this.Session["user"] != null){
 					if(user.is_admin == true){
 						generateProfileDropdown(user.name, user.id, 1);
 					}
 					else{
-						generateProfileDropdown(user.name, user.id, 0);
+						//Logged in but not admin
 					}
-					
+				}
+				else{
+					//Not logged in
 				}
 			%>
 			<form class="form-inline my-2 my-xl-0">
