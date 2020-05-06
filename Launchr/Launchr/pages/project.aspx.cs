@@ -62,9 +62,9 @@ namespace Launchr.pages
 			this.makeAlbum(project.image_path_list);
 			this.makeTarget(project.getTransactionTotal(), project.target);
 			this.makeBackers(project.countBackers());
-			this.makeComments(project.getComments());
 			this.makeRemaining(project.time_end);
 			this.makeTiers(project, project.getTiers());
+			this.makeComments(project.getComments());
 		}
 
 		private void makeAlbum(List<String> image_path_list)
