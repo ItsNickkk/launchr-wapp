@@ -341,3 +341,4 @@ healthchecksdb
 *.pdf
 
 Launchr/Launchr/Content/documents/*
+!Launchr/Launchr/Content/documents/.gitkeep
