@@ -38,7 +38,7 @@ namespace Launchr.pages
 			{
 				Creator creator = (Creator) this.Session["creator"];
 				int creator_id = creator.id;
-				int add_project_status = this.siteDB.addNewProject(creator_id, title, date_start, date_end, description, target, topic, content, image_path_temp);
+				int add_project_status = this.siteDB.addNewProject(creator_id, title, date_start, date_end, description, 1, target, topic, content, image_path_temp);
 				if (add_project_status == 1)
 				{
 					// get the last entry in the project table
