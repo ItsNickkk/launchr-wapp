@@ -74,8 +74,9 @@ namespace Launchr.pages
 				string creator_id_str = creator.id.ToString();
 				string document_name = "creator_" + creator_id_str + ".pdf";
 				string document_path = System.IO.Path.Combine(Server.MapPath("~/Content/documents/"), document_name);
+				string document_path_short = System.IO.Path.Combine("../Content/documents/", document_name);
 
-				creator.document = document_path;
+				creator.document = document_path_short;
 
 				int update_document_status = this.siteDB.updateCreator(creator);
 

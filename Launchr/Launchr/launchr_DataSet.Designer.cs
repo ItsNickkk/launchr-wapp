@@ -36,11 +36,17 @@ namespace Launchr {
         
         private transactionDataTable tabletransaction;
         
-        private global::System.Data.DataRelation relationFK_creator_id_project;
-        
         private global::System.Data.DataRelation relationFK_parent_id_comment;
         
         private global::System.Data.DataRelation relationFK_tier_id_transaction;
+        
+        private global::System.Data.DataRelation relationFK_project_id_transaction;
+        
+        private global::System.Data.DataRelation relationFK_project_id_tier;
+        
+        private global::System.Data.DataRelation relationFK_project_id_comment;
+        
+        private global::System.Data.DataRelation relationFK_creator_id_project;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -320,9 +326,12 @@ namespace Launchr {
                     this.tabletransaction.InitVars();
                 }
             }
-            this.relationFK_creator_id_project = this.Relations["FK_creator_id_project"];
             this.relationFK_parent_id_comment = this.Relations["FK_parent_id_comment"];
             this.relationFK_tier_id_transaction = this.Relations["FK_tier_id_transaction"];
+            this.relationFK_project_id_transaction = this.Relations["FK_project_id_transaction"];
+            this.relationFK_project_id_tier = this.Relations["FK_project_id_tier"];
+            this.relationFK_project_id_comment = this.Relations["FK_project_id_comment"];
+            this.relationFK_creator_id_project = this.Relations["FK_creator_id_project"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -345,10 +354,6 @@ namespace Launchr {
             base.Tables.Add(this.tabletier);
             this.tabletransaction = new transactionDataTable();
             base.Tables.Add(this.tabletransaction);
-            this.relationFK_creator_id_project = new global::System.Data.DataRelation("FK_creator_id_project", new global::System.Data.DataColumn[] {
-                        this.tablecreator.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableproject.creator_idColumn}, false);
-            this.Relations.Add(this.relationFK_creator_id_project);
             this.relationFK_parent_id_comment = new global::System.Data.DataRelation("FK_parent_id_comment", new global::System.Data.DataColumn[] {
                         this.tablecomment.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecomment.parent_idColumn}, false);
@@ -357,6 +362,22 @@ namespace Launchr {
                         this.tabletier.idColumn}, new global::System.Data.DataColumn[] {
                         this.tabletransaction.tier_idColumn}, false);
             this.Relations.Add(this.relationFK_tier_id_transaction);
+            this.relationFK_project_id_transaction = new global::System.Data.DataRelation("FK_project_id_transaction", new global::System.Data.DataColumn[] {
+                        this.tableproject.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletransaction.project_idColumn}, false);
+            this.Relations.Add(this.relationFK_project_id_transaction);
+            this.relationFK_project_id_tier = new global::System.Data.DataRelation("FK_project_id_tier", new global::System.Data.DataColumn[] {
+                        this.tableproject.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletier.project_idColumn}, false);
+            this.Relations.Add(this.relationFK_project_id_tier);
+            this.relationFK_project_id_comment = new global::System.Data.DataRelation("FK_project_id_comment", new global::System.Data.DataColumn[] {
+                        this.tableproject.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecomment.project_idColumn}, false);
+            this.Relations.Add(this.relationFK_project_id_comment);
+            this.relationFK_creator_id_project = new global::System.Data.DataRelation("FK_creator_id_project", new global::System.Data.DataColumn[] {
+                        this.tablecreator.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableproject.creator_idColumn}, false);
+            this.Relations.Add(this.relationFK_creator_id_project);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1845,16 +1866,19 @@ namespace Launchr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public commentRow AddcommentRow(int user_id, int project_id, commentRow parentcommentRowByFK_parent_id_comment, string content, System.DateTime datetime, int status) {
+            public commentRow AddcommentRow(int user_id, projectRow parentprojectRowByFK_project_id_comment, commentRow parentcommentRowByFK_parent_id_comment, string content, System.DateTime datetime, int status) {
                 commentRow rowcommentRow = ((commentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         user_id,
-                        project_id,
+                        null,
                         null,
                         content,
                         datetime,
                         status};
+                if ((parentprojectRowByFK_project_id_comment != null)) {
+                    columnValuesArray[2] = parentprojectRowByFK_project_id_comment[0];
+                }
                 if ((parentcommentRowByFK_parent_id_comment != null)) {
                     columnValuesArray[3] = parentcommentRowByFK_parent_id_comment[0];
                 }
@@ -2189,15 +2213,18 @@ namespace Launchr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tierRow AddtierRow(int value, string description, int project_id, int max_amount, string title) {
+            public tierRow AddtierRow(int value, string description, projectRow parentprojectRowByFK_project_id_tier, int max_amount, string title) {
                 tierRow rowtierRow = ((tierRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         value,
                         description,
-                        project_id,
+                        null,
                         max_amount,
                         title};
+                if ((parentprojectRowByFK_project_id_tier != null)) {
+                    columnValuesArray[3] = parentprojectRowByFK_project_id_tier[0];
+                }
                 rowtierRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtierRow);
                 return rowtierRow;
@@ -2518,16 +2545,19 @@ namespace Launchr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public transactionRow AddtransactionRow(tierRow parenttierRowByFK_tier_id_transaction, int user_id, int project_id, System.DateTime datetime) {
+            public transactionRow AddtransactionRow(tierRow parenttierRowByFK_tier_id_transaction, int user_id, projectRow parentprojectRowByFK_project_id_transaction, System.DateTime datetime) {
                 transactionRow rowtransactionRow = ((transactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         user_id,
-                        project_id,
+                        null,
                         datetime};
                 if ((parenttierRowByFK_tier_id_transaction != null)) {
                     columnValuesArray[1] = parenttierRowByFK_tier_id_transaction[0];
+                }
+                if ((parentprojectRowByFK_project_id_transaction != null)) {
+                    columnValuesArray[3] = parentprojectRowByFK_project_id_transaction[0];
                 }
                 rowtransactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtransactionRow);
@@ -3122,6 +3152,39 @@ namespace Launchr {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_creator_id_project"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public transactionRow[] GettransactionRows() {
+                if ((this.Table.ChildRelations["FK_project_id_transaction"] == null)) {
+                    return new transactionRow[0];
+                }
+                else {
+                    return ((transactionRow[])(base.GetChildRows(this.Table.ChildRelations["FK_project_id_transaction"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public tierRow[] GettierRows() {
+                if ((this.Table.ChildRelations["FK_project_id_tier"] == null)) {
+                    return new tierRow[0];
+                }
+                else {
+                    return ((tierRow[])(base.GetChildRows(this.Table.ChildRelations["FK_project_id_tier"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public commentRow[] GetcommentRows() {
+                if ((this.Table.ChildRelations["FK_project_id_comment"] == null)) {
+                    return new commentRow[0];
+                }
+                else {
+                    return ((commentRow[])(base.GetChildRows(this.Table.ChildRelations["FK_project_id_comment"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3233,6 +3296,17 @@ namespace Launchr {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_parent_id_comment"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public projectRow projectRow {
+                get {
+                    return ((projectRow)(this.GetParentRow(this.Table.ParentRelations["FK_project_id_comment"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_project_id_comment"]);
                 }
             }
             
@@ -3354,6 +3428,17 @@ namespace Launchr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public projectRow projectRow {
+                get {
+                    return ((projectRow)(this.GetParentRow(this.Table.ParentRelations["FK_project_id_tier"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_project_id_tier"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public transactionRow[] GettransactionRows() {
                 if ((this.Table.ChildRelations["FK_tier_id_transaction"] == null)) {
                     return new transactionRow[0];
@@ -3441,6 +3526,17 @@ namespace Launchr {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tier_id_transaction"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public projectRow projectRow {
+                get {
+                    return ((projectRow)(this.GetParentRow(this.Table.ParentRelations["FK_project_id_transaction"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_project_id_transaction"]);
                 }
             }
         }
@@ -4829,7 +4925,8 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagePath", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "imagePath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT [project].*\r\nFROM [project]\r\nWHERE (id=@id)";
+            this._commandCollection[2].CommandText = "SELECT [content], creator_id, description, id, imagePath, target, time_created, t" +
+                "ime_end, title, topic FROM project WHERE (id = @id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -5895,6 +5992,15 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._projectTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._projectTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._tierTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -5910,15 +6016,6 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._userTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._projectTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._projectTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5959,6 +6056,14 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._projectTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._projectTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._tierTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tier.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5972,14 +6077,6 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._userTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._projectTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._projectTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6027,14 +6124,6 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._projectTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._projectTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._userTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.user.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6048,6 +6137,14 @@ SELECT id, creator_id, title, time_created, time_end, description, target, topic
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tierTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._projectTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.project.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._projectTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

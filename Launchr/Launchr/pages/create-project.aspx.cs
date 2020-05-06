@@ -59,9 +59,10 @@ namespace Launchr.pages
 						// rename the file to "project_{project_id}_{file_index}.{extension}"
 						string file_name = "project_" + project.id.ToString() + "_" + (image_files.IndexOf(file) + 1).ToString() + file_ext;
 						// set the save location of the file
-						string file_path = System.IO.Path.Combine(Server.MapPath("../Content/documents/"), file_name);
+						string file_path = System.IO.Path.Combine(Server.MapPath("~/Content/documents/"), file_name);
+						string file_path_short = System.IO.Path.Combine("../Content/documents/", file_name);
 						// add the file path into the list
-						image_file_names.Add(file_path);
+						image_file_names.Add(file_path_short);
 						// save the file
 						file.SaveAs(file_path);
 					}
