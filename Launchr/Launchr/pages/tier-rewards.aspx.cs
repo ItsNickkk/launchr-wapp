@@ -46,11 +46,11 @@ namespace Launchr.pages
 		}
 
 		[WebMethod]
-		public static string saveTiers(object tiers)
+		public static string saveTiers(object test)
 		{
-			List<object> tier_list = new JavaScriptSerializer().ConvertToType<List<object>>(tiers);
+			List<object> tier_list = new JavaScriptSerializer().ConvertToType<List<object>>(test);
 			System.Diagnostics.Debug.WriteLine("touch");
-			return "touch";
+			return "touch";		
 		}
 	}
 }

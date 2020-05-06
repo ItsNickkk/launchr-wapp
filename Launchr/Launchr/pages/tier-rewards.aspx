@@ -82,6 +82,7 @@
 							</div>
 						</div>
 					</div>
+					<asp:TextBox TextMode="MultiLine" ID="TextBox1" runat="server" Cssclass="form-control"></asp:TextBox>
 					<div id="errorMsgBox" class="d-none" role="dialog">
 						<div class="mt-3" runat="server">
 							<div class="alert alert-danger" id="errorMsgBoxInner">
@@ -185,22 +186,22 @@
 			"content": tierContent,
 			"projID": projNumber,
 		};
-		combinedTier[tierNumber] = tempTier;
+		combinedTier["test"] = tempTier;
 		tierNumber = tierNumber + 1;
 	}
 
 	function saveTier() {
 		$.ajax({
-			type: "POST",
-			url: "tier-rewards.aspx/saveTiers",
+			type: 'POST',
+			url: 'tier-rewards.aspx/saveTiers',
 			data: JSON.stringify(combinedTier),
-			dataType: "json",
-			contentType: "application/json; charset=utf-8",
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
 				alert(resp);
 			},
 			error: function (resp) {
-				alert(resp);
+				alert(JSON.stringify(combinedTier));
 			}
 		});
 	}
