@@ -189,5 +189,8 @@ namespace Launchr.pages
 				Text = html.ToString()
 			});
 		}
+		protected void btnComment_Click(object sender, EventArgs e)
+		{
+		}
 	}
 }
