@@ -39,7 +39,7 @@
 							</thead>
 							<tbody id="pendingCreatorTable">
                                 <asp:PlaceHolder ID="plcPendingCreator" runat="server"></asp:PlaceHolder>
-								<tr>
+								<%--<tr>
 									<th scope="row" class="text-right">200004</th>
 									<td>200004</td>
 									<td>Column content</td>
@@ -57,7 +57,7 @@
 									<td>Column content</td>
 									<td>Column content</td>
 									<td class="text-center"><button type="button" class="btnUnassignAdmin btn-danger btn p-2 assign-admin-btn">&times;</button></td>
-								</tr>
+								</tr>--%>
 							</tbody>
 						</table>
 						<div class="row">

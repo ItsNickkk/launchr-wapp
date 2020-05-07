@@ -28,10 +28,9 @@ namespace Launchr.pages
 				try
 				{
 					int project_id = int.Parse(Request.QueryString["id"]);
-					List<Project> project_list = new SiteDB().getProjectById(project_id);
-					if (project_list.Count() != 0)
+					project = new SiteDB().getProjectById(project_id);
+					if (project != null & project.creator.status == 1)
 					{
-						project = (Project)project_list[0];
 						this.makePage(project);
 						
 					} else

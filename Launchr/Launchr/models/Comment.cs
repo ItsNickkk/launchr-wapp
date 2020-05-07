@@ -46,15 +46,7 @@ namespace Launchr.models
 
         private static Project getProjectById(int project_id)
         {
-            List<Project> project_list = new SiteDB().getProjectById(project_id);
-            if (project_list.Count() == 1)
-            {
-                return project_list[0];
-            }
-            else
-            {
-                return null;
-            }
+            return new SiteDB().getProjectById(project_id);
         }
 
         private static Comment getCommentById(int comment_id)

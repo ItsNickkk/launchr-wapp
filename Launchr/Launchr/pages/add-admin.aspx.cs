@@ -22,14 +22,20 @@ namespace Launchr.pages
 		private void makeUserList(List<User> user_list)
 		{
 			StringBuilder html = new StringBuilder();
-			foreach(User user in user_list)
+			User current_user = (User)this.Session["user"];
+			foreach (User user in user_list)
 			{
-				if (!user.is_admin)
+
+				if (user.id != current_user.id)
 				{
-					html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id.ToString() + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnAssignAdmin launchr-btn btn p-2 assign-admin-btn\">Assign as admin</button></td></tr>");
-				} else
-				{
-					html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id.ToString() + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnassignAdmin launchr-btn btn p-2 assign-admin-btn\">Unassign admin</button></td></tr>");
+					if (!user.is_admin)
+					{
+						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id.ToString() + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnAssignAdmin launchr-btn btn p-2 assign-admin-btn\">Assign as admin</button></td></tr>");
+					}
+					else
+					{
+						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id.ToString() + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnassignAdmin launchr-btn btn p-2 assign-admin-btn\">Unassign admin</button></td></tr>");
+					}
 				}
 			}
 

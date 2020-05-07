@@ -172,6 +172,18 @@ namespace Launchr.models
             return this.translateCreatorTableToList(creatorAdapter.GetAllCreators());
         }
 
+        public int deleteCreator(Creator creator)
+        {
+            try
+            {
+                this.creatorAdapter.DeleteCreator(creator.id);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         public int addNewCreator(string name, string address, string phone_number, string email, string country, string document, string type, string username, string password)
         {
             try
@@ -193,7 +205,7 @@ namespace Launchr.models
                     else
                     {
                         
-                        creatorAdapter.AddCreator(name, address, phone_number, email, country, 1, document, type, username, password);
+                        creatorAdapter.AddCreator(name, address, phone_number, email, country, 2, document, type, username, password);
                         return 1; // 1 is returned if no errors, no same email, or same username
                             
                     }
@@ -246,6 +258,11 @@ namespace Launchr.models
             
         }
 
+        public List<Creator> getWaitingCreator()
+        {
+            return this.translateCreatorTableToList(creatorAdapter.GetWaitingCreator());
+        }
+
         // <--------------------------- Project functions --------------------------->
 
 
@@ -269,10 +286,16 @@ namespace Launchr.models
             return this.translateProjectTableToList(projectAdapter.GetAllProjects());
         }
 
-        public List<Project> getProjectById(int id)
+        public Project getProjectById(int id)
         {
             List<Project> project_list = this.translateProjectTableToList(projectAdapter.GetProjectById(id));
-            return project_list;
+            if(project_list.Count() == 1)
+            {
+                return project_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
         public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string imagePath)
