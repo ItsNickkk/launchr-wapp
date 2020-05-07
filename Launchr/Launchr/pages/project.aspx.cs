@@ -48,7 +48,7 @@ namespace Launchr.pages
 			}
 			else
 			{
-				Response.Redirect("project.aspx?id=300003");
+				Response.Redirect("404.aspx");
 			}
 			
 
@@ -174,7 +174,7 @@ namespace Launchr.pages
 			StringBuilder html = new StringBuilder();
 			foreach(Comment comment in comment_list)
 			{
-				if(comment.parent_comment != null)
+				if(comment.parent_comment == null)
 				{
 					html.Append("<div id=\"" + comment.id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + comment.user.id + "\"><h4>" + comment.user.name + "</h4></a><p>" + comment.content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment.id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
 				} else
