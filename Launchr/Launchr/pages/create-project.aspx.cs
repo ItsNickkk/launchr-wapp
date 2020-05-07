@@ -16,9 +16,9 @@ namespace Launchr.pages
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			siteDB = new SiteDB();
-			if (this.Session["user"] != null && this.Session["creator"] == null)
+			if (this.Session["user"] != null || this.Session["creator"] == null)
 			{
-				Response.Redirect("home");
+				Response.Redirect("404.aspx");
 			}
 		}
 
@@ -94,6 +94,7 @@ namespace Launchr.pages
 			} else
 			{
 				// creator not logged in, do something here...
+				Response.Redirect("creator-login.aspx");
 			}
 		}
 

@@ -144,6 +144,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="pages\add-admin.aspx" />
     <Content Include="pages\create-project.aspx" />
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
@@ -153,6 +154,7 @@
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
     <Content Include="pages\tier-rewards.aspx" />
+    <Content Include="pages\404.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -167,6 +169,7 @@
     <Content Include="launchr_DataSet.xss">
       <DependentUpon>launchr_DataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="pages\Admin.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -220,6 +223,13 @@
     <Compile Include="models\Tier.cs" />
     <Compile Include="models\Transaction.cs" />
     <Compile Include="models\User.cs" />
+    <Compile Include="pages\add-admin.aspx.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\add-admin.aspx.designer.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\create-project.aspx.cs">
       <DependentUpon>create-project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,12 +286,26 @@
     <Compile Include="pages\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="pages\tier-rewards.aspx.cs">
       <DependentUpon>tier-rewards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\tier-rewards.aspx.designer.cs">
       <DependentUpon>tier-rewards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
