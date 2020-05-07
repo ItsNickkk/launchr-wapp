@@ -29,6 +29,16 @@ namespace Launchr.models
             // the get functions may return null functions
         }
 
+        public Comment(int id, int user_id, int project_id, string content, int status)
+        {
+            this.id = id;
+            this.user = getUserById(user_id);
+            this.project = getProjectById(project_id);
+            this.parent_comment = null;
+            this.content = content;
+            this.status = status;
+        }
+
 
         private static User getUserById(int user_id)
         {
@@ -58,7 +68,7 @@ namespace Launchr.models
 
         private static Comment getCommentById(int comment_id)
         {
-            List<Comment> comment_list = new SiteDB().getCommentsFromCommentId(comment_id);
+            List<Comment> comment_list = new SiteDB().getCommentById(comment_id);
             if (comment_list.Count() == 1)
             {
                 return comment_list[0];
@@ -67,6 +77,13 @@ namespace Launchr.models
             {
                 return null;
             }
+        }
+
+        
+
+        public int addReply(User user, string content)
+        {
+            return new SiteDB().addNewReply(this.user.id, this.project.id, this.id, content, DateTime.Now, 1);
         }
 
     }

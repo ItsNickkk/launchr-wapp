@@ -67,7 +67,8 @@ namespace Launchr.models
 
         public List<Comment> getComments()
         {
-            return new SiteDB().getCommentByProjectId(this.id);
+            List<Comment> comment_list = new SiteDB().getCommentByProjectId(this.id);
+            return comment_list;
         }
 
         public int getTierNumber(Tier tier)
@@ -88,7 +89,7 @@ namespace Launchr.models
 
         public int addComment(User user, string content)
         {
-            int add_comment_status = new SiteDB().addNewComment(user.id, this.id, 0, content, DateTime.Now, 1);
+            int add_comment_status = new SiteDB().addNewComment(user.id, this.id, content, DateTime.Now, 1);
             return add_comment_status;
         }
     }

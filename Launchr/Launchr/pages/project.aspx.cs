@@ -217,8 +217,30 @@ namespace Launchr.pages
 						// add comment failed
 						displayErrorMessage("Error occured, please try again", 1, 2);
 					}
+				} else
+				{
+					// replying to another comment
+					int comment_id = int.Parse(txtCommentReplyPointer.Text);
+					List<Comment> comment_list = new SiteDB().getCommentById(comment_id);
+					if(comment_list.Count == 1)
+					{
+						int add_reply_status = comment_list[0].addReply((User)this.Session["user"], content);
+						if (add_reply_status == 1)
+						{
+							displayErrorMessage("Comment successfully added", 1, 1);
+						}
+						else
+						{
+							// add reply failed
+							displayErrorMessage("Error occured, please try again", 1, 2);
+						}
+					}
+					
 				}
 				
+			} else
+			{
+				displayErrorMessage("Are you logged in?", 1, 2);
 			}
 			
 		}
