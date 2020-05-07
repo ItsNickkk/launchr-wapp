@@ -50,9 +50,10 @@ namespace Launchr.pages
 			{
 				Response.Redirect("404.aspx");
 			}
-			
 
-			
+			txtCommentReplyPointer.Attributes.Add("readonly", "readonly");
+
+
 
 		}
 

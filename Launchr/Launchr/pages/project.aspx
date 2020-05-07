@@ -162,7 +162,7 @@
 						<h4>Leave a comment</h4>
 						<div>
 							<span class="text-muted">
-								Replying to <asp:TextBox id="txtCommentReplyPointer" runat="server" CssClass="comment-reply-pointer" Text="this project" ReadOnly="true"></asp:TextBox>
+								Replying to <asp:TextBox id="txtCommentReplyPointer" runat="server" CssClass="comment-reply-pointer"></asp:TextBox>
 							</span>
 							<input type="button" class="clear-comment-pointer-btn comment-input-btn text-muted" value="Clear"/>
 						</div>
@@ -192,6 +192,7 @@
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
+		$('#content_txtCommentReplyPointer').val("this project");
 		$(".reply-btn").click(function () {
 			id = $(this).parent().parent().parent().parent().attr('id');
 			$('#content_txtCommentReplyPointer').val(id);
