@@ -37,7 +37,8 @@
 								</tr>
 							</thead>
 							<tbody id="userTable">
-								<tr>
+                                <asp:PlaceHolder ID="plcUserAdminList" runat="server"></asp:PlaceHolder>
+								<%--<tr>
 									<th scope="row" class="text-right">1</th>
 									<td>a</td>
 									<td>Column content</td>
@@ -50,7 +51,7 @@
 									<td>Column content</td>
 									<td>Column content</td>
 									<td class="text-center"><button type="button" class="btnUnassignAdmin launchr-btn btn p-2 assign-admin-btn">Unassign admin</button></td>
-								</tr>
+								</tr>--%>
 							</tbody>
 						</table>
 						<div class="row">

@@ -12,6 +12,8 @@ namespace Launchr.models
         private creatorTableAdapter creatorAdapter;
         private projectTableAdapter projectAdapter;
         private tierTableAdapter tierAdapter;
+        private transactionTableAdapter transactionAdapter;
+        private commentTableAdapter commentAdapter;
 
         public SiteDB()
         {
@@ -19,6 +21,8 @@ namespace Launchr.models
             creatorAdapter = new creatorTableAdapter();
             projectAdapter = new projectTableAdapter();
             tierAdapter = new tierTableAdapter();
+            transactionAdapter = new transactionTableAdapter();
+            commentAdapter = new commentTableAdapter();
         }
         // <------------------ User functions ------------------>
         private User translateRowToUser(launchr_DataSet.userRow user_row)
@@ -35,6 +39,17 @@ namespace Launchr.models
                 user_list.Add(this.translateRowToUser(user_row));
             }
             return user_list;
+        }
+
+        public List<User> getAllUsers()
+        {
+            return this.translateUserTableToList(this.userAdapter.GetAllUsers());
+        }
+
+
+        public List<User> getUserById(int id)
+        {
+            return this.translateUserTableToList(this.userAdapter.GetUserById(id));
         }
 
 
@@ -77,16 +92,17 @@ namespace Launchr.models
 
             try
             {
-
+                List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(user.email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(user.email));
-                if (user_list_same_email.Count() > 0)
+                if (creator_list_same_email.Count() > 0 | user_list_same_email.Count() > 1)
                 {
                     return 2; // 2 is returned if same email
                 }
                 else
                 {
+                    List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(user.username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(user.username));
-                    if (user_list_same_username.Count() > 0)
+                    if (creator_list_same_username.Count() > 0 | user_list_same_username.Count() > 1)
                     {
                         return 3; // 3 is returned if same username
                     }
@@ -268,7 +284,23 @@ namespace Launchr.models
 
         // <--------------------------- Tier functions --------------------------->
 
-        public int addNewTier(int value, string description, int project_id, int max_amount,string title)
+        private Tier translateRowToTier(launchr_DataSet.tierRow tier_row)
+        {
+            Tier tier = new Tier(tier_row.id, tier_row.value, tier_row.description, tier_row.project_id, tier_row.max_amount, tier_row.title);
+            return tier;
+        }
+
+        private List<Tier> translateTierTableToList(launchr_DataSet.tierDataTable tier_data_table)
+        {
+            List<Tier> tier_list = new List<Tier>();
+            foreach (launchr_DataSet.tierRow tier_row in tier_data_table)
+            {
+                tier_list.Add(this.translateRowToTier(tier_row));
+            }
+            return tier_list;
+        }
+
+        public int addNewTier(int value, string description, int project_id, int max_amount, string title)
         {
             try
             {
@@ -279,5 +311,129 @@ namespace Launchr.models
                 return 0;
             }
         }
+
+        public List<Tier> getTierById(int id)
+        {
+            List<Tier> tier_list = this.translateTierTableToList(this.tierAdapter.GetTierById(id));
+            return tier_list;
+        }
+
+        public List<Tier> getTierByProjectId(int project_id)
+        {
+            List<Tier> tier_list = this.translateTierTableToList(this.tierAdapter.GetTierByProjectId(project_id));
+            return tier_list;
+        }
+
+        public int countTierNumber(int tier_id)
+        {
+            return (int) this.transactionAdapter.CountTierNumber(tier_id);
+        }
+
+        // <--------------------------- Transaction functions --------------------------->
+
+
+
+        private Transaction translateRowToTransaction(launchr_DataSet.transactionRow transaction_row)
+        {
+            Transaction transaction = new Transaction(transaction_row.id, transaction_row.tier_id, transaction_row.amount, transaction_row.user_id, transaction_row.project_id, transaction_row.datetime);
+            return transaction;
+        }
+
+        private List<Transaction> translateTransactionTableToList(launchr_DataSet.transactionDataTable transaction_data_table)
+        {
+            List<Transaction> transaction_list = new List<Transaction>();
+            foreach(launchr_DataSet.transactionRow transaction_row in transaction_data_table)
+            {
+                transaction_list.Add(this.translateRowToTransaction(transaction_row));
+            }
+            return transaction_list;
+        }
+
+        public List<Transaction> getTransactionByProjectId(int id)
+        {
+            return this.translateTransactionTableToList(this.transactionAdapter.GetTransactionByProjectId(id));
+        }
+
+        public int getTransactionTotalAmountByProjectId(int id)
+        {
+            int total = 0;
+            foreach(Transaction transaction in this.getTransactionByProjectId(id))
+            {
+                total = total + transaction.amount;
+            }
+            return total;
+        }
+
+        public int countUniqueBackersByProjectId(int id)
+        {
+            return (int) this.transactionAdapter.CountUniqueBackersByProjectId(id);
+        }
+
+        // <--------------------------- Comment functions --------------------------->
+
+        private Comment translateRowToComment(launchr_DataSet.commentRow comment_row)
+        {
+            try
+            {
+                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.parent_id, comment_row.content, comment_row.status);
+                return comment;
+            } catch(System.Data.StrongTypingException e)
+            {
+                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.content, comment_row.status);
+                return comment;
+            }
+            
+        }
+
+        private List<Comment> translateCommentTableToList(launchr_DataSet.commentDataTable comment_table)
+        {
+            List<Comment> comment_list = new List<Comment>();
+            foreach(launchr_DataSet.commentRow comment_row in comment_table)
+            {
+                comment_list.Add(this.translateRowToComment(comment_row));
+            }
+            return comment_list;
+        }
+
+        public List<Comment> getCommentByProjectId(int project_id)
+        {
+            List<Comment> comment_list = this.translateCommentTableToList(commentAdapter.GetCommentByProjectId(project_id));
+
+            return comment_list;
+        }
+
+        public List<Comment> getCommentById(int comment_id)
+        {
+            List<Comment> comment_list = this.translateCommentTableToList(commentAdapter.GetCommentById(comment_id));
+            return comment_list;
+        }
+
+        public int addNewComment(int user_id, int project_id, string content, DateTime datetime, int status)
+        {
+            try
+            {
+                commentAdapter.AddNewComment(user_id, project_id, content, datetime, status);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public int addNewReply(int user_id, int project_id, int parent_id, string content, DateTime datetime, int status)
+        {
+            try
+            {
+                commentAdapter.AddNewReply(user_id, project_id, parent_id, content, datetime, status);
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+
+
     }
 }

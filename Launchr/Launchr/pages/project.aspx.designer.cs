@@ -105,6 +105,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
 		/// <summary>
+		/// plcTierSide control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder plcTierSide;
+
+		/// <summary>
 		/// plcContent control.
 		/// </summary>
 		/// <remarks>
@@ -114,13 +123,13 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.PlaceHolder plcContent;
 
 		/// <summary>
-		/// comments control.
+		/// plcComment control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder comments;
+		protected global::System.Web.UI.WebControls.PlaceHolder plcComment;
 
 		/// <summary>
 		/// txtCommentReplyPointer control.
@@ -159,6 +168,15 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.Button btnComment;
 
 		/// <summary>
+		/// plcCommentAlert control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder plcCommentAlert;
+
+		/// <summary>
 		/// txtTierNoReward control.
 		/// </summary>
 		/// <remarks>
@@ -166,5 +184,14 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtTierNoReward;
+
+		/// <summary>
+		/// plcTier control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.PlaceHolder plcTier;
 	}
 }

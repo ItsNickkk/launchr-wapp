@@ -86,27 +86,7 @@
 										</div>	
 									</div>
 
-									<div class="row pt-3">
-										<div class="p-4 tier-card">
-											<h4>Potato x1</h4><h4>30$</h4>
-											<p class="text-muted">By pledging amount above you get:</p>
-											<span>
-												<zero-md>
-													<template>
-														<xmp>
-- potato signed by designer
-- idk anymore
-														</xmp>
-													</template>
-												</zero-md>
-											</span>
-											<div class="progress mt-4">
-												<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-											</div>
-											<p>75 out of 100 slots left</p>
-											<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
-										</div>	
-									</div>
+                                    <asp:PlaceHolder ID="plcTierSide" runat="server"></asp:PlaceHolder>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn" data-dismiss="modal">Close</button>
@@ -139,8 +119,8 @@
 						</zero-md>
 					</div>
 					<div class="tab-pane fade project-details neumorph" id="project-comment">
-						<asp:PlaceHolder ID="comments" runat="server"></asp:PlaceHolder>
-						<!--Commnet content
+						<asp:PlaceHolder ID="plcComment" runat="server"></asp:PlaceHolder>
+						<!--Comment content
 						<div id="100001" class="row p-2">
 							<div class="col-xl-12 border pt-3">
 								<div class="row pl-3">
@@ -162,7 +142,7 @@
 
 						<div id="100002" class="row p-2">
 							<div class="col-xl-12 border pt-3">
-								<div class="row pl-3">
+								<div class="txtrow pl-3">
 									<div class="col-xl-10">
 										<a href="profile"><h4>John Doe</h4></a> <a href="#100001"><h5>reply to #100001</h5></a>
 										<p>Hi</p>
@@ -182,15 +162,15 @@
 						<h4>Leave a comment</h4>
 						<div>
 							<span class="text-muted">
-								Replying to <asp:TextBox id="txtCommentReplyPointer" runat="server" CssClass="comment-reply-pointer" Text="this project" ReadOnly="true"></asp:TextBox>
+								Replying to <asp:TextBox id="txtCommentReplyPointer" runat="server" CssClass="comment-reply-pointer"></asp:TextBox>
 							</span>
 							<input type="button" class="clear-comment-pointer-btn comment-input-btn text-muted" value="Clear"/>
 						</div>
 						
 						<asp:TextBox TextMode="MultiLine" ID="txtProjectComment" runat="server" Cssclass="form-control mt-3" ValidationGroup="projcomment"></asp:TextBox>
 						<asp:RegularExpressionValidator ID="memberUsernameMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{6,20}" runat="server" ErrorMessage="<br/><i>Error:</i> A comment must be at least 10 characters." ControlToValidate="txtProjectComment" Display="Dynamic" ValidationGroup="projcomment"></asp:RegularExpressionValidator><br />
-						<asp:Button ID="btnComment" runat="server" Text="Leave comment" CssClass="btn launchr-btn" ValidationGroup="projcomment"/>
-
+						<asp:Button ID="btnComment" runat="server" Text="Leave comment" CssClass="btn launchr-btn" ValidationGroup="projcomment" OnClick="btnComment_Click"/>
+						<asp:PlaceHolder ID="plcCommentAlert" runat="server"></asp:PlaceHolder>
 					</div>
 				</div>
 			</div>
@@ -204,27 +184,7 @@
 						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
 					</div>	
 				</div>
-				<div class="row pt-3">
-					<div class="p-4 tier-card neumorph">
-						<h4>Potato x1</h4><h4>30$</h4>
-						<p class="text-muted">By pledging amount above you get:</p>
-						<span>
-							<zero-md>
-							<template>
-								<xmp>
-- potato signed by designer
-- idk anymore
-								</xmp>
-							</template>
-						</zero-md>
-						</span>
-						<div class="progress mt-4">
-							<div class="progress-bar progress-bar-striped bg-launchr progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-						</div>
-						<p>75 out of 100 slots left</p>
-						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
-					</div>	
-				</div>	
+                <asp:PlaceHolder ID="plcTier" runat="server"></asp:PlaceHolder>
 			</div>
 		</div>
 	</div>
@@ -232,6 +192,7 @@
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
+		$('#content_txtCommentReplyPointer').val("this project");
 		$(".reply-btn").click(function () {
 			id = $(this).parent().parent().parent().parent().attr('id');
 			$('#content_txtCommentReplyPointer').val(id);

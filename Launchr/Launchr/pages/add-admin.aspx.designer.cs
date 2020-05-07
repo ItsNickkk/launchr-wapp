@@ -13,5 +13,6 @@ namespace Launchr.pages
 
 	public partial class add_admin
 	{
+		protected global::System.Web.UI.WebControls.PlaceHolder plcUserAdminList;
 	}
 }
