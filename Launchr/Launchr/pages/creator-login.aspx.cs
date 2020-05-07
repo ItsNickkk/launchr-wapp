@@ -59,9 +59,9 @@ namespace Launchr.pages
 			string address = this.txtCreatorAddress.Text;
 			string phone_number = this.txtCreatorPhone.Text;
 			string email = this.txtCreatorEmail.Text;
-			string country = this.txtCreatorCountry.Text;
+			string country = this.txtCreatorCountry.SelectedValue;
 			HttpPostedFile document = this.filDocument.PostedFile;
-			string type = this.txtBusinessType.Text;
+			string type = this.txtBusinessType.SelectedValue;
 			string username = this.txtCreatorUsername.Text;
 			string password = this.txtCreatorPassword.Text;
 
@@ -78,7 +78,7 @@ namespace Launchr.pages
 
 				creator.document = document_path_short;
 
-				int update_document_status = this.siteDB.updateCreator(creator);
+				int update_document_status = creator.update();
 
 
 				if (update_document_status == 1)
