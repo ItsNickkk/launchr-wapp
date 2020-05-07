@@ -15,6 +15,15 @@ namespace Launchr.pages
 	{
 
 		/// <summary>
+		/// creatorLoginUsernameReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorLoginUsernameReqValidator;
+
+		/// <summary>
 		/// txtCreatorLoginUsername control.
 		/// </summary>
 		/// <remarks>
@@ -22,6 +31,15 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtCreatorLoginUsername;
+
+		/// <summary>
+		/// creatorLoginPasseReqValidator control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator creatorLoginPasseReqValidator;
 
 		/// <summary>
 		/// creatorLoginPassMinLength control.

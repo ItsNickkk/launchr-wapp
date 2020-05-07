@@ -50,7 +50,7 @@ namespace Launchr.pages
 				
 			} else
 			{
-				displayErrorMessage("Username or password is incorrect.", 1);
+				displayErrorMessage("Login Failed.<ul><li>Username or password is incorrect.</li><li>Your account creation might be rejected, please resubmit a new application with appropriate details.</li>", 1);
 			}
 		}
 		protected void btnCreatorSignUp_Click(object sender, EventArgs e)

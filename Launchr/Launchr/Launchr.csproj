@@ -155,6 +155,7 @@
     <Content Include="pages\project.aspx" />
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
+    <Content Include="pages\summary-admin.aspx" />
     <Content Include="pages\tier-rewards.aspx" />
     <Content Include="pages\404.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
@@ -308,6 +309,13 @@
     </Compile>
     <Compile Include="pages\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\summary-admin.aspx.cs">
+      <DependentUpon>summary-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\summary-admin.aspx.designer.cs">
+      <DependentUpon>summary-admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\tier-rewards.aspx.cs">
       <DependentUpon>tier-rewards.aspx</DependentUpon>

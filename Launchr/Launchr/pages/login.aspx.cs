@@ -33,7 +33,13 @@ namespace Launchr.pages
 				if (user.status == 1)
 				{
 					this.Session["user"] = user;
-					Response.Redirect("home");
+					if (user.is_admin == true){
+						Response.Redirect("summary-admin");
+					}
+					else{
+						Response.Redirect("home");
+					}
+					
 				} else // if user.status is other than 1 
 				{
 					if (user.status == 0)

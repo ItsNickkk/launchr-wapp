@@ -217,3 +217,9 @@ footer {
 .creator-approval-btn{
 	width: 40px;
 }
+
+.summary-count{
+	font-size: 5em;
+	height: 100px;
+	width: 100px;
+}
