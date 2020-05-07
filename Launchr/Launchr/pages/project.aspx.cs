@@ -29,7 +29,7 @@ namespace Launchr.pages
 				{
 					int project_id = int.Parse(Request.QueryString["id"]);
 					project = new SiteDB().getProjectById(project_id);
-					if (project != null && project.creator.status == 1)
+					if (project != null & project.creator.status == 1)
 					{
 						this.makePage(project);
 						

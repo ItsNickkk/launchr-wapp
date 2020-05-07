@@ -36,7 +36,7 @@ namespace Launchr.pages
 					}
 				} else
 				{
-					Response.Redirect("tier-rewards.aspx?id=300001");
+					Response.Redirect("404.aspx");
 				}
 
 
