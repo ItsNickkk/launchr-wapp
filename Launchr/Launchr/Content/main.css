@@ -213,3 +213,7 @@ footer {
 .assign-admin-btn{
 	font-size: 0.9em !important;
 }
+
+.creator-approval-btn{
+	width: 40px;
+}
