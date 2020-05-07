@@ -121,6 +121,12 @@
     <Content Include="Content\images\cover1.jpg" />
     <Content Include="Content\images\loginbg.gif" />
     <Content Include="Content\Logo\Artboard 1%403x.png" />
+    <Content Include="Content\Logo\icons\add.svg" />
+    <Content Include="Content\Logo\icons\approve.svg" />
+    <Content Include="Content\Logo\icons\ban.svg" />
+    <Content Include="Content\Logo\icons\business-and-finance.svg" />
+    <Content Include="Content\Logo\icons\home.svg" />
+    <Content Include="Content\Logo\icons\summary.svg" />
     <Content Include="Content\Logo\location.svg" />
     <Content Include="Content\Logo\logo.png" />
     <Content Include="Content\Logo\LOGO.svg" />

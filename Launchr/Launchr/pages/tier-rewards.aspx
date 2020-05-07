@@ -99,10 +99,11 @@
 	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtTierContentFaux') });
 	var combinedTier = new Object();
 	var tierNumber = 0;
-	var projID = GetURLParameter('id');
+	var projID = GetURLParameter('ID');
 
 	$(document).ready(function () {
 		$('#txtProjID').attr("value", projID);
+		console.log(projID);
 	});
 
 	function allowOnlyNumber(evt) {
@@ -199,7 +200,7 @@
 			dataType: 'json',
 			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
-				alert("Success: " + resp);
+				window.location.href = "project?id=" + projID;
 			},
 			error: function (resp) {
 				alert("Failure: " + resp);

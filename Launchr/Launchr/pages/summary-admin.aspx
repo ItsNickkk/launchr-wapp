@@ -14,12 +14,37 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col xl-12 neumorph p-3">
-					<h3>Navigation</h3>
-					<a href="#Summary">Summary</a>
-					<a href="ban-user-admin">Ban User</a>
-					<a href="add-admin">Add Admin</a>
-					<a href="creator-approval-admin">Approve creator accounts</a>
-					<a href="home">Home</a>
+					<div class="row pl-3">
+						<h3>Navigation</h3>
+					</div>
+					<div class="row">
+						<div class="col-xl text-center">
+							<div class="admin-navigation m-auto">
+								<a href="#Summary" class="text-decoration-none"><img src="../Content/Logo/icons/summary.svg" /><h5>Summary</h5></a>
+							</div>
+						</div>
+						<div class="col-xl text-center">
+							<div class="admin-navigation m-auto">
+								<a href="ban-user-admin"><img src="../Content/Logo/icons/ban.svg" /><h5>Ban User</h5></a>
+							</div>
+						</div>
+						<div class="col-xl text-center">
+							<div class="admin-navigation m-auto">
+								<a href="add-admin"><img src="../Content/Logo/icons/add.svg" /><h5>Add Admin</h5></a>
+							</div>
+						</div>
+						<div class="col-xl text-center">
+							<div class="admin-navigation m-auto">
+								<a href="creator-approval-admin"><img src="../Content/Logo/icons/approve.svg" /><h5>Approve creator accounts</h5></a>
+							</div>
+						</div>
+						<div class="col-xl text-center">
+							<div class="admin-navigation m-auto">
+								<a href="home"><img src="../Content/Logo/icons/home.svg" /><h5>Home</h5></a>
+							</div>
+							
+						</div>					
+					</div>
 				</div>
 			</div>
 			<div class="row mt-3">

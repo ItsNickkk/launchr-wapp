@@ -223,3 +223,17 @@ footer {
 	height: 100px;
 	width: 100px;
 }
+
+.summary-count img{
+	height: 60px;
+	transition: transform .2s;
+}
+
+.summary-count img :hover {
+	transform: scale(1.1);
+}
+
+.admin-navigation img{
+	height: 100px;
+	padding-bottom: 20px;
+}
