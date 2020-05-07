@@ -118,6 +118,7 @@
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'add-admin.aspx/assignAdmin',
@@ -127,10 +128,16 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(2, "Admin privilege granted to " + username);
+							$(this).removeClass("btnAssignAdmin");
+							$(this).addClass("btnUnassignAdmin");
+							$(this).html("Unassign Admin");
+							btn.removeClass("btnAssignAdmin");
+							btn.addClass("btnUnassignAdmin");
+							btn.html("Unassign Admin");
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured");
-						}		
+						}
 					},
 					error: function (resp) {
 						generateInfoMsgBox(1, "AJAX Error");
@@ -142,6 +149,7 @@
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'add-admin.aspx/unassignAdmin',
@@ -151,10 +159,13 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(2, "Admin privilege revoked from " + username);
+							btn.removeClass("btnUnassignAdmin");
+							btn.addClass("btnAssignAdmin");
+							btn.html("Assign As Admin");
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured");
-						}
+						}					
 					},
 					error: function (resp) {
 						generateInfoMsgBox(1, "AJAX Error");
