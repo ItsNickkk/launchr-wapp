@@ -11,16 +11,16 @@ namespace Launchr.pages
 {
 
 
-	public partial class add_admin
+	public partial class creator_approval_admin
 	{
 
 		/// <summary>
-		/// plcUserAdminList control.
+		/// plcPendingCreator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcUserAdminList;
+		protected global::System.Web.UI.WebControls.PlaceHolder plcPendingCreator;
 	}
 }
