@@ -42,13 +42,11 @@ namespace Launchr.pages
 		[WebMethod]
 		public static int assignAdmin(object userID){
 			int user_id = int.Parse((string)userID);
-			List<User> user_list = new SiteDB().getUserById(user_id);
-			if (user_list.Count() == 1)
+			User user = new SiteDB().getUserById(user_id);
+			if (user != null)
 			{
-				User user = user_list[0];
 				user.is_admin = true;
-				int update_user_status = new SiteDB().updateUser(user);
-				return update_user_status;
+				return user.update();
 			} else
 			{
 				return 0; // no user found (should not happen)
@@ -59,10 +57,9 @@ namespace Launchr.pages
 		public static int unassignAdmin(object userID)
 		{
 			int user_id = int.Parse((string)userID);
-			List<User> user_list = new SiteDB().getUserById(user_id);
-			if (user_list.Count() == 1)
+			User user = new SiteDB().getUserById(user_id);
+			if (user != null)
 			{
-				User user = user_list[0];
 				user.is_admin = false;
 				return user.update();
 			}
