@@ -41,6 +41,12 @@ namespace Launchr.models
             return user_list;
         }
 
+        public List<User> getAllUsers()
+        {
+            return this.translateUserTableToList(this.userAdapter.GetAllUsers());
+        }
+
+
         public List<User> getUserById(int id)
         {
             return this.translateUserTableToList(this.userAdapter.GetUserById(id));
@@ -86,16 +92,17 @@ namespace Launchr.models
 
             try
             {
-
+                List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(user.email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(user.email));
-                if (user_list_same_email.Count() > 0)
+                if (creator_list_same_email.Count() > 0 | user_list_same_email.Count() > 1)
                 {
                     return 2; // 2 is returned if same email
                 }
                 else
                 {
+                    List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(user.username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(user.username));
-                    if (user_list_same_username.Count() > 0)
+                    if (creator_list_same_username.Count() > 0 | user_list_same_username.Count() > 1)
                     {
                         return 3; // 3 is returned if same username
                     }
