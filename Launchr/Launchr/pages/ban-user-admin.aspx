@@ -203,12 +203,13 @@
 					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 				});
 			});
-
+			//Member Ban
 			$("#memberTable").on('click', '.btnBanUser', function () {
 				console.log("hi");
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'ban-user-admin.aspx/banMember',
@@ -218,10 +219,13 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(1, username + " is now banned", 2);
+							btn.removeClass("btnBanUser");
+							btn.addClass("btnUnbanUser");
+							btn.html("Unban User");
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured when trying to ban " + username, 1);
-						}		
+						}	
 					},
 					error: function (resp) {
 						generateInfoMsgBox(1, "AJAX Error", 1);
@@ -233,6 +237,7 @@
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'ban-user-admin.aspx/unbanMember',
@@ -242,6 +247,9 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(1, username + " is now unbanned", 2);
+							btn.removeClass("btnUnbanUser");
+							btn.addClass("btnBanUser");
+							btn.html("Ban User");
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured when trying to ban " + username, 1);
@@ -252,11 +260,12 @@
 					}
 				});
 			});
-
+			//Creator Ban
 			$("#creatorTable").on('click', '.btnBanUser', function () {
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'ban-user-admin.aspx/banCreator',
@@ -266,6 +275,9 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(0, username + " is now banned", 2);
+							btn.removeClass("btnBanUser");
+							btn.addClass("btnUnbanUser");
+							btn.html("Unban User");
 						}
 						else {
 							generateInfoMsgBox(0, "An error occured when trying to ban " + username, 1);
@@ -290,6 +302,9 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(0, username + " is now unbanned", 2);
+							btn.removeClass("btnUnbanUser");
+							btn.addClass("btnBanUser");
+							btn.html("Ban User");
 						}
 						else {
 							generateInfoMsgBox(0, "An error occured when trying to ban " + username, 1);
