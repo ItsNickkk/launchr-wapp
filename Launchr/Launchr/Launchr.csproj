@@ -145,6 +145,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="pages\add-admin.aspx" />
+    <Content Include="pages\ban-user-admin.aspx" />
     <Content Include="pages\create-project.aspx" />
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="pages\add-admin.aspx.designer.cs">
       <DependentUpon>add-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ban-user-admin.aspx.cs">
+      <DependentUpon>ban-user-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ban-user-admin.aspx.designer.cs">
+      <DependentUpon>ban-user-admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\create-project.aspx.cs">
       <DependentUpon>create-project.aspx</DependentUpon>
