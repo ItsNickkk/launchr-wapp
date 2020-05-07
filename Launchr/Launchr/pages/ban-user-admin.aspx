@@ -45,7 +45,8 @@
 										</tr>
 									</thead>
 									<tbody id="memberTable">
-									<tr>
+                                        <asp:PlaceHolder ID="plcUserList" runat="server"></asp:PlaceHolder>
+									<%--<tr>
 										<th scope="row" class="text-right">1</th>
 										<td>a</td>
 										<td>Column content</td>
@@ -58,7 +59,7 @@
 										<td>Column content</td>
 										<td>Column content</td>
 										<td class="text-center"><button type="button" class="btnUnbanUser launchr-btn btn p-2 btnUnbanUser">Unban User</button></td>
-									</tr>
+									</tr>--%>
 									</tbody>
 								</table>
 								<div class="row">
@@ -92,7 +93,8 @@
 										</tr>
 									</thead>
 									<tbody id="creatorTable">
-									<tr>
+                                        <asp:PlaceHolder ID="plcCreatorList" runat="server"></asp:PlaceHolder>
+									<%--<tr>
 										<th scope="row" class="text-right">1</th>
 										<td>a</td>
 										<td>Column content</td>
@@ -105,7 +107,7 @@
 										<td>Column content</td>
 										<td>Column content</td>
 										<td class="text-center"><button type="button" class="btnUnbanUser launchr-btn btn p-2 btnUnbanUser">Unban User</button></td>
-									</tr>
+									</tr>--%>
 									</tbody>
 								</table>
 								<div class="row">

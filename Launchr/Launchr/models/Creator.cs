@@ -33,5 +33,10 @@ namespace Launchr.models
             this.password = password;
 
         }
+
+        public int update()
+        {
+            return new SiteDB().updateCreator(this);
+        }
     }
 }

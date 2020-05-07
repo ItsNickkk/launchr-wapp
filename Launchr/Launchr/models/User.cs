@@ -58,5 +58,11 @@ namespace Launchr.models
                 return true;
             }
         }
+
+        public int update()
+        {
+            return new SiteDB().updateUser(this);
+        }
+
     }
 }

@@ -155,6 +155,11 @@ namespace Launchr.models
             }
         }
 
+        public List<Creator> getAllCreators()
+        {
+            return this.translateCreatorTableToList(creatorAdapter.GetAllCreators());
+        }
+
         public int addNewCreator(string name, string address, string phone_number, string email, string country, string document, string type, string username, string password)
         {
             try
