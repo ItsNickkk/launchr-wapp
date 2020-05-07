@@ -47,9 +47,21 @@ namespace Launchr.models
         }
 
 
-        public List<User> getUserById(int id)
+        /*public List<User> getUserById(int id)
         {
             return this.translateUserTableToList(this.userAdapter.GetUserById(id));
+        }*/
+
+        public User getUserById(int id)
+        {
+            List<User> user_list = this.translateUserTableToList(this.userAdapter.GetUserById(id));
+            if(user_list.Count() == 1)
+            {
+                return user_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
 

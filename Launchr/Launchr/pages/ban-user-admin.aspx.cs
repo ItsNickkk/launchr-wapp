@@ -62,14 +62,13 @@ namespace Launchr.pages
 		public static int banMember(object userID)
 		{
 			int user_id = int.Parse((string)userID);
-			List<User> user_list = new SiteDB().getUserById(user_id);
-			if(user_list.Count == 1)
+			User user = new SiteDB().getUserById(user_id);
+			if (user != null)
 			{
-				User user = user_list[0];
 				user.status = 0;
 				return user.update();
-				
-			} else
+			}
+			else
 			{
 				return 0;
 			}
@@ -79,14 +78,12 @@ namespace Launchr.pages
 		public static int unbanMember(object userID)
 		{
 			int user_id = int.Parse((string)userID);
-			List<User> user_list = new SiteDB().getUserById(user_id);
-			if (user_list.Count == 1)
+			User user = new SiteDB().getUserById(user_id);
+			if (user != null)
 			{
-				User user = user_list[0];
-				user.status = 0;
+				user.status = 1;
 				return user.update();
-			}
-			else
+			} else
 			{
 				return 0;
 			}
