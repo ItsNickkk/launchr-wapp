@@ -44,15 +44,8 @@ namespace Launchr.models
 
         private static User getUserById(int user_id)
         {
-            List<User> user_list = new SiteDB().getUserById(user_id);
-            if (user_list.Count() == 1)
-            {
-                return user_list[0];
-            }
-            else
-            {
-                return null;
-            }
+            return new SiteDB().getUserById(user_id);
+            
         }
 
         private static Project getProjectById(int project_id)
