@@ -17,50 +17,76 @@ namespace Launchr.pages
 			SiteDB siteDB = new SiteDB();
 			this.makeUserList(siteDB.getAllUsers());
 			this.makeCreatorList(siteDB.getAllCreators());
+			User current_user = (User)this.Session["user"];
+			if (Session["user"] != null)
+			{
+				if (current_user.is_admin != true)
+				{
+					Response.Redirect("404.aspx");
+				}
+			}
+			else
+			{
+				Response.Redirect("404.aspx");
+			}
 		}
 
 		private void makeUserList(List<User> user_list)
 		{
 			StringBuilder html = new StringBuilder();
 			User current_user = (User)this.Session["user"];
-			foreach(User user in user_list)
-			{
-				if(user.id != current_user.id)
+			if (Session["user"] != null){
+				foreach(User user in user_list)
 				{
-					if(user.status == 1)
+					if(user.id != current_user.id)
 					{
-						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnBanUser launchr-btn btn p-2 btnBanUser\">Ban User</button></td></tr>");
-					} else
-					{
-						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnbanUser launchr-btn btn p-2 btnUnbanUser\">Unban User</button></td></tr>");
+						if(user.status == 1)
+						{
+							html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnBanUser launchr-btn btn p-2 btnBanUser\">Ban User</button></td></tr>");
+						} else
+						{
+							html.Append("<tr><th scope=\"row\" class=\"text-right\">" + user.id + "</th><td>" + user.name + "</td><td>" + user.email + "</td><td>" + user.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnbanUser launchr-btn btn p-2 btnUnbanUser\">Unban User</button></td></tr>");
+						}
 					}
-				}
 				
+				}
+				this.plcUserList.Controls.Add(new Literal
+				{
+					Text = html.ToString()
+				});
+			}
+			else
+			{
+				Response.Redirect("404.aspx");
 			}
 
-			this.plcUserList.Controls.Add(new Literal
-			{
-				Text = html.ToString()
-			});
 		}
 
 		private void makeCreatorList(List<Creator> creator_list)
 		{
 			StringBuilder html = new StringBuilder();
-			foreach(Creator creator in creator_list)
+			if (Session["user"] != null)
 			{
-				if (creator.status == 1)
+				foreach (Creator creator in creator_list)
 				{
-					html.Append("<tr><th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnBanUser launchr-btn btn p-2 btnBanUser\">Ban User</button></td></tr>");
-				} else
-				{
-					html.Append("<tr><th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnbanUser launchr-btn btn p-2 btnUnbanUser\">Unban User</button></td></tr>");
+					if (creator.status == 1)
+					{
+						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnBanUser launchr-btn btn p-2 btnBanUser\">Ban User</button></td></tr>");
+					}
+					else
+					{
+						html.Append("<tr><th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnUnbanUser launchr-btn btn p-2 btnUnbanUser\">Unban User</button></td></tr>");
+					}
 				}
+				this.plcCreatorList.Controls.Add(new Literal
+				{
+					Text = html.ToString()
+				});
 			}
-			this.plcCreatorList.Controls.Add(new Literal
+			else
 			{
-				Text = html.ToString()
-			});
+				Response.Redirect("404.aspx");
+			}
 		}
 
 		[WebMethod]

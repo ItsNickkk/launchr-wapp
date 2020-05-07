@@ -237,3 +237,12 @@ footer {
 	height: 100px;
 	padding-bottom: 20px;
 }
+
+.search-card img{
+	height: 200px;
+	max-width:400px;
+}
+
+#search-result-display .search-card{
+	display: none;
+}

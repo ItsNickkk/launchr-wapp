@@ -21,8 +21,8 @@ namespace Launchr.pages
 			if (type == 1)
 			{
 
+				Response.Write("<a class=\"dropdown-item\" href=\"summary-admin\">Admin Panel</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"add-admin\">Add Admin</a>");
-				Response.Write("<a class=\"dropdown-item\" href=\"summary-admin\">Summary Report</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"creator-approval-admin\">Approve Creator Account</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"ban-user-admin\">Ban User Account</a>");
 			}

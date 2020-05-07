@@ -16,7 +16,16 @@ namespace Launchr.pages
 		{
 			SiteDB siteDB = new SiteDB();
 			this.makeUserList(siteDB.getAllUsers());
-
+			User current_user = (User)this.Session["user"];
+			if (Session["user"] != null)
+			{
+				if(current_user.is_admin != true){
+					Response.Redirect("404.aspx");
+				}
+			}
+			else{
+				Response.Redirect("404.aspx");
+			}
 		}
 
 		private void makeUserList(List<User> user_list)

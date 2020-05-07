@@ -161,6 +161,7 @@
     <Content Include="pages\project.aspx" />
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
+    <Content Include="pages\search-result.aspx" />
     <Content Include="pages\summary-admin.aspx" />
     <Content Include="pages\tier-rewards.aspx" />
     <Content Include="pages\404.aspx" />
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="pages\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\search-result.aspx.cs">
+      <DependentUpon>search-result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\search-result.aspx.designer.cs">
+      <DependentUpon>search-result.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\summary-admin.aspx.cs">
       <DependentUpon>summary-admin.aspx</DependentUpon>
