@@ -22,12 +22,8 @@ namespace Launchr.pages
 					try
 					{
 						int project_id = int.Parse(Request.QueryString["id"]);
-						List<Project> project_list = new SiteDB().getProjectById(project_id);
-						if (project_list.Count() != 0)
-						{
-							Project project = (Project)project_list[0];
-						}
-						else
+						Project project = new SiteDB().getProjectById(project_id);
+						if (project == null || project.creator.status != 1)
 						{
 							// project does not exist, do something here!
 							Response.Redirect("404.aspx");

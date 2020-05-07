@@ -286,10 +286,16 @@ namespace Launchr.models
             return this.translateProjectTableToList(projectAdapter.GetAllProjects());
         }
 
-        public List<Project> getProjectById(int id)
+        public Project getProjectById(int id)
         {
             List<Project> project_list = this.translateProjectTableToList(projectAdapter.GetProjectById(id));
-            return project_list;
+            if(project_list.Count() == 1)
+            {
+                return project_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
         public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string imagePath)

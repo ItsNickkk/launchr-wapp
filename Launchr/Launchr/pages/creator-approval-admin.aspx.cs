@@ -71,7 +71,7 @@ namespace Launchr.pages
 					
 				} else
 				{
-					return 0;
+					return 0; // user not deleted
 				}
 			}
 			else
