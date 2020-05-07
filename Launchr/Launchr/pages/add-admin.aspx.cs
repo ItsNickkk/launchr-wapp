@@ -12,10 +12,9 @@ namespace Launchr.pages
 {
 	public partial class add_admin : System.Web.UI.Page
 	{
-		SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			siteDB = new SiteDB();
+			SiteDB siteDB = new SiteDB();
 			this.makeUserList(siteDB.getAllUsers());
 
 		}
@@ -65,8 +64,7 @@ namespace Launchr.pages
 			{
 				User user = user_list[0];
 				user.is_admin = false;
-				int update_user_status = new SiteDB().updateUser(user);
-				return update_user_status;
+				return user.update();
 			}
 			else
 			{
