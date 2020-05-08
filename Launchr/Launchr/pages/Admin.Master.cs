@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Launchr.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,18 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			User current_user = (User)this.Session["user"];
+			if (Session["user"] != null)
+			{
+				if (current_user.is_admin != true)
+				{
+					Response.Redirect("404.aspx");
+				}
+			}
+			else
+			{
+				Response.Redirect("404.aspx");
+			}
 		}
 		protected void generateProfileDropdown(String name, int id, int type)
 		{

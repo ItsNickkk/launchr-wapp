@@ -76,6 +76,7 @@
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'creator-approval-admin.aspx/approveCreator',
@@ -84,7 +85,9 @@
 					contentType: 'application/json; charset=utf-8',
 					success: function (resp) {
 						if (resp.d == 1) {
-							generateInfoMsgBox(2, "Application of creator account " + username+ " has been approved");
+							generateInfoMsgBox(2, "Application of creator account " + username + " has been approved");
+							btn.closest("tr").remove();
+
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured");
@@ -100,6 +103,7 @@
 				var currentRow = $(this).closest("tr");
 				var userID = currentRow.find("th:eq(0)").html();
 				var username = currentRow.find("td:eq(2)").html();
+				var btn = $(this);
 				$.ajax({
 					type: 'POST',
 					url: 'creator-approval-admin.aspx/rejectCreator',
@@ -109,6 +113,7 @@
 					success: function (resp) {
 						if (resp.d == 1) {
 							generateInfoMsgBox(2, "Application of creator account " + username + " has been rejected");
+							btn.closest("tr").remove();
 						}
 						else {
 							generateInfoMsgBox(1, "An error occured");

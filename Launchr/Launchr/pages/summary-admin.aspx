@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col xl-12 neumorph p-3">
 					<h1>Admin Panel</h1>
-					<p class="mb-0">Welcome back, <%// Response.Write(user.name); %></p>
+					<p class="mb-0">Welcome back, <%Response.Write(user.name); %></p>
 				</div>
 			</div>
 			<div class="row mt-3">

@@ -17,18 +17,6 @@ namespace Launchr.pages
 		{
 			List<Creator> creator_list = new SiteDB().getWaitingCreator();
 			this.makePendingCreator(creator_list);
-			User current_user = (User)this.Session["user"];
-			if (Session["user"] != null)
-			{
-				if (current_user.is_admin != true)
-				{
-					Response.Redirect("404.aspx");
-				}
-			}
-			else
-			{
-				Response.Redirect("404.aspx");
-			}
 		}
 
 		private void makePendingCreator(List<Creator> creator_list)

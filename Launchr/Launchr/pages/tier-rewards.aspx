@@ -99,7 +99,7 @@
 	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtTierContentFaux') });
 	var combinedTier = new Object();
 	var tierNumber = 0;
-	var projID = GetURLParameter('ID');
+	var projID = GetURLParameter('id');
 
 	$(document).ready(function () {
 		$('#txtProjID').attr("value", projID);
