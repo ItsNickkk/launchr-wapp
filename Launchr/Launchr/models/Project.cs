@@ -92,5 +92,15 @@ namespace Launchr.models
             int add_comment_status = new SiteDB().addNewComment(author_id, this.id, content, DateTime.Now, 1);
             return add_comment_status;
         }
+
+        public int calcProgress()
+        {
+            return (int)Math.Ceiling((double)this.getTransactionTotal() / this.target * 100);
+        }
+
+        public int calcRemainingTime()
+        {
+            return (int)(this.time_end - DateTime.Now).TotalDays;
+        }
     }
 }

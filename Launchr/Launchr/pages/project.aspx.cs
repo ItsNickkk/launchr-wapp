@@ -62,9 +62,9 @@ namespace Launchr.pages
 			this.makeTitle(project.title);
 			this.makeDesc(project.description);
 			this.makeAlbum(project.image_path_list);
-			this.makeTarget(project.getTransactionTotal(), project.target);
+			this.makeTarget(project.getTransactionTotal(), project.target, project.calcProgress());
 			this.makeBackers(project.countBackers());
-			this.makeRemaining(project.time_end);
+			this.makeRemaining(project.calcRemainingTime());
 			this.makeTiers(project, project.getTiers());
 			this.makeComments(project.getComments());
 		}
@@ -128,7 +128,7 @@ namespace Launchr.pages
 			});
 		}
 
-		private void makeTarget(int current, int target)
+		private void makeTarget(int current, int target, int percentage)
 		{
 			
 			StringBuilder html = new StringBuilder();
@@ -139,7 +139,6 @@ namespace Launchr.pages
 			});
 
 			StringBuilder html_progress = new StringBuilder();
-			int percentage = (int)Math.Ceiling((double)current / target * 100);
 			html_progress.Append("<div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage.ToString() + "%\"></div>");
 			this.plcProgressBar.Controls.Add(new Literal
 			{
@@ -150,19 +149,18 @@ namespace Launchr.pages
 		private void makeBackers(int num)
 		{
 			StringBuilder html = new StringBuilder();
-			html.Append(num.ToString() + " backers");
+			html.Append(num + " backers");
 			this.plcBackers.Controls.Add(new Literal
 			{
 				Text = html.ToString()
 			});
 		}
 
-		private void makeRemaining(DateTime time_end)
+		private void makeRemaining(int remaining)
 		{
 			DateTime time_now = DateTime.Now;
-			int in_between = (int) (time_end - time_now).TotalDays;
 			StringBuilder html = new StringBuilder();
-			html.Append(in_between.ToString() + " days left");
+			html.Append(remaining + " days left");
 			this.plcRemaining.Controls.Add(new Literal
 			{
 				Text = html.ToString()

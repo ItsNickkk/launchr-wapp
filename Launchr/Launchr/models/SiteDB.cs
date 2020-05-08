@@ -322,6 +322,16 @@ namespace Launchr.models
             }
         }
 
+        public List<Project> findProjectByTitle(string query)
+        {
+            return this.translateProjectTableToList(projectAdapter.GetProjectBySimilarTitle("%" + query + "%"));
+        }
+
+        public List<Project> findProjectByTopic(string query)
+        {
+            return this.translateProjectTableToList(projectAdapter.GetProjectByTopic(query));
+        }
+
         // <--------------------------- Tier functions --------------------------->
 
         private Tier translateRowToTier(launchr_DataSet.tierRow tier_row)

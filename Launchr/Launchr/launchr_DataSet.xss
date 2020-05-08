@@ -8,13 +8,13 @@
   <Shapes>
     <Shape ID="DesignTable:creator" ZOrder="8" X="451" Y="179" Height="434" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
     <Shape ID="DesignTable:user" ZOrder="7" X="55" Y="174" Height="411" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
-    <Shape ID="DesignTable:tier" ZOrder="2" X="456" Y="689" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
-    <Shape ID="DesignTable:transaction" ZOrder="5" X="963" Y="679" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
-    <Shape ID="DesignTable:project" ZOrder="6" X="805" Y="182" Height="411" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
-    <Shape ID="DesignTable:comment" ZOrder="1" X="99" Y="647" Height="342" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
+    <Shape ID="DesignTable:tier" ZOrder="3" X="456" Y="689" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:transaction" ZOrder="6" X="963" Y="679" Height="296" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:project" ZOrder="1" X="805" Y="182" Height="434" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
+    <Shape ID="DesignTable:comment" ZOrder="2" X="99" Y="647" Height="342" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_parent_id_comment" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:FK_parent_id_comment" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>99</X>
@@ -38,11 +38,11 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_project_id_comment" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK_project_id_comment" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>822</X>
-          <Y>593</Y>
+          <Y>616</Y>
         </Point>
         <Point>
           <X>822</X>
