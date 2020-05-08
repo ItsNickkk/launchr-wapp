@@ -81,15 +81,15 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title">Back this project</h5>
-										<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
+										<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" id="close-pledge">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body pl-5 pr-5">
 										<div class="row pt-3">
 											<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
-												<asp:TextBox ID="TextBox1" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+												<asp:TextBox ID="txtTierNoRewardModal" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
+												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward"/>
 											</div>	
 										</div>
 
@@ -191,15 +191,77 @@
 				</div>
 				<div class="row pt-3">
 					<div class="p-4 tier-card neumorph"><h4>Pledge without a tier reward</h4>
-						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-						<asp:Button runat="server" Text="Pledge" CssClass="btn mt-3 launchr-btn pledge-btn"/>
+						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
+						<button type="button" Class="btn mt-3 launchr-btn pledge-btn pledge-without-reward" data-toggle="modal" data-target="#tier-pledge-modal">Pledge</button>
 					</div>	
 				</div>
                 <asp:PlaceHolder ID="plcTier" runat="server"></asp:PlaceHolder>
+
+				<div id="tier-pledge-modal" class="modal fade" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Back this project</h5>
+								<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body pl-5 pr-5">
+								<input type="text" id="txtTierIDModal" readonly class="d-none"/>
+								<p>You are pledging for <input type="text" readonly class="comment-reply-pointer" id="txtTierNameModal"/></p>
+								<p>Total Price: <input type="text" readonly class="comment-reply-pointer" id="txtTierPriceModal"/></p>
+								<label for="txtCreditCardNumberModal">Credit card number</label>
+								<input id="txtCreditCardNumberModal" type="text" class="form-control" placeholder="Enter your credit card number"/>
+								<div class="row">
+									<div class="col">
+										<label for="txtCreditCardExpiryDate">Expiry Date</label>
+										<input id="txtCreditCardExpiryDate" type="text" class="form-control" placeholder="MM/YY"/>
+									</div>
+									<div class="col">
+										<label for="txtCreditCardCVV">Security Code (CVV)</label>
+										<input id="txtCreditCardCVV" type="text" class="form-control" placeholder="XXX"/>
+									</div>
+								</div>
+								<label for="txtCreditCardName">Credit card holder name</label>
+								<input id="txtCreditCardName" type="text" class="form-control" placeholder="Enter your card's holder name"/>
+								<span class="text-info">We will not store your credit card details</span>
+
+								<div class="mt-3" runat="server">
+									<div class="alert" id="errorMsgBoxInner">
+										<div id="errorMsg"></div>
+									</div>
+								</div>						
+							</div>
+							<div class="modal-footer">
+								<button class="launchr-btn btn" type="button" id="btnConfirmPayModal">Confirm Payment</button>
+								<button type="button" class="btn" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="tier-pledge-modal-success" class="modal fade" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Back this project</h5>
+								<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-content">
+								<div class="modal-body pl-5 pr-5">
+									Pledging successful, you'll be refreshed in 3 seconds.								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<asp:HiddenField ID="txtUserID" runat="server"/>
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -208,9 +270,91 @@
 			id = $(this).parent().parent().parent().parent().attr('id');
 			$('#content_txtCommentReplyPointer').val(id);
 		});
+
 		$(".clear-comment-pointer-btn").click(function () {
 			$('#content_txtCommentReplyPointer').val("this project");
 		});
+
+		$(".tier-card").on('click', '.pledge-tier-btn', function () {
+			var tierID = $(this).siblings(".tier-id").val();
+			var tierName = $(this).siblings(".pledge-title").html();
+			var tierPrice = $(this).siblings(".pledge-amount").html();
+			$("#txtTierIDModal").val(tierID);
+			$("#txtTierNameModal").val(tierName);
+			$("#txtTierPriceModal").val(tierPrice);
+		});
+
+		$("#btnConfirmPayModal").click(function () {			
+			if ($("#txtTierIDModal").val().slice(0, 1) == 3) {
+				//Pledge without reward
+				var backerID = $("#content_txtUserID").val();
+				var projID = $("#txtTierIDModal").val();
+				var amount = $("#txtTierPriceModal").val().substring(1);
+				$.ajax({
+					type: 'POST',
+					url: 'project.aspx/pledgeTierNoReward',
+					data: JSON.stringify({ "backerID": backerID, "tierID": projID, "amount": amount }),
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					success: function (resp) {
+						console.log(resp);
+						if (resp.d == 1) {
+							$('#tier-pledge-modal-success').modal('show');
+							console.log("proj");
+							setTimeout(location.reload.bind(location), 3000);
+						}
+						else {
+							generateInfoMsgBox(1, "An Error Occured!");
+						}
+
+					},
+					error: function (resp) {
+						generateInfoMsgBox(1, "AJAX Error");
+					}
+				});
+			}
+			else {
+				var tierID = $("#txtTierIDModal").val();
+				var backerID = $("#content_txtUserID").val();
+				$.ajax({
+					type: 'POST',
+					url: 'project.aspx/pledgeTier',
+					data: JSON.stringify({ "backerID": backerID, "tierID": tierID }),
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					success: function (resp) {
+						console.log(resp)
+						if (resp.d == 1) {
+							$('#tier-pledge-modal-success').modal('show');
+							setTimeout(location.reload.bind(location), 3000);
+							console.log("tier");
+						}
+						else {
+							generateInfoMsgBox(1, "An Error Occured!");
+						}
+
+					},
+					error: function (resp) {
+						generateInfoMsgBox(1, "AJAX Error");
+					}
+				});
+			}		
+		});
+		
+		$(".tier-card").on('click', '.pledge-without-reward', function () {
+			var projID = GetURLParameter('id');
+			var amount = $(this).siblings(".no-reward").val(); 
+			$("#txtTierIDModal").val(projID);
+			$("#txtTierNameModal").val("no rewards");
+			$("#txtTierPriceModal").val("$" + amount);
+		});
+	});
+	$(document).on('show.bs.modal', '.modal', function () {
+		var zIndex = 1040 + (10 * $('.modal:visible').length);
+		$(this).css('z-index', zIndex);
+		setTimeout(function () {
+			$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+		}, 0);
 	});
 
 	function allowOnlyNumber(evt) {
@@ -219,7 +363,33 @@
 			return false;
 		return true;
 	}
+
+	function generateInfoMsgBox(type, message) {
+		if (type == 1) {
+			//alert-danger
+			$("#errorMsgBoxInner").removeClass("alert-success");
+			$("#errorMsgBox").removeClass("d-none");
+			$("#errorMsgBoxInner").addClass("alert-danger");
+			$("#errorMsg").html(message);
+		}
+		else {
+			//alert-success
+			$("#errorMsgBoxInner").removeClass("alert-danger");
+			$("#errorMsgBox").removeClass("d-none");
+			$("#errorMsgBoxInner").addClass("alert-success");
+			$("#errorMsg").html(message);
+		}
+	}
+
+	function GetURLParameter(sParam) {
+		var sPageURL = window.location.search.substring(1);
+		var sURLVariables = sPageURL.split('&');
+		for (var i = 0; i < sURLVariables.length; i++) {
+			var sParameterName = sURLVariables[i].split('=');
+			if (sParameterName[0] == sParam) {
+				return sParameterName[1];
+			}
+		}
+	}
 </script>
-
-
 </asp:Content>

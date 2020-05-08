@@ -20,11 +20,6 @@
 					<div class="row">
 						<div class="col-xl text-center">
 							<div class="admin-navigation m-auto">
-								<a href="#Summary" class="text-decoration-none"><img src="../Content/Logo/icons/summary.svg" /><h5>Summary</h5></a>
-							</div>
-						</div>
-						<div class="col-xl text-center">
-							<div class="admin-navigation m-auto">
 								<a href="ban-user-admin"><img src="../Content/Logo/icons/ban.svg" /><h5>Ban User</h5></a>
 							</div>
 						</div>
@@ -72,7 +67,30 @@
 								</div>
 							</div>
 						</div>
-					</div>				
+					</div>
+					<div class="row ml-3 mr-3 p-3 border">
+						<div class="col">
+							<div class="row">
+								<div class="col">
+									<h4>Project summary</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl text-center">
+									<div class="summary-count m-auto">20</div>
+									<div>Total Number of active projects</div>
+								</div>
+								<div class="col-xl text-center">
+									<div class="summary-count m-auto">20</div>
+									<div>Number of running projects</div>
+								</div>
+								<div class="col-xl text-center">
+									<div class="summary-count m-auto">20</div>
+									<div>Number of projects that reached goal</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
