@@ -343,31 +343,20 @@
 	</div>
 	<!--Browse Topic End-->
 	<!--Join Us Start-->
-		<!--<div class='container-fluid border pt-5 pb-5'>
-			<div class='row'>
-				<div class='text-center col-10 offset-md-1'><h1>Like what you see?</h1></div> 
-			</div>
-			<div class='row'>
-				<div class='text-center col-10 offset-md-1 pt-3'>Join us in the adventure to bring ideas that solves real life problem - big or small from drawing board into real life!</div> 
-			</div>
-			<div class='row'>
-				<div class='text-center col-2 offset-md-5 mt-4'><asp:Button ID='btnSignUpPage' runat='server' Text='Sign Up' CssClass='btn btn-secondary launchr-btn' OnClick='btnSignUpPage_Click'/></div>
-			</div>
-		</div>-->
 		<asp:PlaceHolder ID="signUpDiv" runat="server"></asp:PlaceHolder>
 	<!--Join Us End-->
 <script type="text/javascript">
 $(document).ready(function () {
-		$('#txtSearchHero').keyup(function () {
-			var queryString = $('#txtSearchHero').val();
-			console.log(queryString);
-			if (queryString != '') {
-				$('#btnSearchHero').attr('href', "search-result?query=" + queryString);
-			}
-			else {
-				$('#btnSearchHero').attr('href', "#");
-			}
-		});
+	$('#txtSearchHero').keyup(function () {
+		var queryString = $('#txtSearchHero').val();
+		console.log(queryString);
+		if (queryString != '') {
+			$('#btnSearchHero').attr('href', "search-result?query=" + queryString);
+		}
+		else {
+			$('#btnSearchHero').attr('href', "#");
+		}
 	});
+});
 </script>
 </asp:Content>

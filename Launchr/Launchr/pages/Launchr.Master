@@ -132,17 +132,17 @@
 	</footer>
 </body>
 <script type="text/javascript">
-	$(document).ready(function () {
-		$('#txtSearch1').keyup(function () {
-			var queryString = $('#txtSearch1').val();
-			console.log(queryString);
-			if (queryString != '') {
-				$('#btnSearch1').attr('href', "search-result?query=" + queryString);
-			}
-			else {
-				$('#btnSearch1').attr('href', "#");
-			}
-		});
+$(document).ready(function () {
+	$('#txtSearch1').keyup(function () {
+		var queryString = $('#txtSearch1').val();
+		console.log(queryString);
+		if (queryString != '') {
+			$('#btnSearch1').attr('href', "search-result?query=" + queryString);
+		}
+		else {
+			$('#btnSearch1').attr('href', "#");
+		}
 	});
+});
 </script>
 </html>
