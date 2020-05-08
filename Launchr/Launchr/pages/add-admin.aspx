@@ -98,7 +98,7 @@
 		});
 
 		function checkButton() {
-			var currentLength = $("#internalActivities tr:visible").length;
+			var currentLength = $("#userTable tr:visible").length;
 
 			if (currentLength >= trsLength) {
 				$("#see-more-btn").hide();

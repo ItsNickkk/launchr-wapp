@@ -22,15 +22,18 @@
 					<asp:RegularExpressionValidator id="createProjFileDocumentPDFVal" CssClass="text-danger" errormessage="<br/><i>Invalid file format.</i>" ControlToValidate="filPhoto" ValidationExpression="^.*\.(bmp|BMP|gif|GIF|JPG|jpg|jpeg|JPEG|PNG|png)$" runat="server" Display="Dynamic" ValidationGroup="createProj"/>
 					<asp:FileUpload ID="filPhoto" runat="server" cssclass="form-control-file" AllowMultiple="true"/>
 					<label for="content_filPhoto" class="text-muted">Maximum number of photos allowed: 6, Supported format: .bmp, .gif, .jpg, .jpeg, .png</label><br/>
+					<label for="content_filPhoto" class="text-muted">This field will not be editable in the future.</label><br />
 
 					<label for="txtTitle" class="mt-2" data-toggle="tooltip" title="Make an attractive title" data-placement="right">Title</label>
 					<asp:RequiredFieldValidator ID="createProjTitleReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox ID="txtTitle" runat="server" Cssclass="form-control" MaxLength="55"></asp:TextBox>
 					<label for="content_txtTitle" class="text-muted">Maximum length: 55</label><br/>
 
-					<label for="txtDate" class="mt-2" data-toggle="tooltip" title="End date of your project" data-placement="right">Time End</label>
+					<label for="content_txtDate" class="mt-2" data-toggle="tooltip" title="End date of your project" data-placement="right">Time End</label>
 					<asp:RequiredFieldValidator ID="createProjDateReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDate" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
+					<asp:CompareValidator ID="CompareEndTodayValidator" Operator="LessThan" ValueToCompare="8/5/2020" type="String" ControltoValidate="txtDate" ErrorMessage="The 'End Date' must be before today" CssClass="text-danger" Display="Dynamic" ValidationGroup="createProj" runat="server" />
 					<asp:TextBox ID="txtDate" runat="server" TextMode="date" Cssclass="form-control"></asp:TextBox>
+					<label for="content_txtDate" class="text-muted">This field will not be editable in the future.</label><br />
 
 					<label for="content_txtDescription" class="mt-2" data-toggle="tooltip" title="Make a short and concise description to attract people" data-placement="right">Project Description</label>
 					<asp:RequiredFieldValidator ID="createProjDescReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDescription" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
@@ -69,6 +72,7 @@
 									<span class="input-group-text">.00</span>
 								</div>
 							</div>
+							<label for="content_txtTarget" class="text-muted">This field will not be editable in the future.</label><br/>
 						</div>
 					</div>
 					<asp:Button ID="btnCreateProject" runat="server" Text="Next" CssClass="btn launchr-btn mt-3" OnClick="btnCreateProject_Click" ValidationGroup="createProj"/>
@@ -101,7 +105,6 @@
 				return false;
 			}
 		});
-		setInterval(updatetxtContent, 1000);	
 	});	
 </script>
 </asp:Content>

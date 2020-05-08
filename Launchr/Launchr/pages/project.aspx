@@ -74,31 +74,36 @@
 					</div>
 				</div>
 				<div class="row mt-3">
-					<asp:Button type="button" cssclass="btn btn-secondary launchr-btn mt-3 ml-3" data-toggle="modal" data-target="#pledge-modal" ID="backProject" runat="server" Text="Back this Project" OnClientClick="return false;"></asp:Button>
-					<div id="pledge-modal" class="modal fade" role="dialog">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title">Back this project</h5>
-									<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body pl-5 pr-5">
-									<div class="row pt-3">
-										<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
-											<asp:TextBox ID="TextBox1" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-											<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
-										</div>	
+					<div class="col">
+						<asp:Button type="button" cssclass="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#pledge-modal" ID="backProject" runat="server" Text="Back this Project" OnClientClick="return false;"></asp:Button>
+						<div id="pledge-modal" class="modal fade" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Back this project</h5>
+										<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
+											<span aria-hidden="true">&times;</span>
+										</button>
 									</div>
+									<div class="modal-body pl-5 pr-5">
+										<div class="row pt-3">
+											<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
+												<asp:TextBox ID="TextBox1" runat="server" Cssclass="form-control" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
+												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn"/>
+											</div>	
+										</div>
 
-                                    <asp:PlaceHolder ID="plcTierSide" runat="server"></asp:PlaceHolder>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn" data-dismiss="modal">Close</button>
+										<asp:PlaceHolder ID="plcTierSide" runat="server"></asp:PlaceHolder>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn" data-dismiss="modal">Close</button>
+									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="col text-right">
+						<a href="project-control-panel?id=*projectid*" class="btn btn-secondary launchr-btn mt-3 ml-3">Project control panel</a> 
 					</div>
 				</div>
 			</div>
@@ -107,10 +112,10 @@
 			<div class="col-xl-8">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link active project-tab p-3" data-toggle="tab" href="#project-background">BACKGROUND</a>
+						<a class="nav-link active project-tab p-3" data-toggle="tab" href="#project-background">Background</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link project-tab p-3" data-toggle="tab" href="#project-comment">COMMENT</a>
+						<a class="nav-link project-tab p-3" data-toggle="tab" href="#project-comment">Comment</a>
 					</li>
 				</ul>
 				<div class="tab-content border">

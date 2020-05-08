@@ -11,35 +11,8 @@ namespace Launchr.pages
 {
 
 
-	public partial class WebForm6
+	public partial class WebForm9
 	{
-
-		/// <summary>
-		/// createProjFileReqValidator control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjFileReqValidator;
-
-		/// <summary>
-		/// createProjFileDocumentPDFVal control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator createProjFileDocumentPDFVal;
-
-		/// <summary>
-		/// filPhoto control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.FileUpload filPhoto;
 
 		/// <summary>
 		/// createProjTitleReqValidator control.
@@ -58,33 +31,6 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtTitle;
-
-		/// <summary>
-		/// createProjDateReqValidator control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjDateReqValidator;
-
-		/// <summary>
-		/// CompareEndTodayValidator control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.CompareValidator CompareEndTodayValidator;
-
-		/// <summary>
-		/// txtDate control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtDate;
 
 		/// <summary>
 		/// createProjDescReqValidator control.
@@ -141,30 +87,21 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.DropDownList cobTopic;
 
 		/// <summary>
-		/// createProjMoneyReqValidator control.
+		/// btnSaveProject control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator createProjMoneyReqValidator;
+		protected global::System.Web.UI.WebControls.Button btnSaveProject;
 
 		/// <summary>
-		/// txtTarget control.
+		/// plcBackerList control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtTarget;
-
-		/// <summary>
-		/// btnCreateProject control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnCreateProject;
+		protected global::System.Web.UI.WebControls.PlaceHolder plcBackerList;
 	}
 }
