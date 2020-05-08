@@ -448,11 +448,11 @@ namespace Launchr.models
             return comment_list;
         }
 
-        public int addNewComment(int user_id, int project_id, string content, DateTime datetime, int status)
+        public int addNewComment(int author_id, int project_id, string content, DateTime datetime, int status)
         {
             try
             {
-                commentAdapter.AddNewComment(user_id, project_id, content, datetime, status);
+                commentAdapter.AddNewComment(author_id, project_id, content, datetime, status);
                 return 1;
             } catch (Exception e)
             {
@@ -460,11 +460,11 @@ namespace Launchr.models
             }
         }
 
-        public int addNewReply(int user_id, int project_id, int parent_id, string content, DateTime datetime, int status)
+        public int addNewReply(int author_id, int project_id, int parent_id, string content, DateTime datetime, int status)
         {
             try
             {
-                commentAdapter.AddNewReply(user_id, project_id, parent_id, content, datetime, status);
+                commentAdapter.AddNewReply(author_id, project_id, parent_id, content, datetime, status);
                 return 1;
             }
             catch (Exception e)
