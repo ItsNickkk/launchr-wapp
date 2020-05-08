@@ -8,6 +8,7 @@ namespace Launchr.models
     {
         public int id { get; }
         public User user { get; }
+        public Creator creator { get; }
         public Project project { get; }
         public Comment parent_comment { get; }
         public string content { get; }
@@ -18,6 +19,13 @@ namespace Launchr.models
             this.id = id;
             this.user = user;
             this.project = project;
+            if (user == null)
+            {
+                this.creator = this.project.creator;
+            } else
+            {
+                this.creator = null;
+            }
             this.parent_comment = parent_comment;
             this.content = content;
             this.status = status;
@@ -64,9 +72,9 @@ namespace Launchr.models
 
 
 
-        public int addReply(User user, string content)
+        public int addReply(int author_id, string content)
         {
-            return new SiteDB().addNewReply(this.user.id, this.project.id, this.id, content, DateTime.Now, 1);
+            return new SiteDB().addNewReply(author_id, this.project.id, this.id, content, DateTime.Now, 1);
         }
 
     }

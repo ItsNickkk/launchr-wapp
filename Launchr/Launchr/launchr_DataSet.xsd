@@ -701,7 +701,7 @@ WHERE (id=@id)</CommandText>
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="launchr_db_con (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewComment" Modifier="Public" Name="AddNewComment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="AddNewComment">
+              <DbSource ConnectionRef="launchr_db_con (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewComment" Modifier="Public" Name="AddNewComment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddNewComment">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [comment] ([author_id], [project_id], [content], [datetime], [status]) VALUES (@author_id, @project_id, @content, @datetime, @status)</CommandText>
@@ -715,7 +715,7 @@ WHERE (id=@id)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="launchr_db_con (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewReply" Modifier="Public" Name="AddNewReply" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddNewReply">
+              <DbSource ConnectionRef="launchr_db_con (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddNewReply" Modifier="Public" Name="AddNewReply" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="AddNewReply">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [comment] ([author_id], [project_id], [parent_id], [content], [datetime], [status]) VALUES (@author_id, @project_id, @parent_id, @content, @datetime, @status)</CommandText>
@@ -760,7 +760,7 @@ WHERE (id=@id)</CommandText>
   <xs:element name="launchr_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="launchr_DataSet" msprop:Generator_UserDSName="launchr_DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="creator" msprop:Generator_TableClassName="creatorDataTable" msprop:Generator_TableVarName="tablecreator" msprop:Generator_RowChangedName="creatorRowChanged" msprop:Generator_TablePropName="creator" msprop:Generator_RowDeletingName="creatorRowDeleting" msprop:Generator_RowChangingName="creatorRowChanging" msprop:Generator_RowEvHandlerName="creatorRowChangeEventHandler" msprop:Generator_RowDeletedName="creatorRowDeleted" msprop:Generator_RowClassName="creatorRow" msprop:Generator_UserTableName="creator" msprop:Generator_RowEvArgName="creatorRowChangeEvent">
+        <xs:element name="creator" msprop:Generator_TableClassName="creatorDataTable" msprop:Generator_TableVarName="tablecreator" msprop:Generator_TablePropName="creator" msprop:Generator_RowDeletingName="creatorRowDeleting" msprop:Generator_RowChangingName="creatorRowChanging" msprop:Generator_RowEvHandlerName="creatorRowChangeEventHandler" msprop:Generator_RowDeletedName="creatorRowDeleted" msprop:Generator_UserTableName="creator" msprop:Generator_RowChangedName="creatorRowChanged" msprop:Generator_RowEvArgName="creatorRowChangeEvent" msprop:Generator_RowClassName="creatorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -831,7 +831,7 @@ WHERE (id=@id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_RowClassName="userRow" msprop:Generator_UserTableName="user" msprop:Generator_RowEvArgName="userRowChangeEvent">
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -889,7 +889,7 @@ WHERE (id=@id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tier" msprop:Generator_TableClassName="tierDataTable" msprop:Generator_TableVarName="tabletier" msprop:Generator_TablePropName="tier" msprop:Generator_RowDeletingName="tierRowDeleting" msprop:Generator_RowChangingName="tierRowChanging" msprop:Generator_RowEvHandlerName="tierRowChangeEventHandler" msprop:Generator_RowDeletedName="tierRowDeleted" msprop:Generator_UserTableName="tier" msprop:Generator_RowChangedName="tierRowChanged" msprop:Generator_RowEvArgName="tierRowChangeEvent" msprop:Generator_RowClassName="tierRow">
+        <xs:element name="tier" msprop:Generator_TableClassName="tierDataTable" msprop:Generator_TableVarName="tabletier" msprop:Generator_RowChangedName="tierRowChanged" msprop:Generator_TablePropName="tier" msprop:Generator_RowDeletingName="tierRowDeleting" msprop:Generator_RowChangingName="tierRowChanging" msprop:Generator_RowEvHandlerName="tierRowChangeEventHandler" msprop:Generator_RowDeletedName="tierRowDeleted" msprop:Generator_RowClassName="tierRow" msprop:Generator_UserTableName="tier" msprop:Generator_RowEvArgName="tierRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -913,7 +913,7 @@ WHERE (id=@id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="transaction" msprop:Generator_TableClassName="transactionDataTable" msprop:Generator_TableVarName="tabletransaction" msprop:Generator_RowChangedName="transactionRowChanged" msprop:Generator_TablePropName="transaction" msprop:Generator_RowDeletingName="transactionRowDeleting" msprop:Generator_RowChangingName="transactionRowChanging" msprop:Generator_RowEvHandlerName="transactionRowChangeEventHandler" msprop:Generator_RowDeletedName="transactionRowDeleted" msprop:Generator_RowClassName="transactionRow" msprop:Generator_UserTableName="transaction" msprop:Generator_RowEvArgName="transactionRowChangeEvent">
+        <xs:element name="transaction" msprop:Generator_TableClassName="transactionDataTable" msprop:Generator_TableVarName="tabletransaction" msprop:Generator_TablePropName="transaction" msprop:Generator_RowDeletingName="transactionRowDeleting" msprop:Generator_RowChangingName="transactionRowChanging" msprop:Generator_RowEvHandlerName="transactionRowChangeEventHandler" msprop:Generator_RowDeletedName="transactionRowDeleted" msprop:Generator_UserTableName="transaction" msprop:Generator_RowChangedName="transactionRowChanged" msprop:Generator_RowEvArgName="transactionRowChangeEvent" msprop:Generator_RowClassName="transactionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -925,7 +925,7 @@ WHERE (id=@id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="project" msprop:Generator_TableClassName="projectDataTable" msprop:Generator_TableVarName="tableproject" msprop:Generator_RowChangedName="projectRowChanged" msprop:Generator_TablePropName="project" msprop:Generator_RowDeletingName="projectRowDeleting" msprop:Generator_RowChangingName="projectRowChanging" msprop:Generator_RowEvHandlerName="projectRowChangeEventHandler" msprop:Generator_RowDeletedName="projectRowDeleted" msprop:Generator_RowClassName="projectRow" msprop:Generator_UserTableName="project" msprop:Generator_RowEvArgName="projectRowChangeEvent">
+        <xs:element name="project" msprop:Generator_TableClassName="projectDataTable" msprop:Generator_TableVarName="tableproject" msprop:Generator_TablePropName="project" msprop:Generator_RowDeletingName="projectRowDeleting" msprop:Generator_RowChangingName="projectRowChanging" msprop:Generator_RowEvHandlerName="projectRowChangeEventHandler" msprop:Generator_RowDeletedName="projectRowDeleted" msprop:Generator_UserTableName="project" msprop:Generator_RowChangedName="projectRowChanged" msprop:Generator_RowEvArgName="projectRowChangeEvent" msprop:Generator_RowClassName="projectRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -972,7 +972,7 @@ WHERE (id=@id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="comment" msprop:Generator_TableClassName="commentDataTable" msprop:Generator_TableVarName="tablecomment" msprop:Generator_TablePropName="comment" msprop:Generator_RowDeletingName="commentRowDeleting" msprop:Generator_RowChangingName="commentRowChanging" msprop:Generator_RowEvHandlerName="commentRowChangeEventHandler" msprop:Generator_RowDeletedName="commentRowDeleted" msprop:Generator_UserTableName="comment" msprop:Generator_RowChangedName="commentRowChanged" msprop:Generator_RowEvArgName="commentRowChangeEvent" msprop:Generator_RowClassName="commentRow">
+        <xs:element name="comment" msprop:Generator_TableClassName="commentDataTable" msprop:Generator_TableVarName="tablecomment" msprop:Generator_RowChangedName="commentRowChanged" msprop:Generator_TablePropName="comment" msprop:Generator_RowDeletingName="commentRowDeleting" msprop:Generator_RowChangingName="commentRowChanging" msprop:Generator_RowEvHandlerName="commentRowChangeEventHandler" msprop:Generator_RowDeletedName="commentRowDeleted" msprop:Generator_RowClassName="commentRow" msprop:Generator_UserTableName="comment" msprop:Generator_RowEvArgName="commentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1020,8 +1020,8 @@ WHERE (id=@id)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_parent_id_comment" msdata:parent="comment" msdata:child="comment" msdata:parentkey="id" msdata:childkey="parent_id" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="FK_parent_id_comment" msprop:Generator_RelationVarName="relationFK_parent_id_comment" msprop:Generator_UserParentTable="comment" msprop:Generator_ParentPropName="commentRowParent" />
-      <msdata:Relationship name="FK_project_id_comment" msdata:parent="project" msdata:child="comment" msdata:parentkey="id" msdata:childkey="project_id" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="FK_project_id_comment" msprop:Generator_ParentPropName="projectRow" msprop:Generator_RelationVarName="relationFK_project_id_comment" msprop:Generator_UserParentTable="project" />
+      <msdata:Relationship name="FK_parent_id_comment" msdata:parent="comment" msdata:child="comment" msdata:parentkey="id" msdata:childkey="parent_id" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="FK_parent_id_comment" msprop:Generator_ParentPropName="commentRowParent" msprop:Generator_RelationVarName="relationFK_parent_id_comment" msprop:Generator_UserParentTable="comment" />
+      <msdata:Relationship name="FK_project_id_comment" msdata:parent="project" msdata:child="comment" msdata:parentkey="id" msdata:childkey="project_id" msprop:Generator_UserChildTable="comment" msprop:Generator_ChildPropName="GetcommentRows" msprop:Generator_UserRelationName="FK_project_id_comment" msprop:Generator_RelationVarName="relationFK_project_id_comment" msprop:Generator_UserParentTable="project" msprop:Generator_ParentPropName="projectRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
