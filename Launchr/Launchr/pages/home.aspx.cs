@@ -14,7 +14,8 @@ namespace Launchr.pages
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			User user = (User)this.Session["user"];
-			if (this.Session["user"] == null)
+			Creator creator = (Creator)this.Session["creator"];
+			if (this.Session["user"] == null && this.Session["creator"] == null)
 			{
 				StringBuilder html = new StringBuilder();
 

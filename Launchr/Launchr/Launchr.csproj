@@ -134,6 +134,7 @@
     <Content Include="Content\Logo\main-logo.svg" />
     <Content Include="Content\Logo\topic\art.svg" />
     <Content Include="Content\Logo\topic\design.svg" />
+    <Content Include="Content\Logo\topic\everythingelse.svg" />
     <Content Include="Content\Logo\topic\film.svg" />
     <Content Include="Content\Logo\topic\foodcraft.svg" />
     <Content Include="Content\Logo\topic\game.svg" />

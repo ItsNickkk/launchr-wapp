@@ -85,8 +85,8 @@
 				}
 			%>
 			<form class="form-inline my-2 my-xl-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search Project">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				<input class="form-control mr-sm-2" type="text" placeholder="Search Project" id="txtSearch1">
+				<a class="launchr-btn btn my-2 my-sm-0 btnSearch" id="btnSearch1">Search</a>
 			</form>
 		</div>
 	</nav>
@@ -131,4 +131,18 @@
 		</div>
 	</footer>
 </body>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#txtSearch1').keyup(function () {
+			var queryString = $('#txtSearch1').val();
+			console.log(queryString);
+			if (queryString != '') {
+				$('#btnSearch1').attr('href', "search-result?query=" + queryString);
+			}
+			else {
+				$('#btnSearch1').attr('href', "#");
+			}
+		});
+	});
+</script>
 </html>

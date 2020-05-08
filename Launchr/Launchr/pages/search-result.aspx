@@ -7,11 +7,16 @@
 			<div class="col-xl-10 offset-xl-1 pt-5 pb-5">
 				<div class="row">
 					<div class="col xl-12 neumorph p-3">
-						<h1>Search result</h1>
+						<h1>Search result</h1>		
 					</div>
 				</div>
-				<div class="row mt-3">
+				<div class="row mt-3 min-vh-100">
 					<div class="col" id="search-result-display">
+						<div class="row d-none" id="no-result">
+							<div class="col text-center">
+								<h4>No result</h4>
+							</div>
+						</div>
 						<!--Search Result 1-->
 						<div class="row mb-3 search-card">
 							<div class="col neumorph">
@@ -48,7 +53,7 @@
 											</div>	
 										</div>
 									</div>
-								</div>
+								</div>							
 							</div>
 						</div>
 						<!--Search Result End-->
@@ -65,6 +70,7 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 		size_search_card = $("#search-result-display .search-card").length;
+		console.log(size_search_card);
 		x = 5;
 		$('#search-result-display .search-card:lt(' + x + ')').show();
 		$('#see-more-result').click(function () {
@@ -74,6 +80,12 @@
 				$('#see-more-result').hide();
 			}
 		});
+		if (size_search_card < 6) {
+			$('#see-more-result').hide();
+			if (size_search_card < 1) {
+				$('#no-result').removeClass("d-none");
+			}
+		}
 	});
 </script>
 </asp:Content>
