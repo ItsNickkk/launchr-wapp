@@ -236,17 +236,20 @@ namespace Launchr.pages
 						int add_reply_status = comment_list[0].addReply((User)this.Session["user"], content);
 						if (add_reply_status == 1)
 						{
+							Response.Redirect(Request.RawUrl);
 							displayErrorMessage("Comment successfully added", 1, 1);
 						}
 						else
 						{
 							// add reply failed
+							Response.Redirect(Request.RawUrl);
 							displayErrorMessage("Error occured, please try again", 1, 2);
 						}
 					}
 					
 				}
 				
+
 			} else
 			{
 				displayErrorMessage("Are you logged in?", 1, 2);
