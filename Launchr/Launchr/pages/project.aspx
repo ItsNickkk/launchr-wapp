@@ -89,7 +89,7 @@
 										<div class="row pt-3">
 											<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
 												<asp:TextBox ID="txtTierNoRewardModal" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward"/>
+												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward" data-toggle="modal" data-target="#tier-pledge-modal"/>
 											</div>	
 										</div>
 
@@ -257,14 +257,49 @@
 						</div>
 					</div>
 				</div>
+
+				<div id="sign-in-info" class="modal fade" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Back this project</h5>
+								<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" >
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-content">
+								<div class="modal-body pl-5 pr-5">
+									<div class="row">
+										<div class="col text-center">
+											You must sign in before backing this project.
+										</div>
+									</div>
+									<div class="row">
+										<div class="col mt-3 text-center">
+											<a href="login" class="btn launchr-btn">Sign In</a>
+										</div>
+									</div>						
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn" data-dismiss="modal">Close</button>
+							</div>
+						</div>		
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</div>pledge-tier-btn\" data-toggle=\"modal\" data-target=\"#tier-pledge-modal\
 <asp:HiddenField ID="txtUserID" runat="server"/>
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
+		if ($("#content_txtUserID").val() == "") {
+			$(".pledge-tier-btn").attr("data-target", "#sign-in-info");
+			$(".pledge-without-reward").attr("data-target", "#sign-in-info");
+		}
+
 		$('#content_txtCommentReplyPointer').val("this project");
 		$(".reply-btn").click(function () {
 			id = $(this).parent().parent().parent().parent().attr('id');
