@@ -155,6 +155,7 @@
     <Content Include="pages\ban-user-admin.aspx" />
     <Content Include="pages\create-project.aspx" />
     <Content Include="pages\creator-approval-admin.aspx" />
+    <Content Include="pages\edit-profile.aspx" />
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
     <Content Include="pages\login.aspx" />
@@ -261,6 +262,13 @@
     </Compile>
     <Compile Include="pages\creator-approval-admin.aspx.designer.cs">
       <DependentUpon>creator-approval-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\edit-profile.aspx.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\edit-profile.aspx.designer.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Launchr.Master.cs">
       <DependentUpon>Launchr.Master</DependentUpon>

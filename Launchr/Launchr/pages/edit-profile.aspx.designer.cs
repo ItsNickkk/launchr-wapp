@@ -11,187 +11,205 @@ namespace Launchr.pages
 {
 
 
-	public partial class WebForm3
+	public partial class edit_profile
 	{
 
 		/// <summary>
-		/// plcAlbumIndicator control.
+		/// NameReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcAlbumIndicator;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator NameReqValidator;
 
 		/// <summary>
-		/// plcImageAlbum control.
+		/// txtName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcImageAlbum;
+		protected global::System.Web.UI.WebControls.TextBox txtName;
 
 		/// <summary>
-		/// plcTitle control.
+		/// UsernameReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcTitle;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernameReqValidator;
 
 		/// <summary>
-		/// plcDescription control.
+		/// UsernameMinLengthValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcDescription;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator UsernameMinLengthValidator;
 
 		/// <summary>
-		/// plcProgressBar control.
+		/// UsernameAlphanumericValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcProgressBar;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator UsernameAlphanumericValidator;
 
 		/// <summary>
-		/// plcTarget control.
+		/// txtUsername control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcTarget;
+		protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
 		/// <summary>
-		/// plcBackers control.
+		/// EmailReqValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcBackers;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailReqValidator;
 
 		/// <summary>
-		/// plcRemaining control.
+		/// RegularExpressionValidator1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcRemaining;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
 		/// <summary>
-		/// backProject control.
+		/// txtEmail control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button backProject;
+		protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
 		/// <summary>
-		/// TextBox1 control.
+		/// ReqPhoneValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPhoneValidator;
 
 		/// <summary>
-		/// plcTierSide control.
+		/// txtPhone control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcTierSide;
+		protected global::System.Web.UI.WebControls.TextBox txtPhone;
 
 		/// <summary>
-		/// plcContent control.
+		/// ReqAddValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcContent;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqAddValidator;
 
 		/// <summary>
-		/// plcComment control.
+		/// txtAddress control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcComment;
+		protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
 		/// <summary>
-		/// txtCommentReplyPointer control.
+		/// PassAddValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCommentReplyPointer;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator PassAddValidator;
 
 		/// <summary>
-		/// txtProjectComment control.
+		/// PassMinLengthValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtProjectComment;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator PassMinLengthValidator;
 
 		/// <summary>
-		/// memberUsernameMinLengthValidator control.
+		/// txtPassword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator memberUsernameMinLengthValidator;
+		protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
 		/// <summary>
-		/// btnComment control.
+		/// cobCountry control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnComment;
+		protected global::System.Web.UI.WebControls.DropDownList cobCountry;
 
 		/// <summary>
-		/// plcCommentAlert control.
+		/// countryXMLDS control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcCommentAlert;
+		protected global::System.Web.UI.WebControls.XmlDataSource countryXMLDS;
 
 		/// <summary>
-		/// txtTierNoReward control.
+		/// CurrPassValidator control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtTierNoReward;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator CurrPassValidator;
 
 		/// <summary>
-		/// plcTier control.
+		/// RegularExpressionValidator2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder plcTier;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+		/// <summary>
+		/// txtCurrPassword control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCurrPassword;
+
+		/// <summary>
+		/// btnSignUp control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnSignUp;
 	}
 }

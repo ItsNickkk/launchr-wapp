@@ -13,7 +13,7 @@
 						<div class="form-group">
 							<label for="searchProjects"></label>
 							<input type="text" class="form-control" id="txtSearchHero" placeholder="Search for projects..." ><br />
-							<a id="btnSearchHero" class="btn btn-secondary">Search</a>
+							<a id="btnSearchHero" class="btn btn-secondary" href="search-result?query= ">Search</a>
 						</div>
 					</div>
 				</div>
@@ -331,10 +331,10 @@
 			<div class="col-md-2 text-center"><a href="search-result?topic=game" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
 		</div>
 		<div class="row collapse" id="more-topic">
-			<div class="col offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
-			<div class="col text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
-			<div class="col text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
-			<div class="col text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/everythingelse.svg"/><h5>Everything Else</h5></a></div>
+			<div class="col offset-md-1 text-center"><a href="search-result?topic=music" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=publishing" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=design" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=others" class="topic-icon"><img src="../Content/Logo/topic/everythingelse.svg"/><h5>Everything Else</h5></a></div>
 			<div class="col-1"></div>
 		</div>
 		<div class="row">

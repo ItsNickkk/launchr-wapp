@@ -247,3 +247,7 @@ footer {
 #search-result-display .search-card{
 	display: none;
 }
+
+.creator-info{
+	font-size: 1.5em;
+}

@@ -68,6 +68,12 @@
 					</div>
 				</div>
 				<div class="row mt-3">
+					<div class="col">
+						<h6>Creator Info</h6>
+						<a class="creator-info" href="profile?id=">PotatoGrower(comapny name)</a>
+					</div>
+				</div>
+				<div class="row mt-3">
 					<asp:Button type="button" cssclass="btn btn-secondary launchr-btn mt-3 ml-3" data-toggle="modal" data-target="#pledge-modal" ID="backProject" runat="server" Text="Back this Project" OnClientClick="return false;"></asp:Button>
 					<div id="pledge-modal" class="modal fade" role="dialog">
 						<div class="modal-dialog" role="document">

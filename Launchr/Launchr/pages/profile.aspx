@@ -21,7 +21,8 @@
 			</div>
 			<div class="col-xl-6 text-right">
 				<img class="profile-details-icon mr-3" src="../Content/Logo/location.svg">Country<br />
-				<asp:Button ID="editProfile" runat="server" Text="Edit Profile" CssClass="btn launchr-btn mt-2" />
+				<!--show this only when owner-->
+				<a ID="editProfile" href="edit-profile?id=" class="btn launchr-btn mt-2">Edit Profile</a>
 			</div>
 		</div>
 		<div class="row pt-3">

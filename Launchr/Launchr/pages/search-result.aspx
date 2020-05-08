@@ -19,7 +19,7 @@
 						</div>
 						<!--Search Result 1-->
                         <asp:PlaceHolder ID="plcResult" runat="server"></asp:PlaceHolder>
-						<%--<div class="row mb-3 search-card">
+						<!--<div class="row mb-3 search-card">
 							<div class="col neumorph">
 								<div class="row mb-3">
 									<div class="col-xl-4">
@@ -56,7 +56,7 @@
 									</div>
 								</div>							
 							</div>
-						</div>--%>
+						</div>
 						<!--Search Result End-->
 						<div class="row">
 							<div class="col text-center">

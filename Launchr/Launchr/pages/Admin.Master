@@ -33,14 +33,15 @@
 				<li class="nav-item dropdown">
 					<a id="explore" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Explore</a>
 					<div class="dropdown-menu" aria-labelledby="explore">
-						<a class="dropdown-item" href="#">Arts</a>
-						<a class="dropdown-item" href="#">Design</a>
-						<a class="dropdown-item" href="#">Technology</a>
-						<a class="dropdown-item" href="#">Film</a>
-						<a class="dropdown-item" href="#">Food & Craft</a>
-						<a class="dropdown-item" href="#">Games</a>
-						<a class="dropdown-item" href="#">Music</a>
-						<a class="dropdown-item" href="#">Publishing</a>
+						<a class="dropdown-item" href="search-result?topic=art">Arts</a>
+						<a class="dropdown-item" href="search-result?topic=design">Design</a>
+						<a class="dropdown-item" href="search-result?topic=tech">Technology</a>
+						<a class="dropdown-item" href="search-result?topic=film">Film</a>
+						<a class="dropdown-item" href="search-result?topic=foodcraft">Food & Craft</a>
+						<a class="dropdown-item" href="search-result?topic=game">Games</a>
+						<a class="dropdown-item" href="search-result?topic=music">Music</a>
+						<a class="dropdown-item" href="search-result?topic=publishing">Publishing</a>
+						<a class="dropdown-item" href="search-result?topic=others">Everything Else</a>
 					</div>
 				</li>
 			</ul>
@@ -60,8 +61,8 @@
 				}
 			%>
 			<form class="form-inline my-2 my-xl-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search Project">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				<input class="form-control mr-sm-2" type="text" placeholder="Search Project" id="txtSearch1">
+				<a class="btn btn-secondary my-2 my-sm-0" id="btnSearch1"  href="search-result?query= ">Search</a>
 			</form>
 		</div>
 	</nav>
@@ -106,4 +107,19 @@
 		</div>
 	</footer>
 </body>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#txtSearch1').keyup(function () {
+		var queryString = $('#txtSearch1').val();
+		console.log(queryString);
+		if (queryString != '') {
+			$('#btnSearch1').attr('href', "search-result?query=" + queryString);
+		}
+		else {
+			$('#btnSearch1').attr('href', "#");
+		}
+	});
+});
+</script>
+
 </html>
