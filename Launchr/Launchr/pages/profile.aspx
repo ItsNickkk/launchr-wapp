@@ -12,7 +12,10 @@
 	<div class="col-xl-10 pt-5 pb-5">
 		<div class="row neumorph p-3">
 			<div class="col-xl-6">
-				<h1>John Doe</h1>
+				<h1>
+                    <asp:PlaceHolder ID="plcName" runat="server"></asp:PlaceHolder>
+                </h1>
+                <asp:PlaceHolder ID="plcTitle" runat="server"></asp:PlaceHolder>
 				<!-- If creator
 				<span class="backer-status mt-3" data-toggle="tooltip" data-placement="right" title="This user is a creator.">Creator</span>
 				If number of project backed is >25
@@ -20,9 +23,11 @@
 				-->
 			</div>
 			<div class="col-xl-6 text-right">
-				<img class="profile-details-icon mr-3" src="../Content/Logo/location.svg">Country<br />
+				<img class="profile-details-icon mr-3" src="../Content/Logo/location.svg"><asp:PlaceHolder ID="plcCountry" runat="server"></asp:PlaceHolder>
+                <br />
 				<!--show this only when owner-->
-				<a ID="editProfile" href="edit-profile?id=" class="btn launchr-btn mt-2">Edit Profile</a>
+                <asp:PlaceHolder ID="plcEdit" runat="server"></asp:PlaceHolder>
+				<!--<a ID="editProfile" href="edit-profile?id=" class="btn launchr-btn mt-2">Edit Profile</a>-->
 			</div>
 		</div>
 		<div class="row pt-3">
@@ -34,7 +39,8 @@
 			<div class="col pl-0 pr-0">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link active project-tab p-3" data-toggle="tab" href="#project-backed">Project Backed</a>
+                        <asp:PlaceHolder ID="plcTabTitle" runat="server"></asp:PlaceHolder>
+						<%--<a class="nav-link active project-tab p-3" data-toggle="tab" href="#project-backed">Project Backed</a>--%>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link project-tab p-3" data-toggle="tab" href="#project-comment">Comment</a>
@@ -43,7 +49,8 @@
 				<div class="tab-content border">
 					<div class="tab-pane fade active show project-details neumorph p-3" id="project-backed">
 					<!--History Project Backed-->
-						<div class="row mb-3 search-card border m-3">
+                        <asp:PlaceHolder ID="plcCard" runat="server"></asp:PlaceHolder>
+						<%--<div class="row mb-3 search-card border m-3">
 							<div class="col neumorph">
 								<div class="row mb-3">
 									<div class="col-xl-4">
@@ -82,11 +89,12 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>--%>
 					<!--History Project Backed End-->		
 					</div>
 					<div class="tab-pane fade project-details neumorph" id="project-comment">
-						<div id="100001" class="row p-2">
+                        <asp:PlaceHolder ID="plcComments" runat="server"></asp:PlaceHolder>
+						<%--<div id="100001" class="row p-2">
 							<div class="col-xl-12 border pt-3">
 								<div class="row pl-3">
 									<div class="col-xl-10">
@@ -104,7 +112,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>--%>
 					</div>
 				</div>
 			</div>	
