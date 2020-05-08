@@ -322,6 +322,11 @@ namespace Launchr.models
             }
         }
 
+        public List<Project> getProjectByCreatorId(int creator_id)
+        {
+            return this.translateProjectTableToList(this.projectAdapter.GetProjectByCreatorId(creator_id));
+        }
+
         public List<Project> findProjectByTitle(string query)
         {
             return this.translateProjectTableToList(projectAdapter.GetProjectBySimilarTitle("%" + query + "%"));
@@ -419,6 +424,11 @@ namespace Launchr.models
             return (int) this.transactionAdapter.CountUniqueBackersByProjectId(id);
         }
 
+        public List<Transaction> getUniqueTransactionByUserId(int user_id)
+        {
+            return this.translateTransactionTableToList(transactionAdapter.GetUniqueTransactionByUserId(user_id));
+        }
+
         // <--------------------------- Comment functions --------------------------->
 
         private Comment translateRowToComment(launchr_DataSet.commentRow comment_row)
@@ -487,6 +497,11 @@ namespace Launchr.models
             {
                 return 0;
             }
+        }
+
+        public List<Comment> getCommentByAuthorId(int author_id)
+        {
+            return this.translateCommentTableToList(this.commentAdapter.GetCommentByAuthorId(author_id));
         }
 
 

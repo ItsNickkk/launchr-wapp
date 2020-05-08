@@ -63,10 +63,19 @@ namespace Launchr.pages
 			this.makeDesc(project.description);
 			this.makeAlbum(project.image_path_list);
 			this.makeTarget(project.getTransactionTotal(), project.target, project.calcProgress());
+			this.makeCreatorName(project.creator);
 			this.makeBackers(project.countBackers());
 			this.makeRemaining(project.calcRemainingTime());
 			this.makeTiers(project, project.getTiers());
 			this.makeComments(project.getComments());
+		}
+
+		private void makeCreatorName(Creator creator)
+		{
+			this.plcCreatorName.Controls.Add(new Literal
+			{
+				Text = "<a class=\"creator-info\" href=\"profile?id=" + creator.id + "\">" + creator.name + "</a>"
+			});
 		}
 
 		private void makeAlbum(List<String> image_path_list)

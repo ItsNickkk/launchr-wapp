@@ -64,5 +64,20 @@ namespace Launchr.models
             return new SiteDB().updateUser(this);
         }
 
+        public List<Project> getBacked()
+        {
+            List<Project> project_list = new List<Project>();
+            foreach(Transaction transaction in new SiteDB().getUniqueTransactionByUserId(this.id))
+            {
+                project_list.Add(transaction.project);
+            }
+            return project_list;
+        }
+
+        public List<Comment> getComments()
+        {
+            return new SiteDB().getCommentByAuthorId(this.id);
+        }
+
     }
 }

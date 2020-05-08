@@ -70,7 +70,7 @@
 				<div class="row mt-3">
 					<div class="col">
 						<h6>Creator Info</h6>
-						<a class="creator-info" href="profile?id=">PotatoGrower(comapny name)</a>
+                        <asp:PlaceHolder ID="plcCreatorName" runat="server"></asp:PlaceHolder>
 					</div>
 				</div>
 				<div class="row mt-3">
