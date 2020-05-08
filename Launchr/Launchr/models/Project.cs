@@ -87,9 +87,9 @@ namespace Launchr.models
             return new SiteDB().getTierByProjectId(this.id);
         }
 
-        public int addComment(User user, string content)
+        public int addComment(int author_id, string content)
         {
-            int add_comment_status = new SiteDB().addNewComment(user.id, this.id, content, DateTime.Now, 1);
+            int add_comment_status = new SiteDB().addNewComment(author_id, this.id, content, DateTime.Now, 1);
             return add_comment_status;
         }
     }

@@ -415,11 +415,11 @@ namespace Launchr.models
         {
             try
             {
-                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.parent_id, comment_row.content, comment_row.status);
+                Comment comment = new Comment(comment_row.id, comment_row.author_id, comment_row.project_id, comment_row.parent_id, comment_row.content, comment_row.status);
                 return comment;
             } catch(System.Data.StrongTypingException e)
             {
-                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.content, comment_row.status);
+                Comment comment = new Comment(comment_row.id, comment_row.author_id, comment_row.project_id, comment_row.content, comment_row.status);
                 return comment;
             }
             
@@ -442,17 +442,23 @@ namespace Launchr.models
             return comment_list;
         }
 
-        public List<Comment> getCommentById(int comment_id)
+        public Comment getCommentById(int comment_id)
         {
             List<Comment> comment_list = this.translateCommentTableToList(commentAdapter.GetCommentById(comment_id));
-            return comment_list;
+            if(comment_list.Count() == 1)
+            {
+                return comment_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
-        public int addNewComment(int user_id, int project_id, string content, DateTime datetime, int status)
+        public int addNewComment(int author_id, int project_id, string content, DateTime datetime, int status)
         {
             try
             {
-                commentAdapter.AddNewComment(user_id, project_id, content, datetime, status);
+                commentAdapter.AddNewComment(author_id, project_id, content, datetime, status);
                 return 1;
             } catch (Exception e)
             {
@@ -460,11 +466,11 @@ namespace Launchr.models
             }
         }
 
-        public int addNewReply(int user_id, int project_id, int parent_id, string content, DateTime datetime, int status)
+        public int addNewReply(int author_id, int project_id, int parent_id, string content, DateTime datetime, int status)
         {
             try
             {
-                commentAdapter.AddNewReply(user_id, project_id, parent_id, content, datetime, status);
+                commentAdapter.AddNewReply(author_id, project_id, parent_id, content, datetime, status);
                 return 1;
             }
             catch (Exception e)
