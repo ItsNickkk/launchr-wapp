@@ -415,11 +415,11 @@ namespace Launchr.models
         {
             try
             {
-                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.parent_id, comment_row.content, comment_row.status);
+                Comment comment = new Comment(comment_row.id, comment_row.author_id, comment_row.project_id, comment_row.parent_id, comment_row.content, comment_row.status);
                 return comment;
             } catch(System.Data.StrongTypingException e)
             {
-                Comment comment = new Comment(comment_row.id, comment_row.user_id, comment_row.project_id, comment_row.content, comment_row.status);
+                Comment comment = new Comment(comment_row.id, comment_row.author_id, comment_row.project_id, comment_row.content, comment_row.status);
                 return comment;
             }
             
