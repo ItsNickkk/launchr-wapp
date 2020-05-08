@@ -122,7 +122,7 @@ namespace Launchr.pages
 			{
 				this.plcTabTitle.Controls.Add(new Literal
 				{
-					Text = "<a class=\"nav-link active project-tab p-3\" data-toggle=\"tab\" href=\"#project-created\">Project Created</a>"
+					Text = "<a class=\"nav-link active project-tab p-3\" data-toggle=\"tab\" href=\"#project-backed\">Project Created</a>"
 				});
 			}
 		}

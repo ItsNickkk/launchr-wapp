@@ -27,12 +27,13 @@ namespace Launchr.pages
 		}
 		protected void generateProfileDropdown(String name, int id, int type)
 		{
+			User current_user = (User)this.Session["user"];
 			Response.Write("<div class=\"dropdown mr-3\">");
 			Response.Write("<a id=\"profile\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">" + name + "</a>");
 			Response.Write("<div class=\"dropdown-menu\" aria-labelledby=\"profile\">");
 			if (type == 1)
 			{
-
+				Response.Write("<a class=\"dropdown-item\" href=\"profile?id="+current_user.id+"\">Profile</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"summary-admin\">Admin Panel</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"add-admin\">Add Admin</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"creator-approval-admin\">Approve Creator Account</a>");

@@ -26,6 +26,7 @@ namespace Launchr.pages
 			Response.Write("<div class=\"dropdown-menu\" aria-labelledby=\"profile\">");
 			if (type == 1)
 			{
+				Response.Write("<a class=\"dropdown-item\" href=\"profile?id=" + id + "\">Profile</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"summary-admin\">Admin Panel</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"add-admin\">Add Admin</a>");
 				Response.Write("<a class=\"dropdown-item\" href=\"creator-approval-admin\">Approve Creator Account</a>");
