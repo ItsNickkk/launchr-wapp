@@ -59,15 +59,7 @@ namespace Launchr.models
 
         private static Comment getCommentById(int comment_id)
         {
-            List<Comment> comment_list = new SiteDB().getCommentById(comment_id);
-            if (comment_list.Count() == 1)
-            {
-                return comment_list[0];
-            }
-            else
-            {
-                return null;
-            }
+            return new SiteDB().getCommentById(comment_id);
         }
 
         private static Creator getCreatorById(int creator_id)

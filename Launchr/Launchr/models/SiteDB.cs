@@ -442,10 +442,16 @@ namespace Launchr.models
             return comment_list;
         }
 
-        public List<Comment> getCommentById(int comment_id)
+        public Comment getCommentById(int comment_id)
         {
             List<Comment> comment_list = this.translateCommentTableToList(commentAdapter.GetCommentById(comment_id));
-            return comment_list;
+            if(comment_list.Count() == 1)
+            {
+                return comment_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
         public int addNewComment(int author_id, int project_id, string content, DateTime datetime, int status)

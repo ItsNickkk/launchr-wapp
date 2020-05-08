@@ -176,10 +176,23 @@ namespace Launchr.pages
 			{
 				if(comment.parent_comment == null)
 				{
-					html.Append("<div id=\"" + comment.id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + comment.user.id + "\"><h4>" + comment.user.name + "</h4></a><p>" + comment.content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment.id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
+					if(comment.user != null)
+					{
+						html.Append(this.generateComment(comment.id, comment.user.id, comment.user.name, comment.content, 600000, false));
+					} else
+					{
+						html.Append(this.generateComment(comment.id, comment.creator.id, comment.creator.name, comment.content, 600000, true));
+					}
 				} else
 				{
-					html.Append("<div id=\"" + comment.id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + comment.user.id + "\"><h4>" + comment.user.name + "</h4></a><a href=\"#" + comment.parent_comment.id + "\"><h5>reply to #" + comment.parent_comment.id + "</h5></a><p>" + comment.content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment.id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
+					if (comment.user != null)
+					{
+						html.Append(this.generateComment(comment.id, comment.user.id, comment.user.name, comment.content, comment.parent_comment.id, false));
+					}
+					else
+					{
+						html.Append(this.generateComment(comment.id, comment.creator.id, comment.creator.name, comment.content, comment.parent_comment.id, true));
+					}
 				}
 				
 			}
@@ -189,6 +202,29 @@ namespace Launchr.pages
 				Text = html.ToString()
 			});
 
+		}
+
+		private string generateComment(int comment_id, int author_id, string author_name, string content, int parent_comment_id, bool label)
+		{
+			StringBuilder s = new StringBuilder();
+			s.Append("<div id=\"" + comment_id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + author_id + "\"><h4>" + author_name + "</h4></a>");
+			if (label == true)
+			{
+				s.Append("<p>Creator</p>");
+			}
+			if(parent_comment_id != 600000)
+			{
+				s.Append("<a href=\"#" + parent_comment_id + "\"><h5>reply to #" + parent_comment_id + "</h5></a>");
+			}
+			s.Append("<p>" + content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment_id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>");
+			return s.ToString();
+			/*if (parent_comment_id == 600000)
+			{
+				return "<div id=\"" + comment_id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + author_id + "\"><h4>" + author_name + "</h4></a><p>" + content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment_id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>";
+			} else
+			{
+				return "<div id=\"" + comment_id + "\" class=\"row p-2\"><div class=\"col-xl-12 border pt-3\"><div class=\"row pl-3\"><div class=\"col-xl-10\"><a href=\"profile.aspx?id=" + author_id + "\"><h4>" + author_name + "</h4></a><a href=\"#" + parent_comment_id + "\"><h5>reply to #" + parent_comment_id + "</h5></a><p>" + content + "</p></div><div class=\"col-xl-2\"><h5 class=\"text-muted\">#" + comment_id + "</h5></div></div><div class=\"row pl-3\"><div class=\"col pb-3\"><input type=\"button\" class=\"reply-btn comment-input-btn\" value=\"Reply\" /></div></div></div></div>";
+			}*/
 		}
 
 		private void makeTiers(Project project, List<Tier> tier_list)
@@ -212,47 +248,66 @@ namespace Launchr.pages
 		protected void btnComment_Click(object sender, EventArgs e)
 		{
 			string content = txtProjectComment.Text;
-			if(this.Session["user"] != null && content.TrimStart(' ') != "")
+			string parent = txtCommentReplyPointer.Text;
+			int author_id;
+			if (this.Session["user"] != null)
 			{
-				if (txtCommentReplyPointer.Text == "this project")
+				// logged in as user
+				User user_temp = (User)this.Session["user"];
+				author_id = user_temp.id;
+				this.remakePage(1, this.leaveComment(parent, author_id, content));
+			} else if (this.Session["creator"] != null)
+			{
+				// logged in as creator
+				Creator creator_temp = (Creator)this.Session["creator"];
+				if(creator_temp.id == this.project.creator.id)
 				{
-					int add_comment_status = project.addComment((User)this.Session["user"], content);
-					if (add_comment_status == 1)
-					{
-						// add comment successful
-						displayErrorMessage("Comment successfully added", 1, 1);
-					} else
-					{
-						// add comment failed
-						displayErrorMessage("Error occured, please try again", 1, 2);
-					}
+					author_id = creator_temp.id;
+					this.remakePage(1, this.leaveComment(parent, author_id, content));
 				} else
 				{
-					// replying to another comment
-					int comment_id = int.Parse(txtCommentReplyPointer.Text);
-					List<Comment> comment_list = new SiteDB().getCommentById(comment_id);
-					if(comment_list.Count == 1)
-					{
-						int add_reply_status = comment_list[0].addReply((User)this.Session["user"], content);
-						if (add_reply_status == 1)
-						{
-							Response.Redirect(Request.RawUrl);
-							displayErrorMessage("Comment successfully added", 1, 1);
-						}
-						else
-						{
-							// add reply failed
-							Response.Redirect(Request.RawUrl);
-							displayErrorMessage("Error occured, please try again", 1, 2);
-						}
-					}
-					
+					displayErrorMessage("You cannot comment on this project.", 1, 0);
 				}
-				
-
 			} else
 			{
-				displayErrorMessage("Are you logged in?", 1, 2);
+				displayErrorMessage("Are you logged in?", 1, 0);
+			}
+			
+		}
+
+		private int leaveComment(string parent, int author_id, string content)
+		{
+			if (parent == "this project")
+			{
+				return this.project.addComment(author_id, content);
+			} else
+			{
+				try
+				{
+					Comment target_comment = new SiteDB().getCommentById(int.Parse(parent));
+					if (target_comment != null)
+					{
+						return target_comment.addReply(author_id, content);
+					} else
+					{
+						return 0;
+					}
+				} catch (Exception e)
+				{
+					return 0;
+				}
+			}
+		}
+
+		private void remakePage(int a1, int a2)
+		{
+			Response.Redirect(Request.RawUrl);
+			if(a2 == 1)
+			{
+				displayErrorMessage("Comment successfully added", a1, a2);
+			} else
+			{
+				displayErrorMessage("Error occured, please try again", a1, a2);
 			}
 			
 		}
