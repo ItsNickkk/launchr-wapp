@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="404.aspx.cs" Inherits="Launchr.pages.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<title>404 Error</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 	<div class="container-fluid">

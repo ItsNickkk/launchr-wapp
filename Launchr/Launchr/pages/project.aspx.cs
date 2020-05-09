@@ -18,6 +18,7 @@ namespace Launchr.pages
 			User user = (User)this.Session["user"];
 			if(this.Session["user"] != null){
 				txtUserID.Value = user.id.ToString();
+				txtProjID.Value = project.id.ToString();
 			}	
 			Creator creator = (Creator)this.Session["creator"];
 			if (Session["creator"] != null){

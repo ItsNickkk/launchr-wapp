@@ -55,13 +55,78 @@
 						<asp:RequiredFieldValidator ID="CurrPassValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtCurrPassword" Display="Dynamic" ValidationGroup="updateprof"></asp:RequiredFieldValidator>
 						<asp:RegularExpressionValidator ID="RegularExpressionValidator2" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password must be between 8 to 26 characters." ControlToValidate="txtCurrPassword" Display="Dynamic" ValidationGroup="updateprof"></asp:RegularExpressionValidator><br />
 						<asp:TextBox ID="txtCurrPassword" TextMode="Password" runat="server" Cssclass="form-control" ValidationGroup="updateprof"></asp:TextBox>
-						<label for="txtPassword" class="text-muted">Enter your current password to save changes</label><br />
+						<label for="txtCurrPassword" class="text-muted">Enter your current password to save changes</label><br />
 					</div>
 					
 					<asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn launchr-btn" ValidationGroup="updateprof" CausesValidation="true" OnClick="btnUpdate_Click"/>
+					<div id="errorMsgBox" class="d-none" role="dialog">
+						<div class="mt-3" runat="server">
+							<div class="alert alert-danger" id="errorMsgBoxInner">
+								<div id="errorMsg"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("#<%= btnUpdate.ClientID %>").click(function () {
+		var fullname = $("#<%= txtName.ClientID %>").val();
+		var username = $("#<%= txtUsername.ClientID %>").val();
+		var email = $("#<%= txtEmail.ClientID %>").val();
+		var hpno = $("#<%= txtPhone.ClientID %>").val(); 
+		var address = $("#<%= txtAddress.ClientID %>").val();
+		var newPW = $("#<%= txtPassword.ClientID %>").val();
+		var country = $("#<%= txtPassword.ClientID %>").val();
+		var currPW = $("#<%= txtCurrPassword.ClientID %>").val();
+		var updateDetails = {
+			"fullname": fullname,
+			"username": username,
+			"email": email,
+			"hpno": hpno,
+			"address": address,
+			"newPW": newPW,
+			"country": country,
+			"currPW": currPW
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'edit-profile.aspx/editProfile',
+			data: JSON.stringify(updateDetails),
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			success: function (resp) {
+				if (resp.d == 1) {
+					generateInfoMsgBox(2, "Profile successfully updated!");
+				}
+				else {
+					generateInfoMsgBox(1, "An error occured.");
+				}
+			},
+			error: function (resp) {
+				generateInfoMsgBox(1, "AJAX Error");
+			}
+		});
+	})
+
+	function generateInfoMsgBox(type, message) {
+		if (type == 1) {
+			//alert-danger
+			$("#errorMsgBoxInner").removeClass("alert-success");
+			$("#errorMsgBox").removeClass("d-none");
+			$("#errorMsgBoxInner").addClass("alert-danger");
+			$("#errorMsg").html(message);
+		}
+		else {
+			//alert-success
+			$("#errorMsgBoxInner").removeClass("alert-danger");
+			$("#errorMsgBox").removeClass("d-none");
+			$("#errorMsgBoxInner").addClass("alert-success");
+			$("#errorMsg").html(message);
+		}
+	}
+</script>
 </asp:Content>

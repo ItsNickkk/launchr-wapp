@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Launchr.models;
@@ -144,6 +145,11 @@ namespace Launchr.pages
 					
 			}
 			
+		}
+		[WebMethod]
+		protected static int editProfile(object fullname, object username, object email, object hpno, object address, object newPW, object country, object currPW)
+		{
+			return 1;
 		}
 	}
 }

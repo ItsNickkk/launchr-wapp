@@ -289,8 +289,9 @@
 			</div>
 		</div>
 	</div>
-</div>pledge-tier-btn\" data-toggle=\"modal\" data-target=\"#tier-pledge-modal\
+</div>
 <asp:HiddenField ID="txtUserID" runat="server"/>
+<asp:HiddenField ID="txtProjID" runat="server"/>
 <script src="../Scripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
