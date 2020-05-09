@@ -18,7 +18,6 @@ namespace Launchr.pages
 			User user = (User)this.Session["user"];
 			if(this.Session["user"] != null){
 				txtUserID.Value = user.id.ToString();
-				txtProjID.Value = project.id.ToString();
 			}	
 			Creator creator = (Creator)this.Session["creator"];
 			if (Session["creator"] != null){
@@ -38,7 +37,9 @@ namespace Launchr.pages
 					if (project != null & project.creator.status == 1)
 					{
 						this.makePage(project);
-						
+						String project_title = project.title + " | Launch:r";
+						Page.Title = project_title;
+
 					} else
 					{
 						// project does not exist, do something here!

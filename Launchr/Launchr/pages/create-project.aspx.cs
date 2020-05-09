@@ -15,6 +15,7 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Create Project | Launch:r";
 			siteDB = new SiteDB();
 			if (this.Session["user"] != null || this.Session["creator"] == null)
 			{

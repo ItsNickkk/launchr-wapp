@@ -13,6 +13,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Home | Launch:r";
 			User user = (User)this.Session["user"];
 			Creator creator = (Creator)this.Session["creator"];
 			if (this.Session["user"] == null && this.Session["creator"] == null)

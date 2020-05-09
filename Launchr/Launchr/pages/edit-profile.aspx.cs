@@ -16,7 +16,8 @@ namespace Launchr.pages
 		string current;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if(this.Session["user"] == null && this.Session["creator"] == null)
+			Page.Title = "Edit Profile | Launch:r";
+			if (this.Session["user"] == null && this.Session["creator"] == null)
 			{
 				Response.Redirect("login.aspx");
 			} else if (this.Session["user"] != null && this.Session["creator"] == null)

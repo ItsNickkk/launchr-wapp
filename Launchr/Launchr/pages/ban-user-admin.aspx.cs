@@ -14,6 +14,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Ban User | Launch:r";
 			SiteDB siteDB = new SiteDB();
 			this.makeUserList(siteDB.getAllUsers());
 			this.makeCreatorList(siteDB.getAllCreators());

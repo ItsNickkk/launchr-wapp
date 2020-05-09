@@ -15,7 +15,8 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if(this.Session["user"] != null || this.Session["creator"] != null){
+			Page.Title = "Member Login | Launch:r";
+			if (this.Session["user"] != null || this.Session["creator"] != null){
 				Response.Redirect("404.aspx");
 			}
 			siteDB = new SiteDB();

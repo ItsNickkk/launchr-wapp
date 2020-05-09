@@ -16,7 +16,7 @@ namespace Launchr.pages
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if(Request.QueryString["id"] != null)
+			if (Request.QueryString["id"] != null)
 			{
 				try
 				{
@@ -37,9 +37,11 @@ namespace Launchr.pages
 					else if (user != null)
 					{
 						this.makePage(user);
+						Page.Title = user.name+" | Launch:r";
 					} else
 					{
 						this.makePage(creator);
+						Page.Title = creator.name + " | Launch:r";
 					}
 				} catch (Exception ex)
 				{

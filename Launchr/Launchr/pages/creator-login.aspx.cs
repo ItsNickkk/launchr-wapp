@@ -14,6 +14,7 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Creator Login | Launch:r";
 			if (this.Session["user"] != null || this.Session["creator"] != null)
 			{
 				Response.Redirect("404.aspx");
