@@ -101,9 +101,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col text-right">
-						<a href="project-control-panel?id=*projectid*" class="btn btn-secondary launchr-btn mt-3 ml-3">Project control panel</a> 
-					</div>
+                    <asp:PlaceHolder ID="plcControlPanel" runat="server"></asp:PlaceHolder>
 				</div>
 			</div>
 		</div>

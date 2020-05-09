@@ -71,12 +71,13 @@
 												<th scope="col">Phone Number</th>
 												<th scope="col">Country</th>
 												<th scope="col">Tier chose</th>
+												<th scope="col">Amount ($)</th>
 											</tr>
 										</thead>
 										<tbody id="backerTable">
-											<!--<asp:PlaceHolder ID="plcBackerList" runat="server"></asp:PlaceHolder>
-											Arrange in reverse chrono order-->
-											<tr>
+											<asp:PlaceHolder ID="plcBackerList" runat="server"></asp:PlaceHolder>
+											<!--Arrange in reverse chrono order-->
+											<%--<tr>
 												<th scope="row" class="text-right">100001</th>
 												<td>Potato</td>
 												<td>Potato@gmail.com</td>
@@ -85,7 +86,8 @@
 												<td>69420</td>
 												<td>malaysia</td>
 												<td>Tier 1</td>
-											</tr>
+												<td>$$$</td>
+											</tr>--%>
 										</tbody>
 									</table>
 								</div>

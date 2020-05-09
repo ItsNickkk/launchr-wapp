@@ -34,6 +34,10 @@ namespace Launchr.pages
 				{
 					int project_id = int.Parse(Request.QueryString["id"]);
 					project = new SiteDB().getProjectById(project_id);
+					if(this.Session["creator"] != null && ((Creator)this.Session["creator"]).id == project.creator.id)
+					{
+						this.makeEditButton(project);
+					}
 					if (project != null & project.creator.status == 1)
 					{
 						this.makePage(project);
@@ -60,6 +64,14 @@ namespace Launchr.pages
 
 
 
+		}
+
+		private void makeEditButton(Project project)
+		{
+			this.plcControlPanel.Controls.Add(new Literal
+			{
+				Text = "<div class=\"col text-right\"><a href=\"project-control-panel?id=" + project.id + "\" class=\"btn btn-secondary launchr-btn mt-3 ml-3\">Project Control Panel</a></div>"
+			});
 		}
 
 		private void makePage(Project project)

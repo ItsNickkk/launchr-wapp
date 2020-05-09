@@ -123,6 +123,11 @@ namespace Launchr.models
             return new SiteDB().addTransactionWithoutTier(amount, user_id, this.id);
         }
 
+        public List<Transaction> getTransactions()
+        {
+            return new SiteDB().getTransactionByProjectId(this.id);
+        }
+
         public List<Transaction> getTransactionsByUserId(int user_id)
         {
             return new SiteDB().getTransactionWithProjectIdAndUserId(this.id, user_id);
