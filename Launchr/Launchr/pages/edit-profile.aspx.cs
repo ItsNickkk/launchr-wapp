@@ -41,6 +41,7 @@ namespace Launchr.pages
 		private void makePage(User user)
 		{
 			this.txtName.Text = user.name;
+			// this.txtName.Attributes.Add("placeholder", user.name);
 			this.txtUsername.Text = user.username;
 			this.txtEmail.Text = user.email;
 			this.txtPhone.Text = user.phone_number;
@@ -61,16 +62,16 @@ namespace Launchr.pages
 		protected void btnUpdate_Click(object sender, EventArgs e)
 		{
 			string current_password = this.txtCurrPassword.Text;
-			string name = this.txtName.Text;
-			string username = this.txtUsername.Text;
-			string email = this.txtEmail.Text;
-			string phone = this.txtPhone.Text;
-			string address = this.txtAddress.Text;
-			string country = this.cobCountry.SelectedValue;
+			string name = this.txtNameHidden.Text;
+			string username = this.txtUsernameHidden.Text;
+			string email = this.txtEmailHidden.Text;
+			string phone = this.txtPhoneHidden.Text;
+			string address = this.txtAddressHidden.Text;
+			string country = this.txtCountryHidden.Text;
 			string password;
-			if(this.txtPassword.Text.Trim(' ') != "")
+			if(this.txtPasswordHidden.Text.Trim(' ') != "")
 			{
-				password = this.txtPassword.Text.Trim(' ');
+				password = this.txtPasswordHidden.Text.Trim(' ');
 			} else
 			{
 				password = null;
@@ -146,10 +147,10 @@ namespace Launchr.pages
 			}
 			
 		}
-		[WebMethod]
+		/*[WebMethod]
 		protected static int editProfile(object fullname, object username, object email, object hpno, object address, object newPW, object country, object currPW)
 		{
 			return 1;
-		}
+		}*/
 	}
 }
