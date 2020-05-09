@@ -18,7 +18,6 @@ namespace Launchr.pages
 			User user = (User)this.Session["user"];
 			if(this.Session["user"] != null){
 				txtUserID.Value = user.id.ToString();
-				txtProjID.Value = project.id.ToString();
 			}	
 			Creator creator = (Creator)this.Session["creator"];
 			if (Session["creator"] != null){
@@ -38,6 +37,7 @@ namespace Launchr.pages
 					if (project != null & project.creator.status == 1)
 					{
 						this.makePage(project);
+						Page.Title = project.title + " | Launchr";
 						
 					} else
 					{
@@ -64,6 +64,7 @@ namespace Launchr.pages
 
 		private void makePage(Project project)
 		{
+			this.txtProjID.Value = project.id.ToString();
 			this.makeContent(project.content);
 			this.makeTitle(project.title);
 			this.makeDesc(project.description);
@@ -358,13 +359,18 @@ namespace Launchr.pages
 		[WebMethod]
 		public static int pledgeTier(object backerID, object tierID)
 		{
-			return 1; //return when successful
+			int tier_id = int.Parse((string)tierID);
+			Tier tier = new SiteDB().getTierById(tier_id);
+			Project project = tier.project;
+			return project.addTransaction(tier, int.Parse((string)backerID));
+
 		}
 
 		[WebMethod]
-		public static int pledgeTierNoReward(object backerID, object tierID, object amount)
+		public static int pledgeTierNoReward(object backerID, object projID, object amount)
 		{
-			return 1; //return when successful
+			Project project = new SiteDB().getProjectById(int.Parse((string)projID));
+			return project.addTransactionWithoutTier(int.Parse((string)amount), int.Parse((string)backerID));
 		}
 	}
 }

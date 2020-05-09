@@ -328,7 +328,7 @@
 				$.ajax({
 					type: 'POST',
 					url: 'project.aspx/pledgeTierNoReward',
-					data: JSON.stringify({ "backerID": backerID, "tierID": projID, "amount": amount }),
+					data: JSON.stringify({ "backerID": backerID, "projID": projID, "amount": amount }),
 					dataType: 'json',
 					contentType: 'application/json; charset=utf-8',
 					success: function (resp) {

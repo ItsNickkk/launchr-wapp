@@ -29,17 +29,19 @@ namespace Launchr.models
         {
 
         }
+        public Transaction(int id, int amount, int user_id, int project_id, DateTime datetime)
+        {
+            this.id = id;
+            this.amount = amount;
+            this.user = getUserById(user_id);
+            this.tier = null;
+            this.project = getProjectById(project_id);
+            this.datetime = datetime;
+        }
 
         private static Tier getTierById(int tier_id)
         {
-            List<Tier> tier_list = new SiteDB().getTierById(tier_id);
-            if (tier_list.Count() == 1)
-            {
-                return tier_list[0];
-            } else
-            {
-                return null;
-            }
+            return new SiteDB().getTierById(tier_id);
         }
 
         private static User getUserById(int user_id)
