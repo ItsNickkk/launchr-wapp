@@ -15,6 +15,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Create Tier | Launch:r";
 			if (!IsPostBack)
 			{
 				if (Request.QueryString["id"] != null)

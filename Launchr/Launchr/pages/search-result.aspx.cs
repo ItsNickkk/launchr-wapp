@@ -18,10 +18,12 @@ namespace Launchr.pages
 			{
 				search_results = new SiteDB().findProjectByTitle(Request.QueryString["query"]);
 				search_results.Reverse();
+				Page.Title = "Search: "+ Request.QueryString["query"] + " | Launch:r";
 			} else if (Request.QueryString["topic"] != null)
 			{
 				search_results = new SiteDB().findProjectByTopic(Request.QueryString["topic"]);
 				search_results.Reverse();
+				Page.Title = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(Request.QueryString["topic"]) + " | Launch:r";
 			} else
 			{
 				search_results = new List<Project>();

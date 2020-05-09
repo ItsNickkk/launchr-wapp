@@ -11,6 +11,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "404 Error";
 		}
 	}
 }

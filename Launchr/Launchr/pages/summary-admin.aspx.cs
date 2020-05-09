@@ -12,6 +12,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Admin Panel | Launch:r";
 			this.makePage();
 		}
 		private void makePage()

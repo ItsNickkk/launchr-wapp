@@ -15,6 +15,7 @@ namespace Launchr.pages
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Creator Approval | Launch:r";
 			List<Creator> creator_list = new SiteDB().getWaitingCreator();
 			this.makePendingCreator(creator_list);
 		}
