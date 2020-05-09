@@ -102,5 +102,15 @@ namespace Launchr.models
         {
             return (int)(this.time_end - DateTime.Now).TotalDays;
         }
+
+        public bool reachedGoal()
+        {
+            return this.getTransactionTotal() >= this.target;
+        }
+
+        public bool isAlive()
+        {
+            return DateTime.Now < this.time_end;
+        }
     }
 }

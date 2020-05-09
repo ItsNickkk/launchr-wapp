@@ -194,6 +194,32 @@ namespace Launchr.models
             }
         }
 
+        public int countProjectGoalReached()
+        {
+            List<Project> project_goal_reached = new List<Project>();
+            foreach(Project project in this.getAllProjects())
+            {
+                if (project.reachedGoal())
+                {
+                    project_goal_reached.Add(project);
+                }
+            }
+            return project_goal_reached.Count();
+        }
+
+        public int countProjectActive()
+        {
+            List<Project> project_goal_reached = new List<Project>();
+            foreach (Project project in this.getAllProjects())
+            {
+                if (project.isAlive())
+                {
+                    project_goal_reached.Add(project);
+                }
+            }
+            return project_goal_reached.Count();
+        }
+
         public int addNewCreator(string name, string address, string phone_number, string email, string country, string document, string type, string username, string password)
         {
             try
