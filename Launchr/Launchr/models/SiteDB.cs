@@ -99,6 +99,11 @@ namespace Launchr.models
             
         }
 
+        public List<User> getUnbannedUsers()
+        {
+            return this.translateUserTableToList(this.userAdapter.GetUserUnban());
+        }
+
         public int updateUser(User user)
         {
 
@@ -153,6 +158,11 @@ namespace Launchr.models
                 creator_list.Add(this.translateRowToCreator(creator_row));
             }
             return creator_list;
+        }
+
+        public List<Creator> getUnbannedCreators()
+        {
+            return this.translateCreatorTableToList(this.creatorAdapter.GetCreatorUnban());
         }
 
         public Creator getCreatorById(int creator_id)
@@ -297,6 +307,20 @@ namespace Launchr.models
                 return null;
             }
         }
+
+        public List<Project> getProjectAlive()
+        {
+            List<Project> all_projects = this.getAllProjects();
+            foreach(Project project in all_projects)
+            {
+                if(DateTime.Now > project.time_end)
+                {
+                    all_projects.Remove(project);
+                }
+            }
+            return all_projects;
+        }
+
 
         public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string imagePath)
         {
