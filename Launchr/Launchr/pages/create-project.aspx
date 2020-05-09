@@ -43,7 +43,7 @@
 					<label for="txtContentFaux" class="mt-2" data-toggle="tooltip" title="Describe your project, with passion!" data-placement="right">Project Content</label>
 					<asp:RequiredFieldValidator ID="createProjContentReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtContent" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 					<asp:TextBox TextMode="MultiLine" ID="txtContentFaux" runat="server" Cssclass="form-control"></asp:TextBox>
-					<asp:TextBox ID="txtContent" runat="server" TextMode="multiline" Cssclass="form-control d-none" ReadOnly="true"></asp:TextBox>
+					<asp:TextBox ID="txtContent" runat="server" TextMode="multiline" Cssclass="form-control d-none"></asp:TextBox>
 
 					<div class="row">
 						<div class="col">
@@ -105,7 +105,7 @@
 				return false;
 			}
 		});
-		setInterval(1000, updatetxtContent());
+		setInterval(updatetxtContent, 1000);
 	});	
 </script>
 </asp:Content>
