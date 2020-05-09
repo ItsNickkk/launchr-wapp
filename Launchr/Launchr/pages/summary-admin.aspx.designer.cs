@@ -42,13 +42,13 @@ namespace Launchr.pages
         protected global::System.Web.UI.WebControls.PlaceHolder plcCreatorApproval;
 
         /// <summary>
-        /// plcProjectActive control.
+        /// plcProjectTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder plcProjectActive;
+        protected global::System.Web.UI.WebControls.PlaceHolder plcProjectTotal;
 
         /// <summary>
         /// plcProjectRunning control.
