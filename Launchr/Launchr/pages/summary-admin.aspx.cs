@@ -33,9 +33,9 @@ namespace Launchr.pages
 			{
 				Text = siteDB.countProjectGoalReached().ToString()
 			});
-			this.plcProjectActive.Controls.Add(new Literal
+			this.plcProjectTotal.Controls.Add(new Literal
 			{
-				Text = siteDB.countProjectActive().ToString()
+				Text = siteDB.getAllProjects().Count().ToString()
 			});
 			this.plcProjectRunning.Controls.Add(new Literal
 			{

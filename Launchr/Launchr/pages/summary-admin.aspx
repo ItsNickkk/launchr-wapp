@@ -84,9 +84,9 @@
 							<div class="row">
 								<div class="col-xl text-center">
 									<div class="summary-count m-auto">
-                                        <asp:PlaceHolder ID="plcProjectActive" runat="server"></asp:PlaceHolder>
+                                        <asp:PlaceHolder ID="plcProjectTotal" runat="server"></asp:PlaceHolder>
                                     </div>
-									<div>Active Projects</div>
+									<div>Projects</div>
 								</div>
 								<div class="col-xl text-center">
 									<div class="summary-count m-auto">
