@@ -105,6 +105,7 @@
 				return false;
 			}
 		});
+		setInterval(1000, updatetxtContent());
 	});	
 </script>
 </asp:Content>

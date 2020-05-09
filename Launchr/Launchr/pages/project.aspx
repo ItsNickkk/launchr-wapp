@@ -45,7 +45,6 @@
 							<asp:PlaceHolder ID="plcDescription" runat="server">
 
 							</asp:PlaceHolder>
-
 						</p>
 					</div>
 				</div>
