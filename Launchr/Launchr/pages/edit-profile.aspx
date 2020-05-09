@@ -80,7 +80,7 @@
 		var hpno = $("#<%= txtPhone.ClientID %>").val(); 
 		var address = $("#<%= txtAddress.ClientID %>").val();
 		var newPW = $("#<%= txtPassword.ClientID %>").val();
-		var country = $("#<%= txtPassword.ClientID %>").val();
+		var country = $("#<%= txtPassword.ClientID %> option:selected").val();
 		var currPW = $("#<%= txtCurrPassword.ClientID %>").val();
 		var updateDetails = {
 			"fullname": fullname,
