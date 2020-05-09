@@ -54,16 +54,22 @@
 							</div>
 							<div class="row">
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Number of members</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcUser" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Active Members</div>
 								</div>
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Number of members</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcCreator" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Active Creators</div>
 								</div>
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Number of members</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcCreatorApproval" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Creators waiting for approval</div>
 								</div>
 							</div>
 						</div>
@@ -77,16 +83,22 @@
 							</div>
 							<div class="row">
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Total Number of active projects</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcProjectActive" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Active Projects</div>
 								</div>
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Number of running projects</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcProjectRunning" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Running projects</div>
 								</div>
 								<div class="col-xl text-center">
-									<div class="summary-count m-auto">20</div>
-									<div>Number of projects that reached goal</div>
+									<div class="summary-count m-auto">
+                                        <asp:PlaceHolder ID="plcGoalReached" runat="server"></asp:PlaceHolder>
+                                    </div>
+									<div>Projects reached goal</div>
 								</div>
 							</div>
 						</div>

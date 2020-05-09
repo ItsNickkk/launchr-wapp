@@ -99,6 +99,11 @@ namespace Launchr.models
             
         }
 
+        public List<User> getUnbannedUsers()
+        {
+            return this.translateUserTableToList(this.userAdapter.GetUserUnban());
+        }
+
         public int updateUser(User user)
         {
 
@@ -155,6 +160,11 @@ namespace Launchr.models
             return creator_list;
         }
 
+        public List<Creator> getUnbannedCreators()
+        {
+            return this.translateCreatorTableToList(this.creatorAdapter.GetCreatorUnban());
+        }
+
         public Creator getCreatorById(int creator_id)
         {
             List<Creator> creator_list = translateCreatorTableToList(creatorAdapter.GetCreatorById(creator_id));
@@ -182,6 +192,32 @@ namespace Launchr.models
             {
                 return 0;
             }
+        }
+
+        public int countProjectGoalReached()
+        {
+            List<Project> project_goal_reached = new List<Project>();
+            foreach(Project project in this.getAllProjects())
+            {
+                if (project.reachedGoal())
+                {
+                    project_goal_reached.Add(project);
+                }
+            }
+            return project_goal_reached.Count();
+        }
+
+        public int countProjectActive()
+        {
+            List<Project> project_goal_reached = new List<Project>();
+            foreach (Project project in this.getAllProjects())
+            {
+                if (project.isAlive())
+                {
+                    project_goal_reached.Add(project);
+                }
+            }
+            return project_goal_reached.Count();
         }
 
         public int addNewCreator(string name, string address, string phone_number, string email, string country, string document, string type, string username, string password)
@@ -297,6 +333,20 @@ namespace Launchr.models
                 return null;
             }
         }
+
+        public List<Project> getProjectAlive()
+        {
+            List<Project> all_projects = this.getAllProjects();
+            foreach(Project project in all_projects)
+            {
+                if(DateTime.Now > project.time_end)
+                {
+                    all_projects.Remove(project);
+                }
+            }
+            return all_projects;
+        }
+
 
         public int addNewProject(int creator_id, string title, DateTime time_created, DateTime time_end, string description, int status, int target, string topic, string content, string imagePath)
         {
