@@ -52,7 +52,7 @@
 								<asp:ListItem Text="Publishing" Value="publishing"></asp:ListItem>
 								<asp:ListItem Text="Everything Else" Value="others"></asp:ListItem>
 							</asp:DropDownList>
-							<asp:Button ID="btnSaveProject" runat="server" Text="Save Changes" CssClass="btn launchr-btn mt-3"/>
+							<asp:Button ID="btnSaveProject" runat="server" Text="Save Changes" CssClass="btn launchr-btn mt-3" OnClick="btnSaveProject_Click"/>
 						</div>
 						<div class="tab-pane fade project-details neumorph p-3" id="project-backer">
 							<div class="row">

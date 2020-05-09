@@ -132,5 +132,10 @@ namespace Launchr.models
         {
             return new SiteDB().getTransactionWithProjectIdAndUserId(this.id, user_id);
         }
+
+        public int update()
+        {
+            return new SiteDB().updateProject(this);
+        }
     }
 }

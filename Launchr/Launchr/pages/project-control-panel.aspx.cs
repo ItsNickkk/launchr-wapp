@@ -14,7 +14,8 @@ namespace Launchr.pages
 		Project project;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if(this.Session["creator"] != null && Request.QueryString["id"] != null)
+			
+			if (this.Session["creator"] != null && Request.QueryString["id"] != null)
 			{
 				try
 				{
@@ -23,18 +24,27 @@ namespace Launchr.pages
 					if (project == null)
 					{
 						Response.Redirect("404.aspx");
-					} else
-					{
-						this.makePage(project);
 					}
-				} catch (Exception ex)
+					else
+					{
+						if (!IsPostBack)
+						{
+							this.makePage(project);
+						}
+						
+					}
+				}
+				catch (Exception ex)
 				{
 					Response.Redirect("404.aspx");
 				}
-			} else
+			}
+			else
 			{
 				Response.Redirect("404.aspx");
 			}
+			
+			
 		}
 
 		public void makePage(Project project)
@@ -57,6 +67,30 @@ namespace Launchr.pages
 			{
 				Text = html.ToString()
 			});
+
+			this.txtTitle.Text = project.title;
+			this.txtDescription.Text = project.description;
+			this.txtContentFaux.Text = project.content;
+			this.cobTopic.SelectedValue = project.topic;
+		}
+
+		protected void btnSaveProject_Click(object sender, EventArgs e)
+		{
+			string title = this.txtTitle.Text;
+			string description = this.txtDescription.Text;
+			string content = this.txtContentFaux.Text;
+			string topic = this.cobTopic.SelectedValue;
+			project.title = title;
+			project.description = description;
+			project.content = content;
+			project.topic = topic;
+			if(project.update() == 1)
+			{
+				// success, do something here
+			} else
+			{
+				// fail, do something here
+			}
 		}
 	}
 }
