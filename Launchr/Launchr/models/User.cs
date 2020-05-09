@@ -67,7 +67,7 @@ namespace Launchr.models
         public List<Project> getBacked()
         {
             List<Project> project_list = new List<Project>();
-            foreach(Transaction transaction in new SiteDB().getUniqueTransactionByUserId(this.id))
+            foreach(Transaction transaction in new SiteDB().getTransactionByUserId(this.id))
             {
                 project_list.Add(transaction.project);
             }
@@ -77,6 +77,11 @@ namespace Launchr.models
         public List<Comment> getComments()
         {
             return new SiteDB().getCommentByAuthorId(this.id);
+        }
+
+        public List<Transaction> getTransactions()
+        {
+            return new SiteDB().getTransactionByUserId(this.id);
         }
 
     }

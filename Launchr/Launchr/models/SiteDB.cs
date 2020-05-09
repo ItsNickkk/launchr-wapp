@@ -417,10 +417,16 @@ namespace Launchr.models
             }
         }
 
-        public List<Tier> getTierById(int id)
+        public Tier getTierById(int id)
         {
             List<Tier> tier_list = this.translateTierTableToList(this.tierAdapter.GetTierById(id));
-            return tier_list;
+            if(tier_list.Count == 1)
+            {
+                return tier_list[0];
+            } else
+            {
+                return null;
+            }
         }
 
         public List<Tier> getTierByProjectId(int project_id)
@@ -440,7 +446,15 @@ namespace Launchr.models
 
         private Transaction translateRowToTransaction(launchr_DataSet.transactionRow transaction_row)
         {
-            Transaction transaction = new Transaction(transaction_row.id, transaction_row.tier_id, transaction_row.amount, transaction_row.user_id, transaction_row.project_id, transaction_row.datetime);
+            Transaction transaction;
+            try
+            {
+                transaction = new Transaction(transaction_row.id, transaction_row.tier_id, transaction_row.amount, transaction_row.user_id, transaction_row.project_id, transaction_row.datetime);
+            } catch(System.Data.StrongTypingException e)
+            {
+                transaction = new Transaction(transaction_row.id, transaction_row.amount, transaction_row.user_id, transaction_row.project_id, transaction_row.datetime);
+            }
+            
             return transaction;
         }
 
@@ -476,8 +490,44 @@ namespace Launchr.models
 
         public List<Transaction> getUniqueTransactionByUserId(int user_id)
         {
-            return this.translateTransactionTableToList(transactionAdapter.GetUniqueTransactionByUserId(user_id));
+            Launchr.launchr_DataSet.transactionDataTable transaction_table = transactionAdapter.GetUniqueTransactionByUserId(user_id);
+            return this.translateTransactionTableToList(transaction_table);
         }
+
+        public List<Transaction> getTransactionByUserId(int user_id)
+        {
+            return this.translateTransactionTableToList(this.transactionAdapter.GetTransactionByUserId(user_id));
+        }
+
+        public int addTransactionWithTier(int tier_id, int amount, int user_id, int project_id)
+        {
+            try
+            {
+                this.transactionAdapter.AddTransactionWithTier(tier_id, amount, user_id, project_id, DateTime.Now);
+                return 1;
+            } catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public List<Transaction> getTransactionWithProjectIdAndUserId(int project_id, int user_id)
+        {
+            return this.translateTransactionTableToList(this.transactionAdapter.GetTransactionByProjectIdAndUserId(project_id, user_id));
+        }
+
+        public int addTransactionWithoutTier(int amount, int user_id, int project_id)
+        {
+            try
+            {
+                this.transactionAdapter.AddTransactionWithoutTier(amount, user_id, project_id, DateTime.Now);
+                return 1;
+            } catch(Exception e)
+            {
+                return 0;
+            }
+        }
+
 
         // <--------------------------- Comment functions --------------------------->
 

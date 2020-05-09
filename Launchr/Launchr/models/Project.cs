@@ -112,5 +112,20 @@ namespace Launchr.models
         {
             return DateTime.Now < this.time_end;
         }
+
+        public int addTransaction(Tier tier, int user_id)
+        {
+            return new SiteDB().addTransactionWithTier(tier.id, tier.value, user_id, this.id);
+        }
+
+        public int addTransactionWithoutTier(int amount, int user_id)
+        {
+            return new SiteDB().addTransactionWithoutTier(amount, user_id, this.id);
+        }
+
+        public List<Transaction> getTransactionsByUserId(int user_id)
+        {
+            return new SiteDB().getTransactionWithProjectIdAndUserId(this.id, user_id);
+        }
     }
 }
