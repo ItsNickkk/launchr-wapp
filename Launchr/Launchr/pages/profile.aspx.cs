@@ -64,7 +64,7 @@ namespace Launchr.pages
 				User current_user = (User)this.Session["user"];
 				if(current_user.id == user.id)
 				{
-					this.makeEditButton(user.id);
+					this.makeEditButton();
 				}
 			}
 			this.makeTabTitle(0);
@@ -82,7 +82,7 @@ namespace Launchr.pages
 				Creator current_creator = (Creator)this.Session["creator"];
 				if (current_creator.id == creator.id)
 				{
-					this.makeEditButton(creator.id);
+					this.makeEditButton();
 				}
 			}
 			this.makeTabTitle(1);
@@ -141,11 +141,11 @@ namespace Launchr.pages
 			});
 		}
 
-		private void makeEditButton(int id)
+		private void makeEditButton()
 		{
 			this.plcEdit.Controls.Add(new Literal
 			{
-				Text = "<a ID=\"editProfile\" href=\"edit-profile?id=\"" + id + " class=\"btn launchr-btn mt-2\">Edit Profile</a>"
+				Text = "<a ID=\"editProfile\" href=\"edit-profile\" class=\"btn launchr-btn mt-2\">Edit Profile</a>"
 			});
 		}
 

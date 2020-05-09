@@ -44,7 +44,7 @@
 					<asp:RegularExpressionValidator ID="PassMinLengthValidator" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password must be between 8 to 26 characters." ControlToValidate="txtPassword" Display="Dynamic"></asp:RegularExpressionValidator><br />
 					<asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Cssclass="form-control"></asp:TextBox>
 					<label for="txtPassword" class="text-muted">Your password must contain at least 8 characters.</label><br />
-					<label for="txtPassword" class="text-muted">Only fill it when you need to change your password</label>
+					<label for="txtPassword" class="text-muted">Only fill it when you need to change your password</label><br />
 
 					<label for="cobCountry" class="mt-2">Country</label>
 					<asp:DropDownList ID="cobCountry" DataSourceID="countryXMLDS" runat="server" DataValueField="handle" DataTextField="handle" AutoPostBack="False" CssClass="form-control" ValidationGroup="updateprof"></asp:DropDownList>
@@ -58,7 +58,7 @@
 						<label for="txtPassword" class="text-muted">Enter your current password to save changes</label><br />
 					</div>
 					
-					<asp:Button ID="btnSignUp" runat="server" Text="Sign Up" CssClass="btn launchr-btn" ValidationGroup="updateprof" CausesValidation="true"/>
+					<asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn launchr-btn" ValidationGroup="updateprof" CausesValidation="true" OnClick="btnUpdate_Click"/>
 				</div>
 			</div>
 		</div>
