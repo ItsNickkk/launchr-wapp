@@ -25,7 +25,7 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
 - JavaScript
 
 ## Tasks
--Admin Function
+#### Admin Function
   - Add Admin (Admin Function)
     - ~~Basic Interface~~
     - ~~Generate User List~~
@@ -44,7 +44,8 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Basic Interface~~
     - ~~Navigations to all the admin functions~~
     - ~~Show brief summary of the website data~~
--Create Project
+    
+#### Create Project
   - Create Project
     - ~~Basic Interface~~
     - ~~Form Design~~
@@ -54,39 +55,41 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Generate Dictonary~~
     - ~~Generate Tier Box and append it to the div for viewing~~
     - ~~Remove Tier box function~~
-    - ~~AJAX POST of combined Tier Dictionary~~
+    - ~~AJAX POST of combined Tier Dictionary~~ 
     - Validation for projects that have tiers should not be allowed to access this page again
--Project Page
+#### Project Page
   - Project Page
     - ~~Basic Interface~~
     - ~~Put details onto respective fields~~
-    - Change the "days left" part to "Campaign Ended" when campaign ends
-    - Disable all buttons when campaign ends
     - ~~Pledge button validation to not accept creator & non-logged in users from pledging~~
     - ~~Pledge without tier function~~
     - ~~Pledge with tier function~~
-    - Fake credit card entry field validation
     - ~~Comment function~~
     - ~~Reply comment function~~
+    - Fake credit card entry field validation
+    - Change the "days left" part to "Campaign Ended" when campaign ends
+    - Disable all buttons when campaign ends
   - Project Control Panel
     - ~~Basic Interface~~
-    - Validation for this page to be accessible by project owner only
     - ~~Edit Project Function~~
     - ~~Check who backed this project~~
--Login
+    - Validation for this page to be accessible by project owner only
+    
+#### Login
   - Creator Login / Register
     - ~~Basic Interface~~
-    - Login input field validation
     - ~~Login function~~
     - ~~Register function~~
     - ~~Register input field validation~~
+    - Login input field validation
   - Member Login / Register
     - ~~Basic Interface~~
-    - Login input field validation
     - ~~Login function~~
     - ~~Register function~~
     - ~~Register input field validation~~
--Profile
+    - Login input field validation
+    
+#### Profile
   - Profile
     - ~~Basic Interface~~
     - ~~Show Comments and navigate to the comment~~
@@ -95,7 +98,8 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Basic Interface~~
     - ~~Validation of input field at Edit Profile~~
     - Edit Profile function
--Misc
+    
+#### Misc
   - Search Result
     - ~~Basic Interface~~
     - ~~Search by keyword function~~
