@@ -25,90 +25,90 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
 - JavaScript
 
 ## Tasks
-####Admin Function
-- Add Admin (Admin Function)
-  - ~~Basic Interface
-  - ~~Generate User List
-  - ~~Assign member as admin functionality
-  - ~~User Validation when accessing this page
-- Ban User (Admin Function)
-  - ~~Basic Interface
-  - ~~Generate User List (both Member and Creator)
-  - ~~Ban user functionality
-  - ~~User Validation when accessing this page
-- Creator Approval (Admin Function)
-  - ~~Basic Interface
-  - ~~Form Design
-  - ~~User Validation when accessing this page
-- Summary (Admin Panel)
-  - ~~Basic Interface
-  - ~~Navigations to all the admin functions
-  - ~~Show brief summary of the website data
-####Create Project
-- Create Project
-  - ~~Basic Interface
-  - ~~Form Design
-  - Input Validation (Date validation)
-- Create Tier for project
-  - ~~Basic Interface
-  - ~~Generate Dictonary
-  - ~~Generate Tier Box and append it to the div for viewing
-  - ~~Remove Tier box function
-  - ~~AJAX POST of combined Tier Dictionary
-  - Validation for projects that have tiers should not be allowed to access this page again
-####Project Page
-- Project Page
-  - ~~Basic Interface
-  - ~~Put details onto respective fields
-  - Change the "days left" part to "Campaign Ended" when campaign ends
-  - Disable all buttons when campaign ends
-  - ~~Pledge button validation to not accept creator & non-logged in users from pledging
-  - ~~Pledge without tier function
-  - ~~Pledge with tier function
-  - Fake credit card entry field validation
-  - ~~Comment function
-  - ~~Reply comment function
-- Project Control Panel
-  - ~~Basic Interface
-  - Validation for this page to be accessible by project owner only
-  - ~~Edit Project Function
-  - ~~Check who backed this project
-####Login
-- Creator Login / Register
-  - ~~Basic Interface
-  - Login input field validation
-  - ~~Login function
-  - ~~Register function
-  - ~~Register input field validation
-- Member Login / Register
-  - ~~Basic Interface
-  - Login input field validation
-  - ~~Login function
-  - ~~Register function
-  - ~~Register input field validation
-####Profile
-- Profile
-  - ~~Basic Interface
-  - ~~Show Comments and navigate to the comment
-  - ~~Tags to differentiate between creator and normal user and show different content
-- Edit Profile
-  - ~~Basic Interface
-  - ~~Validation of input field at Edit Profile
-  - Edit Profile function
-####Misc
-- Search Result
-  - ~~Basic Interface
-  - ~~Search by keyword function
-  - ~~Search by topic function
-- Error Page
-  - ~~Basic Interface
-  - ~~Redirect any error / access denied to this page
-- Navigation bar and Footer .Master page (General)
-  - ~~Basic Interface
-  - ~~dropdown if logged in, show "log in" button if not logged in
-- Navigation bar and Footer .Master page (Admin)
-  - ~~Basic Interface
-  - ~~dropdown if logged in, deny access if logged in user is not admin
+-Admin Function
+  - Add Admin (Admin Function)
+    - ~~Basic Interface~~
+    - ~~Generate User List~~
+    - ~~Assign member as admin functionality~~
+    - ~~User Validation when accessing this page~~
+  - Ban User (Admin Function)
+    - ~~Basic Interface~~
+    - ~~Generate User List (both Member and Creator)~~
+    - ~~Ban user functionality~~
+    - ~~User Validation when accessing this page~~
+  - Creator Approval (Admin Function)
+    - ~~Basic Interface~~
+    - ~~Form Design~~
+    - ~~User Validation when accessing this page~~
+  - Summary (Admin Panel)
+    - ~~Basic Interface~~
+    - ~~Navigations to all the admin functions~~
+    - ~~Show brief summary of the website data~~
+-Create Project
+  - Create Project
+    - ~~Basic Interface~~
+    - ~~Form Design~~
+    - Input Validation (Date validation)
+  - Create Tier for project
+    - ~~Basic Interface~~
+    - ~~Generate Dictonary~~
+    - ~~Generate Tier Box and append it to the div for viewing~~
+    - ~~Remove Tier box function~~
+    - ~~AJAX POST of combined Tier Dictionary~~
+    - Validation for projects that have tiers should not be allowed to access this page again
+-Project Page
+  - Project Page
+    - ~~Basic Interface~~
+    - ~~Put details onto respective fields~~
+    - Change the "days left" part to "Campaign Ended" when campaign ends
+    - Disable all buttons when campaign ends
+    - ~~Pledge button validation to not accept creator & non-logged in users from pledging~~
+    - ~~Pledge without tier function~~
+    - ~~Pledge with tier function~~
+    - Fake credit card entry field validation
+    - ~~Comment function~~
+    - ~~Reply comment function~~
+  - Project Control Panel
+    - ~~Basic Interface~~
+    - Validation for this page to be accessible by project owner only
+    - ~~Edit Project Function~~
+    - ~~Check who backed this project~~
+-Login
+  - Creator Login / Register
+    - ~~Basic Interface~~
+    - Login input field validation
+    - ~~Login function~~
+    - ~~Register function~~
+    - ~~Register input field validation~~
+  - Member Login / Register
+    - ~~Basic Interface~~
+    - Login input field validation
+    - ~~Login function~~
+    - ~~Register function~~
+    - ~~Register input field validation~~
+-Profile
+  - Profile
+    - ~~Basic Interface~~
+    - ~~Show Comments and navigate to the comment~~
+    - ~~Tags to differentiate between creator and normal user and show different content~~
+  - Edit Profile
+    - ~~Basic Interface~~
+    - ~~Validation of input field at Edit Profile~~
+    - Edit Profile function
+-Misc
+  - Search Result
+    - ~~Basic Interface~~
+    - ~~Search by keyword function~~
+    - ~~Search by topic function~~
+  - Error Page
+    - ~~Basic Interface~~
+    - ~~Redirect any error / access denied to this page~~
+  - Navigation bar and Footer .Master page (General)
+    - ~~Basic Interface~~
+    - ~~dropdown if logged in, show "log in" button if not logged in~~
+  - Navigation bar and Footer .Master page (Admin)
+    - ~~Basic Interface~~
+    - ~~dropdown if logged in, deny access if logged in user is not admin~~
   
 ## Credits
 
