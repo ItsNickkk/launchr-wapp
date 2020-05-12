@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Launchr.models;
-using System.Text;
 
 namespace Launchr.pages
 {
@@ -62,7 +61,7 @@ namespace Launchr.pages
 			StringBuilder carousel_paginator = new StringBuilder();
 			foreach (String project_card in project_card_list)
 			{
-				carousel_paginator.Append("<button class=\"btn btn-secondary\" data-target=\"#new-carousel\" data-slide-to=\"" + project_card_list.IndexOf(project_card) + "\">" + (project_card_list.IndexOf(project_card) + 1) + "</button>");
+				carousel_paginator.Append("<button class=\"btn btn-secondary\" data-target=\"#project-carousel\" data-slide-to=\"" + project_card_list.IndexOf(project_card) + "\">" + (project_card_list.IndexOf(project_card) + 1) + "</button>");
 			}
 			this.plcTrendingCarousel.Controls.Add(new Literal
 			{
