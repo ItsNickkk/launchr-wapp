@@ -528,6 +528,16 @@ namespace Launchr.models
             }
         }
 
+        public List<Transaction> getTransactionByTierId(int tier_id)
+        {
+            return this.translateTransactionTableToList(this.transactionAdapter.GetTransactionByTierId(tier_id));
+        }
+
+        public int countTransactionNoTierByProjectId(int project_id)
+        {
+            return (int)this.transactionAdapter.CountNoTierByProjectId(project_id);
+        }
+
 
         // <--------------------------- Comment functions --------------------------->
 

@@ -33,5 +33,20 @@ namespace Launchr.models
         {
             return new SiteDB().getProjectById(project_id);
         }
+
+        public List<Transaction> getTransactions()
+        {
+            return new SiteDB().getTransactionByTierId(this.id);
+        }
+
+        public bool isReachTarget()
+        {
+            return max_amount - this.getTransactions().Count() <= 0;
+        }
+
+        public int calcProgress()
+        {
+            return (int)Math.Ceiling((double)this.getTransactions().Count() / this.max_amount * 100);
+        }
     }
 }
