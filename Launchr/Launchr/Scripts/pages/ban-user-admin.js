@@ -49,7 +49,6 @@ $(document).ready(function () {
 	});
 	//Member Ban
 	$("#memberTable").on('click', '.btnBanUser', function () {
-		console.log("hi");
 		var currentRow = $(this).closest("tr");
 		var userID = currentRow.find("th:eq(0)").html();
 		var username = currentRow.find("td:eq(2)").html();
@@ -62,7 +61,7 @@ $(document).ready(function () {
 			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
 				if (resp.d == 1) {
-					generateInfoMsgBox(1, username + " is now banned", 2);
+					generateInfoMsgBox2(1, username + " is now banned", 2);
 					btn.removeClass("btnBanUser");
 					btn.addClass("btnUnbanUser");
 					btn.html("Unban User");
@@ -90,7 +89,7 @@ $(document).ready(function () {
 			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
 				if (resp.d == 1) {
-					generateInfoMsgBox(1, username + " is now unbanned", 2);
+					generateInfoMsgBox2(1, username + " is now unbanned", 2);
 					btn.removeClass("btnUnbanUser");
 					btn.addClass("btnBanUser");
 					btn.html("Ban User");
@@ -146,7 +145,7 @@ $(document).ready(function () {
 			contentType: 'application/json; charset=utf-8',
 			success: function (resp) {
 				if (resp.d == 1) {
-					generateInfoMsgBox(0, username + " is now unbanned", 2);
+					generateInfoMsgBox2(0, username + " is now unbanned", 2);
 					btn.removeClass("btnUnbanUser");
 					btn.addClass("btnBanUser");
 					btn.html("Ban User");

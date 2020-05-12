@@ -81,6 +81,5 @@
 		</div>
 	</div>
 </div>
-<script src="../Scripts/pages/script.js"></script>
 <script src="../Scripts/pages/create-project.js"></script>
 </asp:Content>

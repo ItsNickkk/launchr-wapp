@@ -193,7 +193,13 @@
     <Content Include="Scripts\pages\add-admin.js" />
     <Content Include="Scripts\pages\ban-user-admin.js" />
     <Content Include="Scripts\pages\create-project.js" />
+    <Content Include="Scripts\pages\creator-approval-admin.js" />
+    <Content Include="Scripts\pages\edit-profile.js" />
+    <Content Include="Scripts\pages\home.js" />
+    <Content Include="Scripts\pages\project-control-panel.js" />
+    <Content Include="Scripts\pages\project.js" />
     <Content Include="Scripts\pages\script.js" />
+    <Content Include="Scripts\pages\tier-rewards.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />

@@ -345,18 +345,5 @@
 	<!--Join Us Start-->
 		<asp:PlaceHolder ID="signUpDiv" runat="server"></asp:PlaceHolder>
 	<!--Join Us End-->
-<script type="text/javascript">
-$(document).ready(function () {
-	$('#txtSearchHero').keyup(function () {
-		var queryString = $('#txtSearchHero').val();
-		console.log(queryString);
-		if (queryString != '') {
-			$('#btnSearchHero').attr('href', "search-result?query=" + queryString);
-		}
-		else {
-			$('#btnSearchHero').attr('href', "#");
-		}
-	});
-});
-</script>
+	<script src="../Scripts/pages/home.js"></script>
 </asp:Content>

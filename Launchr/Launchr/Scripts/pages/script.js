@@ -24,8 +24,6 @@ function allowOnlyNumber(evt) {
 	return true;
 }
 
-
-
 //GET paramater
 function GetURLParameter(sParam) {
 	var sPageURL = window.location.search.substring(1);
