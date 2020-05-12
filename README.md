@@ -113,6 +113,9 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
   - Navigation bar and Footer .Master page (Admin)
     - ~~Basic Interface~~
     - ~~dropdown if logged in, deny access if logged in user is not admin~~
+  - Other stuffs
+    - About Page
+    - Contact Us Page
   
 ## Credits
 
