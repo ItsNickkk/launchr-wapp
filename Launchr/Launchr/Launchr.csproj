@@ -121,6 +121,12 @@
     <Content Include="Content\images\cover1.jpg" />
     <Content Include="Content\images\loginbg.gif" />
     <Content Include="Content\Logo\Artboard 1%403x.png" />
+    <Content Include="Content\Logo\icons\add.svg" />
+    <Content Include="Content\Logo\icons\approve.svg" />
+    <Content Include="Content\Logo\icons\ban.svg" />
+    <Content Include="Content\Logo\icons\business-and-finance.svg" />
+    <Content Include="Content\Logo\icons\home.svg" />
+    <Content Include="Content\Logo\icons\summary.svg" />
     <Content Include="Content\Logo\location.svg" />
     <Content Include="Content\Logo\logo.png" />
     <Content Include="Content\Logo\LOGO.svg" />
@@ -128,6 +134,7 @@
     <Content Include="Content\Logo\main-logo.svg" />
     <Content Include="Content\Logo\topic\art.svg" />
     <Content Include="Content\Logo\topic\design.svg" />
+    <Content Include="Content\Logo\topic\everythingelse.svg" />
     <Content Include="Content\Logo\topic\film.svg" />
     <Content Include="Content\Logo\topic\foodcraft.svg" />
     <Content Include="Content\Logo\topic\game.svg" />
@@ -144,7 +151,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="pages\add-admin.aspx" />
+    <Content Include="pages\ban-user-admin.aspx" />
     <Content Include="pages\create-project.aspx" />
+    <Content Include="pages\creator-approval-admin.aspx" />
+    <Content Include="pages\edit-profile.aspx" />
     <Content Include="pages\Launchr.Master" />
     <Content Include="pages\home.aspx" />
     <Content Include="pages\login.aspx" />
@@ -152,6 +163,11 @@
     <Content Include="pages\project.aspx" />
     <Content Include="pages\creator-login.aspx" />
     <Content Include="pages\profile.aspx" />
+    <Content Include="pages\search-result.aspx" />
+    <Content Include="pages\summary-admin.aspx" />
+    <Content Include="pages\tier-rewards.aspx" />
+    <Content Include="pages\404.aspx" />
+    <Content Include="pages\project-control-panel.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\Logo\icon.ai" />
     <Content Include="Content\Logo\LOGO.ai" />
@@ -166,6 +182,7 @@
     <Content Include="launchr_DataSet.xss">
       <DependentUpon>launchr_DataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="pages\Admin.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -212,16 +229,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>launchr_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="models\Comment.cs" />
     <Compile Include="models\Creator.cs" />
     <Compile Include="models\Project.cs" />
     <Compile Include="models\SiteDB.cs" />
+    <Compile Include="models\Tier.cs" />
+    <Compile Include="models\Transaction.cs" />
     <Compile Include="models\User.cs" />
+    <Compile Include="pages\add-admin.aspx.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\add-admin.aspx.designer.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ban-user-admin.aspx.cs">
+      <DependentUpon>ban-user-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ban-user-admin.aspx.designer.cs">
+      <DependentUpon>ban-user-admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\create-project.aspx.cs">
       <DependentUpon>create-project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\create-project.aspx.designer.cs">
       <DependentUpon>create-project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\creator-approval-admin.aspx.cs">
+      <DependentUpon>creator-approval-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\creator-approval-admin.aspx.designer.cs">
+      <DependentUpon>creator-approval-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\edit-profile.aspx.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\edit-profile.aspx.designer.cs">
+      <DependentUpon>edit-profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Launchr.Master.cs">
       <DependentUpon>Launchr.Master</DependentUpon>
@@ -272,6 +320,48 @@
     <Compile Include="pages\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\search-result.aspx.cs">
+      <DependentUpon>search-result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\search-result.aspx.designer.cs">
+      <DependentUpon>search-result.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\summary-admin.aspx.cs">
+      <DependentUpon>summary-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\summary-admin.aspx.designer.cs">
+      <DependentUpon>summary-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\tier-rewards.aspx.cs">
+      <DependentUpon>tier-rewards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\tier-rewards.aspx.designer.cs">
+      <DependentUpon>tier-rewards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\project-control-panel.aspx.cs">
+      <DependentUpon>project-control-panel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\project-control-panel.aspx.designer.cs">
+      <DependentUpon>project-control-panel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -280,6 +370,9 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\documents\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

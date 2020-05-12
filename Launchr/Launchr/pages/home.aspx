@@ -12,8 +12,8 @@
 							<p>Launch:r is a platform that connects early adopters with thinkers and tinkerers to bring a project to life. Start searching from 42069 projects.</p>
 						<div class="form-group">
 							<label for="searchProjects"></label>
-							<input type="text" class="form-control" id="searchProjects" aria-describedby="emailHelp" placeholder="Search for projects..."><br />
-							<button type="button" class="btn btn-secondary">Search</button>
+							<input type="text" class="form-control" id="txtSearchHero" placeholder="Search for projects..." ><br />
+							<a id="btnSearchHero" class="btn btn-secondary" href="search-result?query= ">Search</a>
 						</div>
 					</div>
 				</div>
@@ -324,16 +324,18 @@
 		</div>
 		<div class="row">
 			<div class="col-md-1 hidden-xs">&nbsp;</div>
-			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/tech.svg"/><h5>Technology</h5></a></div>
-			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
-			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
-			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
-			<div class="col-md-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=tech" class="topic-icon"><img src="../Content/Logo/topic/tech.svg"/><h5>Technology</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=film" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=art" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=foodcraft" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=game" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
 		</div>
 		<div class="row collapse" id="more-topic">
-			<div class="col-2 offset-md-1 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
-			<div class="col-2 text-center"><a href="#" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
+			<div class="col offset-md-1 text-center"><a href="search-result?topic=music" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=publishing" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=design" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
+			<div class="col text-center"><a href="search-result?topic=others" class="topic-icon"><img src="../Content/Logo/topic/everythingelse.svg"/><h5>Everything Else</h5></a></div>
+			<div class="col-1"></div>
 		</div>
 		<div class="row">
 			<div class="text-center col m-3"><button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#more-topic">More Topics</button></div>
@@ -341,17 +343,20 @@
 	</div>
 	<!--Browse Topic End-->
 	<!--Join Us Start-->
-		<!--<div class='container-fluid border pt-5 pb-5'>
-			<div class='row'>
-				<div class='text-center col-10 offset-md-1'><h1>Like what you see?</h1></div> 
-			</div>
-			<div class='row'>
-				<div class='text-center col-10 offset-md-1 pt-3'>Join us in the adventure to bring ideas that solves real life problem - big or small from drawing board into real life!</div> 
-			</div>
-			<div class='row'>
-				<div class='text-center col-2 offset-md-5 mt-4'><asp:Button ID='btnSignUpPage' runat='server' Text='Sign Up' CssClass='btn btn-secondary launchr-btn' OnClick='btnSignUpPage_Click'/></div>
-			</div>
-		</div>-->
 		<asp:PlaceHolder ID="signUpDiv" runat="server"></asp:PlaceHolder>
 	<!--Join Us End-->
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#txtSearchHero').keyup(function () {
+		var queryString = $('#txtSearchHero').val();
+		console.log(queryString);
+		if (queryString != '') {
+			$('#btnSearchHero').attr('href', "search-result?query=" + queryString);
+		}
+		else {
+			$('#btnSearchHero').attr('href', "#");
+		}
+	});
+});
+</script>
 </asp:Content>

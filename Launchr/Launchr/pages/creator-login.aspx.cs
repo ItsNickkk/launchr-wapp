@@ -14,6 +14,11 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Creator Login | Launch:r";
+			if (this.Session["user"] != null || this.Session["creator"] != null)
+			{
+				Response.Redirect("404.aspx");
+			}
 			siteDB = new SiteDB();
 		}
 
@@ -22,11 +27,31 @@ namespace Launchr.pages
 			List<Creator> creator_list = this.siteDB.getCreatorByUsernameAndPassword(this.txtCreatorLoginUsername.Text, this.txtCreatorLoginPasssword.Text);
 			if(creator_list.Count() == 1)
 			{
-				this.Session["creator"] = creator_list[0];
-				Response.Redirect("home");
+				Creator creator = (Creator)creator_list[0];
+				if (creator.status == 1)
+				{
+					this.Session["creator"] = creator;
+					Response.Redirect("home");
+				} else
+				{
+					if (creator.status == 0)
+					{
+						// creator is banned, do something here...
+						displayErrorMessage("This account had been banned for violating our rules", 1);
+					} else if (creator.status == 2)
+					{
+						// creator is waiting for approval, do something here...
+						displayErrorMessage("This account is still under verification. Please try again after 3-5 working days", 1);
+					} else
+					{
+						// account status error, do something here...
+						displayErrorMessage("Unexpected Error. Please contact administrator at <a href=\"mailto:support@launchr.com\">support@launchr.com</a>", 1);
+					}
+				}
+				
 			} else
 			{
-				displayErrorMessage("Username or password is incorrect.", 1);
+				displayErrorMessage("Login Failed.<ul><li>Username or password is incorrect.</li><li>Your account creation might be rejected, please resubmit a new application with appropriate details.</li>", 1);
 			}
 		}
 		protected void btnCreatorSignUp_Click(object sender, EventArgs e)
@@ -35,20 +60,38 @@ namespace Launchr.pages
 			string address = this.txtCreatorAddress.Text;
 			string phone_number = this.txtCreatorPhone.Text;
 			string email = this.txtCreatorEmail.Text;
-			string country = this.txtCreatorCountry.Text;
+			string country = this.txtCreatorCountry.SelectedValue;
 			HttpPostedFile document = this.filDocument.PostedFile;
-			string type = this.txtBusinessType.Text;
+			string type = this.txtBusinessType.SelectedValue;
 			string username = this.txtCreatorUsername.Text;
 			string password = this.txtCreatorPassword.Text;
-			string document_name = "creator_" + username + ".pdf";
-			string document_path = System.IO.Path.Combine(Server.MapPath("~/Content/documents/"), document_name);
 
-			int add_creator_status = siteDB.addNewCreator(name, address, phone_number, email, country, document_path, type, username, password);
+			int add_creator_status = siteDB.addNewCreator(name, address, phone_number, email, country, "", type, username, password);
 			if (add_creator_status == 1)
 			{
 				// signup successful, save document and redirect
-				document.SaveAs(document_path);
-				displayErrorMessage("Your information had been submitted. You may log in to your account after 3-5 working days upon Launch:r administrator's approval.", 5);
+				List<Creator> creator_list = this.siteDB.getCreatorByUsernameAndPassword(username, password);
+				Creator creator = (Creator)creator_list[0];
+				string creator_id_str = creator.id.ToString();
+				string document_name = "creator_" + creator_id_str + ".pdf";
+				string document_path = System.IO.Path.Combine(Server.MapPath("~/Content/documents/"), document_name);
+				string document_path_short = System.IO.Path.Combine("../Content/documents/", document_name);
+
+				creator.document = document_path_short;
+
+				int update_document_status = creator.update();
+
+
+				if (update_document_status == 1)
+				{
+					document.SaveAs(document_path);
+					displayErrorMessage("Your information had been submitted. You may log in to your account after 3-5 working days upon Launch:r administrator's approval.", 5);
+				} else
+				{
+					displayErrorMessage("<i>Error!</i> An error has occured. Please contact the administrators. Error code: " + update_document_status, 4);
+				}
+
+				
 			} else
 			{
 				if (add_creator_status == 0)

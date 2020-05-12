@@ -15,6 +15,10 @@ namespace Launchr.pages
 		private SiteDB siteDB;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Page.Title = "Member Login | Launch:r";
+			if (this.Session["user"] != null || this.Session["creator"] != null){
+				Response.Redirect("404.aspx");
+			}
 			siteDB = new SiteDB();
 		}
 
@@ -26,8 +30,29 @@ namespace Launchr.pages
 				// exactly one user exists with the same username and password
 				// store current login user as User object in session
 				// (remember to explicitly declare the user object before use in later pages like so: User user = (User) this.Session["user"];)
-				this.Session["user"] = user_list[0];
-				Response.Redirect("home");
+				User user = (User)user_list[0];
+				if (user.status == 1)
+				{
+					this.Session["user"] = user;
+					if (user.is_admin == true){
+						Response.Redirect("summary-admin");
+					}
+					else{
+						Response.Redirect("home");
+					}
+					
+				} else // if user.status is other than 1 
+				{
+					if (user.status == 0)
+					{
+						// user is banned, do something here...
+						displayErrorMessage("This account had been banned for violating our rules", 1);
+					} else
+					{
+						// user account error, contact admin...
+						displayErrorMessage("Unexpected Error. Please contact administrator at <a href=\"mailto:support@launchr.com\">support@launchr.com</a>", 1);
+					}
+				}
 
 			} else
 			{

@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="Launchr.pages.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+	<!--jQuery, Bootstrap and stuffs-->
+	<link href="../Content/main.css" rel="stylesheet" />
+	<link href="../Content/bootstrap.min.css" rel="stylesheet" />
+	<script src="../Scripts/jquery-3.4.1.js"></script>
+	<script src="../Scripts/bootstrap.bundle.js"></script>
+	<!--Markdown processor-->
+	<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	<nav class="navbar navbar-expand-xl navbar-light bg-light">
+		<a class="navbar-brand" href="home"><img style="height:60px;" src="../Content/Logo/logo.png" /></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown">
+					<a id="explore" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Explore</a>
+					<div class="dropdown-menu" aria-labelledby="explore">
+						<a class="dropdown-item" href="search-result?topic=art">Arts</a>
+						<a class="dropdown-item" href="search-result?topic=design">Design</a>
+						<a class="dropdown-item" href="search-result?topic=tech">Technology</a>
+						<a class="dropdown-item" href="search-result?topic=film">Film</a>
+						<a class="dropdown-item" href="search-result?topic=foodcraft">Food & Craft</a>
+						<a class="dropdown-item" href="search-result?topic=game">Games</a>
+						<a class="dropdown-item" href="search-result?topic=music">Music</a>
+						<a class="dropdown-item" href="search-result?topic=publishing">Publishing</a>
+						<a class="dropdown-item" href="search-result?topic=others">Everything Else</a>
+					</div>
+				</li>
+			</ul>
+
+			<%
+				User user = (User)this.Session["user"];
+				if (this.Session["user"] != null){
+					if(user.is_admin == true){
+						generateProfileDropdown(user.name, user.id, 1);
+					}
+					else{
+						//Logged in but not admin
+					}
+				}
+				else{
+					//Not logged in
+				}
+			%>
+			<form class="form-inline my-2 my-xl-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search Project" id="txtSearch1">
+				<a class="btn btn-secondary my-2 my-sm-0" id="btnSearch1"  href="search-result?query= ">Search</a>
+			</form>
+		</div>
+	</nav>
+	<div>
+		<form id="form1" runat="server">
+			<asp:ContentPlaceHolder ID="content" runat="server">
+				<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+			</asp:ContentPlaceHolder>
+		</form>
+	</div>
+	<footer id="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col offset-md-1"><h3>Launch:r | Launch your project</h3></div>
+			</div>
+			<div class="row">
+				<div class="col-xl offset-md-1">
+					<h4>About</h4>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+				<div class="col-xl offset-md-1">
+					<h4>About</h4>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+				<div class="col-xl offset-md-1">
+					<h4>About</h4>
+					<ul>
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="footer-design">
+			<br /><br /><br /><br />
+		</div>
+	</footer>
+</body>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#txtSearch1').keyup(function () {
+		var queryString = $('#txtSearch1').val();
+		console.log(queryString);
+		if (queryString != '') {
+			$('#btnSearch1').attr('href', "search-result?query=" + queryString);
+		}
+		else {
+			$('#btnSearch1').attr('href', "#");
+		}
+	});
+});
+</script>
+
+</html>

@@ -339,3 +339,6 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 *.pdf
+
+Launchr/Launchr/Content/documents/*
+!Launchr/Launchr/Content/documents/.gitkeep

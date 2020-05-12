@@ -10,17 +10,17 @@
 		<h3>CREATOR LOGIN</h3>
 
 		<label for="txtCreatorLoginUsername">Username</label>
-		<asp:TextBox runat="server" id="txtCreatorLoginUsername" class="form-control mb-3" placeholder="Username" ValidationGroup="creatorLogin"></asp:TextBox>
-		<label for="txtCreatorLoginUsername">Password</label>
+		<asp:RequiredFieldValidator ID="creatorLoginUsernameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtCreatorLoginUsername" Display="Dynamic" ValidationGroup="creatorLogin"></asp:RequiredFieldValidator>
+		<asp:TextBox runat="server" id="txtCreatorLoginUsername" class="form-control mb-3" placeholder="Username"></asp:TextBox>
 
+		<label for="txtCreatorLoginUsername">Password</label>
+		<asp:RequiredFieldValidator ID="creatorLoginPasseReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtCreatorLoginPasssword" Display="Dynamic" ValidationGroup="creatorLogin"></asp:RequiredFieldValidator>
 		<asp:RegularExpressionValidator ID="creatorLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtCreatorLoginPasssword" Display="Dynamic" ValidationGroup="creatorLogin"></asp:RegularExpressionValidator><br />
-		<asp:TextBox id="txtCreatorLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="creatorLogin"></asp:TextBox>
+		<asp:TextBox id="txtCreatorLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26"></asp:TextBox>
 
 		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="False" ValidationGroup="creatorLogin" OnClick="btnCreatorLogin_Click"/>
 
 		<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
-
-		<a class="to-creator launchr-btn text-decoration-none" href="login.aspx">Switch to Member Login</a>
 
 	</div>
 	<!--Login card end-->
@@ -29,9 +29,8 @@
 		<h3>CREATOR SIGN UP</h3>
 		<label for="email-register">Want to launch your project in Launch:r? Click the button below to continue</label>
 		<button type="button" class="btn btn-secondary launchr-btn mt-3" data-toggle="modal" data-target="#sign-up-modal">Continue</button>
-
 		<asp:PlaceHolder ID="registerAlert" runat="server"></asp:PlaceHolder>
-
+		<a class="to-creator launchr-btn text-decoration-none" href="login.aspx">Switch to Member Login</a>
 		<div id="sign-up-modal" class="modal fade" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

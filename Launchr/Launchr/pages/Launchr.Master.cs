@@ -19,11 +19,23 @@ namespace Launchr.pages
 			// logout code here...?
 		}
 
-		protected void generateProfileDropdown(String name, int id){
+		protected void generateProfileDropdown(String name, int id, int type)
+		{
 			Response.Write("<div class=\"dropdown mr-3\">");
 			Response.Write("<a id=\"profile\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">" + name + "</a>");
 			Response.Write("<div class=\"dropdown-menu\" aria-labelledby=\"profile\">");
-			Response.Write("<a class=\"dropdown-item\" href=\"profile?id=" + id + "\">Profile</a>");
+			if (type == 1)
+			{
+				Response.Write("<a class=\"dropdown-item\" href=\"profile?id=" + id + "\">Profile</a>");
+				Response.Write("<a class=\"dropdown-item\" href=\"summary-admin\">Admin Panel</a>");
+				Response.Write("<a class=\"dropdown-item\" href=\"add-admin\">Add Admin</a>");
+				Response.Write("<a class=\"dropdown-item\" href=\"creator-approval-admin\">Approve Creator Account</a>");
+				Response.Write("<a class=\"dropdown-item\" href=\"ban-user-admin\">Ban User Account</a>");
+			}
+			else
+			{
+				Response.Write("<a class=\"dropdown-item\" href=\"profile?id=" + id + "\">Profile</a>");
+			}
 			Response.Write("<a id=\"logoutbtn\" onserverclick=\"logoutBtn_Click\" class=\"dropdown-item\" runat=\"server\" href=\"logout\">Logout</a>");
 			Response.Write("</div></div>");
 		}
