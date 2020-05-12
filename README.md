@@ -49,14 +49,14 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
   - Create Project
     - ~~Basic Interface~~
     - ~~Form Design~~
-    - Input Validation (Date validation)
+    - ~~Input Validation~~
   - Create Tier for project
     - ~~Basic Interface~~
     - ~~Generate Dictonary~~
     - ~~Generate Tier Box and append it to the div for viewing~~
     - ~~Remove Tier box function~~
     - ~~AJAX POST of combined Tier Dictionary~~ 
-    - Validation for projects that have tiers should not be allowed to access this page again
+    - ~~Validation for projects that have tiers should not be allowed to access this page again~~
 #### Project Page
   - Project Page
     - ~~Basic Interface~~
@@ -66,14 +66,14 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Pledge with tier function~~
     - ~~Comment function~~
     - ~~Reply comment function~~
-    - Fake credit card entry field validation
-    - Change the "days left" part to "Campaign Ended" when campaign ends
-    - Disable all buttons when campaign ends
+    - ~~Fake credit card entry field validation~~
+    - ~~Change the "days left" part to "Campaign Ended" when campaign ends~~
+    - ~~Disable all buttons when campaign ends~~
   - Project Control Panel
     - ~~Basic Interface~~
     - ~~Edit Project Function~~
     - ~~Check who backed this project~~
-    - Validation for this page to be accessible by project owner only
+    - ~~Validation for this page to be accessible by project owner only~~
     
 #### Login
   - Creator Login / Register
@@ -81,13 +81,13 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Login function~~
     - ~~Register function~~
     - ~~Register input field validation~~
-    - Login input field validation
+    - ~~Login input field validation~~
   - Member Login / Register
     - ~~Basic Interface~~
     - ~~Login function~~
     - ~~Register function~~
     - ~~Register input field validation~~
-    - Login input field validation
+    - ~~Login input field validation~~
     
 #### Profile
   - Profile
@@ -97,7 +97,7 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
   - Edit Profile
     - ~~Basic Interface~~
     - ~~Validation of input field at Edit Profile~~
-    - Edit Profile function
+    - ~~Edit Profile function~~
     
 #### Misc
   - Search Result
