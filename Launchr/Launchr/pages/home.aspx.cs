@@ -35,8 +35,9 @@ namespace Launchr.pages
 
 				signUpDiv.Controls.Add(new Literal { Text = html.ToString() });
 
-				this.makePage();
+				
 			}
+			this.makePage();
 		}
 
 		private void makePage()
