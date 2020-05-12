@@ -336,15 +336,15 @@ namespace Launchr.models
 
         public List<Project> getProjectAlive()
         {
-            List<Project> all_projects = this.getAllProjects();
-            foreach(Project project in all_projects)
+            List<Project> alive_projects = new List<Project>();
+            foreach(Project project in this.getAllProjects())
             {
-                if(DateTime.Now > project.time_end)
+                if(DateTime.Now < project.time_end && project.status == 1)
                 {
-                    all_projects.Remove(project);
+                    alive_projects.Add(project);
                 }
             }
-            return all_projects;
+            return alive_projects;
         }
 
 
@@ -488,15 +488,22 @@ namespace Launchr.models
             return (int) this.transactionAdapter.CountUniqueBackersByProjectId(id);
         }
 
-        public List<Transaction> getUniqueTransactionByUserId(int user_id)
-        {
-            Launchr.launchr_DataSet.transactionDataTable transaction_table = transactionAdapter.GetUniqueTransactionByUserId(user_id);
-            return this.translateTransactionTableToList(transaction_table);
-        }
 
         public List<Transaction> getTransactionByUserId(int user_id)
         {
             return this.translateTransactionTableToList(this.transactionAdapter.GetTransactionByUserId(user_id));
+        }
+
+        public List<Project> getTransactionProjectOrderByLatest()
+        {
+            launchr_DataSet.transaction1DataTable table = new transaction1TableAdapter().GetDistinctProjectIdFromTransaction();
+            List<Project> project_list = new List<Project>();
+            foreach (launchr_DataSet.transaction1Row row in table)
+            {
+                project_list.Add(this.getProjectById(row.project_id));
+            }
+            project_list.Reverse();
+            return project_list;
         }
 
         public int addTransactionWithTier(int tier_id, int amount, int user_id, int project_id)

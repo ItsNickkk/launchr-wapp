@@ -11,16 +11,61 @@ namespace Launchr.pages
 {
 
 
-	public partial class WebForm1
-	{
+    public partial class WebForm1
+    {
 
-		/// <summary>
-		/// signUpDiv control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.PlaceHolder signUpDiv;
-	}
+        /// <summary>
+        /// plcNumProjects control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plcNumProjects;
+
+        /// <summary>
+        /// plcTrendingCarousel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plcTrendingCarousel;
+
+        /// <summary>
+        /// plcTrendingCarouselInner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plcTrendingCarouselInner;
+
+        /// <summary>
+        /// plcNewCarousel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plcNewCarousel;
+
+        /// <summary>
+        /// plcNewCarouselInner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plcNewCarouselInner;
+
+        /// <summary>
+        /// signUpDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder signUpDiv;
+    }
 }

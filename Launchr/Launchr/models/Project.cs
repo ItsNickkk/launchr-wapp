@@ -27,6 +27,7 @@ namespace Launchr.models
             this.time_end = time_end;
             this.description = description;
             this.target = target;
+            this.status = status;
             this.topic = topic;
             this.content = content;
             this.image_path_list = image_path;

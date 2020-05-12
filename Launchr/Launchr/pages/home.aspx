@@ -9,7 +9,7 @@
 				<div id="hero-container__search" class="p-3" >
 					<div id="hero-container__search--div">
 							<h2>Be a part of what you love</h2>
-							<p>Launch:r is a platform that connects early adopters with thinkers and tinkerers to bring a project to life. Start searching from 42069 projects.</p>
+							<p>Launch:r is a platform that connects early adopters with thinkers and tinkerers to bring a project to life. Start searching from  <asp:PlaceHolder ID="plcNumProjects" runat="server"></asp:PlaceHolder> projects.</p>
 						<div class="form-group">
 							<label for="searchProjects"></label>
 							<input type="text" class="form-control" id="txtSearchHero" placeholder="Search for projects..." ><br />
@@ -31,13 +31,15 @@
 						<h2>Trending projects</h2><p>Discover projects that are loved by backers</p>
 					</div>
 					<div class="col-lg text-right">
-						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="0">1</button>
+                        <asp:PlaceHolder ID="plcTrendingCarousel" runat="server"></asp:PlaceHolder>
+						<%--<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="0">1</button>
 						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="1">2</button>
-						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="2">3</button>
+						<button class="btn btn-secondary" data-target="#project-carousel" data-slide-to="2">3</button>--%>
 					</div>
 				</div>
 					<div class="carousel-inner">
-						<div class="carousel-item active">
+                        <asp:PlaceHolder ID="plcTrendingCarouselInner" runat="server"></asp:PlaceHolder>
+						<%--<div class="carousel-item active">
 							<div class="row project-card-tray">
 								<a href="#" class="col-xl-6 text-decoration-none card">
 									<div class="projects-card">
@@ -192,7 +194,7 @@
 									</div>
 								</a>
 							</div>
-						</div>
+						</div>--%>
 					</div>
 				</div>
 				<!--Content 2 Carousel End-->
@@ -212,102 +214,104 @@
 						<h2>Just in</h2><p>Discover projects that are just created</p>
 					</div>
 					<div class="col-xl">
-						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="0">1</button>
+                        <asp:PlaceHolder ID="plcNewCarousel" runat="server"></asp:PlaceHolder>
+						<%--<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="0">1</button>
 						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="1">2</button>
-						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="2">3</button>
+						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="2">3</button>--%>
 					</div>
 				</div>
 					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="row">
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content1.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content2.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="row">
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content1.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lodsadaadssddsdsadsaddasolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content2.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="row">
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content1.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xl-6 p-3">
-									<div class="projects-card">
-										<div class="row">
-											<div class="col-xl-6">
-												<img src="../Content/images/content2.jpg" />
-											</div>								
-											<div class="col-xl-6 p-4">
-												<h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
-												<p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+                        <asp:PlaceHolder ID="plcNewCarouselInner" runat="server"></asp:PlaceHolder>
+                        <%--<div class="carousel-item active">
+                            <div class="row">
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content1.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content2.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content1.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lodsadaadssddsdsadsaddasolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content2.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content1.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="col-xl-6 p-3">
+                                    <div class="projects-card">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <img src="../Content/images/content2.jpg" />
+                                            </div>
+                                            <div class="col-xl-6 p-4">
+                                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing </h4>
+                                                <p>lacus id massa bibendum efficitur sit amet ac leo. Proin non scelerisque diam. Duis congue urna nisi,  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>--%>
 					</div>
 				</div>
 				<!--Content 2 Carousel End-->
