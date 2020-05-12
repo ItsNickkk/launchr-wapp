@@ -85,7 +85,7 @@ namespace Launchr.pages
 			this.makeTarget(project.getTransactionTotal(), project.target, project.calcProgress());
 			this.makeCreatorName(project.creator);
 			this.makeBackers(project.countBackers());
-			this.makeRemaining(project.time_end);
+			this.makeRemaining(project);
 			this.makeTiers(project, project.getTiers());
 			this.makeComments(project.getComments());
 		}
@@ -185,12 +185,12 @@ namespace Launchr.pages
 			});
 		}
 
-		private void makeRemaining(DateTime time_end)
+		private void makeRemaining(Project project)
 		{
 			string remaining_text;
-			if(time_end > DateTime.Now)
+			if(project.isAlive())
 			{
-				remaining_text = (time_end - DateTime.Now).Days.ToString() + " days left";
+				remaining_text = project.calcRemainingTime().ToString() + " days left";
 			} else
 			{
 				remaining_text = "Campaign ended";

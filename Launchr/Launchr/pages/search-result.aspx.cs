@@ -38,9 +38,9 @@ namespace Launchr.pages
 			foreach(Project project in search_results)
 			{
 				string remaining_text;
-				if (project.time_end > DateTime.Now)
+				if (project.isAlive())
 				{
-					remaining_text = (project.time_end - DateTime.Now).Days.ToString() + " days left";
+					remaining_text = project.calcRemainingTime().ToString() + " days left";
 				}
 				else
 				{
