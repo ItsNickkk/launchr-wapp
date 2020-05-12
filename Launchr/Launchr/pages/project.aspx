@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="project.aspx.cs" Inherits="Launchr.pages.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<title>| Launch:r</title>
+	<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 <div class="row">
@@ -88,7 +89,8 @@
 										<div class="row pt-3">
 											<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
 												<asp:TextBox ID="txtTierNoRewardModal" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward" data-toggle="modal" data-target="#tier-pledge-modal"/>
+												<label class="invalid-feedback d-none">Please fill in some value</label>
+												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward" onclientclick="return false;"/>
 											</div>	
 										</div>
 
@@ -189,7 +191,8 @@
 				<div class="row pt-3">
 					<div class="p-4 tier-card neumorph"><h4>Pledge without a tier reward</h4>
 						<asp:TextBox ID="txtTierNoReward" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
-						<button type="button" Class="btn mt-3 launchr-btn pledge-btn pledge-without-reward" data-toggle="modal" data-target="#tier-pledge-modal">Pledge</button>
+						<label class="invalid-feedback d-none">Please fill in some value</label>
+						<button type="button" Class="btn mt-3 launchr-btn pledge-btn pledge-without-reward">Pledge</button>
 					</div>	
 				</div>
                 <asp:PlaceHolder ID="plcTier" runat="server"></asp:PlaceHolder>
@@ -208,21 +211,46 @@
 								<p>You are pledging for <input type="text" readonly class="comment-reply-pointer" id="txtTierNameModal"/></p>
 								<p>Total Price: <input type="text" readonly class="comment-reply-pointer" id="txtTierPriceModal"/></p>
 								<label for="txtCreditCardNumberModal">Credit card number</label>
-								<input id="txtCreditCardNumberModal" type="text" class="form-control" placeholder="Enter your credit card number"/>
-								<div class="row">
-									<div class="col">
-										<label for="txtCreditCardExpiryDate">Expiry Date</label>
-										<input id="txtCreditCardExpiryDate" type="text" class="form-control" placeholder="MM/YY"/>
+								
+								<div class="row card-number-row">
+									<div class="col pr-0">
+										<input type="text" class="form-control card-details card-details not-completed" placeholder="XXXX" maxlength="4" onkeypress="return allowOnlyNumber(event);"/>
 									</div>
-									<div class="col">
-										<label for="txtCreditCardCVV">Security Code (CVV)</label>
-										<input id="txtCreditCardCVV" type="text" class="form-control" placeholder="XXX"/>
+									<div class="col pr-0">
+										<input type="text" class="form-control card-details card-details not-completed" placeholder="XXXX" maxlength="4" onkeypress="return allowOnlyNumber(event);"/>
+									</div>
+									<div class="col pr-0">
+										<input type="text" class="form-control card-details card-details not-completed" placeholder="XXXX" maxlength="4" onkeypress="return allowOnlyNumber(event);"/>
+									</div>
+									<div class="col pr-0">
+										<input type="text" class="form-control card-details card-details not-completed" placeholder="XXXX" maxlength="4" onkeypress="return allowOnlyNumber(event);"/>
 									</div>
 								</div>
-								<label for="txtCreditCardName">Credit card holder name</label>
-								<input id="txtCreditCardName" type="text" class="form-control" placeholder="Enter your card's holder name"/>
-								<span class="text-info">We will not store your credit card details</span>
-
+								<div class="row">
+									<div class="col card-expiry-date-col">
+										<label>Expiry Date</label>
+										<div class="row">
+											<div class="col pr-0">
+												<input type="text" class="form-control card-details not-completed" placeholder="MM" onkeypress="return allowOnlyNumber(event);" maxlength="2"/>
+											</div>
+											<div class="col pr-0">
+												<input type="text" class="form-control card-details not-completed" placeholder="YY" onkeypress="return allowOnlyNumber(event);" maxlength="2"/>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col card-cvv-col">
+										<label for="txtCreditCardCVV">Security Code (CVV)</label>
+										<input type="password" class="form-control card-details not-completed" placeholder="XXX" onkeypress="return allowOnlyNumber(event);" maxlength="3"/>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col card-name-col">
+										<label for="txtCreditCardName">Credit card holder name</label>
+									<input id="txtCreditCardName" type="text" class="form-control card-details not-completed" placeholder="Enter your card's holder name"/>
+									<span class="text-info">We will not store your credit card details</span>
+									</div>
+								</div>
 								<div class="mt-3" runat="server">
 									<div class="alert" id="errorMsgBoxInner">
 										<div id="errorMsg"></div>

@@ -36,70 +36,113 @@
 	});
 
 	$("#btnConfirmPayModal").click(function () {
-		if ($("#txtTierIDModal").val().slice(0, 1) == 3) {
-			//Pledge without reward
-			var backerID = $("#content_txtUserID").val();
-			var projID = $("#txtTierIDModal").val();
-			var amount = $("#txtTierPriceModal").val().substring(1);
-			$.ajax({
-				type: 'POST',
-				url: 'project.aspx/pledgeTierNoReward',
-				data: JSON.stringify({ "backerID": backerID, "projID": projID, "amount": amount }),
-				dataType: 'json',
-				contentType: 'application/json; charset=utf-8',
-				success: function (resp) {
-					console.log(resp);
-					if (resp.d == 1) {
-						$('#tier-pledge-modal-success').modal('show');
-						console.log("proj");
-						setTimeout(location.reload.bind(location), 3000);
-					}
-					else {
-						generateInfoMsgBox(1, "An Error Occured!");
-					}
+		if (checkAllCCField($(this)) == true) {
+			if ($("#txtTierIDModal").val().slice(0, 1) == 3) {
+				//Pledge without reward
+				var backerID = $("#content_txtUserID").val();
+				var projID = $("#txtTierIDModal").val();
+				var amount = $("#txtTierPriceModal").val().substring(1);
+				$.ajax({
+					type: 'POST',
+					url: 'project.aspx/pledgeTierNoReward',
+					data: JSON.stringify({ "backerID": backerID, "projID": projID, "amount": amount }),
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					success: function (resp) {
+						console.log(resp);
+						if (resp.d == 1) {
+							$('#tier-pledge-modal-success').modal('show');
+							console.log("proj");
+							setTimeout(location.reload.bind(location), 3000);
+						}
+						else {
+							generateInfoMsgBox(1, "An Error Occured!");
+						}
 
-				},
-				error: function (resp) {
-					generateInfoMsgBox(1, "AJAX Error");
-				}
-			});
+					},
+					error: function (resp) {
+						generateInfoMsgBox(1, "AJAX Error");
+					}
+				});
+			}
+			else {
+				var tierID = $("#txtTierIDModal").val();
+				var backerID = $("#content_txtUserID").val();
+				$.ajax({
+					type: 'POST',
+					url: 'project.aspx/pledgeTier',
+					data: JSON.stringify({ "backerID": backerID, "tierID": tierID }),
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					success: function (resp) {
+						console.log(resp)
+						if (resp.d == 1) {
+							$('#tier-pledge-modal-success').modal('show');
+							setTimeout(location.reload.bind(location), 3000);
+							console.log("tier");
+						}
+						else {
+							generateInfoMsgBox(1, "An Error Occured!");
+						}
+
+					},
+					error: function (resp) {
+						generateInfoMsgBox(1, "AJAX Error");
+					}
+				});
+			}
 		}
 		else {
-			var tierID = $("#txtTierIDModal").val();
-			var backerID = $("#content_txtUserID").val();
-			$.ajax({
-				type: 'POST',
-				url: 'project.aspx/pledgeTier',
-				data: JSON.stringify({ "backerID": backerID, "tierID": tierID }),
-				dataType: 'json',
-				contentType: 'application/json; charset=utf-8',
-				success: function (resp) {
-					console.log(resp)
-					if (resp.d == 1) {
-						$('#tier-pledge-modal-success').modal('show');
-						setTimeout(location.reload.bind(location), 3000);
-						console.log("tier");
-					}
-					else {
-						generateInfoMsgBox(1, "An Error Occured!");
-					}
-
-				},
-				error: function (resp) {
-					generateInfoMsgBox(1, "AJAX Error");
-				}
-			});
+			generateInfoMsgBox(1, "Please correct all the error fields.")
 		}
+		
 	});
 
 	$(".tier-card").on('click', '.pledge-without-reward', function () {
 		var projID = GetURLParameter('id');
 		var amount = $(this).siblings(".no-reward").val();
-		$("#txtTierIDModal").val(projID);
-		$("#txtTierNameModal").val("no rewards");
-		$("#txtTierPriceModal").val("$" + amount);
+		if (amount == "" || amount < 1) {
+			$(this).siblings(".no-reward").addClass("animate__animated");
+			$(this).siblings(".no-reward").addClass("animate__headShake");		
+			$(this).siblings(".no-reward").addClass("is-invalid");		
+			$(this).siblings(".invalid-feedback").removeClass("d-none");		
+		}
+		else {
+			$(this).siblings(".no-reward").removeClass("is-invalid");
+			$(this).siblings(".invalid-feedback").addClass("d-none");
+			$(this).siblings(".no-reward").removeClass("animate__animated");
+			$(this).siblings(".no-reward").removeClass("animate__headShake");	
+			$("#txtTierIDModal").val(projID);
+			$("#txtTierNameModal").val("no rewards");
+			$("#txtTierPriceModal").val("$" + amount);
+			$("#tier-pledge-modal").modal("show");
+		}
 	});
-	$('[data-toggle="tooltip"]').tooltip();
+	$(".tier-card").on('keyup', '.no-reward', function () {
+		$(this).removeClass("is-invalid");
+		$(this).siblings(".invalid-feedback").addClass("d-none");
+		$(this).removeClass("animate__animated");
+		$(this).removeClass("animate__headShake");
+	});
+	$(".card-number-row").on('blur', '.card-details', function () {
+		checkCCValue(4, $(this));
+	});
+
+	$(".card-expiry-date-col").on('blur', '.card-details', function () {
+		checkCCValue(2, $(this));
+	});
+
+	$(".card-cvv-col").on('blur', '.card-details', function () {
+		checkCCValue(3, $(this));
+	});
+
+	$(".card-name-col").on('blur', '.card-details', function () {
+		checkCCValue(1, $(this));
+	});
+
+	$("body").tooltip({
+		selector: '[data-toggle="tooltip"]'
+	});
 });
 $(document).on('show.bs.modal', '.modal', function () {
 	var zIndex = 1040 + (10 * $('.modal:visible').length);
@@ -107,6 +150,7 @@ $(document).on('show.bs.modal', '.modal', function () {
 	setTimeout(function () {
 		$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
 	}, 0);
+
 });
 
 function allowOnlyNumber(evt) {
@@ -114,4 +158,32 @@ function allowOnlyNumber(evt) {
 	if (charCode > 31 && (charCode < 48 || charCode > 57))
 		return false;
 	return true;
+}
+
+function checkCCValue(length, obj) {
+	if (obj.val().length < length) {
+		obj.addClass("is-invalid");
+		obj.attr("data-toggle", "tooltip");
+		obj.attr("data-placement", "bottom");
+		obj.attr("title", "Invalid field value");
+		if (obj.hasClass("not-completed") == false) {
+			obj.addClass("not-completed");
+		}
+	}
+	else {
+		obj.removeClass("is-invalid");
+		obj.removeClass("not-completed");
+		obj.removeAttr("data-toggle", "tooltip");
+		obj.removeAttr("data-placement", "bottom");
+		obj.removeAttr("title", "Invalid field value");
+	}
+}
+
+function checkAllCCField(obj) {
+	if (obj.parent().parent().find('.not-completed').length !== 0){
+		return false;
+	}
+	else {
+		return true;
+	}
 }
