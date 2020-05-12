@@ -143,10 +143,8 @@
 	$("body").tooltip({
 		selector: '[data-toggle="tooltip"]'
 	});
-	console.log($(".end-date").html().slice(-1));
 
-	if ($(".end-date").html().length == 50) {
-		console.log($(".end-date").html());
+	if ($(".end-date").html().trim().slice(-1) == "d") {
 		$(".pledge-btn").attr("disabled", "disabled");
 		$(".pledge-btn").attr("data-toggle", "tooltip");
 		$(".pledge-btn").attr("data-placement", "bottom");
@@ -183,6 +181,7 @@ function checkCCValue(length, obj) {
 	else {
 		obj.removeClass("is-invalid");
 		obj.removeClass("not-completed");
+		obj.tooltip('hide');
 		obj.removeAttr("data-toggle", "tooltip");
 		obj.removeAttr("data-placement", "bottom");
 		obj.removeAttr("title", "Invalid field value");

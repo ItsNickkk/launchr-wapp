@@ -8,12 +8,16 @@
 <!--Login card-->
 <div class="col-md-3 offset-md-1 mt-5 p-5 login-box">
 	<h3>MEMBER LOGIN</h3>
+
 	<label for="txtMemberLoginUsername">Username</label>
+	<asp:RequiredFieldValidator ID="memberLoginReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberLoginUsername" Display="Dynamic" ValidationGroup="login"></asp:RequiredFieldValidator>
 	<asp:TextBox runat="server" id="txtMemberLoginUsername" class="form-control mb-3" placeholder="Username" ValidationGroup="login"></asp:TextBox>
+
 	<label for="txtMemberLoginPasssword">Password</label>
+	<asp:RequiredFieldValidator ID="memberLoginPassReqValid" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtMemberLoginPasssword" Display="Dynamic" ValidationGroup="login"></asp:RequiredFieldValidator>
 	<asp:RegularExpressionValidator ID="memberLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtMemberLoginPasssword" Display="Dynamic" ValidationGroup="login"></asp:RegularExpressionValidator><br />
 	<asp:TextBox id="txtMemberLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26" ValidationGroup="login"></asp:TextBox>
-	<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="False" ValidationGroup="login"/>
+	<asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" OnClick="btnLogin_Click" CausesValidation="True" ValidationGroup="login"/>
 	<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
 	
 </div>

@@ -81,7 +81,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title">Back this project</h5>
-										<button type="button" class="close pledge-btn" data-dismiss="modal" aria-label="Close" id="close-pledge">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-pledge">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
@@ -90,7 +90,7 @@
 											<div class="p-4 tier-card"><h4>Pledge without a tier reward</h4>
 												<asp:TextBox ID="txtTierNoRewardModal" runat="server" Cssclass="form-control no-reward" onkeypress="return allowOnlyNumber(event);" MaxLength="15" placeholder="Amount in USD ($)"></asp:TextBox>
 												<label class="invalid-feedback d-none">Please fill in some value</label>
-												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward" onclientclick="return false;"/>
+												<asp:Button runat="server" Text="Pledge" CssClass="btn join-sign-up-btn mt-3 launchr-btn pledge-without-reward pledge-btn" onclientclick="return false;"/>
 											</div>	
 										</div>
 

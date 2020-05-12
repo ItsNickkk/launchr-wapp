@@ -30,9 +30,9 @@
 					<label for="content_txtTitle" class="text-muted">Maximum length: 55</label><br/>
 
 					<label for="content_txtDate" class="mt-2" data-toggle="tooltip" title="End date of your project" data-placement="right">Time End</label>
-					<asp:RequiredFieldValidator ID="createProjDateReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDate" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
-					<asp:CompareValidator ID="CompareEndTodayValidator" Operator="LessThan" ValueToCompare="8/5/2020" type="String" ControltoValidate="txtDate" ErrorMessage="The 'End Date' must be before today" CssClass="text-danger" Display="Dynamic" ValidationGroup="createProj" runat="server" />
+					<asp:RequiredFieldValidator ID="createProjDateReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtDate" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>				
 					<asp:TextBox ID="txtDate" runat="server" TextMode="date" Cssclass="form-control"></asp:TextBox>
+					<asp:CompareValidator ID="CompareEndTodayValidator" Operator="GreaterThan" type="date" ControltoValidate="txtDate" ErrorMessage="The 'End Date' must be after today!<br/>" CssClass="text-danger" Display="Dynamic" ValidationGroup="createProj" runat="server" />
 					<label for="content_txtDate" class="text-muted">This field will not be editable in the future.</label><br />
 
 					<label for="content_txtDescription" class="mt-2" data-toggle="tooltip" title="Make a short and concise description to attract people" data-placement="right">Project Description</label>

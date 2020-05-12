@@ -18,7 +18,7 @@
 		<asp:RegularExpressionValidator ID="creatorLoginPassMinLength" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9\S\s]{8,26}" runat="server" ErrorMessage="<br/><i>Error:</i> Password contains between 8 to 26 characters." ControlToValidate="txtCreatorLoginPasssword" Display="Dynamic" ValidationGroup="creatorLogin"></asp:RegularExpressionValidator><br />
 		<asp:TextBox id="txtCreatorLoginPasssword" runat="server" class="form-control" placeholder="Password" TextMode="Password" MaxLength="26"></asp:TextBox>
 
-		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="False" ValidationGroup="creatorLogin" OnClick="btnCreatorLogin_Click"/>
+		<asp:Button ID="btnCreatorLogin" runat="server" Text="Log In" CssClass="btn launchr-btn mt-3" CausesValidation="True" ValidationGroup="creatorLogin" OnClick="btnCreatorLogin_Click"/>
 
 		<asp:PlaceHolder ID="loginAlert" runat="server"></asp:PlaceHolder>
 

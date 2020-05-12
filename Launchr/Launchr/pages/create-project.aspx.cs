@@ -21,6 +21,7 @@ namespace Launchr.pages
 			{
 				Response.Redirect("404.aspx");
 			}
+			CompareEndTodayValidator.ValueToCompare = DateTime.Now.ToShortDateString();
 		}
 
 		protected void btnCreateProject_Click(object sender, EventArgs e)
