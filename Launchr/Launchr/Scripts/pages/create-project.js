@@ -14,4 +14,5 @@ $(document).ready(function () {
 		}
 	});
 	setInterval(updatetxtContent, 1000);
+	$('[data-toggle="tooltip"]').tooltip();
 });	

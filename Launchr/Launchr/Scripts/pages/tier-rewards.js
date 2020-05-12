@@ -6,6 +6,7 @@ var projID = GetURLParameter('id');
 $(document).ready(function () {
 	$('#txtProjID').attr("value", projID);
 	setInterval(updatetxtContent, 1000);
+	$('[data-toggle="tooltip"]').tooltip();
 });
 
 function updatetxtContent() {
