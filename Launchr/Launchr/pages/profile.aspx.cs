@@ -94,6 +94,7 @@ namespace Launchr.pages
 
 		private void makeComments(List<Comment> comment_list)
 		{
+			comment_list.Reverse();
 			StringBuilder html = new StringBuilder();
 			foreach(Comment comment in comment_list)
 			{
