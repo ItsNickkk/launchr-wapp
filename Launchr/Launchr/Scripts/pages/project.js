@@ -1,9 +1,21 @@
 ﻿$(document).ready(function () {
 	if ($("#content_txtUserID").val() == "") {
-		$(".pledge-tier-btn").attr("data-target", "#sign-in-info");
-		$(".pledge-without-reward").attr("data-target", "#sign-in-info");
+		$(".pledge-tier-btn").attr("data-target", "#sign-in-modal");
+		$(".pledge-without-reward").attr("data-target", "#sign-in-modal");		
 	}
+	if ($("#content_txtUserID").val().slice(0, 1) == "2") {
+		$(".pledge-tier-btn").attr("data-toggle", "tooltip");
+		$(".pledge-tier-btn").attr("data-placement", "right");
+		$(".pledge-tier-btn").attr("title", "You can only pledge a tier as a normal member.");
+		$(".pledge-tier-btn").removeAttr("data-target");
+		$(".pledge-tier-btn").attr("disabled","disabled");
 
+		$(".pledge-without-reward").attr("data-toggle", "tooltip");
+		$(".pledge-without-reward").attr("data-placement", "right");
+		$(".pledge-without-reward").attr("title", "You can only pledge a tier as a normal member.");
+		$(".pledge-without-reward").removeAttr("data-target");
+		$(".pledge-without-reward").attr("disabled", "disabled");
+	}
 	$('#content_txtCommentReplyPointer').val("this project");
 	$(".reply-btn").click(function () {
 		id = $(this).parent().parent().parent().parent().attr('id');
@@ -87,6 +99,7 @@
 		$("#txtTierNameModal").val("no rewards");
 		$("#txtTierPriceModal").val("$" + amount);
 	});
+	$('[data-toggle="tooltip"]').tooltip();
 });
 $(document).on('show.bs.modal', '.modal', function () {
 	var zIndex = 1040 + (10 * $('.modal:visible').length);

@@ -21,6 +21,7 @@ namespace Launchr.pages
 			}	
 			Creator creator = (Creator)this.Session["creator"];
 			if (Session["creator"] != null){
+				txtUserID.Value = creator.id.ToString();
 				backProject.Enabled = false;
 				backProject.Attributes["data-toggle"] = "tooltip";
 				backProject.Attributes["data-placement"] = "right";

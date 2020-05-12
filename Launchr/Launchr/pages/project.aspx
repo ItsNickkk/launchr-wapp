@@ -68,7 +68,7 @@
 				</div>
 				<div class="row mt-3">
 					<div class="col">
-						<h6>Creator Info</h6>
+						<h6 class="test">Creator Info</h6>
                         <asp:PlaceHolder ID="plcCreatorName" runat="server"></asp:PlaceHolder>
 					</div>
 				</div>
@@ -252,7 +252,7 @@
 					</div>
 				</div>
 
-				<div id="sign-in-info" class="modal fade" role="dialog">
+				<div id="sign-in-modal" class="modal fade" role="dialog">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
