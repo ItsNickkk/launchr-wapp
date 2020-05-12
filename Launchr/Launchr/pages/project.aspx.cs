@@ -264,9 +264,16 @@ namespace Launchr.pages
 			StringBuilder html = new StringBuilder();
 			foreach(Tier tier in tier_list)
 			{
-				int num = project.getTierNumber(tier);
-				int percentage = (int)Math.Ceiling((double)num / tier.max_amount * 100);
-				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card neumorph\"><h4 class=\"pledge-title\">" + tier.title + "</h4><h4 class=\"pledge-amount\">$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage + "%\"></div></div><p>" + num + " out of " + tier.max_amount + " slots left</p><button type=\"button\" runat=\"server\" Class=\"btn join-sign-up-btn mt-3 launchr-btn pledge-tier-btn\" data-toggle=\"modal\" data-target=\"#tier-pledge-modal\">Pledge</button><input type=\"text\" class=\"d-none tier-id\" readonly value=\"" + tier.id + "\"/></div></div>");
+				int num = tier.getTransactions().Count();
+				int percentage = tier.calcProgress();
+				html.Append("<div class=\"row pt-3\"><div class=\"p-4 tier-card neumorph\"><h4 class=\"pledge-title\">" + tier.title + "</h4><h4 class=\"pledge-amount\">$" + tier.value + "</h4><p class=\"text-muted\">Description</p><span><zero-md><template><xmp>" + tier.description + "</xmp></template></zero-md></span><div class=\"progress mt-4\"><div class=\"progress-bar progress-bar-striped bg-launchr progress-bar-animated\" role=\"progressbar\"aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + percentage + "%\"></div></div><p>" + num + " out of " + tier.max_amount + " pledges</p>");
+
+				
+				if (project.isAlive())
+				{
+					html.Append("<button type=\"button\" runat=\"server\" Class=\"btn join-sign-up-btn mt-3 launchr-btn pledge-tier-btn\" data-toggle=\"modal\" data-target=\"#tier-pledge-modal\">Pledge</button><input type=\"text\" class=\"d-none tier-id\" readonly value=\"" + tier.id + "\"/>");
+				}
+				html.Append("</div></div>");
 			}
 			this.plcTier.Controls.Add(new Literal
 			{
