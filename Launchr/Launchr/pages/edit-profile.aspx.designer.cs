@@ -33,15 +33,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtName;
 
 		/// <summary>
-		/// txtNameHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtNameHidden;
-
-		/// <summary>
 		/// UsernameReqValidator control.
 		/// </summary>
 		/// <remarks>
@@ -78,15 +69,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
 		/// <summary>
-		/// txtUsernameHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtUsernameHidden;
-
-		/// <summary>
 		/// EmailReqValidator control.
 		/// </summary>
 		/// <remarks>
@@ -114,15 +96,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
 		/// <summary>
-		/// txtEmailHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtEmailHidden;
-
-		/// <summary>
 		/// ReqPhoneValidator control.
 		/// </summary>
 		/// <remarks>
@@ -141,15 +114,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtPhone;
 
 		/// <summary>
-		/// txtPhoneHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtPhoneHidden;
-
-		/// <summary>
 		/// ReqAddValidator control.
 		/// </summary>
 		/// <remarks>
@@ -166,15 +130,6 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtAddress;
-
-		/// <summary>
-		/// txtAddressHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtAddressHidden;
 
 		/// <summary>
 		/// PassAddValidator control.
@@ -204,15 +159,6 @@ namespace Launchr.pages
 		protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
 		/// <summary>
-		/// txtPasswordHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtPasswordHidden;
-
-		/// <summary>
 		/// cobCountry control.
 		/// </summary>
 		/// <remarks>
@@ -229,15 +175,6 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.XmlDataSource countryXMLDS;
-
-		/// <summary>
-		/// txtCountryHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCountryHidden;
 
 		/// <summary>
 		/// CurrPassValidator control.
@@ -265,15 +202,6 @@ namespace Launchr.pages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtCurrPassword;
-
-		/// <summary>
-		/// txtCurrPasswordHidden control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCurrPasswordHidden;
 
 		/// <summary>
 		/// btnUpdate control.

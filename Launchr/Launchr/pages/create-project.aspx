@@ -81,31 +81,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	var easyMDE = new EasyMDE({ element: document.getElementById('content_txtContentFaux') });
-
-	function allowOnlyNumber(evt) {
-		var charCode = (evt.which) ? evt.which : event.keyCode
-		if (charCode > 31 && (charCode < 48 || charCode > 57))
-			return false;
-		return true;
-	}
-
-	function updatetxtContent() {
-		document.getElementById('content_txtContent').value = easyMDE.value();
-	}
-	
-	$(document).ready(function () {	
-		$('#content_filPhoto').change(function () {
-			var files = $(this)[0].files;
-			if (files.length > 6) {
-				alert("Only maximum of 6 photos are allowed.");
-				document.getElementById("content_filPhoto").value = '';
-				return false;
-			}
-		});
-		setInterval(updatetxtContent, 1000);
-	});	
-</script>
+<script src="../Scripts/pages/create-project.js"></script>
 </asp:Content>
