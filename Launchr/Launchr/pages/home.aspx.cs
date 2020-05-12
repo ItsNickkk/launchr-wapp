@@ -77,6 +77,7 @@ namespace Launchr.pages
 		private void makeNew(SiteDB siteDB)
 		{
 			List<Project> project_list = siteDB.getProjectAlive();
+			project_list.Reverse();
 			if(project_list.Count() > 6)
 			{
 				project_list.RemoveRange(6, project_list.Count() - 6);
