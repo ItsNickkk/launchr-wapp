@@ -54,7 +54,8 @@ footer {
 
 .projects-card {
 	transition: opacity .3s;
-	height: 100%;
+	height: 110%;
+	min-height: 260px;
 }
 
 .projects-card:hover {
@@ -62,8 +63,24 @@ footer {
 }
 
 .projects-card img{
-	max-width:100%;
-	max-height:100%;
+	position: absolute;
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.projects-card .img-col{
+	display: block;
+	width: 100%;
+	position: relative;
+	height: 0;
+	padding: 56.25% 0 0 0;
+	overflow: hidden;
 }
 
 .projects-card h4 {

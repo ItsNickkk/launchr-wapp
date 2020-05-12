@@ -62,7 +62,7 @@
 						<h3>
                             <asp:PlaceHolder ID="plcBackers" runat="server"></asp:PlaceHolder>
                         </h3>
-						<h4>
+						<h4 class="end-date">
                             <asp:PlaceHolder ID="plcRemaining" runat="server"></asp:PlaceHolder>
 						</h4>
 					</div>

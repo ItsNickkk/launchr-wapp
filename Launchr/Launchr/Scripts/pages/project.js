@@ -1,14 +1,14 @@
 ﻿$(document).ready(function () {
 	if ($("#content_txtUserID").val() == "") {
 		$(".pledge-tier-btn").attr("data-target", "#sign-in-modal");
-		$(".pledge-without-reward").attr("data-target", "#sign-in-modal");		
+		$(".pledge-without-reward").attr("data-target", "#sign-in-modal");
 	}
 	if ($("#content_txtUserID").val().slice(0, 1) == "2") {
 		$(".pledge-tier-btn").attr("data-toggle", "tooltip");
 		$(".pledge-tier-btn").attr("data-placement", "right");
 		$(".pledge-tier-btn").attr("title", "You can only pledge a tier as a normal member.");
 		$(".pledge-tier-btn").removeAttr("data-target");
-		$(".pledge-tier-btn").attr("disabled","disabled");
+		$(".pledge-tier-btn").attr("disabled", "disabled");
 
 		$(".pledge-without-reward").attr("data-toggle", "tooltip");
 		$(".pledge-without-reward").attr("data-placement", "right");
@@ -95,7 +95,7 @@
 		else {
 			generateInfoMsgBox(1, "Please correct all the error fields.")
 		}
-		
+
 	});
 
 	$(".tier-card").on('click', '.pledge-without-reward', function () {
@@ -103,15 +103,15 @@
 		var amount = $(this).siblings(".no-reward").val();
 		if (amount == "" || amount < 1) {
 			$(this).siblings(".no-reward").addClass("animate__animated");
-			$(this).siblings(".no-reward").addClass("animate__headShake");		
-			$(this).siblings(".no-reward").addClass("is-invalid");		
-			$(this).siblings(".invalid-feedback").removeClass("d-none");		
+			$(this).siblings(".no-reward").addClass("animate__headShake");
+			$(this).siblings(".no-reward").addClass("is-invalid");
+			$(this).siblings(".invalid-feedback").removeClass("d-none");
 		}
 		else {
 			$(this).siblings(".no-reward").removeClass("is-invalid");
 			$(this).siblings(".invalid-feedback").addClass("d-none");
 			$(this).siblings(".no-reward").removeClass("animate__animated");
-			$(this).siblings(".no-reward").removeClass("animate__headShake");	
+			$(this).siblings(".no-reward").removeClass("animate__headShake");
 			$("#txtTierIDModal").val(projID);
 			$("#txtTierNameModal").val("no rewards");
 			$("#txtTierPriceModal").val("$" + amount);
@@ -143,6 +143,16 @@
 	$("body").tooltip({
 		selector: '[data-toggle="tooltip"]'
 	});
+	console.log($(".end-date").html().slice(-1));
+
+	if ($(".end-date").html().length == 50) {
+		console.log($(".end-date").html());
+		$(".pledge-btn").attr("disabled", "disabled");
+		$(".pledge-btn").attr("data-toggle", "tooltip");
+		$(".pledge-btn").attr("data-placement", "bottom");
+		$(".pledge-btn").attr("title", "Campaign ended, you can't back this project anymore");
+
+	};
 });
 $(document).on('show.bs.modal', '.modal', function () {
 	var zIndex = 1040 + (10 * $('.modal:visible').length);

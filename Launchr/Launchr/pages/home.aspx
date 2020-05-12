@@ -213,7 +213,7 @@
 					<div class="col-xl-10">
 						<h2>Just in</h2><p>Discover projects that are just created</p>
 					</div>
-					<div class="col-xl">
+					<div class="col-xl text-right">
                         <asp:PlaceHolder ID="plcNewCarousel" runat="server"></asp:PlaceHolder>
 						<%--<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="0">1</button>
 						<button class="btn btn-secondary" data-target="#new-carousel" data-slide-to="1">2</button>
@@ -335,11 +335,11 @@
 			<div class="col-md-2 text-center"><a href="search-result?topic=game" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
 		</div>
 		<div class="row collapse" id="more-topic">
-			<div class="col offset-md-1 text-center"><a href="search-result?topic=music" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
-			<div class="col text-center"><a href="search-result?topic=publishing" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
-			<div class="col text-center"><a href="search-result?topic=design" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
-			<div class="col text-center"><a href="search-result?topic=others" class="topic-icon"><img src="../Content/Logo/topic/everythingelse.svg"/><h5>Everything Else</h5></a></div>
-			<div class="col-1"></div>
+			<div class="col-md-1 offset-md-1 text-center"><a href="search-result?topic=music" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
+			<div class="col-md-1 text-center"><a href="search-result?topic=publishing" class="topic-icon"><img src="../Content/Logo/topic/publishing.svg"/><h5>Publishing</h5></a></div>
+			<div class="col-md-1 text-center"><a href="search-result?topic=design" class="topic-icon"><img src="../Content/Logo/topic/design.svg"/><h5>Design</h5></a></div>
+			<div class="col-md-1 text-center"><a href="search-result?topic=others" class="topic-icon"><img src="../Content/Logo/topic/everythingelse.svg"/><h5>Everything Else</h5></a></div>
+			<div class="col-md-1"></div>
 		</div>
 		<div class="row">
 			<div class="text-center col m-3"><button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#more-topic">More Topics</button></div>
