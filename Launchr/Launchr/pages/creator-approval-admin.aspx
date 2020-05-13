@@ -6,9 +6,16 @@
 		<div class="row">
 			<div class="col-xl-10 offset-xl-1 pt-5 pb-5">
 				<div class="row">
-					<div class="col xl-12 neumorph p-3">
-						<h1>Approve New Creator Account</h1>
-						<p class="mb-0">Approve pending creator application</p>
+					<div class="col xl-12 neumorph p-3">	
+						<div class="row">
+							<div class="col">
+								<h1>Approve New Creator Account</h1>
+								<p class="mb-0">Approve pending creator application</p>
+							</div>
+							<div class="col text-right">
+								<a href="summary-admin" class="btn launchr-btn">Back to Admin panel</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="row mt-3">

@@ -9,8 +9,15 @@
 		<div class="col-xl-10 offset-xl-1 pt-5 pb-5">
 			<div class="row">
 				<div class="col xl-12 neumorph p-3">
-					<h1>Project Control Panel</h1>
-					<p class="mb-0">Your project at a glance</p>
+					<div class="row">
+						<div class="col">
+							<h1>Project Control Panel</h1>
+							<p class="mb-0">Your project at a glance</p>
+						</div>
+						<div class="col text-right">
+							<a class="btn launchr-btn back-to-project">Back to project</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row mt-3">
@@ -104,5 +111,6 @@
 		</div>
 	</div>
 </div>
+<script src="../Scripts/pages/script.js"></script>
 <script src="../Scripts/pages/project-control-panel.js"></script>
 </asp:Content>

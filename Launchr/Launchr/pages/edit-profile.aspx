@@ -6,9 +6,16 @@
 	<div class="row">
 		<div class="col-xl-10 offset-xl-1 pt-5 pb-5">
 			<div class="row">
-				<div class="col xl-12 neumorph p-3">
-					<h1>Edit profile</h1>
-					<p class="mb-0">Update your personal details</p>
+				<div class="col xl-12 neumorph p-3">	
+					<div class="row">
+						<div class="col">
+							<h1>Edit profile</h1>
+							<p class="mb-0">Update your personal details</p>
+						</div>
+						<div class="col text-right">
+							<a class="btn launchr-btn back-to-profile">Back to profile</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row mt-3">
@@ -71,4 +78,6 @@
 		</div>
 	</div>
 </div>
+	<script src="../Scripts/pages/script.js"></script>
+	<script src="../Scripts/pages/edit-profile.js"></script>
 </asp:Content>
