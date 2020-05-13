@@ -26,6 +26,7 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
 
 ## Tasks
 #### Admin Function
+~~strikethrough for completed tasks~~
   - Add Admin (Admin Function)
     - ~~Basic Interface~~
     - ~~Generate User List~~
@@ -114,8 +115,8 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
     - ~~Basic Interface~~
     - ~~dropdown if logged in, deny access if logged in user is not admin~~
   - Other stuffs
-    - About Page
-    - Contact Us Page
+    - ~~About Page~~
+    - ~~Contact Us Page~~
   
 ## Credits
 
