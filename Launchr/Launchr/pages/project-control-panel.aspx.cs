@@ -73,7 +73,24 @@ namespace Launchr.pages
 			this.txtContentFaux.Text = project.content;
 			this.cobTopic.SelectedValue = project.topic;
 		}
+		protected void displayErrorMessage(String alertmsg, int type)
+		{
+			StringBuilder html = new StringBuilder();
+			html.Append("<div class=\"mt-3\" runat=\"server\">");
+			if (type == 1)
+			{
+				html.Append("<div class=\"alert alert-success\">");
+			}
+			else
+			{
+				html.Append("<div class=\"alert alert-danger\">");
+			}
+			html.Append(alertmsg);
+			html.Append("</div></div>");
 
+			plcAlert.Controls.Add(new Literal { Text = html.ToString() });
+
+		}
 		protected void btnSaveProject_Click(object sender, EventArgs e)
 		{
 			string title = this.txtTitle.Text;
@@ -87,9 +104,11 @@ namespace Launchr.pages
 			if(project.update() == 1)
 			{
 				// success, do something here
+				displayErrorMessage("Project details successfully updated.",1 );
 			} else
 			{
 				// fail, do something here
+				displayErrorMessage("An error occured.", 2);
 			}
 		}
 	}

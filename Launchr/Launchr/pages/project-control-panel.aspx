@@ -32,6 +32,7 @@
 					</ul>
 					<div class="tab-content border">
 						<div class="tab-pane fade active show project-details neumorph p-3" id="edit-project">
+							<asp:PlaceHolder ID="plcAlert" runat="server"></asp:PlaceHolder>
 							<label for="txtTitle" class="mt-2" data-toggle="tooltip" title="Make an attractive title" data-placement="right">Title</label>
 							<asp:RequiredFieldValidator ID="createProjTitleReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="createProj"></asp:RequiredFieldValidator>
 							<asp:TextBox ID="txtTitle" runat="server" Cssclass="form-control" MaxLength="55"></asp:TextBox>
