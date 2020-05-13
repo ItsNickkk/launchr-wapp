@@ -123,3 +123,4 @@ Launch:r is a website that allows users to create or fund projects, kinda like K
 - Bootstrap Theme: [Lux](https://bootswatch.com/lux/) (Modified)
 - [zero-md](https://github.com/zerodevx/zero-md/) by zerodevx 
 - [EasyMDE](https://github.com/Ionaru/easy-markdown-editor) by lonaru
+- [Canva.com](https://www.canva.com/) for stock photos
