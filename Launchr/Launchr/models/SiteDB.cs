@@ -496,7 +496,7 @@ namespace Launchr.models
 
         public List<Project> getTransactionProjectOrderByLatest()
         {
-            launchr_DataSet.transaction1DataTable table = new transaction1TableAdapter().GetDistinctProjectIdFromTransaction();
+            launchr_DataSet.transaction1DataTable table = new transactionOutTableAdapter().GetDistinctProjectIdFromTransaction();
             List<Project> project_list = new List<Project>();
             foreach (launchr_DataSet.transaction1Row row in table)
             {
