@@ -17,6 +17,7 @@ namespace Launchr.models
         public bool is_admin { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+
         public User(int id, string name, string address, string phone_number, string email, string country, int status, bool is_admin, string username, string password)
         {
             this.id = id;
@@ -33,7 +34,7 @@ namespace Launchr.models
         public User(int id, string name, string address, string phone_number, string email, string country, int status, int is_admin_int, string username, string password, int mode):
             this(id, name, address, phone_number, email, country, status, User.is_admin_bool(is_admin_int), username, password)
         {
-            
+            // constructor overloading
         }
 
         public int is_admin_int()

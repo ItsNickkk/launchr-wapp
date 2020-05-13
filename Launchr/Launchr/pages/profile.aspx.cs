@@ -37,7 +37,7 @@ namespace Launchr.pages
 					else if (user != null)
 					{
 						this.makePage(user);
-						Page.Title = user.name+" | Launch:r";
+						Page.Title = user.name +" | Launch:r";
 					} else
 					{
 						this.makePage(creator);
