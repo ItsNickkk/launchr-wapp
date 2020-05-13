@@ -9,6 +9,7 @@ trsm.slice(0, 10).show();
 trsc.hide();
 trsc.slice(0, 10).show();
 checkButton();
+checkButtonCreator()
 
 $("#see-more-btn-member").click(function (e) {
 	e.preventDefault();
@@ -21,7 +22,7 @@ $("#see-more-btn-creator").click(function (e) {
 	e.preventDefault();
 	$("#creatorTable tr").slice(currentIndex, currentIndex + 10).show();
 	currentIndex += 10;
-	checkButton();
+	checkButtonCreator();
 });
 
 function checkButton() {
@@ -31,6 +32,16 @@ function checkButton() {
 		$("#see-more-btn-member").hide();
 	} else {
 		$("#see-more-btn-member").show();
+	}
+}
+
+function checkButtonCreator() {
+	var currentLength = $("creatorTable tr:visible").length;
+
+	if (currentLength >= trscLength) {
+		$("#see-more-btn-creator").hide();
+	} else {
+		$("#see-more-btn-creator").show();
 	}
 }
 $(document).ready(function () {

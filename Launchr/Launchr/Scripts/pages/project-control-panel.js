@@ -32,8 +32,8 @@ function checkButton() {
 }
 
 $(document).ready(function () {
-
 	if (trsLength < 10) {
 		$("#see-more-btn").hide();
 	}
+	$(".back-to-project").attr("href", "project.aspx?id=" + GetURLParameter('id'));
 });

@@ -7,8 +7,15 @@
 			<div class="col-xl-10 offset-xl-1 pt-5 pb-5">
 				<div class="row">
 					<div class="col xl-12 neumorph p-3">
-						<h1>Ban Member</h1>
-						<p class="mb-0">Stop accounts from logging in to this website</p>
+						<div class="row">
+							<div class="col">
+								<h1>Ban Member</h1>
+								<p class="mb-0">Stop accounts from logging in to this website</p>
+							</div>
+							<div class="col text-right">
+								<a href="summary-admin" class="btn launchr-btn">Back to Admin panel</a>
+							</div>
+						</div>				
 					</div>
 				</div>
 				<div class="row mt-3">
