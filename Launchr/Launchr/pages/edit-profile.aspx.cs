@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -109,22 +110,27 @@ namespace Launchr.pages
 					if (user_update_status == 1)
 					{
 						// update successful
+						displayErrorMessage("Details successfully updated!", 1);
 					}
 					else if (user_update_status == 2)
 					{
 						// same email
+						displayErrorMessage("Duplicated Email! Please try another one", 2);
 					}
 					else if (user_update_status == 3)
 					{
 						// same username
+						displayErrorMessage("This username had been taken! Please try another one", 2);
 					}
 					else
 					{
 						// critical error
+						displayErrorMessage("Critical Error!", 2);
 					}
 				} else
 				{
 					// wrong password
+					displayErrorMessage("Wrong current password! Please try again.", 2);
 				}
 				
 			} else if (this.Session["creator"] != null)
@@ -145,25 +151,47 @@ namespace Launchr.pages
 					int creator_update_status = creator.update();
 					if (creator_update_status == 1)
 					{
-						// update successful
+						displayErrorMessage("Details successfully updated!", 1);
 					}
 					else if (creator_update_status == 2)
 					{
-						// same email
+						displayErrorMessage("Duplicated Email! Please try another one", 2);
 					}
 					else if (creator_update_status == 3)
 					{
+						displayErrorMessage("This username had been taken! Please try another one", 2);
 						// same username
 					}
 					else
 					{
 						// critical error
+						displayErrorMessage("Critical Error!", 2);
 					}
 				} else
 				{
 					// wrong password
+					displayErrorMessage("Wrong current password! Please try again.", 2);
 				}
 			}
 		}
+		protected void displayErrorMessage(String alertmsg, int type)
+		{
+			StringBuilder html = new StringBuilder();
+			html.Append("<div class=\"mt-3\" runat=\"server\">");
+			if (type == 1)
+			{
+				html.Append("<div class=\"alert alert-success\">");
+			}
+			else
+			{
+				html.Append("<div class=\"alert alert-danger\">");
+			}
+			html.Append(alertmsg);
+			html.Append("</div></div>");
+
+			plcAlert.Controls.Add(new Literal { Text = html.ToString() });
+
+		}
 	}
+	
 }

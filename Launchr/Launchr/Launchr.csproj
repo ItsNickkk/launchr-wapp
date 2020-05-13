@@ -151,8 +151,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="pages\about-us.aspx" />
     <Content Include="pages\add-admin.aspx" />
     <Content Include="pages\ban-user-admin.aspx" />
+    <Content Include="pages\contact-us.aspx" />
     <Content Include="pages\create-project.aspx" />
     <Content Include="pages\creator-approval-admin.aspx" />
     <Content Include="pages\edit-profile.aspx" />
@@ -190,6 +192,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\pages\about-us.js" />
     <Content Include="Scripts\pages\add-admin.js" />
     <Content Include="Scripts\pages\ban-user-admin.js" />
     <Content Include="Scripts\pages\create-project.js" />
@@ -246,6 +249,13 @@
     <Compile Include="models\Tier.cs" />
     <Compile Include="models\Transaction.cs" />
     <Compile Include="models\User.cs" />
+    <Compile Include="pages\about-us.aspx.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\about-us.aspx.designer.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\add-admin.aspx.cs">
       <DependentUpon>add-admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,6 +269,13 @@
     </Compile>
     <Compile Include="pages\ban-user-admin.aspx.designer.cs">
       <DependentUpon>ban-user-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\contact-us.aspx.cs">
+      <DependentUpon>contact-us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\contact-us.aspx.designer.cs">
+      <DependentUpon>contact-us.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\create-project.aspx.cs">
       <DependentUpon>create-project.aspx</DependentUpon>

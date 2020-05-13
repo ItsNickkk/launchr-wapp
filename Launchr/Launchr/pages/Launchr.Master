@@ -97,22 +97,9 @@
 				<div class="col-xl offset-md-1">
 					<h4>About</h4>
 					<ul>
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Contact us</a></li>
-					</ul>
-				</div>
-				<div class="col-xl offset-md-1">
-					<h4>About</h4>
-					<ul>
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Contact us</a></li>
-					</ul>
-				</div>
-				<div class="col-xl offset-md-1">
-					<h4>About</h4>
-					<ul>
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Contact us</a></li>
+						<li><a href="about-us">About us</a></li>
+						<li><a href="contact-us">Contact us</a></li>
+						<li><a href="https://github.com/ItsNickkk/launchr-wapp" target="_blank">GitHub Link to this project</a></li>
 					</ul>
 				</div>
 			</div>

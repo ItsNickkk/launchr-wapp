@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="edit-profile.aspx.cs" Inherits="Launchr.pages.edit_profile" %>
+﻿<%@ Page Title="Edit Profile | Launch:r" Language="C#" MasterPageFile="~/pages/Launchr.Master" AutoEventWireup="true" CodeBehind="edit-profile.aspx.cs" Inherits="Launchr.pages.edit_profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -20,6 +20,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col xl-12 neumorph p-3">
+					<asp:PlaceHolder ID="plcAlert" runat="server"></asp:PlaceHolder>
 					<label for="txtName" class="mt-2">Full Name</label>
 					<asp:RequiredFieldValidator ID="NameReqValidator" runat="server" ErrorMessage="*"  CssClass="text-danger" ControlToValidate="txtName" Display="Dynamic" ValidationGroup="updateprof"></asp:RequiredFieldValidator>
 					<asp:TextBox ID="txtName" runat="server" Cssclass="form-control entry-field" ValidationGroup="updateprof entry-field"></asp:TextBox>
