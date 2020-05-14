@@ -111,7 +111,7 @@ namespace Launchr.models
             {
                 List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(user.email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(user.email));
-                if (creator_list_same_email.Count() > 0 | user_list_same_email.Count() > 1)
+                if (!isAvailable(user, creator_list_same_email, user_list_same_email))
                 {
                     return 2; // 2 is returned if same email
                 }
@@ -119,7 +119,7 @@ namespace Launchr.models
                 {
                     List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(user.username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(user.username));
-                    if (creator_list_same_username.Count() > 0 | user_list_same_username.Count() > 1)
+                    if (!isAvailable(user, creator_list_same_username, user_list_same_username))
                     {
                         return 3; // 3 is returned if same username
                     }
@@ -134,6 +134,33 @@ namespace Launchr.models
             {
                 return 0;
             }
+        }
+
+        private bool isAvailable(User user, List<Creator> creator_list_result, List<User> user_list_result)
+        {
+            if (user_list_result.Count() >= 1)
+            {
+                if (user_list_result[0].id == user.id)
+                {
+                    return true; // username or email not taken
+                }
+                else
+                {
+                    return false; // same username or email
+                }
+            }
+            else
+            {
+                if (creator_list_result.Count() > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
         }
 
         public List<User> getUserByUsernameAndPassword(string username, string password)
@@ -265,7 +292,7 @@ namespace Launchr.models
             {
                 List<Creator> creator_list_same_email = this.translateCreatorTableToList(creatorAdapter.GetCreatorByEmail(creator.email));
                 List<User> user_list_same_email = this.translateUserTableToList(userAdapter.GetUserByEmail(creator.email));
-                if (creator_list_same_email.Count() > 1 | user_list_same_email.Count() > 0)
+                if (!isAvailable(creator, creator_list_same_email, user_list_same_email))
                 {
                     return 2; // 2 is returned if same email
                 }
@@ -273,7 +300,7 @@ namespace Launchr.models
                 {
                     List<Creator> creator_list_same_username = this.translateCreatorTableToList(creatorAdapter.GetCreatorByUsername(creator.username));
                     List<User> user_list_same_username = this.translateUserTableToList(userAdapter.GetUserByUsername(creator.username));
-                    if (creator_list_same_username.Count() > 1 | user_list_same_username.Count() > 0)
+                    if (!isAvailable(creator, creator_list_same_username, user_list_same_username))
                     {
                         return 3; // 3 is returned if same username
                     }
@@ -293,6 +320,32 @@ namespace Launchr.models
             
             
         }
+
+        private bool isAvailable(Creator creator, List<Creator> creator_list_result, List<User> user_list_result)
+        {
+            if(creator_list_result.Count() >= 1)
+            {
+                if(creator_list_result[0].id == creator.id)
+                {
+                    return true; // username or email not taken
+                } else
+                {
+                    return false; // same username or email
+                }
+            } else
+            {
+                if(user_list_result.Count() > 0)
+                {
+                    return false;
+                } else
+                {
+                    return true;
+                }
+            }
+
+        }
+
+        
 
         public List<Creator> getWaitingCreator()
         {
