@@ -332,7 +332,7 @@
 			<div class="col-md-2 text-center"><a href="search-result?topic=film" class="topic-icon"><img src="../Content/Logo/topic/film.svg"/><h5>Film</h5></a></div>
 			<div class="col-md-2 text-center"><a href="search-result?topic=art" class="topic-icon"><img src="../Content/Logo/topic/art.svg"/><h5>Art</h5></a></div>
 			<div class="col-md-2 text-center"><a href="search-result?topic=foodcraft" class="topic-icon"><img src="../Content/Logo/topic/foodcraft.svg"/><h5>Food & Craft</h5></a></div>
-			<div class="col-md-2 text-center"><a href="search-result?topic=game" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
+			<div class="col-md-2 text-center"><a href="search-result?topic=games" class="topic-icon"><img src="../Content/Logo/topic/game.svg"/><h5>Game</h5></a></div>
 		</div>
 		<div class="row collapse" id="more-topic">
 			<div class="col-md-2 offset-md-1 text-center"><a href="search-result?topic=music" class="topic-icon"><img src="../Content/Logo/topic/music.svg"/><h5>Music</h5></a></div>
