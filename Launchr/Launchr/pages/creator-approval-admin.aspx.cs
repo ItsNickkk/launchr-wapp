@@ -25,7 +25,7 @@ namespace Launchr.pages
 			StringBuilder html = new StringBuilder();
 			foreach(Creator creator in creator_list)
 			{
-				html.Append("<th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnViewDoc launchr-btn btn p-2\"onclick=\"window.open('" + creator.document + "')\">View Document</button></td><td class=\"text-center\"><button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Approve\"class=\"btnApprove btn-success btn p-2 creator-approval-btn\">&#10003;</button><button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Reject\"class=\"btnReject btn-danger btn p-2 creator-approval-btn\">&#10005;</button></td>");
+				html.Append("<tr><th scope=\"row\" class=\"text-right\">" + creator.id + "</th><td>" + creator.name + "</td><td>" + creator.email + "</td><td>" + creator.username + "</td><td class=\"text-center\"><button type=\"button\" class=\"btnViewDoc launchr-btn btn p-2\"onclick=\"window.open('" + creator.document + "')\">View Document</button></td><td class=\"text-center\"><button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Approve\"class=\"btnApprove btn-success btn p-2 creator-approval-btn\">&#10003;</button><button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Reject\"class=\"btnReject btn-danger btn p-2 creator-approval-btn\">&#10005;</button></td></tr>");
 			}
 			this.plcPendingCreator.Controls.Add(new Literal
 			{
